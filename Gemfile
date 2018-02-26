@@ -19,6 +19,7 @@ gem 'webpacker'
 
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'faker'
 
 gem "pundit"
 
