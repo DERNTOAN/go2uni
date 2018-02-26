@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  seats: 1
+  departure_time: 2018-02-26 15:33:26
+  from_lng: 1.5
+  from_lat: 1.5
+  to_lng: 1.5
+  to_lat: 1.5
+
+two:
+  user: two
+  seats: 1
+  departure_time: 2018-02-26 15:33:26
+  from_lng: 1.5
+  from_lat: 1.5
+  to_lng: 1.5
+  to_lat: 1.5

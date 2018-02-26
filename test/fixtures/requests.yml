@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  start_time: 2018-02-26 15:32:14
+  stop_time: 2018-02-26 15:32:14
+  from_lng: 1.5
+  from_lat: 1.5
+  to_lng: 1.5
+  to_lat: 1.5
+
+two:
+  user: two
+  start_time: 2018-02-26 15:32:14
+  stop_time: 2018-02-26 15:32:14
+  from_lng: 1.5
+  from_lat: 1.5
+  to_lng: 1.5
+  to_lat: 1.5
