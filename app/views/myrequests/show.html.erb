@@ -1,14 +1,20 @@
 <h1>Myrequests#show</h1>
 <p>Find me in app/views/myrequests/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
 
-<ul>
+      <ul class="list-group">
+        <li class="list-group-item active"> Request id: <%=  @myrequest.id %></li>
+        <li class="list-group-item"> start time: <%=  @myrequest.start_time %></li>
+        <li class="list-group-item"> stop time: <%= @myrequest.stop_time %> </li>
+        <li class="list-group-item"> from lng: <%= @myrequest.from_lng %> </li>
+        <li class="list-group-item"> fom lat: <%= @myrequest.from_lat %> </li>
+        <li class="list-group-item"> to lng: <%= @myrequest.to_lng %> </li>
+        <li class="list-group-item"> to lat: <%= @myrequest.to_lat %> </li>
+      </ul>
 
-<li> start time: <%=  @myrequest.start_time %></li>
-<li> stop time: <%= @myrequest.stop_time %> </li>
-<li> from lng: <%= @myrequest.from_lng %> </li>
-<li> fom lat: <%= @myrequest.from_lat %> </li>
-<li> to lng: <%= @myrequest.to_lng %> </li>
-<li> to lat: <%= @myrequest.to_lat %> </li>
-</ul>
 
-
+    </div>
+  </div>
+</div>

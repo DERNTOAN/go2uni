@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'suggestions/index', to: "suggestions#index", as: "suggestions"
+  get 'rides/:id/suggestions', to: "suggestions#index", as: "suggestions"
 
   get 'users/:id/myrequests', to: "myrequests#index", as: "myrequests"
 

@@ -1,2 +1,27 @@
 <h1>Suggestions#index</h1>
 <p>Find me in app/views/suggestions/index.html.erb</p>
+
+
+# DISTANCE STILL TO BE COMPUTED
+
+
+<div class="container">
+  <div class="row">
+
+    <% @suggestions.each do |request| %>
+    <div class="col-xs-4">
+
+      <ul class="list-group">
+
+        <li class="list-group-item active"> Request id: <%=  request.id %></li>
+        <li class="list-group-item"> start time: <%=  request.start_time %></li>
+        <li class="list-group-item"> stop time: <%= request.stop_time %> </li>
+        <li class="list-group-item"> from lng: <%= request.from_lng %> </li>
+        <li class="list-group-item"> fom lat: <%= request.from_lat %> </li>
+        <li class="list-group-item"> to lng: <%= request.to_lng %> </li>
+        <li class="list-group-item"> to lat: <%= request.to_lat %> </li>
+      </ul>
+    </div>
+      <% end %>
+  </div>
+</div>
