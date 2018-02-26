@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="text-center">
+  <h1>Go2Uni</h1>
+  <h2>Meet new friends on your way to university</h2>
+
+  <div>
+      <%= link_to "Share my ride", requests_path, class: "btn btn-danger" %>
+      <%= link_to "Take me to Uni", rides_path, class: "btn btn-danger" %>
+  </div>
+</div>
