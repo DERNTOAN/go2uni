@@ -1,4 +1,6 @@
 class RequestsController < ApplicationController
+    skip_before_action :authenticate_user!, only: :index
+
   def index
     @request = policy_scope(Request)
   end
@@ -10,7 +12,7 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
-        authorize @request
+    authorize @request
 
   end
 
@@ -33,7 +35,5 @@ class RequestsController < ApplicationController
 
   def request_params
     params.require(:request).permit(:user_id, :start_time, :stop_time, :from_lng, :from_lat, :to_lng, :to_lat)
-
-
   end
 end

@@ -1,4 +1,6 @@
 class RidesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
     @rides = policy_scope(Ride)
   end
@@ -36,3 +38,4 @@ class RidesController < ApplicationController
 
 
   end
+end
