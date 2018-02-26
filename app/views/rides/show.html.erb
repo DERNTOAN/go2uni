@@ -1,2 +1,9 @@
-<h1>Rides#show</h1>
-<p>Find me in app/views/rides/show.html.erb</p>
+<div>
+  <h1>This is your ride</h1>
+  <div>
+    <p>Driver: <%= @ride.user.email %></p>
+    <p>Departure: <%= @ride.departure_time %></p>
+    <p>From: <%= @ride.from_lat %> <%= @ride.from_lng %></p>
+    <p>To: <%= @ride.to_lat %> <%= @ride.to_lng %></p>
+  </div>
+</div>
