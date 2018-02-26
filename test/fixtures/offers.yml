@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ride: one
+  user: one
+  confirmed: false
+
+two:
+  ride: two
+  user: two
+  confirmed: false
