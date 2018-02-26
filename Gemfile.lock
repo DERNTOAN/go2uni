@@ -103,7 +103,6 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
-    nci_location_calc (0.0.1)
     netrc (0.11.0)
     nio4r (2.2.0)
     nokogiri (1.8.2)
@@ -225,7 +224,6 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
-  nci_location_calc (~> 0.0.1)
   pg (~> 0.21)
   pry-byebug
   pry-rails
