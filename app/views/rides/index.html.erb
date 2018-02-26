@@ -5,8 +5,8 @@
   </div>
   <div>
     <ul><% @rides.each do |ride| %>
-      <li>@ride.user.email</li>
-      <li>@ride.user.age</li>
+      <li><%= ride.user.email %></li>
+      <li><%= ride.user.age %></li>
     <% end %>
     </ul>
   </div>
