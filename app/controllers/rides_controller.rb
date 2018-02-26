@@ -34,7 +34,5 @@ class RidesController < ApplicationController
 
   def request_params
     params.require(:ride).permit(:user_id, :seats, :departure_time, :from_lng, :from_lat, :to_lng, :to_lat)
-
-
   end
 end

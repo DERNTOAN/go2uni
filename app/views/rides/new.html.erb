@@ -1,2 +1,10 @@
-<h1>Rides#new</h1>
-<p>Find me in app/views/rides/new.html.erb</p>
+<div>
+  <h1>Share your ride!</h1>
+  <div>
+    <%= simple_form_for @ride do |f| %>
+      <%= f.input :departure_time, as: :datetime %>
+      <%= f.input :seats, as: :integer %>
+      <%= f.button :submit, "share your ride" %>
+    <% end %>
+  </div>
+</div>
