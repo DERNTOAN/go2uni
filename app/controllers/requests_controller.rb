@@ -2,8 +2,8 @@ class RequestsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @request = policy_scope(Request)
-    @request = @request.where.not(from_lng: nil, from_lat: nil, to_lng: nil, to_lat: nil)
+    @requests = policy_scope(Request)
+    @requests = @requests.where.not(from_lng: nil, from_lat: nil, to_lng: nil, to_lat: nil)
 
   end
 
