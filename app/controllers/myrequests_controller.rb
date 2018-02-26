@@ -4,7 +4,7 @@ class MyrequestsController < ApplicationController
   end
 
   def show
-    @myrequest = request.find(params[:id])
-    authorize @request
+    @myrequest = Request.find(params[:id])
+    authorize @myrequest
   end
 end

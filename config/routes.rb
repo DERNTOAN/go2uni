@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'users/:id/myrequests', to: "myrequests#index", as: "myrequests"
 
-  get 'myrequests/show/:id', to: "myrequests#show", as: "myrequest"
+  get 'users/:user_id/myrequests/:id', to: "myrequests#show", as: "myrequest"
 
   devise_for :users
   root to: 'pages#home'
