@@ -10,10 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226125845) do
+ActiveRecord::Schema.define(version: 20180226143402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "offers", force: :cascade do |t|
+    t.bigint "ride_id"
+    t.bigint "user_id"
+    t.boolean "confirmed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ride_id"], name: "index_offers_on_ride_id"
+    t.index ["user_id"], name: "index_offers_on_user_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "start_time"
+    t.datetime "stop_time"
+    t.float "from_lng"
+    t.float "from_lat"
+    t.float "to_lng"
+    t.float "to_lat"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
+  create_table "rides", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "seats"
+    t.datetime "departure_time"
+    t.float "from_lng"
+    t.float "from_lat"
+    t.float "to_lng"
+    t.float "to_lat"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rides_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +68,8 @@ ActiveRecord::Schema.define(version: 20180226125845) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "offers", "rides"
+  add_foreign_key "offers", "users"
+  add_foreign_key "requests", "users"
+  add_foreign_key "rides", "users"
 end
