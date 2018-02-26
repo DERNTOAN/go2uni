@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'suggestions/index', to: "suggestions#index", as: "suggestions"
 
-  get 'myrequests/index', to: "myrequests#index", as: "myrequests"
+  get 'users/:id/myrequests', to: "myrequests#index", as: "myrequests"
 
   get 'myrequests/show/:id', to: "myrequests#show", as: "myrequest"
 

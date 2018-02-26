@@ -1,10 +1,10 @@
 class MyrequestsController < ApplicationController
   def index
-    @requests = policy_scope(Request)
+    @myrequests = policy_scope(Request).where("user_id = #{params[:id]}")
   end
 
   def show
-    @request = request.find(params[:id])
+    @myrequest = request.find(params[:id])
     authorize @request
   end
 end
