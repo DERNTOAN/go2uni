@@ -17,6 +17,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
+
 gem "pundit"
 gem "faker"
 
