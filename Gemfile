@@ -23,9 +23,6 @@ gem 'carrierwave', '~> 0.11.2'
 gem "pundit"
 
 
-gem 'nci_location_calc', '~> 0.0.1'
-
-
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
