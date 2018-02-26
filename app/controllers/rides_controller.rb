@@ -8,7 +8,6 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     authorize @ride
-
   end
 
   def new
