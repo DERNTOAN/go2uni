@@ -1,22 +1,22 @@
 import GMaps from 'gmaps/gmaps.js';
 
-var directionsDisplay = new google.maps.DirectionsRenderer();
-var directionsService = new google.maps.DirectionsService();
+// var directionsDisplay = new google.maps.DirectionsRenderer();
+// var directionsService = new google.maps.DirectionsService();
 
-function calcRoute(from_lat, from_lng, to_lat, to_lng) {
-  var origin      = new google.maps.LatLng(from_lat, from_lng);
-  var destination = new google.maps.LatLng(to_lat, to_lng);
-  var request = {
-      origin:      origin,
-      destination: destination,
-      travelMode:  google.maps.TravelMode.DRIVING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    }
-  });
-};
+// function calcRoute(from_lat, from_lng, to_lat, to_lng) {
+//   var origin      = new google.maps.LatLng(from_lat, from_lng);
+//   var destination = new google.maps.LatLng(to_lat, to_lng);
+//   var request = {
+//       origin:      origin,
+//       destination: destination,
+//       travelMode:  google.maps.TravelMode.DRIVING
+//   };
+//   directionsService.route(request, function(response, status) {
+//     if (status == google.maps.DirectionsStatus.OK) {
+//       directionsDisplay.setDirections(response);
+//     }
+//   });
+// };
 
 const mapElement = document.getElementById('map');
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
@@ -31,7 +31,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
 
 
 
-calcRoute(markers_from[0].lat, markers_from[0].lng, markers_to[0].lat, markers_to[0].lng);
+// calcRoute(markers_from[0].lat, markers_from[0].lng, markers_to[0].lat, markers_to[0].lng);
 
 // var handler = Gmaps.build('Google');
 // handler.buildMap({ internal: {id: 'directions'}}, function(){
@@ -41,7 +41,6 @@ calcRoute(markers_from[0].lat, markers_from[0].lng, markers_to[0].lat, markers_t
   // map.addPolylines([{ markers_from[0].lat, markers_from[0].lng }, { markers_to[0].lat, markers_to[0].lng } ]);
 
   if (markers_from.length === 0) {
-    console.log("TEST2")
     map.setZoom(2);
   } else if (markers_from.length === 1) {
     map.setCenter(markers_from[0].lat, markers_from[0].lng);

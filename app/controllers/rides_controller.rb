@@ -9,6 +9,18 @@ class RidesController < ApplicationController
     @ride = Ride.find(params[:id])
     authorize @ride
     @requests = Offer.where(ride_id: @ride.id).where(confirmed: true).map(&:request)
+
+    @markers_from = [{
+        lng: @ride.from_lng,
+        lat: @ride.from_lat,
+      }]
+
+
+    @markers_to = [{
+        lng: @ride.to_lng,
+        lat: @ride.to_lat
+      }]
+
   end
 
   def new
