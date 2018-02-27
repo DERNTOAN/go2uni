@@ -43,10 +43,9 @@ calcRoute(markers_from[0].lat, markers_from[0].lng, markers_to[0].lat, markers_t
   if (markers_from.length === 0) {
     console.log("TEST2")
     map.setZoom(2);
-  } else if (markers_from.length === 1) {
+  } else {
     map.setCenter(markers_from[0].lat, markers_from[0].lng);
     map.setZoom(5);
-  } else {
     map.fitLatLngBounds(markers_from);
   }
 }

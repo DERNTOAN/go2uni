@@ -1,0 +1,20 @@
+.time-group{
+  display:flex;
+  align-items:center;
+
+  .date_field{
+    flex:1 1 auto;
+  }
+
+  .time_field{
+    flex: 0 0 auto;
+    padding: 0px 5px;
+    display:flex;
+    vertical-align: center;
+  }
+
+  span{
+    margin-right: 8px
+  }
+
+}
