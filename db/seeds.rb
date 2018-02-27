@@ -1,3 +1,18 @@
+def geocode_address(thing)
+  if thing.from_lng && thing.from_lat
+    geocoded = Geocoder.search([thing.from_lat, thing.from_lng]).first
+    if geocoded
+      thing.from_address = geocoded.address
+    end
+  end
+
+  if thing.to_lat && thing.to_lng
+    geocoded = Geocoder.search([thing.to_lat, thing.to_lng]).first
+    if geocoded
+      thing.to_address = geocoded.address
+    end
+  end
+end
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -11,7 +26,7 @@ end
 
 number_of_users = 30
 number_of_requests = 50
-number_of_rides = 30
+number_of_rides = 20
 
 
 #from and to min and max numbers for the map coordinates
@@ -61,6 +76,7 @@ puts "creating #{number_of_requests} requests"
   request.from_lng = rand_in_range(from_min_lng, from_max_lng)
   request.to_lng = rand_in_range(to_min_lng, to_max_lng)
   request.to_lat = rand_in_range(to_min_lat, to_max_lat)
+  geocode_address(request)
   binding.pry unless request.save
 end
 
@@ -75,6 +91,7 @@ puts "creating #{number_of_rides} rides with offers equal to number of seats"
   ride.from_lng = rand_in_range(from_min_lng, from_max_lng)
   ride.to_lng = rand_in_range(to_min_lng, to_max_lng)
   ride.to_lat = rand_in_range(to_min_lat, to_max_lat)
+  geocode_address(ride)
   binding.pry unless ride.save
 
   ride.seats.times do
@@ -99,3 +116,6 @@ user.age = 99
 user.photo = Faker::Avatar.image
 user.password = "123456"
 binding.pry unless user.save
+
+
+
