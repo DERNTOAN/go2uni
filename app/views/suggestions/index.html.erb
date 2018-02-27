@@ -13,7 +13,7 @@
 
       <ul class="list-group">
 
-        <li class="list-group-item active">Request id: request.id</li>
+        <li class="list-group-item active">Request id: <%= link_to request.id, ride_path(request) %></li>
         <li class="list-group-item"> start time: <%=  request.start_time %></li>
         <li class="list-group-item"> stop time: <%= request.stop_time %> </li>
         <li class="list-group-item"> from lng: <%= request.from_lng %> </li>
