@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # get 'rides/:id/suggestions', to: "suggestions#index", as: "suggestions"
 
   get 'users/:id/myrequests', to: "myrequests#index", as: "myrequests"
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   resources :requests, only: [:index, :new, :create]
   resources :rides, only: [:index, :show, :new, :create ] do
     resources :suggestions, only: :index
+    resources :offers, only: :create
   end
   resources :user, only: [:show ]
 
