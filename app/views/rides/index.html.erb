@@ -4,11 +4,17 @@
     <p>Here comes a map</p>
   </div>
   <div>
+    <%= link_to "Take me with you!", new_request_path, class: "btn btn-primary" %>
+  </div>
+  <div>
     <ul><% @rides.each do |ride| %>
       <li><%= ride.user.email %></li>
       <li><%= ride.user.age %></li>
       <li><%= cl_image_tag ride.user.photo %></li>
     <% end %>
     </ul>
+  </div>
+  <div>
+    <%= link_to "Take me with you", new_request_path, class: "btn btn-primary" %>
   </div>
 </div>
