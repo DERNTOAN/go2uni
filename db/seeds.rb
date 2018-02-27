@@ -116,5 +116,4 @@ user.photo = avatars.sample
 user.password = "123456"
 binding.pry unless user.save
 
-
-
+p Request.create!(start_time: Time.now, stop_time: Time.now, from_address:"Rudi-dutschke-strasse 26, 10969 Berlin", to_address:"Rudi-dutschke-strasse 26, 10969 Berlin", user: User.last)
