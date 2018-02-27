@@ -19,6 +19,7 @@ class RequestsController < ApplicationController
       }
     end
 
+    @ride = Ride.new
   end
 
   def show
@@ -52,6 +53,9 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:user_id, :start_time, :stop_time, :from_lng, :from_lat, :to_lng, :to_lat)
+    stop = params.require(:request)[:stop_time]
+    start = params.require(:request)[:start_time]
+    raise
+    params.require(:request).permit(:user_id, :start_time, :stop_time,:from_address, :to_address)
   end
 end
