@@ -8,4 +8,7 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import "bootstrap";
+import { inputShowRides } from "../rides/index";
+
+inputShowRides();
 

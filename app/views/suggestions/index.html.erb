@@ -20,8 +20,8 @@
         <li class="list-group-item"> fom lat: <%= request.from_lat %> </li>
         <li class="list-group-item"> to lng: <%= request.to_lng %> </li>
         <li class="list-group-item"> to lat: <%= request.to_lat %> </li>
+        <li class="list-group-item"> <%= link_to "take this person", ride_offers_path, class: "btn btn-primary", method: :post %></li>
       </ul>
-
     </div>
       <% end %>
 
