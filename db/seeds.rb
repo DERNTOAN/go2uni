@@ -36,22 +36,37 @@ User.destroy_all
 
 puts "cleared"
 
-avatars = [
-"http://res.cloudinary.com/dlv6654pn/image/upload/v1519397727/xykhm11z9u20ayxjfipf.png",
-"http://res.cloudinary.com/dlv6654pn/image/upload/v1519397711/ipdiocbobzjf2ggkcqsd.png",
-"http://res.cloudinary.com/dlv6654pn/image/upload/v1519397707/qlo2tz4abdvpf8paasgz.png",
-"http://res.cloudinary.com/dlv6654pn/image/upload/v1519397685/vs2upa77lyesj21andnc.png",
-"http://res.cloudinary.com/dlv6654pn/image/upload/v1519397190/kqe4mjz4zw97qlvpi3bo.png",
-"http://res.cloudinary.com/dlv6654pn/image/upload/v1519397155/hzdxjxr2r7fbdvrw14nd.png",
-"http://res.cloudinary.com/dlv6654pn/image/upload/v1519396607/kyh9xbouewrmftx5dbyg.png",
-"http://res.cloudinary.com/dlv6654pn/image/upload/v1519396582/zxv8einhbswufbibeff3.png",
-"http://res.cloudinary.com/dlv6654pn/image/upload/v1519397144/iekweh0br2mwdbempmqc.png",
-"http://res.cloudinary.com/dlv6654pn/image/upload/v1519396596/znpiioutlksyfy4rgagv.png",
-"http://res.cloudinary.com/dlv6654pn/image/upload/v1519300077/htc2dahghsvxbgohjnb3.png",
-"http://res.cloudinary.com/dlv6654pn/image/upload/v1519295885/oojfpfu9mjogkvedvssa.png",
-"http://res.cloudinary.com/dlv6654pn/image/upload/v1519217668/mohv0b6fngf6pgoowjnd.png"
-]
+# avatars = [
+# "http://res.cloudinary.com/dlv6654pn/image/upload/v1519397727/xykhm11z9u20ayxjfipf.png",
+# "http://res.cloudinary.com/dlv6654pn/image/upload/v1519397711/ipdiocbobzjf2ggkcqsd.png",
+# "http://res.cloudinary.com/dlv6654pn/image/upload/v1519397707/qlo2tz4abdvpf8paasgz.png",
+# "http://res.cloudinary.com/dlv6654pn/image/upload/v1519397685/vs2upa77lyesj21andnc.png",
+# "http://res.cloudinary.com/dlv6654pn/image/upload/v1519397190/kqe4mjz4zw97qlvpi3bo.png",
+# "http://res.cloudinary.com/dlv6654pn/image/upload/v1519397155/hzdxjxr2r7fbdvrw14nd.png",
+# "http://res.cloudinary.com/dlv6654pn/image/upload/v1519396607/kyh9xbouewrmftx5dbyg.png",
+# "http://res.cloudinary.com/dlv6654pn/image/upload/v1519396582/zxv8einhbswufbibeff3.png",
+# "http://res.cloudinary.com/dlv6654pn/image/upload/v1519397144/iekweh0br2mwdbempmqc.png",
+# "http://res.cloudinary.com/dlv6654pn/image/upload/v1519396596/znpiioutlksyfy4rgagv.png",
+# "http://res.cloudinary.com/dlv6654pn/image/upload/v1519300077/htc2dahghsvxbgohjnb3.png",
+# "http://res.cloudinary.com/dlv6654pn/image/upload/v1519295885/oojfpfu9mjogkvedvssa.png",
+# "http://res.cloudinary.com/dlv6654pn/image/upload/v1519217668/mohv0b6fngf6pgoowjnd.png"
+# ]
 
+avatars = [
+"xykhm11z9u20ayxjfipf.png",
+"ipdiocbobzjf2ggkcqsd.png",
+"qlo2tz4abdvpf8paasgz.png",
+"vs2upa77lyesj21andnc.png",
+"kqe4mjz4zw97qlvpi3bo.png",
+"hzdxjxr2r7fbdvrw14nd.png",
+"kyh9xbouewrmftx5dbyg.png",
+"zxv8einhbswufbibeff3.png",
+"iekweh0br2mwdbempmqc.png",
+"znpiioutlksyfy4rgagv.png",
+"htc2dahghsvxbgohjnb3.png",
+"oojfpfu9mjogkvedvssa.png",
+"mohv0b6fngf6pgoowjnd.png"
+]
 
 puts "creating #{number_of_users} users"
 
@@ -96,12 +111,13 @@ puts "creating #{number_of_rides} rides with offers equal to number of seats"
 
   ride.seats.times do
     offer = Offer.new
-    offer.ride_id = ride.id
-    user_id = User.all.sample.id
-    while user_id == ride.user.id #to avoid the driver also being a passenger
-      user_id = User.all.sample.id
+    offer.ride = ride
+    request = Request.all.sample
+    while request.user == ride.user #to avoid the driver also being a passenger
+      request = Request.all.sample
     end
-    offer.user_id = user_id
+    offer.request_id = request.id
+    offer.confirmed = [true, false].sample
     binding.pry unless offer.save
   end
 end
