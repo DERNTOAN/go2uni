@@ -115,6 +115,3 @@ user.age = 99
 user.photo = avatars.sample
 user.password = "123456"
 binding.pry unless user.save
-
-
-

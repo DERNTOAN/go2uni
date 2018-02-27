@@ -4,7 +4,8 @@
     <%= simple_form_for @request do |f| %>
       <%= f.input :start_time, as: :datetime %>
       <%= f.input :stop_time, as: :datetime %>
-
+      <%= f.input :from_address, placeholder: "Where are you?", label: false %>
+      <%= f.input :to_address, placeholder: "Where do you want to go?", label: false %>
       <%= f.button :submit, "create a ride request!" %>
     <% end %>
   </div>

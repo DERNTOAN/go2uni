@@ -18,6 +18,9 @@ class RidesController < ApplicationController
   def create
     @ride = Ride.create(ride_params)
     authorize @ride
+    @ride.user_id = current_user.id
+    @ride.save
+    redirect_to ride_suggestions_path(@ride)
   end
 
   def edit

@@ -11,3 +11,4 @@ import "bootstrap";
 import { inputShowRides } from "../rides/index";
 
 inputShowRides();
+
