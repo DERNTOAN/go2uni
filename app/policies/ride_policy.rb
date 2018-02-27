@@ -10,7 +10,7 @@ class RidePolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    user.admin? || record.user == user
   end
 
   def create?

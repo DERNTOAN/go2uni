@@ -13,7 +13,6 @@ class RidesController < ApplicationController
   def new
     @ride = Ride.new
     authorize @ride
-
   end
 
   def create

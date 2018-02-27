@@ -6,10 +6,10 @@ class MyrequestsPolicy < ApplicationPolicy
   end
 
   def index?
-    record.user == user
+    user.admin? || record.user == user
   end
 
   def show?
-    record.user == user
+    user.admin? || record.user == user
   end
 end
