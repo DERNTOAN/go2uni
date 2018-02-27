@@ -8,7 +8,12 @@ class UsersController < ApplicationController
 
   def create
     u = User.create(user_params)
-    redirect_to u_path
+    if u.save
+      UserMailer.creation_confirmation(u).deliver_now
+      redirect_to u_path
+    else
+      render :new
+    end
   end
 
   private
