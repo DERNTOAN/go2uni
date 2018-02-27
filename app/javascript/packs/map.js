@@ -40,10 +40,9 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
 
   if (markers_from.length === 0) {
     map.setZoom(2);
-  } else if (markers_from.length === 1) {
+  } else {
     map.setCenter(markers_from[0].lat, markers_from[0].lng);
     map.setZoom(5);
-  } else {
     map.fitLatLngBounds(markers_from);
   }
 }
