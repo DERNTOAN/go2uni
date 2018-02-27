@@ -1,0 +1,35 @@
+$bottom_gap:0px;
+$button_height:60px;
+
+.map-dummy{
+  background-color: blue;
+  width:100vw;
+  height:calc(100vh - 70px);
+  top:70px;
+  position:fixed;
+  z-index: -1;
+}
+
+.form-opener{
+  background-color:red;
+  position:fixed;
+  width:100vw;
+  bottom: $bottom_gap;
+  display:flex;
+  justify-content:center;
+
+  a{
+    text-align:center;
+    background-color:white;
+    width:80vw;
+    height:$button_height;
+  }
+}
+
+.new-ride-form{
+  transition:all 0.5s ease;
+  position: fixed;
+  bottom: calc($bottom_gap + $button_height);
+  right: 0px;
+  left: 0px;
+}

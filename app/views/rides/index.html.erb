@@ -1,9 +1,26 @@
-<div class="text-center">
-  <h1>All those People are willing to take you</h1>
-  <div class="map">
+  <div class="title">
+    <!-- <h1>All those People are willing to take you</h1> -->
+  </div>
+  <div class="map-dummy">
     <p>Here comes a map</p>
   </div>
-  <div>
+
+  <div class="form-opener">
+    <a href="" class="btn btn-standard" id="new-ride-button">Make a new ride</a>
+  </div>
+
+  <div class="new-ride-form hidden">
+    <%= simple_form_for @ride = Ride.new do |f| %>
+      <%= f.input :departure_time, as: :datetime%>
+      <%= f.input :from_address%>
+      <%= f.input :to_address%>
+      <%= f.input :seats, as: :integer %>
+      <%= f.button :submit, "share your ride" %>
+    <% end %>
+  </div>
+
+
+<!--   <div>
     <ul><% @rides.each do |ride| %>
       <li><%= ride.user.email %></li>
       <li><%= ride.user.age %></li>
@@ -11,4 +28,7 @@
     <% end %>
     </ul>
   </div>
-</div>
+ -->
+<!--
+
+     -->
