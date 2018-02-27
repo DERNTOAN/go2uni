@@ -11,7 +11,7 @@ $button_height:60px;
 }
 
 .form-opener{
-  background-color:red;
+  background-color:rgba(0,0,0,0.3);
   position:fixed;
   width:100vw;
   bottom: $bottom_gap;
@@ -29,7 +29,38 @@ $button_height:60px;
 .new-ride-form{
   transition:all 0.5s ease;
   position: fixed;
-  bottom: calc($bottom_gap + $button_height);
+  bottom: 0px;
   right: 0px;
   left: 0px;
+  background-color:rgba(255,255,255,0.3);
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+
+}
+
+.new-ride-form:focus-within {
+    background-color:white;
+  }
+
+#close-button{
+  position:absolute;
+  top:5px;
+  right:5px;
+}
+
+form{
+  .flex-group{
+    display:flex;
+    justify:space-between;
+    align-items:center;
+
+    i{
+      padding: 0px 10px 0px 0px;
+      text-align:center;
+      width: 30px;
+    }
+
+  }
 }
