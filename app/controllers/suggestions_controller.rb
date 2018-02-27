@@ -2,7 +2,7 @@ class SuggestionsController < ApplicationController
   def index
     @requests = policy_scope(Request)
     @ride = Ride.where(id: params["ride_id"]).first
-    raise
+    @suggestions = find_suggestions
   end
 
 
@@ -10,8 +10,18 @@ class SuggestionsController < ApplicationController
 
   def find_suggestions
     suggestions = []
-    @request.each do |request|
-      if request.from_address
+    @requests.each do |request|
+      geocoded_request_from_address = Geocoder.coordinates(request.from_address)
+      raise
+      geocoded_request_to_address = Geocoder.coordinates(request.to_address)
+      geocoded_ride_from_address = Geocoder.coordinates(@ride.from_address)
+      geocoded_ride_to_address = Geocoder.coordinates(@ride.to_address)
+      g = geocoded_request_from_address.near(geocoded_ride_from_address, 0.5)
+      raise
+      #   suggestions << request
+      # end
     end
+    raise
+    suggestions
   end
 end
