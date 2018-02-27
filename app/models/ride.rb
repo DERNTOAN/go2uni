@@ -1,7 +1,5 @@
 class Ride < ApplicationRecord
-  geocoded_by :from_address, :latitude  => :from_lat, :longitude => :from_lng
-  geocoded_by :to_address, :latitude  => :to_lat, :longitude => :to_lng
-  after_validation :geocode
+  before_save :geocode_endpoints
 
   belongs_to :user
 
@@ -14,4 +12,22 @@ class Ride < ApplicationRecord
   validates :to_lng, presence: true
   validates :to_lat, presence: true
 
+  def geocode_endpoints
+    if from_address
+      geocoded = Geocoder.search(from_address).first
+      if geocoded
+        self.from_lat = geocoded.latitude
+        self.from_lng = geocoded.longitude
+      end
+    end
+
+    # Repeat for destination
+    if to_address
+      geocoded = Geocoder.search(to_address).first
+      if geocoded
+        self.to_lat = geocoded.latitude
+        self.to_lng = geocoded.longitude
+      end
+    end
+  end
 end
