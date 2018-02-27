@@ -1,2 +1,11 @@
-<h1>Requests#new</h1>
-<p>Find me in app/views/requests/new.html.erb</p>
+<div>
+  <h1>Find a ride!</h1>
+  <div>
+    <%= simple_form_for @request do |f| %>
+      <%= f.input :start_time, as: :datetime %>
+      <%= f.input :stop_time, as: :datetime %>
+
+      <%= f.button :submit, "create a ride request!" %>
+    <% end %>
+  </div>
+</div>

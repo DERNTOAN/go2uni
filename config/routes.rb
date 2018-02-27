@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'suggestions/index', to: "suggestions#index", as: "suggestions"
+  get 'rides/:id/suggestions', to: "suggestions#index", as: "suggestions"
 
-  get 'myrequests/index', to: "myrequests#index", as: "myrequests"
+  get 'users/:id/myrequests', to: "myrequests#index", as: "myrequests"
 
-  get 'myrequests/show/:id', to: "myrequests#show", as: "myrequest"
+  get 'users/:user_id/myrequests/:id', to: "myrequests#show", as: "myrequest"
 
   devise_for :users
   root to: 'pages#home'

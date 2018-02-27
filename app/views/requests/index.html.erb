@@ -1,2 +1,28 @@
-<h1>Requests#index</h1>
-<p>Find me in app/views/requests/index.html.erb</p>
+
+<div class="col-md-6 col-md-offset-3">
+<div class="text-center">
+<h1>MAP</h1>
+<h2>Available Passengers</h2>
+
+
+  <% @requests.each do |request| %>
+  <div class = "list-group">
+    <ul>
+      <li class="list-group-item">User Id: <%= request.user_id  %></li>
+      <li class="list-group-item">Start Time: <%= request.start_time%></li>
+      <li class="list-group-item">Stop Time: <%= request.stop_time %></li>
+      <li class="list-group-item">From Longitude: <%= request.from_lng %></li>
+      <li class="list-group-item">From Latitude: <%= request.from_lat %></li>
+      <li class="list-group-item">To Longitude: <%= request.to_lng %></li>
+      <li class="list-group-item">To Latitude: <%= request.to_lat %></li>
+    </ul>
+  </div>
+<% end %>
+<button id="Share ride" class="btn btn-primary">
+
+
+  Share your ride
+
+</button>
+</div>
+</div>
