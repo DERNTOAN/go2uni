@@ -36,6 +36,8 @@ class RequestsController < ApplicationController
   def create
     @request = Request.create(request_params)
     authorize @request
+    @request.user_id = current_user.id
+    @request.save
     redirect_to myrequests_path(current_user)
   end
 
@@ -53,9 +55,9 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    stop = params.require(:request)[:stop_time]
-    start = params.require(:request)[:start_time]
-    raise
+    stop = DateTime.parse(params.require(:request)[:stop_time])
+    start = DateTime.parse(params.require(:request)[:start_time])
+    params.require(:request)[:stop_time] = start.change(hour: stop.hour, min:stop.minute).to_s
     params.require(:request).permit(:user_id, :start_time, :stop_time,:from_address, :to_address)
   end
 end
