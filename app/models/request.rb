@@ -25,8 +25,8 @@ class Request < ApplicationRecord
         end
       end
     end
-  validates :from_lng, presence: true
-  validates :from_lat, presence: true
-  validates :to_lng, presence: true
-  validates :to_lat, presence: true
+  # validates :from_lng, presence: true
+  # validates :from_lat, presence: true
+  # validates :to_lng, presence: true
+  # validates :to_lat, presence: true
 end
