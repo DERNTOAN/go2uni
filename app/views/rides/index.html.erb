@@ -2,8 +2,16 @@
     <!-- <h1>All those People are willing to take you</h1> -->
   </div>
   <div class="map-dummy">
-    <p>Here comes a map</p>
+    <div
+  id="map"
+  style="width: 100%;
+  height: 100%;"
+  data-markers_from="<%= @markers_from.to_json %>"
+  data-markers_to="<%= @markers_to.to_json %>"
+  ></div>
   </div>
+
+
 
   <div class="form-opener">
     <a href="" class="btn btn-standard" id="new-ride-button">Make a new ride</a>
