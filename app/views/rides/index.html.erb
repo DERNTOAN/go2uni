@@ -7,6 +7,7 @@
     <ul><% @rides.each do |ride| %>
       <li><%= ride.user.email %></li>
       <li><%= ride.user.age %></li>
+      <li><%= cl_image_tag ride.user.photo %></li>
     <% end %>
     </ul>
   </div>
