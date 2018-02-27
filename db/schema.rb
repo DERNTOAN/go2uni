@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227095652) do
+ActiveRecord::Schema.define(version: 20180227100612) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +36,8 @@ ActiveRecord::Schema.define(version: 20180227095652) do
     t.float "to_lat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "from_address"
+    t.string "to_address"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
@@ -48,6 +51,8 @@ ActiveRecord::Schema.define(version: 20180227095652) do
     t.float "to_lat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "from_address"
+    t.string "to_address"
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
 
