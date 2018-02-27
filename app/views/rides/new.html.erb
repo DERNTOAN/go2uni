@@ -4,6 +4,8 @@
     <%= simple_form_for @ride do |f| %>
       <%= f.input :departure_time, as: :datetime %>
       <%= f.input :seats, as: :integer %>
+      <%= f.input :from_address %>
+      <%= f.input :to_address %>
       <%= f.button :submit, "share your ride" %>
     <% end %>
   </div>
