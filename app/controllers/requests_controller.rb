@@ -5,6 +5,20 @@ class RequestsController < ApplicationController
     @requests = policy_scope(Request)
     @requests = @requests.where.not(from_lng: nil, from_lat: nil, to_lng: nil, to_lat: nil)
 
+    @markers_from = @requests.map do |request|
+      {
+        lng: request.from_lng,
+        lat: request.from_lat,
+      }
+    end
+
+    @markers_to = @requests.map do |request|
+      {
+        lng: request.to_lng,
+        lat: request.to_lat
+      }
+    end
+
   end
 
   def show
