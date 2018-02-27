@@ -10,7 +10,7 @@ function inputShowRides(){
       ride_button.classList.toggle("hidden");
     })
 
-    let closer = document.querySelector("#x-button")
+    let closer = document.querySelector("#close-button")
     closer.addEventListener("click",(event) => {
       form.classList.toggle("hidden");
       ride_button.classList.toggle("hidden");

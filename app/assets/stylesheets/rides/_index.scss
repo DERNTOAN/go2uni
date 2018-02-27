@@ -1,4 +1,4 @@
-$bottom_gap:0px;
+$bottom_gap:24px;
 $button_height:60px;
 
 .map-dummy{
@@ -11,7 +11,6 @@ $button_height:60px;
 }
 
 .form-opener{
-  background-color:rgba(0,0,0,0.3);
   position:fixed;
   width:100vw;
   bottom: $bottom_gap;
@@ -19,8 +18,9 @@ $button_height:60px;
   justify-content:center;
 
   a{
+    border: 1px solid lightgrey;
     text-align:center;
-    background-color:white;
+    background-color: rgba(255,255,255,0.7);
     width:80vw;
     height:$button_height;
   }
@@ -34,7 +34,7 @@ $button_height:60px;
   left: 0px;
   background-color:rgba(255,255,255,0.3);
   padding-bottom: 20px;
-  padding-top: 20px;
+  padding-top: 40px;
   padding-right: 15px;
   padding-left: 15px;
 
