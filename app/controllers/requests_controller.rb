@@ -21,7 +21,7 @@ class RequestsController < ApplicationController
   def create
     @request = Request.create(request_params)
     authorize @request
-
+    redirect_to myrequests_path(current_user)
   end
 
   def edit
