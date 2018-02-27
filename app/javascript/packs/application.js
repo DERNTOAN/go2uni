@@ -9,6 +9,10 @@
 
 import "bootstrap";
 import { inputShowRides } from "../rides/index";
+import { autocomplete } from "../components/autocomplete";
 
 inputShowRides();
-
+autocomplete("ride_from_address");
+autocomplete("ride_to_address");
+autocomplete("request_from_address");
+autocomplete("request_to_address");
