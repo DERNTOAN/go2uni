@@ -25,16 +25,13 @@
       <div class="form-group time-group">
         <div class="date_field flex-group">
           <i class="far fa-calendar-alt"></i>
-          <%=  f.datetime_field :start_time, class: "form-control" %>
+          <%=  f.datetime_field :start_time, class: "form-control"%>
         </div>
-        <!-- <div class="from_time_field time_field flex-group">
-          <i class="far fa-clock"></i> <span>Start</span>
+      </div>
+
+      <div class="form-group to_time_field time_field flex-group">
+          <i class="far fa-clock"></i>
           <%=  f.time_field :stop_time, class: "form-control" %>
-        </div> -->
-        <div class="to_time_field time_field flex-group">
-          <i class="far fa-clock"></i> <span>Stop</span>
-          <%=  f.time_field :stop_time, class: "form-control" %>
-        </div>
       </div>
 
       <div class="form-group flex-group">
