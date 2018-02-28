@@ -27,7 +27,8 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     authorize @ride
-    @requests = Offer.where(ride_id: @ride.id).where(confirmed: true).map(&:request)
+    @offers = Offer.where(ride_id: @ride.id)
+    @requests = @offers.map(&:request)
 
     @marker_from_driver = {
       lng: @ride.from_lng,
@@ -46,7 +47,6 @@ class RidesController < ApplicationController
         lat: request.from_lat,
       }
     end
-
   end
 
   def new
