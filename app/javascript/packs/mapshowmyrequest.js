@@ -1,4 +1,28 @@
 
+function showRoute(response, status, map, color) {
+  //   if (status == google.maps.DirectionsStatus.OK) {
+  // console.log(response.routes[0].legs.map(leg => leg.duration.value))
+
+  // const directionsDisplay = new google.maps.DirectionsRenderer();
+  //     directionsDisplay.setMap(map);
+
+  //     const DirectionsRendererOptions = {
+  //       polylineOptions: {
+  //         strokeColor: "ff0000",
+  //         strokeOpacity: 0.5,
+  //         strokeWeight: 4
+  //       },
+  //       suppressMarkers: true
+  //     };
+  //     // console.log(DirectionsRendererOptions);
+  //     directionsDisplay.setOptions(DirectionsRendererOptions);
+  //     directionsDisplay.setDirections(response);
+  //   }
+  };
+
+
+
+
 const mapElement = document.getElementById('mapshowmyrequest');
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
   const from = JSON.parse(mapElement.dataset.marker_from_self);
@@ -87,76 +111,30 @@ counterparts.forEach( (counterpart) => {
   };
 
   directionsService.route(request_walk, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-console.log(counterpart.first_name)
-console.log(response.routes[0].legs.map(leg => leg.duration.value))
-
-
-
-
-
-
-
-
-  const directionsDisplay = new google.maps.DirectionsRenderer();
-  directionsDisplay.setMap(map);
-
-
-      const DirectionsRendererOptions = {
-        polylineOptions: {
-          strokeColor: "#ff0000",
-          strokeOpacity: 0.5,
-          strokeWeight: 4
-        },
-        suppressMarkers: true
-      };
-      directionsDisplay.setOptions(DirectionsRendererOptions);
-      directionsDisplay.setDirections(response);
-    }
+    console.log(counterpart.first_name);
+    showRoute(response, status, map, "ff0000")
   });
 
   directionsService.route(request_drive, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-
-console.log(counterpart.first_name)
-console.log(response.routes[0].legs.map(leg => leg.duration.value))
-
-
-
-  const directionsDisplay = new google.maps.DirectionsRenderer();
-  directionsDisplay.setMap(map);
-
-      const DirectionsRendererOptions = {
-        polylineOptions: {
-          strokeColor: "#0000ff",
-          strokeOpacity: 0.5,
-          strokeWeight: 4
-        },
-        suppressMarkers: true
-      };
-      directionsDisplay.setOptions(DirectionsRendererOptions);
-      directionsDisplay.setDirections(response);
-    }
+    showRoute(response, status, map, "0000ff")
   });
 
   directionsService.route(request_walk_to_dest, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-
-console.log(counterpart.first_name)
-console.log(response.routes[0].legs.map(leg => leg.duration.value))
-
+        if (status == google.maps.DirectionsStatus.OK) {
+  console.log(response.routes[0].legs.map(leg => leg.duration.value))
 
   const directionsDisplay = new google.maps.DirectionsRenderer();
-  directionsDisplay.setMap(map);
+      directionsDisplay.setMap(map);
 
       const DirectionsRendererOptions = {
         polylineOptions: {
-          strokeColor: "#00ff00",
+          strokeColor: "ff0000",
           strokeOpacity: 0.5,
           strokeWeight: 4
         },
         suppressMarkers: true
       };
+      console.log(DirectionsRendererOptions);
       directionsDisplay.setOptions(DirectionsRendererOptions);
       directionsDisplay.setDirections(response);
     }
