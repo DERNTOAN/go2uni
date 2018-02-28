@@ -33,6 +33,7 @@ class RidesController < ApplicationController
     @marker_from_driver = {
       lng: @ride.from_lng,
       lat: @ride.from_lat,
+      icon: 'car.gif'
     }
 
 
@@ -41,10 +42,15 @@ class RidesController < ApplicationController
       lat: @ride.to_lat
     }
 
-    @markers_from_passengers = @requests.map do |request|
+    @passengers = @requests.map do |request|
       {
+
+      from: {
         lng: request.from_lng,
         lat: request.from_lat,
+      },
+
+      avatar: request.user.photo.url
       }
     end
   end
