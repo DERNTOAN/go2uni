@@ -1,15 +1,13 @@
 <div
-id="mapshow"
-style="width: 100%;
-height: 600px;"
-data-marker_from_driver="<%= @marker_from_driver.to_json %>"
-data-markers_from_passengers="<%= @markers_from_passengers.to_json %>"
-data-marker_to="<%= @marker_to.to_json %>"
+  id="mapshow"
+  style="width: 100%;
+  height: 600px;"
+  data-marker_from_driver="<%= @marker_from_driver.to_json %>"
+  data-passengers="<%= @passengers.to_json %>"
+  data-marker_to="<%= @marker_to.to_json %>"
 ></div>
 
-
 <div class="container">
-
   <div>
     <h1>This is your ride</h1>
     <div>
@@ -37,25 +35,6 @@ data-marker_to="<%= @marker_to.to_json %>"
           <img class="card-user" <%= cl_image_tag(offer.request.user.photo, height: 100, width: 100) %>
           <a class="card-link" href="#" ></a>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       </div>
       <% end %>
     </div>

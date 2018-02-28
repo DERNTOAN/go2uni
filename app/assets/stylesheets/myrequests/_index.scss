@@ -1,0 +1,68 @@
+.myrequest-wrapper {
+  padding-top: 70px;
+}
+
+.myrequest {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  position: relative;
+  background-color: #2e999e;
+  border-radius: 60px;
+  margin: 10px;
+  box-shadow: 2px, 2px, 2px, lightgrey;
+}
+
+.myrequest-show {
+  flex-grow: 1;
+}
+
+.myrequest-show {
+  padding-left: 10px;
+  font-size: 13px;
+  color: black;
+}
+
+.myrequest-body {
+  flex-grow: 1;
+}
+
+.myrequest-body {
+  padding-left: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+
+.myrequest-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+
+.myrequest-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+
+.myrequest-body p {
+  margin: 6px 0;
+}
+
+.myrequest-body h5 {
+  color: black;
+}
+
+.myrequest-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+
+.myrequest-link:hover {
+  opacity: 0.1;
+}
