@@ -1,9 +1,10 @@
 <div
-  id="map"
+  id="mapshow"
   style="width: 100%;
   height: 600px;"
-  data-markers_from="<%= @markers_from.to_json %>"
-  data-markers_to="<%= @markers_to.to_json %>"
+  data-marker_from_driver="<%= @marker_from_driver.to_json %>"
+  data-markers_from_passengers="<%= @markers_from_passengers.to_json %>"
+  data-marker_to="<%= @marker_to.to_json %>"
 ></div>
 
 
@@ -38,5 +39,6 @@
       <% end %>
   </div>
 </div>
+
 
 
