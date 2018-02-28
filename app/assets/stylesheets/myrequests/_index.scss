@@ -7,10 +7,11 @@
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
-}
-
-.myrequest:last-child {
-  border-bottom: none;
+  position: relative;
+  background-color: #2e999e;
+  border-radius: 60px;
+  margin: 10px;
+  box-shadow: 2px, 2px, 2px, lightgrey;
 }
 
 .myrequest-show {
@@ -49,4 +50,19 @@
 
 .myrequest-body h5 {
   color: black;
+}
+
+.myrequest-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+
+.myrequest-link:hover {
+  opacity: 0.1;
 }
