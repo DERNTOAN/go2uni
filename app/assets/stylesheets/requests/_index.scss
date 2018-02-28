@@ -18,3 +18,52 @@
   }
 
 }
+
+.myrequest-wrapper {
+  padding-top: 70px;
+}
+
+.myrequest {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+}
+
+.myrequest:last-child {
+  border-bottom: none;
+}
+
+.myrequest-show {
+  flex-grow: 1;
+}
+
+.myrequest-show {
+  padding-left: 10px;
+  font-size: 13px;
+  color: black;
+}
+
+.myrequest-body {
+  flex-grow: 1;
+}
+
+.myrequest-body {
+  padding-left: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+
+.myrequest-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+
+.myrequest-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+
+.myrequest-body p {
+  margin: 6px 0;
+}

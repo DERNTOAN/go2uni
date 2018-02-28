@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def create
     u = User.create(user_params)
     if u.save
-      UserMailer.creation_confirmation(u).deliver_now
+      # UserMailer.creation_confirmation(u).deliver_now
       redirect_to u_path
     else
       render :new

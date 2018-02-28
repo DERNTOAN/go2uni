@@ -41,7 +41,6 @@ calcRoute(markers_from[0].lat, markers_from[0].lng, markers_to[0].lat, markers_t
   // map.addPolylines([{ markers_from[0].lat, markers_from[0].lng }, { markers_to[0].lat, markers_to[0].lng } ]);
 
   if (markers_from.length === 0) {
-    console.log("TEST2")
     map.setZoom(2);
   } else {
     map.setCenter(markers_from[0].lat, markers_from[0].lng);
