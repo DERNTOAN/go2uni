@@ -45,6 +45,7 @@ const DirectionsRendererOptions = {
 
 directionsDisplay2.setOptions(DirectionsRendererOptions);
 
+
   const request_passenger = {
     origin:      from_passenger,
     destination: from_driver,
