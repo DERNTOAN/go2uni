@@ -27,7 +27,7 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     authorize @ride
-    @requests = Offer.where(ride_id: @ride.id).where(confirmed: true).map(&:request)
+    @offers = Offer.where(ride_id: @ride.id)
   end
 
   def new
