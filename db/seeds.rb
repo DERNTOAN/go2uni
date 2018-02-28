@@ -24,7 +24,7 @@ def rand_in_range(from, to)
   rand * (to - from) + from
 end
 
-number_of_users = 30
+number_of_users = 0
 number_of_requests = 50
 number_of_rides = 20
 
@@ -47,7 +47,7 @@ puts "clearing database"
 Offer.destroy_all
 Ride.destroy_all
 Request.destroy_all
-User.destroy_all
+# User.destroy_all
 
 puts "cleared"
 
@@ -69,8 +69,8 @@ puts "creating #{number_of_requests} requests"
 
 50.times do
   request = Request.new
-  request.start_time = rand(5.days).seconds.from_now
-  request.stop_time = request.start_time + 60.minutes + rand(6)*30.minutes
+  request.start_time = rand(2.days).seconds.from_now
+  request.stop_time = request.start_time + 4.hours + rand(6)*30.minutes
   request.user_id = User.all.sample.id
   request.from_lat = rand_in_range(from_min_lat, from_max_lat)
   request.from_lng = rand_in_range(from_min_lng, from_max_lng)
@@ -86,7 +86,7 @@ puts "creating #{number_of_rides} rides with offers equal to number of seats"
   ride = Ride.new
   ride.user_id = User.all.sample.id
   ride.seats = 1 + rand(5)
-  ride.departure_time = rand(5.days).seconds.from_now
+  ride.departure_time = rand(2.days).seconds.from_now
   ride.from_lat = rand_in_range(from_min_lat, from_max_lat)
   ride.from_lng = rand_in_range(from_min_lng, from_max_lng)
   ride.to_lng = rand_in_range(to_min_lng, to_max_lng)
