@@ -1,5 +1,4 @@
 $bottom_gap:24px;
-$button_height:60px;
 
 .map-dummy{
   background-color: blue;
@@ -22,7 +21,6 @@ $button_height:60px;
     text-align:center;
     background-color: rgba(255,255,255,0.7);
     width:80vw;
-    height:$button_height;
   }
 }
 
@@ -32,7 +30,7 @@ $button_height:60px;
   bottom: 0px;
   right: 0px;
   left: 0px;
-  background-color:rgba(255,255,255,0.3);
+  background-color:rgba(255,255,255,0.7);
   padding-bottom: 20px;
   padding-top: 40px;
   padding-right: 15px;
