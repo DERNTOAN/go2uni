@@ -28,6 +28,25 @@ class RidesController < ApplicationController
     @ride = Ride.find(params[:id])
     authorize @ride
     @offers = Offer.where(ride_id: @ride.id)
+    @requests = @offers.map(&:request)
+
+    @marker_from_driver = {
+      lng: @ride.from_lng,
+      lat: @ride.from_lat,
+    }
+
+
+    @marker_to = {
+      lng: @ride.to_lng,
+      lat: @ride.to_lat
+    }
+
+    @markers_from_passengers = @requests.map do |request|
+      {
+        lng: request.from_lng,
+        lat: request.from_lat,
+      }
+    end
   end
 
   def new
