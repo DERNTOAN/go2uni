@@ -12,7 +12,9 @@ const destination = new google.maps.LatLng(to);
 
 const mapOptions = {
   zoom: 11,
-  center: from_driver
+  center: from_driver,
+  fullscreenControl: false, streetViewControl: false, mapTypeControl: false,
+  rotateControl: false
 }
 
 const driver_icon = {

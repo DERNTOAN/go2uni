@@ -1,4 +1,11 @@
-<div class="navbar-wagon">
+<div class="navbar-opener">
+  <i class="fas fa-bars"></i>
+</div>
+
+<div class="navbar-wagon hidden">
+  <div class="navbar-closer">
+    <i class="fas fa-times"></i>
+  </div>
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
@@ -48,9 +55,7 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
       </ul>
     </div>
   </div>
