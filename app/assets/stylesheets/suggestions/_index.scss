@@ -75,8 +75,10 @@
 
     .tinder-picture{
       background-color:white;
-      height: 80%;
+      height: 60%;
       img{
+        height: 200px;
+        border-radius: 50%;
       }
     }
   }
@@ -104,5 +106,8 @@
 
 }
 
-
-
+.swipe-card-element {
+  position: absolute;
+  margin: 50px;
+  height: 486;
+}
