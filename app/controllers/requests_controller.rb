@@ -38,7 +38,7 @@ class RequestsController < ApplicationController
     authorize @request
     @request.user_id = current_user.id
     @request.save
-    redirect_to myrequests_path(current_user)
+    redirect_to myrequest_path(@request)
   end
 
   def edit
