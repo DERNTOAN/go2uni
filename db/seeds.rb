@@ -61,6 +61,7 @@ number_of_users.times do
   user.age = rand(20) + 16
   user.remote_photo_url = Faker::Avatar.image
   user.password = "123456"
+  user.description = Faker::Lorem.paragraph
   binding.pry unless user.save
 end
 
