@@ -12,7 +12,10 @@ const destination = new google.maps.LatLng(to);
 
 const mapOptions = {
   zoom: 11,
-  center: from_self
+  center: from_self,
+  fullscreenControl: false, streetViewControl: false, mapTypeControl: false,
+  rotateControl: false
+
 }
 
 const self_icon = {
