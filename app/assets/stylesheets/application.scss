@@ -17,4 +17,14 @@
 @import "requests/index";
 @import "myrequests/index";
 @import "components/ui";
+@import "suggestions/index";
 
+
+//application wide stuff
+h3{
+  font-size: 24px;
+}
+
+p{
+  font-weight: 300;
+}

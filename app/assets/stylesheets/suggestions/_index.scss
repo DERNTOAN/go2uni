@@ -1,0 +1,57 @@
+.wrapper-suggestions{
+  padding-top: 70px;
+  width: 100vw;
+
+  form{
+    label{
+      width: 100%;
+    }
+  }
+
+  .suggestions-avatar{
+    width: 70px;
+    background-color:white;
+    border: 1px solid lightgrey;
+    box-shadow: 2px 2px 2px lightgrey;
+  }
+
+  .suggestion-field{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    border: 1px solid lightgrey;
+    border-radius: 40px;
+    background-color: #96d9ef94;
+    box-shadow: 2px 2px 2px lightgrey;
+    padding-right:24px;
+
+    p{
+      margin:0px;
+    }
+
+    h3{
+      margin:0px;
+    }
+
+
+    .suggestion-info{
+      width:100%;
+      display: flex;
+      justify-content:center;
+      align-items:center;
+    }
+  }
+
+
+  input[type=checkbox]{
+    display: none;
+  }
+
+  input[type=checkbox]:checked + label > .suggestion-field{
+    background-color: green;
+  }
+}
+
+
+
+
