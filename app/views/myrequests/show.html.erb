@@ -13,18 +13,27 @@
     <ul class="list-group">
       <% @offers.each do |offer| %>
       <button type="button" id="select-ride-<%= offer.ride.id %>" data-driver="<%= offer.ride.user.id %>" class="available-drivers list-group-item list-group-item-action">
-        <span class="badge badge-primary badge-pill">Arrival time: <%= (offer.ride.departure_time + offer.ride.duration + offer.duration_to_dest).strftime("%I:%M %p")  %> </span>
+        <span class="badge badge-primary badge-pill">Arrival: <%= (offer.ride.departure_time + offer.ride.duration + offer.duration_to_dest).strftime("%I:%M %p")  %> </span>
 
-        <span class="badge badge-primary badge-pill">leave home latest at: <%= (offer.ride.departure_time - offer.duration_to_car).strftime("%I:%M %p")  %> </span>
-        <p><%= offer.ride.user.first_name %>
+        <span class="badge badge-primary badge-pill">Leave at: <%= (offer.ride.departure_time - offer.duration_to_car).strftime("%I:%M %p")  %> </span>
+        <p><%= offer.ride.user.first_name %> Ride.id: <%= offer.ride.id %></p>
 
           <div class="progress">
             <div class="progress-bar" role="progressbar" style="width: <%= offer.duration_to_car.to_f / 30 %>%" aria-valuenow="<%= offer.duration_to_car %>" aria-valuemin="0" aria-valuemax="3000"><i class="fas fa-blind"></i><%= offer.duration_to_car / 60 %> min</div>
             <div class="progress-bar bg-success" role="progressbar" style="width: <%= offer.ride.duration.to_f / 30 %>%" aria-valuenow="<%= offer.ride.duration %>" aria-valuemin="0" aria-valuemax="3000"> <i class="fas fa-car"></i> <%= offer.ride.duration / 60 %> min</div>
             <div class="progress-bar bg-info" role="progressbar" style="width: <%= offer.duration_to_dest.to_f / 30 %>%" aria-valuenow="<%= offer.duration_to_dest %>" aria-valuemin="0" aria-valuemax="3000"><i class="fas fa-blind"></i><%= offer.duration_to_dest / 60 %> min to destination</div>
           </div>
-        </p>
+
       </button>
+
+      <div class="offer-accept-button offer-button">
+        <%= link_to "Accept Offer",  ride_offer_path(offer.ride,offer, {confirmed: true}), :method=> :put  %>
+      </div>
+      <div class="offer-reject-button offer-button">
+        <%= link_to "Decline Offer",  ride_offer_path(offer.ride, offer, {confirmed: false}), method: :put %>
+      </div>
+
+
 
       <% end %>
     </ul>

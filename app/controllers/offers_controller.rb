@@ -14,4 +14,18 @@ class OffersController < ApplicationController
 
     redirect_to ride_path(params["ride_id"])
   end
+
+
+  def update
+    @offer = Offer.find(params[:id])
+    authorize @offer
+    @offer.confirmed = true if params[:confirmed] === "true"
+    @offer.confirmed = false if params[:confirmed] === "false"
+    @offer.save
+    if @offer.confirmed == true
+      redirect_to ride_path(@offer.ride)
+    else
+      redirect_to myrequests_path
+    end
+  end
 end
