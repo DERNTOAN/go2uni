@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
   # get 'rides/:id/suggestions', to: "suggestions#index", as: "suggestions"
+  root to: 'pages#home'
 
   get 'myrequests', to: "myrequests#index", as: "myrequests"
 
   get 'myrequests/:id', to: "myrequests#show", as: "myrequest"
 
   devise_for :users
-  root to: 'pages#home'
   resources :requests, only: [:index, :new, :create]
   resources :rides, only: [:index, :show, :new, :create ] do
     resources :suggestions, only: :index
