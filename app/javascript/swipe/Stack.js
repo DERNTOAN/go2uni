@@ -27,6 +27,9 @@ const Stack = (config) => {
    *
    * @returns {Object}
    */
+
+
+
   stack.getConfig = () => {
     return config;
   };

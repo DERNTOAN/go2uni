@@ -1,9 +1,9 @@
 const Direction = {
-  DOWN: Symbol('DOWN'),
+  DOWN: "down",
   INVALID: Symbol('INVALID'),
-  LEFT: Symbol('LEFT'),
-  RIGHT: Symbol('RIGHT'),
-  UP: Symbol('UP')
+  LEFT: Symbol("LEFT"),
+  RIGHT: Symbol("RIGHT"),
+  UP: "up"
 };
 
 export default Direction;

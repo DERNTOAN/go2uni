@@ -2,43 +2,34 @@
 
 <div class="wrapper-suggestions">
   <div class="container tinder-container">
-    <ul>
-      <% @suggestions.each do |suggestion| %>
-        <li class="swipe-card-element tinder-card">
-          <div class="tinder-picture">
-            <%= cl_image_tag(suggestion.user.photo) %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-
-
-<div class="hidden">
- <form action=<%= ride_offers_path %> method="post">
+    <form action=<%= ride_offers_path %> method="post">
       <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
 
+      <ul>
+        <% @suggestions.each do |suggestion| %>
+          <input type="checkbox" id=<%= "#{suggestion.id}" %> name=<%= "#{suggestion.id}"%> >
 
-
-      <% @suggestions.each do |request| %>
-        <input type="checkbox" id=<%= "#{request.id}" %> name=<%= "#{request.id}"%> >
-        <label for=<%= "#{request.id}" %>>
-          <div class="suggestion-field">
-            <div class="suggestion-picture">
-              <%= cl_image_tag(request.user.photo, class: "avatar suggestions-avatar") %>
+          <label for="">
+          <li class="swipe-card-element tinder-card">
+            <div class="tinder-picture">
+              <%= cl_image_tag(suggestion.user.photo) %>
             </div>
-              <div class="name">
-                <h3><%= request.user.first_name %></h3>
-              </div>
-              <div class="age">
-                <p><%= request.user.age%></p>
-              </div>
-          </div>
-        </label>
+            <div class="tinder-card-info">
+              <%= suggestion.id  %>
+            </div>
+          </li>
+          </label>
+        <% end %>
+      </ul>
+      <input type="submit" class="btn btn-standard tinder-submit">
+    </form>
+
+    <div class="seats">
+      <% @ride.seats.times do %>
+        <div class="one-seat">
+          <i class="fas fa-certificate fa-4x"></i>
+        </div>
       <% end %>
-
-      <input type="submit" class="btn btn-standard form-control">
-
-      </form>
+    </div>
+  </div>
 </div>
