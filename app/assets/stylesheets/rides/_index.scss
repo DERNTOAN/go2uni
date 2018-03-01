@@ -9,47 +9,52 @@ $bottom_gap:24px;
 }
 
 .index-buttons{
+  justify-self: center;
+
 border-radius: 50px;
+    border: 1px solid lightgrey;
+    padding: 15px;
+    text-align: center;
+    background-color: #FDCD00;
+    width: 80vw;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
 
 }
 
 
 .form-opener{
+    display: flex;
+  align-items: center;
+  flex-direction: column;
   position:fixed;
   width:100vw;
   bottom: $bottom_gap;
-  display:flex;
-  justify-content:center;
-
-  a{
-    border: 1px solid lightgrey;
-    text-align:center;
-    background-color: rgba(255,255,255,0.7);
-    width:80vw;
+  p{
+  margin-bottom: 4px;
   }
-}
 
-.buttons-box{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
+  }
+
+
 .new-ride-form{
   transition:all 0.5s ease;
   position: fixed;
   bottom: 0px;
   right: 0px;
   left: 0px;
-  background-color:rgba(255,255,255,0.7);
+  background-color:$secondary;
   padding-bottom: 20px;
   padding-top: 40px;
   padding-right: 15px;
   padding-left: 15px;
+  opacity: 0.8;
 
 }
 
 .new-ride-form:focus-within {
-    background-color:white;
+  opacity: 1.0;
   }
 
 
@@ -59,16 +64,16 @@ border-radius: 50px;
   bottom: 0px;
   right: 0px;
   left: 0px;
-  background-color:rgba(255,255,255,0.7);
+  background-color:$secondary;
   padding-bottom: 20px;
   padding-top: 40px;
   padding-right: 15px;
   padding-left: 15px;
-
+  opacity: 0.8;
 }
 
 .new-request-form:focus-within {
-    background-color:white;
+  opacity: 1.0;
   }
 
 .close-button{
@@ -77,11 +82,18 @@ border-radius: 50px;
   right:5px;
 }
 
+.form-ride{
+      display:flex;
+  flex-direction: column;
+  align-items: center;
+}
 form{
+
   .flex-group{
     display:flex;
-    justify:space-between;
+
     align-items:center;
+    width:100%;
 
     i{
       padding: 0px 10px 0px 0px;

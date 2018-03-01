@@ -10,6 +10,7 @@
 
   <div class="buttons-box form-opener">
     <p>
+
       <a href="" class="btn index-buttons" id="new-ride-button">Share your ride</a>
     </p>
     <p>
@@ -24,28 +25,32 @@
     </div>
 
 
-    <%= form_for @ride do |f| %>
+    <%= form_for @ride, html: {class: "form-ride"} do |f| %>
     <div class="form-group flex-group">
       <!-- <%= f.label :departure_time, "Departure" %> -->
       <i class="far fa-clock"></i>
-      <%=  f.datetime_field :departure_time, class: "form-control" %>
+      <%=  f.datetime_field :departure_time, value: "#{(Time.now + 1800).strftime("%Y-%m-%dT%H:%M")}", class: "form-control" %>
     </div>
     <div class="form-group flex-group">
       <!-- <%= f.label :from_address, "From" %> -->
       <i class="fas fa-map-marker"></i>
       <%= f.text_field :from_address, class: "form-control", placeholder: "from here" %>
     </div>
+
     <div class="form-group flex-group">
       <!-- <%= f.label :to_address, "To" %> -->
       <i class="fas fa-compass"></i>
       <%= f.text_field :to_address, class: "form-control", placeholder: "to there" %>
     </div>
+
     <div class="form-group flex-group">
       <i class="fas fa-users"></i>
       <%= f.number_field :seats, as: :integer, class: "form-control", placeholder: "Number of seats" %>
     </div>
-    <%= f.submit "share your ride", class: "btn btn-standard form-control" %>
+
+    <%= f.submit "share your ride", class: "btn index-buttons" %>
     <% end %>
+
   </div>
 
 
@@ -56,18 +61,16 @@
     </div>
 
 
-    <%= form_for @request do |f| %>
+    <%= form_for @request, html: {class: "form-ride"} do |f| %>
 
-    <div class="form-group time-group">
-      <div class="date_field flex-group">
+    <div class="form-group date_field flex-group">
         <i class="far fa-calendar-alt"></i>
-        <%=  f.datetime_field :start_time, class: "form-control"%>
-      </div>
+        <%=  f.datetime_field :start_time, value: "#{Time.now.strftime("%Y-%m-%dT%H:%M")}", class: "form-control"%>
     </div>
 
     <div class="form-group to_time_field time_field flex-group">
       <i class="far fa-clock"></i>
-      <%=  f.time_field :stop_time, class: "form-control" %>
+      <%=  f.time_field :stop_time, value: "#{(Time.now + 3600).strftime("%H:%M")}", class: "form-control" %>
     </div>
 
     <div class="form-group flex-group">
@@ -80,7 +83,7 @@
       <%= f.text_field :to_address, class: "form-control", placeholder: "to there" %>
     </div>
 
-    <%= f.submit "Submit", class: "btn btn-standard form-control" %>
+    <%= f.submit "Submit", class: "btn index-buttons" %>
     <% end %>
   </div>
 </div>
