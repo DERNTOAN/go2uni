@@ -1,4 +1,4 @@
-<div
+  <div
   id="mapshow"
   style="width: 100%;
   height: 600px;"
@@ -6,39 +6,53 @@
   data-counterparts="<%= @passengers.to_json %>"
   data-marker_to="<%= @marker_to.to_json %>"
   data-map_as="driver"
+  ></div>
 
-></div>
-
-<div class="container">
-  <div>
-    <h1>This is your ride</h1>
-    <div>
-      <p>Driver: <%= @ride.user.email %></p>
-      <p>Departure: <%= @ride.departure_time.strftime("%H:%M") %></p>
-      <p>From: <%= @ride.from_lat %> <%= @ride.from_lng %></p>
-      <p>To: <%= @ride.to_lat %> <%= @ride.to_lng %></p>
-    </div>
-  </div>
-  <div class="row">
-    <h1>This is your Passengers</h1>
-
-    <% @offers.each do |offer| %>
-    <div class="col-xs-12">
-      <div class="card">
-
-
-        </div>
-          <div class="card-description">
-            <h2><%=  offer.request.user.first_name %> <%=  offer.request.user.last_name %></h2>
-
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>This is your ride</h1>
+        <div class="dropdown">
+          <button style="background-color: #A9A9A9;" class="btn btn-secondary btn-ride dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <p><%= @ride.user.first_name %></p>
+            <%= cl_image_tag(@ride.user.photo, class: "card-user") %>
+          </button>
+          <div style="margin-top: 0; background-color: #A9A9A9;" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <div class="new-class">
+            <p class="dropdown-item" href="#">Email: <%= @ride.user.email %></p>
+            <p class="dropdown-item" href="#">Departure: <%=@ride.departure_time.strftime("%H:%M") %></p>
+            <p class="dropdown-item" href="#">From: <%= @ride.from_lat %> <%= @ride.from_lng %></p>
+            <p class="dropdown-item" href="#">To: <%= @ride.to_lat %> <%= @ride.to_lng %></p>
           </div>
-          <img class="card-user" <%= cl_image_tag(offer.request.user.photo, height: 100, width: 100) %>
-          <a class="card-link" href="#" ></a>
+          </div>
         </div>
       </div>
-      <% end %>
+
+      <div class="row">
+        <h1>This is your Passengers</h1>
+        <% @offers.each do |offer| %>
+        <div class="col-xs-12">
+
+
+          <div class="dropdown">
+            <button style="background-color: #A9A9A9;" class="btn btn-secondary btn-ride dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+              <p><%=  offer.request.user.first_name %> <%=  offer.request.user.last_name %></p>
+
+              <%= cl_image_tag(offer.request.user.photo, class: "card-user")%>
+              <a href="myrequests/<%= offer.id %>"><%  offer.id %></a>
+            </button>
+            <div style="margin-top: 0; background-color: #A9A9A9; width: 100%;" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <p class="dropdown-item" href="#"><li>start time: <%=  offer.request.start_time.strftime("%H:%M") %></li></p>
+              <p class="dropdown-item" href="#"><li>stop time: <%= offer.request.stop_time.strftime("%H:%M") %></li></p>
+              <p class="dropdown-item" href="#"><li>Status <%= offer.confirmed == nil ? "unanswered" : "#{offer.confirmed}" %></li></p>
+              <p class="dropdown-item" href="#"><li>Description: <%= offer.request.user.description %></li></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
-  </div>
 
 
 

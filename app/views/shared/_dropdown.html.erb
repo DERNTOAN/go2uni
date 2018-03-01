@@ -1,3 +1,0 @@
-<div class="card-category"><li>start time: <%=  offer.request.start_time.strftime("%H:%M") %></li>
-  <li>stop time: <%= offer.request.stop_time.strftime("%H:%M") %></li>
-  <li>Status <%= offer.confirmed == nil ? "unanswered" : "#{offer.confirmed}" %></li><li><a href="myrequests/<%= offer.id %>"><%=  offer.id %></li></a>
