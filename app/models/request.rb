@@ -1,7 +1,11 @@
 class Request < ApplicationRecord
   belongs_to :user
-  before_save :geocode_endpoints
+  before_validation :geocode_endpoints
 
+  validates :from_lng, presence: true
+  validates :from_lat, presence: true
+  validates :to_lng, presence: true
+  validates :to_lat, presence: true
 
   validates :start_time, presence: true
   validates :stop_time, presence: true
@@ -25,8 +29,4 @@ class Request < ApplicationRecord
         end
       end
     end
-  # validates :from_lng, presence: true
-  # validates :from_lat, presence: true
-  # validates :to_lng, presence: true
-  # validates :to_lat, presence: true
 end
