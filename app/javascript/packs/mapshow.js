@@ -1,21 +1,21 @@
 const mapElement = document.getElementById('mapshow');
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
-  const from = JSON.parse(mapElement.dataset.marker_from_driver);
+  const from = JSON.parse(mapElement.dataset.marker_from_self);
 const to = JSON.parse(mapElement.dataset.marker_to);
-const passengers = JSON.parse(mapElement.dataset.passengers);
+const counterparts = JSON.parse(mapElement.dataset.counterparts);
 
 const directionsDisplay = new google.maps.DirectionsRenderer();
 const directionsService = new google.maps.DirectionsService();
 
-const from_driver      = new google.maps.LatLng(from);
+const from_self      = new google.maps.LatLng(from);
 const destination = new google.maps.LatLng(to);
 
 const mapOptions = {
   zoom: 11,
-  center: from_driver
+  center: from_self
 }
 
-const driver_icon = {
+const self_icon = {
   url: "http://res.cloudinary.com/dekx98imz/image/upload/v1519828601/noun_128968_cc.png",
   scaledSize: {
     width: 50,
@@ -27,16 +27,14 @@ const driver_icon = {
 const map = new google.maps.Map(mapElement, mapOptions);
 directionsDisplay.setMap(map);
 
-const driver = new google.maps.Marker({
-  position: from_driver,
+const self_marker = new google.maps.Marker({
+  position: from_self,
   map: map,
-  animation: google.maps.Animation.BOUNCE,
-  icon: driver_icon
+  icon: self_icon
 });
 
-console.log(driver_icon)
 const request = {
-  origin:      from_driver,
+  origin:      from_self,
   destination: destination,
   travelMode:  google.maps.TravelMode.DRIVING
 };
@@ -49,22 +47,21 @@ directionsService.route(request, function(response, status) {
   }
 });
 
-passengers.forEach( (passenger) => {
-const from_passenger   = new google.maps.LatLng(passenger.from);
+counterparts.forEach( (counterpart) => {
+const from_counterpart   = new google.maps.LatLng(counterpart.from);
 
 
 const icon = {
-  url: passenger.avatar,
+  url: counterpart.avatar,
   scaledSize: {
     width: 80,
     height: 80
   }
 }
 
-const passager_from_marker = new google.maps.Marker({
-  position: from_passenger,
+const counterpart_from_marker = new google.maps.Marker({
+  position: from_counterpart,
   map: map,
-  animation: google.maps.Animation.BOUNCE,
   icon: icon
 });
 
@@ -90,13 +87,13 @@ const DirectionsRendererOptions = {
 directionsDisplay2.setOptions(DirectionsRendererOptions);
 
 
-  const request_passenger = {
-    origin:      from_passenger,
-    destination: from_driver,
+  const request_counterpart = {
+    origin:      from_counterpart,
+    destination: from_self,
     travelMode:  google.maps.TravelMode.WALKING
   };
 
-  directionsService.route(request_passenger, function(response, status) {
+  directionsService.route(request_counterpart, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay2.setDirections(response);
     }
