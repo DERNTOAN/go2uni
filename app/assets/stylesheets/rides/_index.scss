@@ -8,6 +8,12 @@ $bottom_gap:24px;
   z-index: -1;
 }
 
+.index-buttons{
+border-radius: 50px;
+
+}
+
+
 .form-opener{
   position:fixed;
   width:100vw;
@@ -23,6 +29,11 @@ $bottom_gap:24px;
   }
 }
 
+.buttons-box{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .new-ride-form{
   transition:all 0.5s ease;
   position: fixed;
@@ -41,7 +52,26 @@ $bottom_gap:24px;
     background-color:white;
   }
 
-#close-button{
+
+.new-request-form{
+  transition:all 0.5s ease;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background-color:rgba(255,255,255,0.7);
+  padding-bottom: 20px;
+  padding-top: 40px;
+  padding-right: 15px;
+  padding-left: 15px;
+
+}
+
+.new-request-form:focus-within {
+    background-color:white;
+  }
+
+.close-button{
   position:absolute;
   top:5px;
   right:5px;
