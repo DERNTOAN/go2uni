@@ -24,6 +24,7 @@
 
     <% @offers.each do |offer| %>
     <div class="col-xs-4">
+
       <div class="card">
         <div class="card-category"><li>start time: <%=  offer.request.start_time.strftime("%H:%M") %></li>
           <li>stop time: <%= offer.request.stop_time.strftime("%H:%M") %></li>
