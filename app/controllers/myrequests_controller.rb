@@ -19,7 +19,7 @@ class MyrequestsController < ApplicationController
 
   def show
     @myrequest = Request.find(params[:id])
-    @offers = Offer.where(request: @myrequest).where(confirmed: nil)
+    @offers = Offer.where(request: @myrequest)
     @rides = @offers.map { |offer| offer.ride }
     authorize @myrequest
 

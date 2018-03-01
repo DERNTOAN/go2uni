@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :requests, only: [:index, :new, :create]
   resources :rides, only: [:index, :show, :new, :create ] do
     resources :suggestions, only: :index
-    resources :offers, only: :create
+    resources :offers, only: [:create,:update]
   end
   resources :user, only: [:show ]
 
