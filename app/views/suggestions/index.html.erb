@@ -1,10 +1,22 @@
 
 
 <div class="wrapper-suggestions">
-  <div class="container">
-    <div class="row">
+  <div class="container tinder-container">
+    <ul>
+      <% @suggestions.each do |suggestion| %>
+        <li class="swipe-card-element tinder-card">
+          <div class="tinder-picture">
+            <%= cl_image_tag(suggestion.user.photo) %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-      <form action=<%= ride_offers_path %> method="post">
+
+<div class="hidden">
+ <form action=<%= ride_offers_path %> method="post">
       <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
 
 
@@ -29,17 +41,4 @@
       <input type="submit" class="btn btn-standard form-control">
 
       </form>
-
-
-    </div>
-  </div>
 </div>
-
-<!-- <div class="col-xs-6">
-
-      <ul class="list-group">
-
-        <li class="list-group-item active">Request id:  request.id</li>
-
-        <li class="list-group-item">  link_to , ride_offers_path(request_id request.id )
-        -->
