@@ -49,7 +49,8 @@ class MyrequestsController < ApplicationController
         },
 
         avatar: ride.user.photo.url,
-        id: ride.user.id,
+        user_id: ride.user.id,
+        ride_id: ride.id,
         first_name: ride.user.first_name,
         last_name: ride.user.last_name
       }

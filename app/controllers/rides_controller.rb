@@ -5,22 +5,29 @@ class RidesController < ApplicationController
     @rides = policy_scope(Ride)
     @rides = @rides.where.not(from_lng: nil, from_lat: nil, to_lng: nil, to_lat: nil)
 
-    @ride = Ride.new
 
-    @markers_from = @rides.map do |ride|
+
+
+    @drivers = @rides.map do |ride|
       {
+        from: {
         lng: ride.from_lng,
         lat: ride.from_lat,
+        },
+
+        to: {
+          lng: ride.to_lng,
+          lat: ride.to_lat,
+        },
+
+        avatar: ride.user.photo.url,
+        id: ride.user.id,
+        first_name: ride.user.first_name,
+        last_name: ride.user.last_name
       }
     end
 
-    @markers_to = @rides.map do |ride|
-      {
-        lng: ride.to_lng,
-        lat: ride.to_lat
-      }
-    end
-
+    @ride = Ride.new
     @request = Request.new
   end
 
