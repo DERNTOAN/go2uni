@@ -5,7 +5,7 @@
   data-marker_from_self="<%= @marker_from_passenger.to_json %>"
   data-counterparts="<%= @drivers.to_json %>"
   data-marker_to="<%= @marker_to.to_json %>"
-  data-map_as="passenger"
+  data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
 
   ></div>
   <div class="container">
@@ -14,16 +14,16 @@
       <% @walking_distances.each do |walking_distances_arr| %>
       <% ride = walking_distances_arr[:ride] %>
       <% element = walking_distances_arr[:distance_matrix]  %>
-      <button type="button" class="list-group-item list-group-item-action">
+      <button type="button" id="select-ride-<%= ride.id %>" data-driver="<%= ride.user.id %>" class="available-drivers list-group-item list-group-item-action">
         <span class="badge badge-primary badge-pill">Arrival time: <%= (ride.departure_time + element[:ride_duration_s] + element[:walk_to_dest_duration_s]).strftime("%I:%M %p")  %> </span>
 
         <span class="badge badge-primary badge-pill">leave home latest at: <%= (ride.departure_time - element[:walk_to_car_duration_s]).strftime("%I:%M %p")  %> </span>
         <p><%= ride.user.first_name %>
 
           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: <%= element[:walk_to_car_duration_s].to_f / 30 %>%" aria-valuenow="<%= element[:walk_to_car_duration_s] %>" aria-valuemin="0" aria-valuemax="3000"><%= element[:walk_to_car_duration_text] %> walk</div>
-            <div class="progress-bar bg-success" role="progressbar" style="width: <%= element[:ride_duration_s].to_f / 30 %>%" aria-valuenow="<%= element[:ride_duration_s] %>" aria-valuemin="0" aria-valuemax="3000"><%= element[:ride_duration_text] %> drive</div>
-            <div class="progress-bar bg-info" role="progressbar" style="width: <%= element[:walk_to_dest_duration_s].to_f / 30 %>%" aria-valuenow="<%= element[:walk_to_dest_duration_s] %>" aria-valuemin="0" aria-valuemax="3000"><%= element[:walk_to_dest_duration_text] %> walk to destination</div>
+            <div class="progress-bar" role="progressbar" style="width: <%= element[:walk_to_car_duration_s].to_f / 30 %>%" aria-valuenow="<%= element[:walk_to_car_duration_s] %>" aria-valuemin="0" aria-valuemax="3000"><i class="fas fa-blind"></i><%= element[:walk_to_car_duration_text] %></div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: <%= element[:ride_duration_s].to_f / 30 %>%" aria-valuenow="<%= element[:ride_duration_s] %>" aria-valuemin="0" aria-valuemax="3000"> <i class="fas fa-car"></i> <%= element[:ride_duration_text] %></div>
+            <div class="progress-bar bg-info" role="progressbar" style="width: <%= element[:walk_to_dest_duration_s].to_f / 30 %>%" aria-valuenow="<%= element[:walk_to_dest_duration_s] %>" aria-valuemin="0" aria-valuemax="3000"><i class="fas fa-blind"></i><%= element[:walk_to_dest_duration_text] %> to destination</div>
           </div>
         </p>
       </button>
