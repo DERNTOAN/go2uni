@@ -1,10 +1,32 @@
 <div class="myrequest-wrapper">
-<div class="container">
-  <div class="row">
-    <div class="row">
-      <div id="map" style="width: 100%; height: 100vh;" data-markers_from="<%= @markers_from.to_json %>" data-markers_to="<%= @markers_to.to_json %>">
-       </div>
-    </div>
+  <div
+  id="mapshowmyrequest"
+  style="width: 100%; height: 70vh;"
+  data-marker_from_self="<%= @marker_from_passenger.to_json %>"
+  data-counterparts="<%= @drivers.to_json %>"
+  data-marker_to="<%= @marker_to.to_json %>"
+  data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
+
+  ></div>
+  <div class="container">
+    <h3>Available drivers</h3>
+    <ul class="list-group">
+      <% @offers.each do |offer| %>
+      <button type="button" id="select-ride-<%= offer.ride.id %>" data-driver="<%= offer.ride.user.id %>" class="available-drivers list-group-item list-group-item-action">
+        <span class="badge badge-primary badge-pill">Arrival time: <%= (offer.ride.departure_time + offer.ride.duration + offer.duration_to_dest).strftime("%I:%M %p")  %> </span>
+
+        <span class="badge badge-primary badge-pill">leave home latest at: <%= (offer.ride.departure_time - offer.duration_to_car).strftime("%I:%M %p")  %> </span>
+        <p><%= offer.ride.user.first_name %>
+
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: <%= offer.duration_to_car.to_f / 30 %>%" aria-valuenow="<%= offer.duration_to_car %>" aria-valuemin="0" aria-valuemax="3000"><i class="fas fa-blind"></i><%= offer.duration_to_car / 60 %> min</div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: <%= offer.ride.duration.to_f / 30 %>%" aria-valuenow="<%= offer.ride.duration %>" aria-valuemin="0" aria-valuemax="3000"> <i class="fas fa-car"></i> <%= offer.ride.duration / 60 %> min</div>
+            <div class="progress-bar bg-info" role="progressbar" style="width: <%= offer.duration_to_dest.to_f / 30 %>%" aria-valuenow="<%= offer.duration_to_dest %>" aria-valuemin="0" aria-valuemax="3000"><i class="fas fa-blind"></i><%= offer.duration_to_dest / 60 %> min to destination</div>
+          </div>
+        </p>
+      </button>
+
+      <% end %>
+    </ul>
   </div>
-</div>
 </div>
