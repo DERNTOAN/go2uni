@@ -1,4 +1,4 @@
-function setupMap(location, origin, zoom) {
+function setupMap(mapLocation, origin, zoom) {
   const styledMapType = new google.maps.StyledMapType(
     [
     {
@@ -292,7 +292,7 @@ function setupMap(location, origin, zoom) {
       }
     }
 
-  const map = new google.maps.Map(location, mapOptions);
+  const map = new google.maps.Map(mapLocation, mapOptions);
   //Associate the styled map with the MapTypeId and set it to display.
   map.mapTypes.set('styled_map', styledMapType);
   map.setMapTypeId('styled_map');
