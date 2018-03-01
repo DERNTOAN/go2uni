@@ -2,45 +2,46 @@
   id="mapshow"
   style="width: 100%;
   height: 600px;"
-  data-marker_from_driver="<%= @marker_from_driver.to_json %>"
-  data-passengers="<%= @passengers.to_json %>"
+  data-marker_from_self="<%= @marker_from_driver.to_json %>"
+  data-counterparts="<%= @passengers.to_json %>"
   data-marker_to="<%= @marker_to.to_json %>"
+  data-map_as="driver"
+
 ></div>
 
-
 <div class="container">
-
-<div>
-  <h1>This is your ride</h1>
   <div>
-    <p>Driver: <%= @ride.user.email %></p>
-    <p>Departure: <%= @ride.departure_time %></p>
-    <p>From: <%= @ride.from_lat %> <%= @ride.from_lng %></p>
-    <p>To: <%= @ride.to_lat %> <%= @ride.to_lng %></p>
+    <h1>This is your ride</h1>
+    <div>
+      <p>Driver: <%= @ride.user.email %></p>
+      <p>Departure: <%= @ride.departure_time.strftime("%H:%M") %></p>
+      <p>From: <%= @ride.from_lat %> <%= @ride.from_lng %></p>
+      <p>To: <%= @ride.to_lat %> <%= @ride.to_lng %></p>
+    </div>
   </div>
-</div>
   <div class="row">
-  <h1>This is your Passengers</h1>
+    <h1>This is your Passengers</h1>
 
     <% @offers.each do |offer| %>
     <div class="col-xs-4">
-      <div>
-        <ul class="list-group">
-          <a href="myrequests/<%= offer.id %>"><li class="list-group-item active"> request id: <%=  offer.request.id %></li></a>
-          <li class="list-group-item"> start time: <%=  offer.request.start_time %></li>
-          <li class="list-group-item"> stop time: <%= offer.request.stop_time %> </li>
-          <li class="list-group-item"> from lng: <%= offer.request.from_lng %> </li>
-          <li class="list-group-item"> fom lat: <%= offer.request.from_lat %> </li>
-          <li class="list-group-item"> to lng: <%= offer.request.to_lng %> </li>
-          <li class="list-group-item"> to lat: <%= offer.request.to_lat %> </li>
-          <li class="list-group-item"> Status <%= offer.confirmed == nil ? "unanswered" : "#{offer.confirmed}" %> </li>
 
-        </ul>
+      <div class="card">
+        <div class="card-category"><li>start time: <%=  offer.request.start_time.strftime("%H:%M") %></li>
+          <li>stop time: <%= offer.request.stop_time.strftime("%H:%M") %></li>
+          <li>Status <%= offer.confirmed == nil ? "unanswered" : "#{offer.confirmed}" %></li><li><a href="myrequests/<%= offer.id %>"><%=  offer.id %></li></a>
+
+        </div>
+          <div class="card-description">
+            <h2><%=  offer.request.user.first_name %> <%=  offer.request.user.last_name %></h2>
+
+          </div>
+          <img class="card-user" <%= cl_image_tag(offer.request.user.photo, height: 100, width: 100) %>
+          <a class="card-link" href="#" ></a>
+        </div>
       </div>
-    </div>
       <% end %>
+    </div>
   </div>
-</div>
 
 
 

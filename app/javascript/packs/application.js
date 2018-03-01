@@ -12,7 +12,10 @@ import { inputShowRides } from "../rides/index";
 import { autocomplete } from "../components/autocomplete";
 import { tinderSwipe } from "../suggestions/tinder"
 import {Card, Direction, Stack} from "../swipe/index"
+import { navbarHide } from "../components/navbar"
 // import { mapshowride } from "./mapshow";
+
+navbarHide();
 
 inputShowRides();
 autocomplete("ride_from_address");

@@ -2,9 +2,12 @@
   padding-top: 70px;
   max-width: 100vw;
 
+
   form{
     label{
       width: 100%;
+      height: calc( (100vh - 64px ) / 8 );
+      margin:0;
     }
   }
 
@@ -16,12 +19,13 @@
   }
 
   .suggestion-field{
+    height:100%;
     display: flex;
     justify-content:space-between;
     align-items:center;
-    border: 1px solid lightgrey;
-    border-radius: 40px;
-    background-color: #96d9ef94;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    background-color: white;
     box-shadow: 2px 2px 2px lightgrey;
     padding-right:24px;
 
@@ -48,7 +52,7 @@
   }
 
   input[type=checkbox]:checked + label > .suggestion-field{
-    background-color: green;
+    background-color: #00FF00;
   }
 }
 

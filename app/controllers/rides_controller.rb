@@ -36,7 +36,6 @@ class RidesController < ApplicationController
       icon: 'car.gif'
     }
 
-
     @marker_to = {
       lng: @ride.to_lng,
       lat: @ride.to_lat
