@@ -21,6 +21,5 @@ counterparts.forEach((counterpart) => {
     const car_marker = new google.maps.Marker( { position: from_counterpart, map: map, icon: car_icon });
     // showOneLeg(request_drive, map, "#00ff00");
 });
-fitBounds(bounds:LatLngBounds|LatLngBoundsLiteral, padding?:number)
 };
 
