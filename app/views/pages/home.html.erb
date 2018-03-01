@@ -3,19 +3,24 @@
   <h1>Pingo!</h1>
   <h2>Share the ride</h2>
   <h3>Make some friends</h3>
-  <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("bayreuth.jpg") %>);">
-    <div class="card-description">
-      <h2>Bayreuth</h2>
+  <div class="home-card-wrapper">
+      <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("bayreuth.jpg") %>);">
+      <div class="card-description">
+        <h2>Bayreuth</h2>
+      </div>
+      <%= link_to "", rides_path, class: "card-link" %>
     </div>
-  </div>
-  <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-    <div class="card-description">
-      <h2>Tübingen</h2>
+    <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("tuebingen.jpg") %>);">
+      <div class="card-description">
+        <h2>Tübingen</h2>
+      </div>
+      <%= link_to "", rides_path, class: "card-link"  %>
     </div>
-  </div>
-  <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-    <div class="card-description">
-      <h2>Aachen</h2>
+    <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("aachen.jpg") %>);">
+      <div class="card-description">
+        <h2>Aachen</h2>
+      </div>
+      <%= link_to "", rides_path, class: "card-link"  %>
     </div>
   </div>
 </div>
