@@ -3,8 +3,7 @@ $bottom_gap:24px;
 .map-dummy{
   background-color: blue;
   width:100vw;
-  height:calc(100vh - 70px);
-  top:70px;
+  height: 100vh;
   position:fixed;
   z-index: -1;
 }

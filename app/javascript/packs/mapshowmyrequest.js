@@ -405,39 +405,40 @@ function drawAllRoutes(from, to) {
 function selectRide() {
   drawAllRoutes()
   const mapElement = document.getElementById('mapshowmyrequest');
-  const available_rides = JSON.parse(mapElement.dataset.rides_tags);
-  console.log(available_rides)
-  available_rides.forEach((select_ride_id) => {
-    const selectButton = document.getElementById(select_ride_id);
-    console.log(selectButton)
-    selectButton.addEventListener("click", (event) => {
-      const from = JSON.parse(mapElement.dataset.marker_from_self);
-      const to = JSON.parse(mapElement.dataset.marker_to);
+  if (mapElement) {
+    const available_rides = JSON.parse(mapElement.dataset.rides_tags);
+    console.log(available_rides)
+    available_rides.forEach((select_ride_id) => {
+      const selectButton = document.getElementById(select_ride_id);
+      console.log(selectButton)
+      selectButton.addEventListener("click", (event) => {
+        const from = JSON.parse(mapElement.dataset.marker_from_self);
+        const to = JSON.parse(mapElement.dataset.marker_to);
 
-      const from_self      = new google.maps.LatLng(from);
-      const to_self      = new google.maps.LatLng(to);
+        const from_self      = new google.maps.LatLng(from);
+        const to_self      = new google.maps.LatLng(to);
 
-      const self_icon = { url: from.avatar, scaledSize: { width: 70, height: 70 } }
-      const dest_icon = { scaledSize: { width: 70, height: 70 }, url: "http://res.cloudinary.com/dekx98imz/image/upload/v1519862978/noun_758530_cc.png" }
+        const self_icon = { url: from.avatar, scaledSize: { width: 70, height: 70 } }
+        const dest_icon = { scaledSize: { width: 70, height: 70 }, url: "http://res.cloudinary.com/dekx98imz/image/upload/v1519862978/noun_758530_cc.png" }
 
-      const map = setupMap(mapElement, from_self, 8);
-      const self_marker = new google.maps.Marker( { position: from_self, map: map, icon: self_icon } );
-      const self_to_marker = new google.maps.Marker( { position: to_self, map: map, icon: dest_icon });
-      const travel_time = {};
-      const counterparts = JSON.parse(mapElement.dataset.counterparts);
-      console.log(counterparts)
+        const map = setupMap(mapElement, from_self, 8);
+        const self_marker = new google.maps.Marker( { position: from_self, map: map, icon: self_icon } );
+        const self_to_marker = new google.maps.Marker( { position: to_self, map: map, icon: dest_icon });
+        const travel_time = {};
+        const counterparts = JSON.parse(mapElement.dataset.counterparts);
+        console.log(counterparts)
 
-      // const driver = counterparts.find(function(counterpart) {
-      //   counterpart.id ===
-      //   return element > 10;
-      // });
+        // const driver = counterparts.find(function(counterpart) {
+        //   counterpart.id ===
+        //   return element > 10;
+        // });
 
-      showRouteOneCounterpart(map, from_self, to_self, travel_time, driver);
+        showRouteOneCounterpart(map, from_self, to_self, travel_time, driver);
+
+      })
 
     })
-
-  })
-
+  }
 
 
 }

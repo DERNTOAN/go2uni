@@ -1,5 +1,7 @@
 class Ride < ApplicationRecord
-  before_save :geocode_endpoints
+  before_validation :geocode_endpoints
+  before_validation :compute_duration_and_distance
+
 
   belongs_to :user
 
@@ -32,4 +34,19 @@ class Ride < ApplicationRecord
       end
     end
   end
+
+  def compute_duration_and_distance
+    if(self.from_lat && self.from_lng && self.to_lat && self.to_lng)
+      url_ride= "https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{self.from_lat},#{self.from_lng}&destinations=#{self.to_lat},#{self.to_lng}&mode=driving&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+      distances_ride = JSON.parse(open(url_ride).read)
+      unless distances_ride["rows"][0]["elements"][0]["status"] == "ZERO RESULTS"
+        self.duration = distances_ride["rows"][0]["elements"][0]["duration"]["value"]
+        self.distance = distances_ride["rows"][0]["elements"][0]["distance"]["value"]
+      end
+    else
+      self.duration = 9999999
+      self.distance = 9999999
+    end
+  end
+
 end

@@ -1,5 +1,28 @@
+.small-navbar{
+  z-index:4;
+  background: white;
+  height:32px;
+  background-color:grey;
+
+}
+
+.navbar-opener{
+  position:fixed;
+  top:10px;
+  right:10px;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-color:rgba(255,255,255,1.0);
+  z-index:3;
+}
+
 /* Main navbar */
 .navbar-wagon {
+  z-index:3;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: white;
   transition: all 0.3s ease;

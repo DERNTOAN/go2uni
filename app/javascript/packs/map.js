@@ -20,7 +20,9 @@ function calcRoute(from_lat, from_lng, to_lat, to_lng) {
 
 const mapElement = document.getElementById('map');
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
-  const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
+  const map = new GMaps({ el: '#map', lat: 0, lng: 0, fullscreenControl: false, streetViewControl: false, mapTypeControl: false,
+  rotateControl: false
+ });
   const markers_from = JSON.parse(mapElement.dataset.markers_from);
   const markers_to = JSON.parse(mapElement.dataset.markers_to);
 

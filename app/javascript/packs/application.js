@@ -10,7 +10,10 @@
 import "bootstrap";
 import { inputShowRides } from "../rides/index";
 import { autocomplete } from "../components/autocomplete";
+import { navbarHide } from "../components/navbar"
 // import { mapshowride } from "./mapshow";
+
+navbarHide();
 
 inputShowRides();
 autocomplete("ride_from_address");
