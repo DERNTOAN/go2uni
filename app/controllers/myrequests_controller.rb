@@ -1,6 +1,6 @@
 class MyrequestsController < ApplicationController
   def index
-    @myrequests = policy_scope(Request).where("user_id = #{params[:id]}")
+    @myrequests = policy_scope(Request).where("user_id = #{current_user.id}")
     @offers = Offer.all
     @markers_from = @myrequests.map do |myrequest|
       {
