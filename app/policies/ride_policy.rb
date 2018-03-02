@@ -10,7 +10,7 @@ class RidePolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin? || record.user == user
+    user.admin? || record.user == user || record.passengers.map(&:id).include?(user.id)
   end
 
   def create?

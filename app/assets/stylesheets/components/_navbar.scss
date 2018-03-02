@@ -2,7 +2,7 @@
   z-index:4;
   background: white;
   height:32px;
-  background-color:grey;
+  background-color:$secondary;
 
 }
 
@@ -20,6 +20,18 @@
   z-index:3;
 }
 
+.navbar-closer{
+  width:25px;
+  height:25px;
+  padding: 0
+}
+
+.navbar-dropdown-icon {
+  width:25px;
+  height:25px;
+  padding: 0
+}
+
 /* Main navbar */
 .navbar-wagon {
   z-index:3;
@@ -31,7 +43,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position:fixed;
+  position: fixed;
   top:0;
   left:0;
   right:0;
@@ -60,7 +72,7 @@
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0;
 }
 
 /* Navbar link */

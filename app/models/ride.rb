@@ -4,7 +4,9 @@ class Ride < ApplicationRecord
 
 
   belongs_to :user
-
+  has_many :offers
+  has_many :requests, through: :offers
+  has_many :passengers, through: :requests, source: :user
   validates :seats, presence: true
   validates :seats, inclusion: {in: (1..8).to_a}
 
