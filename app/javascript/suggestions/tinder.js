@@ -15,8 +15,8 @@ function tinderSwipe(){
   const config = {
         throwOutConfidence: (xOffset, yOffset, element) => {
                 //decide if throw was successful
-                const xConfidence = Math.min((Math.abs(xOffset) / element.offsetWidth)*1.5, 1);
-                const yConfidence = Math.min((Math.abs(yOffset) / element.offsetHeight)*1.5, 1);
+                const xConfidence = Math.min((Math.abs(xOffset) / element.offsetWidth)*2, 1);
+                const yConfidence = Math.min((Math.abs(yOffset) / element.offsetHeight)*2, 1);
                 return Math.max(xConfidence, yConfidence);
         }
   };

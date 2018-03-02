@@ -1,7 +1,10 @@
 
 
 <div class="wrapper-suggestions">
+
   <div class="container tinder-container">
+      <h3>Choose your passengers</h3>
+
     <form action=<%= ride_offers_path %> method="post">
       <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
 
@@ -9,32 +12,36 @@
         <% @suggestions.each do |suggestion| %>
           <input type="checkbox" id=<%= "#{suggestion.id}" %> name=<%= "#{suggestion.id}"%> >
 
-          <label for="">
           <li class="swipe-card-element tinder-card">
               <div class="tinder-picture text-center">
                 <%= cl_image_tag(suggestion.user.photo) %>
               </div>
               <div class="tinder-card-info">
                 <h3><%= suggestion.user.first_name  %>, <%= suggestion.user.age %> </h3>
-                <p><%= suggestion.from_address  %></p>
                 <p><%= suggestion.user.description %></p>
               </div>
               <div class="max-passenger-cover hidden">
                 <h3>Car full</h3>
               </div>
           </li>
-          </label>
         <% end %>
       </ul>
       <input type="submit" class="btn btn-standard tinder-submit">
     </form>
 
     <div class="seats">
-      <% @ride.seats.times do %>
-        <div class="one-seat">
-          <i class="fas fa-certificate fa-4x"></i>
-        </div>
-      <% end %>
+      <div class="row">
+        <% @ride.seats.times do %>
+          <div class="one-chair col-xs-3">
+            <div class="chair">
+              <%= image_tag "carseat.png"  %>
+            </div>
+            <div class="one-seat">
+              <i class="fas fa-certificate fa-3x"></i>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
