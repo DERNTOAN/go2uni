@@ -1,0 +1,91 @@
+.profile-driver {
+  height: 160px;
+  width: 375px;
+  background-color: #FDCD00;
+  position: relative;
+  border-radius: 40px;
+  margin-top: -14px;
+  left: -15px;
+
+}
+
+.driver-avatar {
+  position: absolute;
+  left: 1px;
+  top: 10px;
+}
+
+.name_age {
+  position: absolute;
+  top: 35px;
+  left: 53px;
+}
+
+.from-class {
+  position: absolute;
+  left: 15px;
+  bottom: 50px;
+}
+
+
+
+.to-class {
+  position: absolute;
+  left: 15px;
+  top: 110px;
+}
+
+
+
+.departure-time{
+  position: absolute;
+  left: 168px;
+  top: 35px;
+
+}
+
+.wrapper-ride-show{
+  .ride-symbols {
+    width: 20px;
+  }
+}
+
+.ride-role{
+  position: absolute;
+  right: 15px;
+  top: 35px;
+}
+
+.profile-passenger {
+  height: 80px;
+  width: 375px;
+  background-color: #FEE680;
+  position: relative;
+  border-radius: 40px;
+  margin-top: -14px;
+  left: -15px;
+}
+
+.passenger-avatar {
+  position: absolute;
+  left: 1px;
+  top: 10px;
+}
+
+.name_age_passenger {
+  position: absolute;
+  top: 35px;
+  left: 53px;
+}
+
+.passenger-pending {
+  position: absolute;
+  right: 15px;
+  top: 35px;
+}
+
+.pending {
+  background-color: #F2F2F2;
+}
+
+

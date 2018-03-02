@@ -62,6 +62,10 @@ class RidesController < ApplicationController
 
       avatar: request.user.photo.url
       }
+
+
+
+
     end
 
     lats = [ @ride.from_lat, @ride.to_lat, @passengers.map { |passenger| passenger[:from][:lat] }].flatten
@@ -100,6 +104,8 @@ class RidesController < ApplicationController
 
   def destroy
   end
+
+
 
   private
 
