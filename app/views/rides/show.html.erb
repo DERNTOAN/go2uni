@@ -11,104 +11,86 @@
   >
 </div>
 
-<div id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="card">
-    <div class="card-header" role="tab" id="headingOne">
-      <h5 class="mb-0">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h5>
+
+<div class="rideshow-container">
+
+  <div class="drivers-dash">
+    <h4><%= @ride.user.first_name %>, <%= @ride.user.age %></h4>
+    <p>
+      <%= cl_image_tag(@ride.user.photo, class: "avatar driver-avatar") %>
+    </p>
+    <p>
+      <%= image_tag("to.png", class: "ride-symbols") %><strong> <%= @ride.from_address.split(",")[0] %> </strong>  <i class="fas fa-arrow-circle-right"></i> <strong> <%= @ride.to_address.split(",")[0] %></p> </strong>
+    </p>
+    <p>
+      <%= image_tag("clock.png", class: "ride-symbols") %><strong>  <%=@ride.departure_time.strftime("%H:%M") %> <i class="fas fa-arrow-circle-right"></i> <%=(@ride.departure_time + @ride.duration).strftime("%H:%M") %>
+
+      </p>
+
     </div>
 
-    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-      <div class="card-block">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
 
-
-  <div class="rideshow-container">
-
-    <div class="drivers-dash">
-      <h4><%= @ride.user.first_name %>, <%= @ride.user.age %></h4>
-      <p>
-        <%= cl_image_tag(@ride.user.photo, class: "avatar driver-avatar") %>
-      </p>
-      <p>
-        <%= image_tag("to.png", class: "ride-symbols") %><strong> <%= @ride.from_address.split(",")[0] %> </strong>  <i class="fas fa-arrow-circle-right"></i> <strong> <%= @ride.to_address.split(",")[0] %></p> </strong>
-      </p>
-      <p>
-        <%= image_tag("clock.png", class: "ride-symbols") %><strong>  <%=@ride.departure_time.strftime("%H:%M") %> <i class="fas fa-arrow-circle-right"></i> <%=(@ride.departure_time + @ride.duration).strftime("%H:%M") %>
-
-        </p>
-
-      </div>
-
-
-      <div class="list-group">
+    <div class="list-group">
 
 
 
 
 
-        <% @offers.each do |offer| %>
+      <% @offers.each do |offer| %>
 
-        <div id="accordion" role="tablist" aria-multiselectable="true">
+      <div id="accordion" role="tablist" aria-multiselectable="true">
 
-          <div class="card accordion-card">
-            <div class="card-header" role="tab" id="heading-<%= offer.id %>">
-              <h5 class="mb-0">
+        <div>
+          <div class="accordion-card card-header" role="tab" id="heading-<%= offer.id %>">
+            <h5 class="mb-0">
 
-                  <div class="offer-card" data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
+              <div class="offer-card" data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
 
 
-                    <div class="user-group">
+                <div class="user-group">
 
-                      <%= cl_image_tag(offer.request.user.photo, width:200, height:200, class:"avatar") %>
-                      <div class="ride-info">
+                  <%= cl_image_tag(offer.request.user.photo, width:200, height:200, class:"avatar") %>
+                  <div class="ride-info">
 
-                        <p>
-                          <%=  offer.request.user.first_name %>, <%=  offer.request.user.age %>
-                        </p>
-                        <div class="ride-info-icons">
+                    <p>
+                      <%=  offer.request.user.first_name %>, <%=  offer.request.user.age %>
+                    </p>
+                    <div class="ride-info-icons">
 
-                          <p>
-                            <%= image_tag("walker.png", class: "ride-symbols") %>
-                            <%= offer.duration_to_car / 60 %> min
-                          </p>
+                      <p>
+                        <%= image_tag("walker.png", class: "ride-symbols") %>
+                        <%= offer.duration_to_car / 60 %> min
+                      </p>
 
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="status-group">
-                      <% if offer.confirmed %>
-                      <i class="icon fas fa-question fa-2x" style="color: gray" ></i>
-                      <% elsif offer.confirmed.nil? %>
-                      <i class="icon fas fa-check fa-2x" style="color: green"></i>
-                      <% elsif offer.confirmed == false %>
-                      <i class="icon fas fa-times fa-2x" style="color: red" ></i>
-                      <% end %>
                     </div>
                   </div>
-              </h5>
-            </div>
+                </div>
 
+                <div class="status-group">
+                  <% if offer.confirmed %>
+                  <i class="icon fas fa-question fa-2x" style="color: gray" ></i>
+                  <% elsif offer.confirmed.nil? %>
+                  <i class="icon fas fa-check fa-2x" style="color: green"></i>
+                  <% elsif offer.confirmed == false %>
+                  <i class="icon fas fa-times fa-2x" style="color: red" ></i>
+                  <% end %>
+                </div>
+              </div>
+            </h5>
             <div id="collapse-<%= offer.id %>" class="collapse" role="tabpanel" aria-labelledby="heading-<%= offer.id %>">
-              <p>test tes tess</p>
+              <p>Who I am: <%=  offer.request.user.description  %></p>
             </div>
-
-
-
-
           </div>
-          <% end %>
-        </div>
 
+
+
+
+
+        </div>
+        <% end %>
       </div>
+
+    </div>
 
 
 
