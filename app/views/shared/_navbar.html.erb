@@ -18,7 +18,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "My Ride", "#{}", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Ride", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "My Requests", myrequests_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
@@ -42,13 +42,16 @@
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
+    <div class="dropdown navbar-dropdown-icon">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <% if user_signed_in? %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li>
-            <%= link_to "My Ride", "#{}", class: "navbar-wagon-item navbar-wagon-link" %>
-          </li>
+          <% ride = current_user.next_ride %>
+          <% if ride %>
+            <li>
+              <%= link_to "My Ride", ride_path(ride), class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+          <% end %>
           <li>
             <%= link_to "My Requests", myrequests_path, class: "navbar-wagon-item navbar-wagon-link" %>
           </li>

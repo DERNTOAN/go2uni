@@ -1,4 +1,5 @@
 class Request < ApplicationRecord
+  has_many :offers
   belongs_to :user
   before_validation :geocode_endpoints
 
