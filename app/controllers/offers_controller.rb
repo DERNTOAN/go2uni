@@ -24,7 +24,7 @@ class OffersController < ApplicationController
     if @offer.confirmed == true
       redirect_to ride_path(@offer.ride)
     else
-      redirect_to myrequests_path
+      redirect_to ride_path(@offer.ride)
     end
   end
 end
