@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="apple-touch-icon" sizes="180x180" href=<%= image_path "apple-touch-icon.png"  %>>
+  <link rel="icon" type="image/png" sizes="32x32" href=<%= image_path "favicon-32x32.png"%>>
+  <link rel="icon" type="image/png" sizes="16x16" href=<%= image_path "favicon-16x16.png" %>>
+  <link rel="manifest" href=<%= image_path "site.webmanifest"%>>
+  <link rel="mask-icon" href=<%= image_path "safari-pinned-tab.svg"%> color="#5bbad5">
+  <link rel="shortcut icon" href=<%= image_path "favicon.ico"%>>
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content=<%= image_path "browserconfig.xml"%>>
+  <meta name="theme-color" content="#ffffff">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>TODO</title>
+  <title>Pingo!</title>
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -15,7 +24,7 @@
   <%= yield %>
   <%= javascript_include_tag 'application' %>
   <%= javascript_pack_tag 'application' %>
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
   <%= javascript_pack_tag "map" %> <!-- add this line -->
   <%= javascript_pack_tag "mapshow" %> <!-- add this line -->
   <%= javascript_pack_tag "mapshowmyrequest" %> <!-- add this line -->

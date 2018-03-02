@@ -15,8 +15,8 @@ function tinderSwipe(){
   const config = {
         throwOutConfidence: (xOffset, yOffset, element) => {
                 //decide if throw was successful
-                const xConfidence = Math.min((Math.abs(xOffset) / element.offsetWidth)*1.5, 1);
-                const yConfidence = Math.min((Math.abs(yOffset) / element.offsetHeight)*1.5, 1);
+                const xConfidence = Math.min((Math.abs(xOffset) / element.offsetWidth)*2, 1);
+                const yConfidence = Math.min((Math.abs(yOffset) / element.offsetHeight)*2, 1);
                 return Math.max(xConfidence, yConfidence);
         }
   };
@@ -54,8 +54,9 @@ function tinderSwipe(){
     } else if (event.throwDirection.toString() == Direction.RIGHT.toString()){
       if (seated_counter < seats.length){
         console.log("right");
-        event.target.parentElement.previousElementSibling.checked = true;
-        let img_html = event.target.firstElementChild.innerHTML;
+        console.log(event.target.firstElementChild);
+        event.target.firstElementChild.checked = true;
+        let img_html = event.target.querySelector(".tinder-picture").innerHTML;
         seats[seated_counter].innerHTML = img_html;
         seated_counter += 1;
         if (seated_counter === seats.length){
