@@ -1,10 +1,31 @@
-<div>
+<div class="container">
   <h1>Share your ride!</h1>
+  <h2 style="color: red;">Check your inputs</h2>
   <div>
-    <%= simple_form_for @ride do |f| %>
-      <%= f.input :departure_time, as: :datetime %>
-      <%= f.input :seats, as: :integer %>
-      <%= f.button :submit, "share your ride" %>
+    <%= form_for @ride, html: {class: "form-ride"} do |f| %>
+    <div class="form-group flex-group">
+      <!-- <%= f.label :departure_time, "Departure" %> -->
+      <i class="far fa-clock"></i>
+      <%=  f.datetime_field :departure_time, value: "#{(Time.now + 1800).strftime("%Y-%m-%dT%H:%M")}", class: "form-control" %>
+    </div>
+    <div class="form-group flex-group">
+      <!-- <%= f.label :from_address, "From" %> -->
+      <i class="fas fa-map-marker"></i>
+      <%= f.text_field :from_address, class: "form-control", placeholder: "from here" %>
+    </div>
+
+    <div class="form-group flex-group">
+      <!-- <%= f.label :to_address, "To" %> -->
+      <i class="fas fa-compass"></i>
+      <%= f.text_field :to_address, class: "form-control", placeholder: "to there" %>
+    </div>
+
+    <div class="form-group flex-group">
+      <i class="fas fa-users"></i>
+      <%= f.number_field :seats, as: :integer, class: "form-control", placeholder: "Number of seats" %>
+    </div>
+
+    <%= f.submit "share your ride", class: "btn index-buttons" %>
     <% end %>
   </div>
 </div>

@@ -37,8 +37,11 @@ class RequestsController < ApplicationController
     @request = Request.create(request_params)
     authorize @request
     @request.user_id = current_user.id
-    @request.save
-    redirect_to myrequest_path(@request)
+    if @request.save
+      redirect_to myrequest_path(@request)
+    else
+      render :new
+    end
   end
 
   def edit

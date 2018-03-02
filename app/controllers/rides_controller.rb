@@ -70,8 +70,12 @@ class RidesController < ApplicationController
     @ride = Ride.create(ride_params)
     authorize @ride
     @ride.user_id = current_user.id
-    @ride.save
-    redirect_to ride_suggestions_path(@ride)
+
+    if @ride.save
+      redirect_to ride_suggestions_path(@ride)
+    else
+      render :new
+    end
   end
 
   def edit
