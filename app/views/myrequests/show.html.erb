@@ -19,6 +19,8 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
       <strong> <%= @myrequest.from_address.split(",").first %> </strong> =><strong> <%= @myrequest.to_address.split(",").first %> </strong>
     </p>
   </div>
+
+
   <ul class="list-group">
 
 
@@ -62,13 +64,6 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
           </div>
         </div>
 
-
-        <div class="offer-accept-button offer-button">
-
-        </div>
-        <div class="offer-reject-button offer-button">
-
-        </div>
         <div class="status-group">
           <%= link_to ride_offer_path(offer.ride, offer, {confirmed: false}), method: :put do %>
           <i class="icon fas fa-times fa-2x" style="color: red" ></i>
@@ -80,4 +75,5 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
       </li>
       <% end %>
     </ul>
-  </div>
+
+</div>
