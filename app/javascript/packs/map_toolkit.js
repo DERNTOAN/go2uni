@@ -287,8 +287,7 @@ function setupMap(mapLocation, origin, zoom) {
       mapTypeControl: false,
       rotateControl: false,
       mapTypeControlOptions: {
-        mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
-    'styled_map']
+        mapTypeIds: ['styled_map']
       }
     }
 

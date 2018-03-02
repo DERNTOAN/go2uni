@@ -17,7 +17,8 @@ import { navbarHide } from "../components/navbar"
 
 navbarHide();
 
-inputShowRides();
+inputShowRides("new-ride", "new-request");
+inputShowRides("new-request", "new-ride");
 autocomplete("ride_from_address");
 autocomplete("ride_to_address");
 autocomplete("request_from_address");

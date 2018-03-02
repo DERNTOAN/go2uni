@@ -18,7 +18,7 @@
           <h5>Offers:</h5>
           <h6><%= @offers.where(request_id: request.id).count %></h6>
         </div>
-          <%= link_to "", myrequest_path(user_id: current_user.id, id: request.id), class: "myrequest-link" %>
+          <%= link_to "", myrequest_path(id: request.id), class: "myrequest-link" %>
       </div>
     </div>
     <% end %>

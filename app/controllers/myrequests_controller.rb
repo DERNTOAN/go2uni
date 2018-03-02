@@ -1,6 +1,6 @@
 class MyrequestsController < ApplicationController
   def index
-    @myrequests = policy_scope(Request).where("user_id = #{params[:id]}")
+    @myrequests = policy_scope(Request).where("user_id = #{current_user.id}")
     @offers = Offer.all
     @markers_from = @myrequests.map do |myrequest|
       {
@@ -19,7 +19,7 @@ class MyrequestsController < ApplicationController
 
   def show
     @myrequest = Request.find(params[:id])
-    @offers = Offer.where(request: @myrequest).where(confirmed: nil)
+    @offers = Offer.where(request: @myrequest)
     @rides = @offers.map { |offer| offer.ride }
     authorize @myrequest
 
