@@ -24,7 +24,7 @@ def rand_in_range(from, to)
   rand * (to - from) + from
 end
 
-number_of_users = 10
+number_of_users = 0
 number_of_requests = 50
 number_of_rides = 20
 

@@ -11,12 +11,17 @@
 
           <label for="">
           <li class="swipe-card-element tinder-card">
-            <div class="tinder-picture">
-              <%= cl_image_tag(suggestion.user.photo) %>
-            </div>
-            <div class="tinder-card-info">
-              <%= suggestion.id  %>
-            </div>
+              <div class="max-passenger-cover hidden">
+                <h3>Car full</h3>
+              </div>
+              <div class="tinder-picture text-center">
+                <%= cl_image_tag(suggestion.user.photo) %>
+              </div>
+              <div class="tinder-card-info">
+                <h3><%= suggestion.user.first_name  %>, <%= suggestion.user.age %> </h3>
+                <p><%= suggestion.from_address  %></p>
+                <p><%= suggestion.user.description %></p>
+              </div>
           </li>
           </label>
         <% end %>
