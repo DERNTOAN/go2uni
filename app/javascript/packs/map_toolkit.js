@@ -280,7 +280,7 @@ function setupMap(mapLocation, origin, zoom) {
 
 
     const mapOptions = {
-      zoom: 11,
+      zoom: zoom,
       center: origin,
       fullscreenControl: false,
       streetViewControl: false,
@@ -307,6 +307,7 @@ function showOneLeg(request, map, color) {
     const directionsDisplay = new google.maps.DirectionsRenderer();
     directionsDisplay.setMap(map);
     const DirectionsRendererOptions = {
+      preserveViewport: true,
       polylineOptions: {
         strokeColor: color,
         strokeOpacity: 0.5,

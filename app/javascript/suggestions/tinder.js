@@ -34,29 +34,38 @@ function tinderSwipe(){
   stack.on('throwout', (event) => {
     // e.target Reference to the element that has been thrown out of the stack.
     // e.throwDirection Direction in which the element has been thrown (Direction.LEFT, Direction.RIGHT).
-    console.log(event);
-    console.log(event.target.parentElement.previousElementSibling);
+    // console.log(event);
+    // console.log(event.target.parentElement.previousElementSibling);
     console.log('Card has been thrown out of the stack.');
     console.log('Throw direction: ' + (event.throwDirection.toString() == Direction.LEFT.toString() ? 'left' : 'right'));
 
 
-    console.log(event.throwDirection.toString());
-    console.log(Direction.LEFT.toString());
+    // console.log(event.throwDirection.toString());
+    // console.log(Direction.LEFT.toString());
 
-    console.log(event.throwDirection == Direction.LEFT);
-    console.log(event.throwDirection.toString() == Direction.LEFT.toString());
+    // console.log(event.throwDirection == Direction.LEFT);
+    // console.log(event.throwDirection.toString() == Direction.LEFT.toString());
 
     if (event.throwDirection.toString() == Direction.LEFT.toString() ){
+      if (seated_counter < seats.length){
       console.log("left");
-      event.target.parentElement.previousElementSibling.checked = false;
+        event.target.parentElement.previousElementSibling.checked = false;
+      };
     } else if (event.throwDirection.toString() == Direction.RIGHT.toString()){
-      console.log("right");
-      event.target.parentElement.previousElementSibling.checked = true;
-      let img_html = event.target.firstElementChild.innerHTML;
-      seats[seated_counter].innerHTML = img_html;
-      seated_counter += 1;
-    }
-    console.log(event.target.parentElement.previousElementSibling.checked);
+      if (seated_counter < seats.length){
+        console.log("right");
+        event.target.parentElement.previousElementSibling.checked = true;
+        let img_html = event.target.firstElementChild.innerHTML;
+        seats[seated_counter].innerHTML = img_html;
+        seated_counter += 1;
+        if (seated_counter === seats.length){
+          document.querySelectorAll(".max-passenger-cover").forEach((element) => {
+            element.classList.toggle("hidden");
+          });
+        };
+      };
+    };
+    // console.log(event.target.parentElement.previousElementSibling.checked);
     event.target.classList.toggle("hidden");
   });
 

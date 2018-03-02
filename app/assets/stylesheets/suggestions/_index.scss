@@ -1,5 +1,4 @@
 .wrapper-suggestions{
-  padding-top: 70px;
   max-width: 100vw;
 
 
@@ -62,6 +61,20 @@
     list-style: none;
 
   }
+
+  .max-passenger-cover{
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    background-color:rgba(0,0,0,0.6);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
   .tinder-card{
     display:flex;
     flex-direction:column;
@@ -75,8 +88,10 @@
 
     .tinder-picture{
       background-color:white;
-      height: 80%;
+      height: 60%;
       img{
+        height: 200px;
+        border-radius: 50%;
       }
     }
   }
@@ -104,5 +119,8 @@
 
 }
 
-
-
+.swipe-card-element {
+  position: absolute;
+  margin: 50px;
+  height: 486;
+}
