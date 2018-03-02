@@ -58,6 +58,10 @@ class RidesController < ApplicationController
 
       avatar: request.user.photo.url
       }
+
+
+
+
     end
   end
 
@@ -82,6 +86,8 @@ class RidesController < ApplicationController
 
   def destroy
   end
+
+
 
   private
 

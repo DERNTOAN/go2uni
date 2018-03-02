@@ -8,63 +8,70 @@
   data-map_as="driver"
   ></div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <h1>This is your ride</h1>
-        <div id="accordion" role="tablist" aria-multiselectable="true">
-          <div class="profile-driver">
-            <div class="card-header" role="tab" id="headingOne">
-              <h5 class="mb-0">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"  aria-expanded="true" aria-controls="collapseOne">
-                  <p class="name_age"><%= @ride.user.first_name %> <%= @ride.user.age %></p>
+  <div class="wrapper-ride-show">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="profile-driver">
+              <div class="card-header" role="tab" id="headingOne">
+                <h5 class="mb-0">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"  aria-expanded="true" aria-controls="collapseOne">
+                    <p class="name_age"><%= @ride.user.first_name %>, <%= @ride.user.age %></p>
 
-                  <p> Departure: <%=@ride.departure_time.strftime("%H:%M") %></p>
-                  <%= cl_image_tag(@ride.user.photo, class: "driver-avatar") %>
-                  <p> From: <%= @ride.from_address.split(",")[0] %> </p>
-                  <p> To: <%= @ride.to_address.split(",")[0] %></p>
-                </a>
-              </h5>
-            </div>
-            <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-              <div class="card-block">
-                <div class="driver-description">
-                  <p>Description: <%= @ride.user.description %></p>
+                    <p class ="departure-time"> <%= image_tag("clock.png", class: "ride-symbols") %> <%=@ride.departure_time.strftime("%H:%M") %></p>
+                    <p class="ride-role">Driver</p>
+                    <%= cl_image_tag(@ride.user.photo, class: "avatar driver-avatar") %>
+                    <p class="from-class"> <%= image_tag("from.png", class: "ride-symbols") %> <%= @ride.from_address.split(",")[0] %> </p>
+                    <p class="to-class"> <%= image_tag("to.png", class: "ride-symbols") %> <%= @ride.to_address.split(",")[0] %></p>
+                  </a>
+                </h5>
+              </div>
+              <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="card-block">
+                  <div class="driver-description">
+                    <p>Description: <%= @ride.user.description %></p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <h1>This is your Passengers</h1>
-      <% @offers.each do |offer| %>
-      <div class="col-xs-12">
-        <div id="accordion" role="tablist" aria-multiselectable="true">
-         <div class="card">
-          <div class="card-header" role="tab" id="headingOne">
-            <h5 class="mb-0">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapseOne">
-                <p><%=  offer.request.user.first_name %> <%=  offer.request.user.last_name %></p>
-                <%= cl_image_tag(offer.request.user.photo, class: "card-user")%>
-                <a href="myrequests/<%= offer.id %>"><% offer.id %></a>
-              </a>
-            </h5>
-          </div>
-          <div id="collapse-<%= offer.id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-            <div class="card-block">
-              <p>start time: <%=  offer.request.start_time.strftime("%H:%M") %></p>
-              <p>stop time: <%= offer.request.stop_time.strftime("%H:%M") %></p>
-              <p>Status <%= offer.confirmed == nil ? "unanswered" : "#{offer.confirmed}" %></p>
-              <p>Description: <%= offer.request.user.description %></p>
+      <div class="row">
+        <% @offers.each do |offer| %>
+        <div class="col-xs-12">
+          <div id="accordion" role="tablist" aria-multiselectable="true">
+           <div class="profile-passenger">
+            <div class="card-header" role="tab" id="headingOne">
+              <h5 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapseOne">
+                  <p class="name_age_passenger"><%=  offer.request.user.first_name %>, <%=  offer.request.user.age %></p>
+                  <%= cl_image_tag(offer.request.user.photo, class: "avatar passenger-avatar")%>
+                  <a href="myrequests/<%= offer.id %>"><% offer.id %></a>
+                  <p class="passenger-pending"> <% if offer.confirmed  %>
+                    Confirmed
+                    <% else %>
+                    Pending
+                    <% end %>
+                  </p>
+                </a>
+              </h5>
+            </div>
+            <div id="collapse-<%= offer.id %>" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+              <div class="card-block">
+                <p>start time: <%=  offer.request.start_time.strftime("%H:%M") %></p>
+                <p>stop time: <%= offer.request.stop_time.strftime("%H:%M") %></p>
+                <p>Status <%= offer.confirmed == nil ? "unanswered" : "#{offer.confirmed}" %></p>
+                <p>Description: <%= offer.request.user.description %></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
 
