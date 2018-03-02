@@ -54,8 +54,9 @@ function tinderSwipe(){
     } else if (event.throwDirection.toString() == Direction.RIGHT.toString()){
       if (seated_counter < seats.length){
         console.log("right");
-        event.target.parentElement.previousElementSibling.checked = true;
-        let img_html = event.target.firstElementChild.innerHTML;
+        console.log(event.target.firstElementChild);
+        event.target.firstElementChild.checked = true;
+        let img_html = event.target.querySelector(".tinder-picture").innerHTML;
         seats[seated_counter].innerHTML = img_html;
         seated_counter += 1;
         if (seated_counter === seats.length){

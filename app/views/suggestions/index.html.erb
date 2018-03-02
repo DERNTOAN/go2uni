@@ -10,9 +10,9 @@
 
       <ul>
         <% @suggestions.each do |suggestion| %>
-          <input type="checkbox" id=<%= "#{suggestion.id}" %> name=<%= "#{suggestion.id}"%> >
-
           <li class="swipe-card-element tinder-card">
+              <input type="checkbox" id=<%= "#{suggestion.id}" %> name=<%= "#{suggestion.id}"%> >
+
               <div class="tinder-picture text-center">
                 <%= cl_image_tag(suggestion.user.photo) %>
               </div>
