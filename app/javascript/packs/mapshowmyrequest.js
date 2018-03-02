@@ -15,10 +15,11 @@ function selectRide() {
       const from = JSON.parse(mapElement.dataset.marker_from_self);
       const from_self      = new google.maps.LatLng(from);
       const self_icon = { url: from.avatar, scaledSize: { width: 70, height: 70 } }
-      let map = setupMap(mapElement, from_self, 11);
+      let map = setupMap(mapElement, from_self, 14);
       let self_marker = new google.maps.Marker( { position: from_self, map: map, icon: self_icon } );
       const counterparts = JSON.parse(mapElement.dataset.counterparts);
       addMarkersFrom(map, counterparts);
+
 
     const available_rides = JSON.parse(mapElement.dataset.rides_tags);
     available_rides.forEach((select_ride_id) => {
@@ -29,7 +30,6 @@ function selectRide() {
         const to_self      = new google.maps.LatLng(to);
         const dest_icon = { scaledSize: { width: 70, height: 70 }, url: "http://res.cloudinary.com/dekx98imz/image/upload/v1519862978/noun_758530_cc.png" }
         const self_to_marker = new google.maps.Marker( { position: to_self, map: map, icon: dest_icon });
-        console.log(counterparts)
 
       const driver = counterparts.find(function(counterpart) {
         return `select-ride-${counterpart.ride_id}` === select_ride_id;

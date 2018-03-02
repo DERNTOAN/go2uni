@@ -8,8 +8,10 @@ const to = JSON.parse(mapElement.dataset.marker_to);
 const counterparts = JSON.parse(mapElement.dataset.counterparts);
 const from_self      = new google.maps.LatLng(from);
 const destination = new google.maps.LatLng(to);
-const self_icon = { url: "https://res.cloudinary.com/dekx98imz/image/upload/v1519916998/noun_128968_cc.png", scaledSize: { width: 50, height: 50 } }
-const map = setupMap(mapElement, from_self, 8)
+const self_icon = { url: "https://res.cloudinary.com/dekx98imz/image/upload/v1519916998/noun_128968_cc.png", scaledSize: { width: 50, height: 50 } };
+const map = setupMap(mapElement, from_self, 14);
+
+
 const self_marker = new google.maps.Marker({ position: from_self, map: map, icon: self_icon });
 
 const request = { origin: from_self, destination: destination, travelMode:  google.maps.TravelMode.DRIVING };
@@ -40,7 +42,6 @@ counterparts.forEach( (counterpart) => {
   });
 
 });
-
 
 
 }

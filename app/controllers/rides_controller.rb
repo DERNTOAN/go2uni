@@ -26,6 +26,10 @@ class RidesController < ApplicationController
         last_name: ride.user.last_name
       }
     end
+    @mapbounds = {
+      min: { lat: @rides.map { |ride| ride.from_lat }.max, lng: @rides.map { |ride| ride.from_lng }.min },
+      max: { lat: @rides.map { |ride| ride.from_lat }.min, lng: @rides.map { |ride| ride.from_lng }.max }
+    }
 
     @ride = Ride.new
     @request = Request.new
@@ -59,6 +63,16 @@ class RidesController < ApplicationController
       avatar: request.user.photo.url
       }
     end
+
+    lats = [ @ride.from_lat, @ride.to_lat, @passengers.map { |passenger| passenger[:from][:lat] }].flatten
+    lngs = [ @ride.from_lng, @ride.to_lng, @passengers.map { |passenger| passenger[:from][:lng] }].flatten
+
+
+    @mapbounds = {
+      min: { lat: lats.max, lng: lngs.min },
+      max: { lat: lats.min, lng: lngs.max }
+    }
+
   end
 
   def new
