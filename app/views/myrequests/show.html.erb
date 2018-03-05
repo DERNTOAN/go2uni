@@ -21,59 +21,68 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
   </div>
 
 
-  <ul class="list-group">
 
 
 
-    <div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="list-group" role="tablist" aria-multiselectable="true">
 
 
 
-      <% @offers.each do |offer| %>
+    <% @offers.each do |offer| %>
 
 
 
-      <li class="offer-card">
-        <div class="user-group">
+    <div class="offer-card">
+      <div class="card-header" id="heading-<%= offer.id %>" data-toggle="collapse" data-target="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
 
-          <%= cl_image_tag(offer.ride.user.photo, width:200, height:200, class:"avatar") %>
-          <div class="ride-info">
+          <div class="user-group">
 
-            <p>
-              <%= offer.ride.user.first_name %>, <%= offer.ride.user.age %>
-            </p>
-            <div class="ride-info-icons">
+            <%= cl_image_tag(offer.ride.user.photo, width:200, height:200, class:"avatar") %>
+            <div class="ride-info">
 
               <p>
-
-                <i class="fas fa-home"></i>
-
-                <%= (offer.ride.departure_time - offer.duration_to_car).strftime("%I:%M")  %>
-                <i class="fas fa-arrow-circle-right"></i>
-                <%= (offer.ride.departure_time + offer.ride.duration + offer.duration_to_dest).strftime("%I:%M")  %>
+                <%= offer.ride.user.first_name %>, <%= offer.ride.user.age %>
               </p>
+              <div class="ride-info-icons">
 
-              <p>
+                <p>
 
-                <i class="fas fa-stopwatch"></i>
-                <%= (offer.duration_to_car + offer.ride.duration + offer.duration_to_dest) / 60 %> min
+                  <i class="fas fa-home"></i>
 
-              </p>
+                  <%= (offer.ride.departure_time - offer.duration_to_car).strftime("%I:%M")  %>
+                  <i class="fas fa-arrow-circle-right"></i>
+                  <%= (offer.ride.departure_time + offer.ride.duration + offer.duration_to_dest).strftime("%I:%M")  %>
+                </p>
 
+                <p>
+
+                  <i class="fas fa-stopwatch"></i>
+                  <%= (offer.duration_to_car + offer.ride.duration + offer.duration_to_dest) / 60 %> min
+
+                </p>
+
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="status-group">
-          <%= link_to ride_offer_path(offer.ride, offer, {confirmed: false}), method: :put do %>
-          <i class="icon fas fa-times fa-2x" style="color: red" ></i>
-          <% end %>
-          <%= link_to ride_offer_path(offer.ride,offer, {confirmed: true}), :method=> :put do %>
-          <i class="icon fas fa-check fa-2x" style="color: green"></i>
-          <% end %>
+          <div class="status-group">
+            <%= link_to ride_offer_path(offer.ride, offer, {confirmed: false}), method: :put do %>
+            <i class="icon fas fa-times fa-2x" style="color: red" ></i>
+            <% end %>
+            <%= link_to ride_offer_path(offer.ride,offer, {confirmed: true}), :method=> :put do %>
+            <i class="icon fas fa-check fa-2x" style="color: green"></i>
+            <% end %>
+          </div>
         </div>
-      </li>
-      <% end %>
-    </ul>
+      <div id="collapse-<%= offer.id %>" class="card-details collapse" aria-labelledby="heading-<%= offer.id %>" data-parent="#accordion">
+        <div class="card-body">
+          <%=  offer.request.user.description %>
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+        </div>
+      </div>
+
+    </div>
+    <% end %>
+  </div>
 
 </div>
