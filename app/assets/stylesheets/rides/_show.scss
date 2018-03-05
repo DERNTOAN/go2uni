@@ -1,6 +1,6 @@
 .rideshow-container{
   width: 100%;
-  background-color: $secondary;
+  background-color: $third;
   display: grid;
   grid-gap: 1rem;
   padding: 5px;
@@ -10,7 +10,6 @@
     flex-direction: column;
     width: 100%;
     margin: 5px 0;
-    padding: 5px;
     background-color: $main;
     border-radius: 50px;
     text-align: center;
@@ -27,14 +26,20 @@
         flex-grow: 1;
         padding: 5px 5px;
         text-align: left;
-    line-height: 25px;
-    p {
-      font-size: 13px;
-    }
+        line-height: 25px;
+        p {
+          font-size: 13px;
+        }
         h4 {
           margin-top: 0;
 
         }
+        .info-container {
+          align-self:center;
+          width: 100%;
+          padding-right: 40px;
+        }
+
         .avatar{
           border-radius: 50%;
           background-color: white;
@@ -42,6 +47,11 @@
           height: 70px;
           text-align: left;
           margin-right: 10px;
+        }
+
+        .trip-data {
+          display: flex;
+          justify-content: space-between;
         }
 
       }
@@ -57,10 +67,24 @@
         margin: 0;
       }
     }
+
+    .more-infos {
+      text-align: left;
+      background-color: $secondary;
+      border-radius: 0 0 40px 40px;
+      padding: 5px;
+
+      h5 {
+        margin-bottom: 0;
+      }
+      p{
+        font-size: 13px;
+        margin: 0;
+      }
+    }
   }
 
   .offer-card{
-    padding: 5px 5px 10px 10px;
     background-color: #fbfbfb;
     border-radius: 40px;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
@@ -69,12 +93,45 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 5px;
+    .highlight {
+      color: $dark_blue;
+      font-weight: bold;
+    }
+    p {
+
+      font-size: 13px;
+      margin: 0;
+
+    }
+
+    h5 {
+      margin-bottom: 5px;
+    }
 
     .card-header {
+      padding: 5px;
+      p {
+        font-size: 17px;
+
+      }
       display: flex;
       width: 100%;
       justify-content: space-between;
       align-items: center;
+    }
+    .more-infos {
+      text-align: left;
+      background-color: #eee;
+      border-radius: 0 0 40px 40px;
+      padding: 10px;
+
+      h5 {
+        margin-bottom: 0;
+      }
+      p{
+        font-size: 13px;
+        margin: 0;
+      }
     }
     .user-group{
       display: flex;
@@ -99,13 +156,22 @@
         display: flex;
         flex-grow: 1;
         flex-direction: column;
+        p{
+          font-weight: bold;
+        }
         .ride-info-icons{
+          flex-grow: 1;
           p{
             font-size: 12px;
-            font-weight:bold;
             margin-bottom: 2px;
-
+            font-weight: lighter;
           }
+        }
+      }
+      .music-style {
+        font-size: 28px;
+        span {
+          font-size: 12px;
         }
       }
 
@@ -125,13 +191,15 @@
         width: 60px;
       }
     }
+
+
   }
 
 }
 
 
 .ride-symbols {
-  height: 18px;
-  width: 18px;
+  height: 14px;
+  width: 14px;
 }
 
