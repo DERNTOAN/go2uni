@@ -1,3 +1,5 @@
+require_relative "seed_tables.rb"
+
 def geocode_address(thing)
   if thing.from_lng && thing.from_lat
     geocoded = Geocoder.search([thing.from_lat, thing.from_lng]).first
@@ -171,6 +173,7 @@ user.email = "admin@email.com"
 user.age = 99
 user.photo = Faker::Avatar.image
 user.password = "123456"
+user.admin = true
 binding.pry unless user.save
 
 
