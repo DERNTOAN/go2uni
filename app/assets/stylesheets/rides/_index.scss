@@ -103,3 +103,29 @@ form{
 
   }
 }
+
+.to-from-radio{
+  width: 100%;
+  padding-left:30px;
+  display: flex;
+
+
+  .to-button, .from-button{
+      flex: 0 0 50%;
+
+    label{
+      width:100%;
+    }
+  }
+
+  input[type="radio"]:checked+label{
+    background-color: $main;
+  }
+}
+
+.uni-name{
+  font-weight: bold;
+  background-color:white;
+  border:1px solid lightgrey;
+  height: 39px;
+}
