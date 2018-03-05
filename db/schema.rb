@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305123600) do
+ActiveRecord::Schema.define(version: 20180305133154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180305123600) do
     t.datetime "updated_at", null: false
     t.string "from_address"
     t.string "to_address"
+    t.string "direction"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 20180305123600) do
     t.integer "distance"
     t.string "car_brand"
     t.string "car_color"
+    t.string "direction"
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
 

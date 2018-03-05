@@ -11,6 +11,8 @@ class Ride < ApplicationRecord
   validates :seats, inclusion: {in: (1..8).to_a}
 
 
+  validates :direction, inclusion: {in: ["to", "from"]}
+
   validates :departure_time, presence: true
 
   validates :from_lng, presence: true

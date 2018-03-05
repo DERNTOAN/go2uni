@@ -1,60 +1,46 @@
 require_relative "seed_tables.rb"
 
 def geocode_address(thing)
-  if thing.from_lng && thing.from_lat
+  if thing.from_lng && thing.from_lat && thing.from_address.nil?
     geocoded = Geocoder.search([thing.from_lat, thing.from_lng]).first
     if geocoded
       thing.from_address = geocoded.address
     end
   end
 
-  if thing.to_lat && thing.to_lng
+  if thing.to_lat && thing.to_lng && thing.to_address.nil?
     geocoded = Geocoder.search([thing.to_lat, thing.to_lng]).first
     if geocoded
       thing.to_address = geocoded.address
     end
   end
 end
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
 def rand_in_range(from, to)
   rand * (to - from) + from
 end
 
-number_of_users = 30
-number_of_requests = 50
-number_of_rides = 50
+################################################################################
+number_to_requests = 50
+number_from_requests = 50
 
+number_to_rides = 40
+number_from_rides = 40
 
 #from and to min and max numbers for the map coordinates
-from_min_lat = 49.934095
-from_min_lng = 11.564235
+bayreuth_min_lat = 49.934095
+bayreuth_min_lng = 11.564235
 
-from_max_lat = 49.949671
-from_max_lng = 11.592198
+bayreuth_max_lat = 49.949671
+bayreuth_max_lng = 11.592198
 
-to_min_lat = 49.925885
-to_min_lng = 11.577808
+#Bayreuth uni coordinates
+bayreuth_uni_lat = 49.928795
+bayreuth_uni_lng = 11.585852
 
-to_max_lat = 49.933534
-to_max_lng = 11.589909
+time_frame = 2.days
 
-demo_from_min_lat = 49.942837
-demo_from_min_lng = 11.566964
-
-demo_from_max_lat = 49.936888
-demo_from_max_lng = 11.579804
-
-demo_to_min_lat = 49.930340
-demo_to_min_lng = 11.581827
-
-demo_to_max_lat = 49.926992
-demo_to_max_lng = 11.588384
+################################################################################
 
 puts "clearing database"
 
@@ -65,35 +51,62 @@ User.destroy_all
 
 puts "cleared"
 
-puts "creating #{number_of_users} users"
+puts "creating #{user_images.length} users"
 
-number_of_users.times do
+user_images.each_with_index do |photo_url, i|
   user = User.new
-  user.first_name = Faker::Name.first_name
+  user.first_name = user_names(i)
   user.last_name = Faker::Name.last_name
-  user.email = Faker::Internet.email
+  user.email = "#{user_names(i)}@email.com"
   user.age = rand(20) + 16
-  user.remote_photo_url = Faker::Avatar.image
+  user.remote_photo_url = photo_url
   user.password = "123456"
-  user.description = Faker::Lorem.paragraph
+  user.quote = user_quotes.sample
+  genres = user_genres.sample(2)
+  user.music = "#{genres[0]},#{genres[1]}"
+  user.semester = 1 + rand(9)
+  user.course = user_courses.sample
   binding.pry unless user.save
 end
 
+################################################################################
+#REQUESTS
 
-puts "creating #{number_of_requests} requests"
 
-50.times do
+puts "creating #{number_to_requests} requests to uni"
+
+number_to_requests.times do
   request = Request.new
-  request.start_time = rand(2.days).seconds.from_now
-  request.stop_time = request.start_time + 4.hours + rand(6)*30.minutes
+  request.direction = "to"
+  request.start_time = rand(time_frame).seconds.from_now
+  request.stop_time = request.start_time + 3.hours + rand(6)*30.minutes
   request.user_id = User.all.sample.id
   request.from_lat = rand_in_range(from_min_lat, from_max_lat)
   request.from_lng = rand_in_range(from_min_lng, from_max_lng)
-  request.to_lng = rand_in_range(to_min_lng, to_max_lng)
-  request.to_lat = rand_in_range(to_min_lat, to_max_lat)
+  request.to_lng = bayreuth_uni_lng
+  request.to_lat = bayreuth_uni_lat
   geocode_address(request)
   binding.pry unless request.save
 end
+
+puts "creating #{number_to_requests} requests to uni"
+
+number_to_requests.times do
+  request = Request.new
+  request.direction = "to"
+  request.start_time = rand(time_frame).seconds.from_now
+  request.stop_time = request.start_time + 3.hours + rand(6)*30.minutes
+  request.user_id = User.all.sample.id
+  request.from_lat = rand_in_range(from_min_lat, from_max_lat)
+  request.from_lng = rand_in_range(from_min_lng, from_max_lng)
+  request.to_lng = bayreuth_uni_lng
+  request.to_lat = bayreuth_uni_lat
+  geocode_address(request)
+  binding.pry unless request.save
+end
+
+################################################################################
+
 
 puts "creating demo requests"
 
@@ -109,6 +122,9 @@ puts "creating demo requests"
   geocode_address(request)
   binding.pry unless request.save
 end
+
+################################################################################
+#RIDES
 
 puts "creating #{number_of_rides} rides with offers equal to number of seats"
 
@@ -166,12 +182,16 @@ puts "Creating Demo Rides"
 end
 
 
+#ADMINS
+
+puts "Creating admin user"
+
 user = User.new
-user.first_name = "Sven"
-user.last_name = "Svensson"
+user.first_name = "Anton"
+user.last_name = "Castell"
 user.email = "admin@email.com"
-user.age = 99
-user.photo = Faker::Avatar.image
+user.age = 29
+user.remote_photo_url = user_images[2]
 user.password = "123456"
 user.admin = true
 binding.pry unless user.save
