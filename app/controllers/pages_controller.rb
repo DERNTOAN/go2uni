@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :index]
+  before_action :update_session
 
   def index
+    @location = session[:location]
     @rides = policy_scope(Ride)
     @rides = @rides.where.not(from_lng: nil, from_lat: nil, to_lng: nil, to_lat: nil)
 
@@ -35,4 +37,13 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  private
+
+  def update_session
+    if params[:location] != nil
+      session[:location] = params[:location]
+    end
+  end
+
 end
