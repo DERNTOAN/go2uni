@@ -7,18 +7,24 @@
 
     <form action=<%= ride_offers_path %> method="post">
       <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
-
+<% if @suggestions.empty? %>
+<p>no passengers for this time!</p>
+<% end %>
       <ul>
+              <div class="no-more-passenger-cover  tinder-card">
+                <h3>No more potential passengers!</h3>
+              </div>
         <% @suggestions.each do |suggestion| %>
           <li class="swipe-card-element tinder-card">
-              <input type="checkbox" id=<%= "#{suggestion.id}" %> name=<%= "#{suggestion.id}"%> >
+              <input type="checkbox" id=<%= "#{suggestion[0].id}" %> name=<%= "#{suggestion[0].id}"%> >
 
               <div class="tinder-picture text-center">
-                <%= cl_image_tag(suggestion.user.photo) %>
+                <%= cl_image_tag(suggestion[0].user.photo) %>
               </div>
               <div class="tinder-card-info">
-                <h3><%= suggestion.user.first_name  %>, <%= suggestion.user.age %> </h3>
-                <p><%= suggestion.user.description %></p>
+                <h3><%= suggestion[0].user.first_name  %>, <%= suggestion[0].user.age %> </h3>
+                <p><%= suggestion[0].user.description %></p>
+                <p><%= image_tag("walker.png", width: 30, height: 30) %> <%= (suggestion[2][:distance] / 100) * 100 %> m (<%= suggestion[2][:duration] / 60 %> min)</p>
               </div>
               <div class="max-passenger-cover hidden">
                 <h3>Car full</h3>
