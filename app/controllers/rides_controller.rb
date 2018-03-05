@@ -81,7 +81,19 @@ class RidesController < ApplicationController
   end
 
   def create
+    uni = params.require(:ride)["uni"]
+    if params.require(:ride)["direction"] == "from"
+      to_address =  params.require(:ride)[:from_address]
+      from_address = uni_address(uni)
+    else
+      to_address =  uni_address(uni)
+      from_address = params.require(:ride)[:from_address]
+    end
+    params.require(:ride)[:from_address] = from_address
+    params.require(:ride)[:to_address] = to_address
+
     raise
+
     @ride = Ride.create(ride_params)
     authorize @ride
     @ride.user_id = current_user.id
@@ -102,11 +114,19 @@ class RidesController < ApplicationController
   def destroy
   end
 
-
-
   private
 
   def ride_params
-    params.require(:ride).permit(:user_id, :seats,:from_address, :to_address, :departure_time)
+    params.require(:ride).permit(:user_id, :seats,:from_address, :to_address, :departure_time, :uni, :direction)
+  end
+
+  def uni_address(uni)
+    locations = {
+      "bayreuth" => "Universitätsstraße 30, 95447 Bayreuth",
+      "tuebingen"=> "Geschwister-Scholl-Platz, 72074 Tübingen",
+      "aachen" => "Templergraben 55, 52062 Aachen"
+    }
+
+    return locations[uni]
   end
 end
