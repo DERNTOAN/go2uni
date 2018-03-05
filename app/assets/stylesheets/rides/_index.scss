@@ -1,7 +1,7 @@
 $bottom_gap:24px;
 
 .map-dummy{
-  background-color: blue;
+  background-color: $third;
   width:100vw;
   height: 100vh;
   position:fixed;
@@ -10,17 +10,26 @@ $bottom_gap:24px;
 
 .index-buttons{
   justify-self: center;
+  border-radius: 50px;
+  padding: 15px;
+  text-align: center;
+  background-color: #FDCD00;
+  width: 100vw;
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+}
 
-border-radius: 50px;
-    border: 1px solid lightgrey;
-    padding: 15px;
-    text-align: center;
-    background-color: #FDCD00;
-    width: 80vw;
+.form-group {
+  position: relative;
+  i {
+    position: absolute;
+    left: 15px;
     color: black;
-    font-weight: bold;
-    font-size: 15px;
-
+  }
+  input {
+    padding-left: 50px;
+  }
 }
 
 
@@ -37,6 +46,9 @@ border-radius: 50px;
 
   }
 
+.form-input {
+  border-radius: 50px;
+}
 
 .new-ride-form{
   transition:all 0.5s ease;
@@ -44,12 +56,11 @@ border-radius: 50px;
   bottom: 0px;
   right: 0px;
   left: 0px;
-  background-color:$secondary;
+  background-color: $third_light;
   padding-bottom: 20px;
   padding-top: 40px;
   padding-right: 15px;
   padding-left: 15px;
-  opacity: 0.8;
 
 }
 
@@ -64,12 +75,11 @@ border-radius: 50px;
   bottom: 0px;
   right: 0px;
   left: 0px;
-  background-color:$secondary;
+  background-color: $third_light;
   padding-bottom: 20px;
   padding-top: 40px;
   padding-right: 15px;
   padding-left: 15px;
-  opacity: 0.8;
 }
 
 .new-request-form:focus-within {
@@ -79,7 +89,8 @@ border-radius: 50px;
 .close-button{
   position:absolute;
   top:5px;
-  right:5px;
+  right:15px;
+  color: $dark_blue;
 }
 
 .form-ride{

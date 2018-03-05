@@ -3,8 +3,8 @@
     <div class="text-center">
       <h1>Your requests</h1>
     </div>
-    <% @myrequests.each do |request| %>
     <div class="row">
+    <% @myrequests.each do |request| %>
       <div class="myrequest">
         <div class="myrequest-body">
           <h5>Request No.:</h5>
@@ -20,8 +20,8 @@
         </div>
           <%= link_to "", myrequest_path(id: request.id), class: "myrequest-link" %>
       </div>
-    </div>
     <% end %>
+    </div>
   </div>
 </div>
 
