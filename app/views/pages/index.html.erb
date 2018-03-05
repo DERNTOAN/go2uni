@@ -1,0 +1,20 @@
+<div class="map-dummy">
+  <div
+  id="map-rides-index"
+  style="width: 100%;
+  height: 100%;"
+  data-counterparts="<%= @drivers.to_json %>"
+  data-mapbounds = "<%= @mapbounds.to_json %>"
+
+  ></div>
+</div>
+
+<div class="buttons-box form-opener">
+  <p>
+
+    <%= link_to "Share your ride", rides_path, class: "btn index-buttons" %>
+  </p>
+  <p>
+    <%= link_to "Ride with new friends", rides_path, class: "btn index-buttons" %>
+  </p>
+</div>
