@@ -1,7 +1,5 @@
 require_relative "seed_tables"
 
-print CAR_BRANDS
-
 def geocode_address(thing)
   if thing.from_lng && thing.from_lat && thing.from_address.nil?
     geocoded = Geocoder.search([thing.from_lat, thing.from_lng]).first
@@ -23,8 +21,8 @@ def rand_in_range(from, to)
 end
 
 ################################################################################
-number_to_requests = 50
-number_from_requests = 50
+number_to_requests = 60
+number_from_requests = 60
 
 number_to_rides = 40
 number_from_rides = 40
@@ -55,21 +53,23 @@ User.destroy_all
 
 puts "cleared"
 
-puts "creating #{user_images.length} users"
+puts "creating #{USER_IMAGES.length} users"
 
-user_images.each_with_index do |photo_url, i|
+USER_IMAGES.each_with_index do |photo_url, i|
   user = User.new
-  user.first_name = user_names(i)
+  user.first_name = USER_NAMES[i]
   user.last_name = Faker::Name.last_name
-  user.email = "#{user_names(i)}@email.com"
+  user.email = "#{USER_NAMES[i]}@email.com"
   user.age = rand(20) + 16
   user.remote_photo_url = photo_url
   user.password = "123456"
-  user.quote = user_quotes.sample
-  genres = user_genres.sample(2)
-  user.music = "#{genres[0]},#{genres[1]}"
+  user.quote = USER_QUOTES.sample
+  genres = USER_GENRES.sample(2)
+  user.music = "#{genres[0]}, #{genres[1]}"
+  hobbies = USER_HOBBIES.sample(2)
+  user.hobby = "#{hobbies[0]}, #{hobbies[1]}"
   user.semester = 1 + rand(9)
-  user.course = user_courses.sample
+  user.course = USER_COURSES.sample
   binding.pry unless user.save
 end
 
@@ -83,7 +83,7 @@ number_to_requests.times do
   request = Request.new
   request.direction = "to"
   request.start_time = rand(time_frame).seconds.from_now
-  request.stop_time = request.start_time + 3.hours + rand(6)*30.minutes
+  request.stop_time = request.start_time + 6.hours + rand(6)*30.minutes
   request.user_id = User.all.sample.id
   request.from_lat = rand_in_range(bayreuth_min_lat, bayreuth_max_lat)
   request.from_lng = rand_in_range(bayreuth_min_lng, bayreuth_max_lng)
@@ -100,7 +100,7 @@ number_to_requests.times do
   request = Request.new
   request.direction = "from"
   request.start_time = rand(time_frame).seconds.from_now
-  request.stop_time = request.start_time + 3.hours + rand(6)*30.minutes
+  request.stop_time = request.start_time + 6.hours + rand(6)*30.minutes
   request.user_id = User.all.sample.id
   request.to_lat = rand_in_range(bayreuth_min_lat, bayreuth_max_lat)
   request.to_lng = rand_in_range(bayreuth_min_lng, bayreuth_max_lng)
@@ -125,8 +125,8 @@ number_to_rides.times do
   max_seats = 8
   min_seats = 3
   ride.seats = rand_in_range(min_seats, max_seats)
-  ride.car_brand = car_brands.sample
-  ride.car_color = car_colors.sample
+  ride.car_brand = CAR_BRANDS.sample
+  ride.car_color = CAR_COLORS.sample
 
   #ride date and route
   ride.direction = "to"
@@ -168,16 +168,16 @@ number_to_rides.times do
   max_seats = 8
   min_seats = 3
   ride.seats = rand_in_range(min_seats, max_seats)
-  ride.car_brand = car_brands.sample
-  ride.car_color = car_colors.sample
+  ride.car_brand = CAR_BRANDS.sample
+  ride.car_color = CAR_COLORS.sample
 
   #ride date and route
   ride.direction = "from"
 
   ride.departure_time = rand(time_frame).seconds.from_now
 
-  ride.to_lat = rand_in_range(from_min_lat, from_max_lat)
-  ride.to_lng = rand_in_range(from_min_lng, from_max_lng)
+  ride.to_lat = rand_in_range(bayreuth_min_lat, bayreuth_max_lat)
+  ride.to_lng = rand_in_range(bayreuth_min_lng, bayreuth_max_lng)
 
   ride.from_lng = bayreuth_uni_lng
   ride.from_lat = bayreuth_uni_lat
@@ -209,7 +209,7 @@ user.first_name = "Anton"
 user.last_name = "Castell"
 user.email = "admin@email.com"
 user.age = 29
-user.remote_photo_url = user_images[2]
+user.remote_photo_url = USER_IMAGES[2]
 user.password = "123456"
 user.admin = true
 binding.pry unless user.save

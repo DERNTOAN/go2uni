@@ -1,0 +1,25 @@
+<% @users.each do |user|%>
+<ul>
+<li>
+<%= cl_image_tag user.photo, class: "avatar" %>
+</li>
+<li>
+<%= user.first_name %>
+</li>
+<li>
+<%= user.semester %>. Semester
+</li>
+<li>
+<%= user.course %>
+</li>
+<li>
+<%= user.music %>
+</li>
+<li>
+<%= user.quote%>
+</li>
+<li>
+  <%= user.age %>
+</li>
+</ul>
+<% end %>

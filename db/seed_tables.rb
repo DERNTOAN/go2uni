@@ -157,87 +157,86 @@ Parkour
 People watching
 Travel)
 
-USER_GENRES = %w(Pop, Classical, Folk music, Rock, Jazz, Blues, Hip Hop, Reggae, Country, EDM, RnB, Heavy metal, Techno, Punk rock, A Cappella, Funk, House, Dance music, Disco, Alternative rock, Dubstep, Soul, Trance, Ambient music, Electro, Death metal, New wave, Industrial music, Indie rock, Art music, Grunge, Opera, Rap, Ska, Orchestra, Breakbeat, Hardcore punk, Drum and bass, Black metal, Pop rock, Folk rock, World music, Swing, Psychedelic, Music of Latin America, Hardstyle, Jazz fusion, Baroque music)
+USER_GENRES = %w(Pop Classical Schlager Rock Jazz Blues HipHop Reggae Country EDM RnB Heavy-Metal Techno Punk ACappella Funk House Dance Disco Alternative Dubstep Soul Trance Ambient music Electro Death-Metal Indie-Rock Grunge Opera Rap Ska Orchestra Breakbeat Hardcore-Punk Drum-and-bass Black-Metal Pop-Rock Folk-Rock Swing Psychedelic Latin Hardstyle)
 
-USER_NAMES = %w(Alex, Anna, Anton, Arda, Eric, Henrik, Julian, Juliette, Karen, Konstantinos, Lorene, Marc, Marcus, Martin, Moritz, Nico, Nick, Simon, Taka, Tanel, Tuan, Vini, Alice, Romain, Philip, Rich, Matt, Romain)
+USER_NAMES = %w(Alex Anna Anton Arda Eric Henrik Julian Juliette Karen Konstantinos Lorene Marc Marcus Martin Moritz Nico Nick Simon Taka Tanel Tuan Vini Alice Dimitri Philip Rich Matt Romain)
 
-USER_COURSES = %w(Accounting & Finance
-Aeronautical & Manufacturing Engineering
-Agriculture & Forestry
-American Studies
-Anatomy & Physiology
-Anthropology
-Archaeology
-Architecture
-Art & Design
-Aural & Oral Sciences
-Biological Sciences
-Building
-Business & Management Studies
-Celtic Studies
-Chemical Engineering
-Chemistry
-Civil Engineering
-Classics & Ancient History
-Communication & Media Studies
-Complementary Medicine
-Computer Science
-Counselling
-Creative Writing
-Criminology
-Dentistry
-Drama, Dance & Cinematics
-East & South Asian Studies
-Economics
-Education
-Electrical & Electronic Engineering
-English
-Fashion
-Film Making
-Food Science
-Forensic Science
-French
-Geography & Environmental Sciences
-Geology
-General Engineering
-German
-History
-History of Art, Architecture & Design
-Hospitality, Leisure, Recreation & Tourism
-Iberian Languages/Hispanic Studies
-Italian
-Land & Property Management
-Law
-Librarianship & Information Management
-Linguistics
-Marketing
-Materials Technology
-Mathematics
-Mechanical Engineering
-Medical Technology
-Medicine
-Middle Eastern & African Studies
-Music
-Nursing
-Occupational Therapy
-Optometry, Ophthalmology & Orthoptics
-Pharmacology & Pharmacy
-Philosophy
-Physics and Astronomy
-Physiotherapy
-Politics
-Psychology
-Robotics
-Russian & East European Languages
-Social Policy
-Social Work
-Sociology
-Sports Science
-Theology & Religious Studies
-Town & Country Planning and Landscape Design
-Veterinary Medicine
-Youth Work
-)
+USER_COURSES = ["Accounting & Finance",
+  "Aeronautical & Manufacturing Engineering",
+"Agriculture & Forestry",
+"American Studies",
+"Anatomy & Physiology",
+"Anthropology",
+"Archaeology",
+"Architecture",
+"Art & Design",
+"Aural & Oral Sciences",
+"Biological Sciences",
+"Building",
+"Business & Management Studies",
+"Celtic Studies",
+"Chemical Engineering",
+"Chemistry",
+"Civil Engineering",
+"Classics & Ancient History",
+"Communication & Media Studies",
+"Complementary Medicine",
+"Computer Science",
+"Counselling",
+"Creative Writing",
+"Criminology",
+"Dentistry",
+"Drama, Dance & Cinematics",
+"East & South Asian Studies",
+"Economics",
+"Education",
+"Electrical & Electronic Engineering",
+"English",
+"Fashion",
+"Film Making",
+"Food Science",
+"Forensic Science",
+"French",
+"Geography & Environmental Sciences",
+"Geology",
+"General Engineering",
+"German",
+"History",
+"History of Art, Architecture & Design",
+"Hospitality, Leisure, Recreation & Tourism",
+"Iberian Languages/Hispanic Studies",
+"Italian",
+"Land & Property Management",
+"Law",
+"Librarianship & Information Management",
+"Linguistics",
+"Marketing",
+"Materials Technology",
+"Mathematics",
+"Mechanical Engineering",
+"Medical Technology",
+"Medicine",
+"Middle Eastern & African Studies",
+"Music",
+"Nursing",
+"Occupational Therapy",
+"Optometry, Ophthalmology & Orthoptics",
+"Pharmacology & Pharmacy",
+"Philosophy",
+"Physics and Astronomy",
+"Physiotherapy",
+"Politics",
+"Psychology",
+"Robotics",
+"Russian & East European Languages",
+"Social Policy",
+"Social Work",
+"Sociology",
+"Sports Science",
+"Theology & Religious Studies",
+"Town & Country Planning and Landscape Design",
+"Veterinary Medicine",
+"Youth Work"]
 
 USER_QUOTES = ["I am so clever that sometimes I don't understand a single word of what I am saying.
 ― Oscar Wilde",
@@ -293,9 +292,6 @@ USER_QUOTES = ["I am so clever that sometimes I don't understand a single word o
 "I am lazy, but for some reason, I am so paranoid that I end up working hard.
 —Seth Rogen",
 
-"I don't do drugs. I am drugs.
-—Salvador Dali",
-
 "I am happy to continue with my journey through time.
 —Mary, Crown Princess of Denmark",
 
@@ -321,8 +317,8 @@ USER_QUOTES = ["I am so clever that sometimes I don't understand a single word o
 —Graham Coxon"]
 
 CAR_BRANDS = %w(Acura
-Alfa Romeo
-Aston Martin
+Alfa-Romeo
+Aston-Martin
 Audi
 Bentley
 BMW
