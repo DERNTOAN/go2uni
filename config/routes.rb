@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'myrequests/:id', to: "myrequests#show", as: "myrequest"
 
+  get 'users', to: "users#index"
+
   devise_for :users
   resources :requests, only: [:index, :new, :create]
   resources :rides, only: [:index, :show, :new, :create ] do

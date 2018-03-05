@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
-
+  def index
+    @users = User.all
+    policy_scope(Ride)
+  end
 
   def new
     @user = User.new
-
   end
 
   def create
