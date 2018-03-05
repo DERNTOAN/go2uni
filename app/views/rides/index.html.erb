@@ -36,28 +36,25 @@
     <div class="form-group flex-group">
       <!-- <%= f.label :from_address, "From" %> -->
       <i class="fas fa-map-marker"></i>
-      <%= f.text_field :from_address, class: "form-control", placeholder: "Address" %>
+      <%= f.text_field :from_address, class: "form-control form-input", placeholder: "Address" %>
     </div>
 
-    <div class="form-group to-from-radio">
+    <div class="to-from-radio">
       <div class="to-button">
         <%= f.radio_button :direction, "to", class:"hidden" %>
-        <%= f.label :direction_to, "<i class='fas fa-angle-double-down'></i>".html_safe, class:"btn btn-standard"%>
+        <%= f.label :direction_to, "To Uni <i class='fas fa-angle-double-down'></i>".html_safe, class:"btn btn-standard"%>
       </div>
       <div class="from-button">
         <%= f.radio_button :direction, "from", class:"hidden"%>
-        <%= f.label :direction_from, "<i class='fas fa-angle-double-up'></i>".html_safe, class:"btn btn-standard"%>
+        <%= f.label :direction_from, "Home <i class='fas fa-angle-double-up'></i>".html_safe, class:"btn btn-standard"%>
       </div>
-      <%= f.text_field :from_address, class: "form-control form-input", placeholder: "from here" %>
     </div>
 
-    <div class="form-group flex-group">
-      <!-- <%= f.label :to_address, "To" %> -->
-      <i class="fas fa-compass"></i>
-      <%= f.text_field :to_address, class: "form-control form-input", placeholder: "to there" %>
-    </div>
 
-    <h3 class="uni-name">Universität Bayreuth</h3>
+    <div class="form-group uni-select">
+        <i class="fas fa-graduation-cap"></i>
+        <%= f.select :uni,[['Universität Bayreuth','bayreuth'],['Universität Thübingen','thuebingen'],['RWTH Aachen','aachen']], {},{class: "form-control form-input"} %>
+    </div>
 
     <div class="form-group flex-group">
       <i class="fas fa-users"></i>

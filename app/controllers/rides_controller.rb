@@ -81,6 +81,7 @@ class RidesController < ApplicationController
   end
 
   def create
+    raise
     @ride = Ride.create(ride_params)
     authorize @ride
     @ride.user_id = current_user.id
