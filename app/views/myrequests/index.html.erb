@@ -1,10 +1,21 @@
 <div class="myrequest-wrapper">
+  <div class="text-center">
+    <h1>Your requests</h1>
+  </div>
+  <div
+  class="myrequest-map"
+  id="mapmyrequestsindex"
+  style="width: 375px;
+  height: 406px;"
+  data-markers_from="<%= @markers_from.to_json %>"
+  data-map_as="driver"
+  data-mapbounds = "<%= @mapbounds.to_json %>"
+
+  >
+  </div>
   <div class="container">
-    <div class="text-center">
-      <h1>Your requests</h1>
-    </div>
-    <% @myrequests.each do |request| %>
-    <div class="row">
+    <div class="row myrequest-show">
+      <% @myrequests.each do |request| %>
       <div class="myrequest">
         <div class="myrequest-body">
           <h5>Request No.:</h5>
@@ -16,12 +27,12 @@
         </div>
         <div class="myrequest-body">
           <h5>Offers:</h5>
-          <h6><%= @offers.where(request_id: request.id).count %></h6>
+          <h6><%= @offers.count %></h6>
         </div>
-          <%= link_to "", myrequest_path(id: request.id), class: "myrequest-link" %>
+        <%= link_to "", myrequest_path(id: request.id), class: "myrequest-link" %>
       </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
+</div>
 </div>
 
