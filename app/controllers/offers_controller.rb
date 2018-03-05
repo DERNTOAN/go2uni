@@ -20,7 +20,6 @@ class OffersController < ApplicationController
     authorize @offer
     @offer.confirmed = true if params[:confirmed] === "true"
     @offer.confirmed = false if params[:confirmed] === "false"
-    binding.pry
     @offer.save
     if @offer.confirmed == true
       redirect_to ride_path(@offer.ride)
