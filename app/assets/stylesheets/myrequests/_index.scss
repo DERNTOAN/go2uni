@@ -1,5 +1,6 @@
 .myrequest-wrapper {
   height: 100vh;
+  padding: 0;
 }
 
 .myrequest {
@@ -8,21 +9,18 @@
   padding: 20px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
   position: relative;
-  background-color: $third;
+  background-color: $main;
   border-radius: 60px;
   margin: 10px;
   box-shadow: 2px, 2px, 2px, lightgrey;
-  color: white;
+  color: black;
 }
 
 .myrequest-show {
-  flex-grow: 1;
-}
-
-.myrequest-show {
-  padding-left: 10px;
+  padding-left: 5px;
   font-size: 13px;
   color: black;
+  // background-color: $third;
 }
 
 .myrequest-body {
@@ -37,7 +35,7 @@
 }
 
 .myrequest-body strong{
-  color: white;
+  color: black;
 }
 
 .myrequest-body p {
@@ -45,7 +43,7 @@
 }
 
 .myrequest-body h5 {
-  color: white;
+  color: black;
 }
 
 .myrequest-link {
@@ -62,4 +60,13 @@
 
 .myrequest-link:hover {
   opacity: 0.1;
+}
+
+.myrequest-map {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0;
 }
