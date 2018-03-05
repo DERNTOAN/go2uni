@@ -1,7 +1,7 @@
 .rideshow-container{
+  width: 100%;
   background-color: $secondary;
   display: grid;
-  grid-template-column: 1;
   grid-gap: 1rem;
   padding: 5px;
 
@@ -25,7 +25,6 @@
       .driver-info {
         display: flex;
         flex-grow: 1;
-        min-width: 50%;
         padding: 5px 5px;
         text-align: left;
     line-height: 25px;
