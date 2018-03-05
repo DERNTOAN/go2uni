@@ -1,4 +1,4 @@
-user_images = %w(https://avatars0.githubusercontent.com/u/35156075?v=4
+USER_IMAGES = %w(https://avatars0.githubusercontent.com/u/35156075?v=4
 https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/ogzuobxlmlkqctensdkn.jpg
 https://avatars3.githubusercontent.com/u/33376973?v=4
 https://avatars0.githubusercontent.com/u/25131957?v=4
@@ -27,7 +27,7 @@ https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/lmmcdeak
 https://avatars2.githubusercontent.com/u/16646041?v=4
 https://avatars0.githubusercontent.com/u/19798534?v=4)
 
-user_hobbies = %w(Amateur radio
+USER_HOBBIES = %w(Amateur radio
 Audiophilia
 Aquarium keeping
 Baking
@@ -157,11 +157,11 @@ Parkour
 People watching
 Travel)
 
-user_genres = %w(Pop, Classical, Folk music, Rock, Jazz, Blues, Hip Hop, Reggae, Country, EDM, RnB, Heavy metal, Techno, Punk rock, A Cappella, Funk, House, Dance music, Disco, Alternative rock, Dubstep, Soul, Trance, Ambient music, Electro, Death metal, New wave, Industrial music, Indie rock, Art music, Grunge, Opera, Rap, Ska, Orchestra, Breakbeat, Hardcore punk, Drum and bass, Black metal, Pop rock, Folk rock, World music, Swing, Psychedelic, Music of Latin America, Hardstyle, Jazz fusion, Baroque music)
+USER_GENRES = %w(Pop, Classical, Folk music, Rock, Jazz, Blues, Hip Hop, Reggae, Country, EDM, RnB, Heavy metal, Techno, Punk rock, A Cappella, Funk, House, Dance music, Disco, Alternative rock, Dubstep, Soul, Trance, Ambient music, Electro, Death metal, New wave, Industrial music, Indie rock, Art music, Grunge, Opera, Rap, Ska, Orchestra, Breakbeat, Hardcore punk, Drum and bass, Black metal, Pop rock, Folk rock, World music, Swing, Psychedelic, Music of Latin America, Hardstyle, Jazz fusion, Baroque music)
 
-user_names = %w(Alex, Anna, Anton, Arda, Eric, Henrik, Julian, Juliette, Karen, Konstantinos, Lorene, Marc, Marcus, Martin, Moritz, Nico, Nick, Simon, Taka, Tanel, Tuan, Vini, Alice, Romain, Philip, Rich, Matt, Romain)
+USER_NAMES = %w(Alex, Anna, Anton, Arda, Eric, Henrik, Julian, Juliette, Karen, Konstantinos, Lorene, Marc, Marcus, Martin, Moritz, Nico, Nick, Simon, Taka, Tanel, Tuan, Vini, Alice, Romain, Philip, Rich, Matt, Romain)
 
-user_courses = %w(Accounting & Finance
+USER_COURSES = %w(Accounting & Finance
 Aeronautical & Manufacturing Engineering
 Agriculture & Forestry
 American Studies
@@ -239,7 +239,7 @@ Veterinary Medicine
 Youth Work
 )
 
-user_quotes = ["I am so clever that sometimes I don't understand a single word of what I am saying.
+USER_QUOTES = ["I am so clever that sometimes I don't understand a single word of what I am saying.
 ― Oscar Wilde",
 
 "I am the only person in the world I should like to know thoroughly.
@@ -319,3 +319,40 @@ user_quotes = ["I am so clever that sometimes I don't understand a single word o
 
 "I'm a bit of lunatic with shoes and jackets and jeans. It's just how I am.
 —Graham Coxon"]
+
+CAR_BRANDS = %w(Acura
+Alfa Romeo
+Aston Martin
+Audi
+Bentley
+BMW
+Bugatti
+Buick
+Cadillac
+Chevrolet
+Chrysler
+Citroen
+Dodge
+Ferrari
+Fiat
+Ford
+Honda
+Hyundai
+Jaguar
+Jeep
+Kia
+Mazda
+Mercedes
+Mini
+Mitsubishi
+Nissan
+Peugeot
+Renault
+Saab
+Subaru
+Toyota
+Volkswagen
+Volvo
+)
+
+CAR_COLORS = %w(White White Silver Black Black Grey Blue Red Brown Green)

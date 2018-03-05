@@ -1,4 +1,6 @@
-require_relative "seed_tables.rb"
+require_relative "seed_tables"
+
+print CAR_BRANDS
 
 def geocode_address(thing)
   if thing.from_lng && thing.from_lat && thing.from_address.nil?
@@ -37,6 +39,8 @@ bayreuth_max_lng = 11.592198
 #Bayreuth uni coordinates
 bayreuth_uni_lat = 49.928795
 bayreuth_uni_lng = 11.585852
+
+bayreuth_uni_address = "Universitätsstraße 30, 95447 Bayreuth"
 
 time_frame = 2.days
 
@@ -81,44 +85,28 @@ number_to_requests.times do
   request.start_time = rand(time_frame).seconds.from_now
   request.stop_time = request.start_time + 3.hours + rand(6)*30.minutes
   request.user_id = User.all.sample.id
-  request.from_lat = rand_in_range(from_min_lat, from_max_lat)
-  request.from_lng = rand_in_range(from_min_lng, from_max_lng)
+  request.from_lat = rand_in_range(bayreuth_min_lat, bayreuth_max_lat)
+  request.from_lng = rand_in_range(bayreuth_min_lng, bayreuth_max_lng)
   request.to_lng = bayreuth_uni_lng
   request.to_lat = bayreuth_uni_lat
+  request.to_address = bayreuth_uni_address
   geocode_address(request)
   binding.pry unless request.save
 end
 
-puts "creating #{number_to_requests} requests to uni"
+puts "creating #{number_to_requests} requests from uni"
 
 number_to_requests.times do
   request = Request.new
-  request.direction = "to"
+  request.direction = "from"
   request.start_time = rand(time_frame).seconds.from_now
   request.stop_time = request.start_time + 3.hours + rand(6)*30.minutes
   request.user_id = User.all.sample.id
-  request.from_lat = rand_in_range(from_min_lat, from_max_lat)
-  request.from_lng = rand_in_range(from_min_lng, from_max_lng)
-  request.to_lng = bayreuth_uni_lng
-  request.to_lat = bayreuth_uni_lat
-  geocode_address(request)
-  binding.pry unless request.save
-end
-
-################################################################################
-
-
-puts "creating demo requests"
-
-30.times do
-  request = Request.new
-  request.start_time = (14.hours+rand(3.hours)).seconds.from_now
-  request.stop_time = request.start_time + 4.hours + rand(6)*30.minutes
-  request.user_id = User.all.sample.id
-  request.from_lat = rand_in_range(demo_from_min_lat, demo_from_max_lat)
-  request.from_lng = rand_in_range(demo_from_min_lng, demo_from_max_lng)
-  request.to_lng = rand_in_range(demo_to_min_lng, demo_to_max_lng)
-  request.to_lat = rand_in_range(demo_to_min_lat, demo_to_max_lat)
+  request.to_lat = rand_in_range(bayreuth_min_lat, bayreuth_max_lat)
+  request.to_lng = rand_in_range(bayreuth_min_lng, bayreuth_max_lng)
+  request.from_lng = bayreuth_uni_lng
+  request.from_lat = bayreuth_uni_lat
+  request.from_address = bayreuth_uni_address
   geocode_address(request)
   binding.pry unless request.save
 end
@@ -126,24 +114,40 @@ end
 ################################################################################
 #RIDES
 
-puts "creating #{number_of_rides} rides with offers equal to number of seats"
+puts "creating #{number_to_rides} rides to uni with offers equal to number of seats"
 
-50.times do
+number_to_rides.times do
   ride = Ride.new
+
   ride.user_id = User.all.sample.id
-  ride.seats = 1 + rand(5)
-  ride.departure_time = rand(2.days).seconds.from_now
-  ride.from_lat = rand_in_range(from_min_lat, from_max_lat)
-  ride.from_lng = rand_in_range(from_min_lng, from_max_lng)
-  ride.to_lng = rand_in_range(to_min_lng, to_max_lng)
-  ride.to_lat = rand_in_range(to_min_lat, to_max_lat)
+
+  #car details
+  max_seats = 8
+  min_seats = 3
+  ride.seats = rand_in_range(min_seats, max_seats)
+  ride.car_brand = car_brands.sample
+  ride.car_color = car_colors.sample
+
+  #ride date and route
+  ride.direction = "to"
+
+  ride.departure_time = rand(time_frame).seconds.from_now
+
+  ride.from_lat = rand_in_range(bayreuth_min_lat, bayreuth_max_lat)
+  ride.from_lng = rand_in_range(bayreuth_min_lng, bayreuth_max_lng)
+
+  ride.to_lng = bayreuth_uni_lng
+  ride.to_lat = bayreuth_uni_lat
+  ride.to_address = bayreuth_uni_address
+
   geocode_address(ride)
+
   binding.pry unless ride.save
 
   ride.seats.times do
     offer = Offer.new
     offer.ride = ride
-    request = Request.all.sample
+    request = Request.where(direction: "to").sample
     while request.user == ride.user #to avoid the driver also being a passenger
       request = Request.all.sample
     end
@@ -153,25 +157,40 @@ puts "creating #{number_of_rides} rides with offers equal to number of seats"
   end
 end
 
+puts "creating #{number_to_rides} rides from uni with offers equal to number of seats"
 
-puts "Creating Demo Rides"
-
-20.times do
+number_to_rides.times do
   ride = Ride.new
+
   ride.user_id = User.all.sample.id
-  ride.seats = 1 + rand(5)
-  ride.departure_time = rand(2.days).seconds.from_now
-  ride.from_lat = rand_in_range(demo_from_min_lat, demo_from_max_lat)
-  ride.from_lng = rand_in_range(demo_from_min_lng, demo_from_max_lng)
-  ride.to_lng = rand_in_range(demo_to_min_lng, demo_to_max_lng)
-  ride.to_lat = rand_in_range(demo_to_min_lat, demo_to_max_lat)
+
+  #car details
+  max_seats = 8
+  min_seats = 3
+  ride.seats = rand_in_range(min_seats, max_seats)
+  ride.car_brand = car_brands.sample
+  ride.car_color = car_colors.sample
+
+  #ride date and route
+  ride.direction = "from"
+
+  ride.departure_time = rand(time_frame).seconds.from_now
+
+  ride.to_lat = rand_in_range(from_min_lat, from_max_lat)
+  ride.to_lng = rand_in_range(from_min_lng, from_max_lng)
+
+  ride.from_lng = bayreuth_uni_lng
+  ride.from_lat = bayreuth_uni_lat
+  ride.from_address = bayreuth_uni_address
+
   geocode_address(ride)
+
   binding.pry unless ride.save
 
   ride.seats.times do
     offer = Offer.new
     offer.ride = ride
-    request = Request.all.sample
+    request = Request.where(direction: "from").sample
     while request.user == ride.user #to avoid the driver also being a passenger
       request = Request.all.sample
     end
@@ -181,8 +200,7 @@ puts "Creating Demo Rides"
   end
 end
 
-
-#ADMINS
+#ADMIN
 
 puts "Creating admin user"
 
