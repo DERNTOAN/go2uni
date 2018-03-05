@@ -1,61 +1,62 @@
-.card {
-  height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
-  color: white;
-  position: relative;
-  margin-bottom: 10px;
-  background-color: #283149;
-  border-radius: 15px;
-}
-.card-user {
-  padding: 0px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid;
-}
-.card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
-  text-transform: uppercase;
-}
 
-.card-category li {
-  list-style-type: none;
-}
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
-}
+// // .card {
+// //   height: 175px;
+// //   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+// //   background-size: cover !important;
+// //   background-position: center;
+// //   color: white;
+// //   position: relative;
+// //   margin-bottom: 10px;
+// //   background-color: #283149;
+// //   border-radius: 15px;
+// // }
+// .card-user {
+//   padding: 0px;
+//   height: 50px;
+//   border-radius: 50%;
+//   object-fit: cover;
+//   border: 1px solid;
+// }
+// .card-category {
+//   position: absolute;
+//   top: 10px;
+//   left: 10px;
+//   font-size: 15px;
+//   text-transform: uppercase;
+// }
 
-.card-home {
-  margin: 10px;
-  height: 155px;
-}
+// .card-category li {
+//   list-style-type: none;
+// }
+// .card-description {
+//   position: absolute;
+//   bottom: 10px;
+//   left: 10px;
+// }
+// .card-description h2 {
+//   font-size: 24px;
+// }
+// .card-description p {
+//   font-size: 14px;
+//   opacity: 0.7;
+//   font-weight: lighter;
+// }
+// .card-link {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   width: 100%;
+//   z-index: 2;
+//   background: black;
+//   opacity: 0;
+// }
+// .card-link:hover {
+//   opacity: 0.1;
+// }
+
+// .card-home {
+//   margin: 10px;
+//   height: 155px;
+// }
 
