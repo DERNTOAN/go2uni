@@ -5,29 +5,78 @@
   grid-gap: 1rem;
   padding: 5px;
 
-  .drivers-dash{
-    margin-top: 5px;
-    padding: 2px;
+  .drivers-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 5px 0;
+    padding: 5px;
     background-color: $main;
     border-radius: 50px;
     text-align: center;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
 
 
-    p{
+
+    .card-header{
+      display: flex;
+      align-items: center;
+
+      .driver-info {
+        display: flex;
+        flex-grow: 1;
+        min-width: 50%;
+        padding: 5px 5px;
+        text-align: left;
+    line-height: 25px;
+    p {
       font-size: 13px;
+    }
+        h4 {
+          margin-top: 0;
+
+        }
+        .avatar{
+          border-radius: 50%;
+          background-color: white;
+          width: 70px;
+          height: 70px;
+          text-align: left;
+          margin-right: 10px;
+        }
+
+      }
+
+      .driver-trip {
+        width: 50%;
+        align-self: center;
+      }
+
+
+      p{
+        font-size: 13px;
+        margin: 0;
+      }
     }
   }
 
   .offer-card{
-    padding: 5px;
+    padding: 5px 5px 10px 10px;
     background-color: #fbfbfb;
-    border-radius: 50px;
+    border-radius: 40px;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 5px;
+
+    .card-header {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
     .user-group{
       display: flex;
       flex-grow: 1;
@@ -79,13 +128,6 @@
     }
   }
 
-  .accordion-card{
-    height: auto;
-    background-color: white;
-    border-radius: 50px;
-
-
-  }
 }
 
 
@@ -93,134 +135,4 @@
   height: 18px;
   width: 18px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.profile-driver {
-  height: 160px;
-  width: 375px;
-  background-color: #FDCD00;
-  position: relative;
-  border-radius: 40px;
-  margin-top: -14px;
-  left: -15px;
-
-}
-
-.driver-avatar {
-  position: absolute;
-  left: 1px;
-  top: 10px;
-}
-
-.name_age {
-  position: absolute;
-  top: 35px;
-  left: 53px;
-}
-
-.from-class {
-  position: absolute;
-  left: 15px;
-  bottom: 50px;
-}
-
-
-
-.to-class {
-  position: absolute;
-  left: 15px;
-  top: 110px;
-}
-
-
-
-.departure-time{
-  position: absolute;
-  left: 168px;
-  top: 35px;
-
-}
-
-.wrapper-ride-show{
-  .ride-symbols {
-    width: 20px;
-  }
-}
-
-.ride-role{
-  position: absolute;
-  right: 15px;
-  top: 35px;
-}
-
-.profile-passenger {
-  height: 80px;
-  width: 375px;
-  background-color: #FEE680;
-  position: relative;
-  border-radius: 40px;
-  margin-top: -14px;
-  left: -15px;
-}
-
-.passenger-avatar {
-  position: absolute;
-  left: 1px;
-  top: 10px;
-}
-
-.name_age_passenger {
-  position: absolute;
-  top: 35px;
-  left: 53px;
-}
-
-.passenger-pending {
-  position: absolute;
-  right: 15px;
-  top: 35px;
-}
-
-.pending {
-  background-color: #F2F2F2;
-}
-
 

@@ -13,84 +13,87 @@
 
 
 <div class="rideshow-container">
+  <div id="accordion" class="list-group">
 
-  <div class="drivers-dash">
-    <h4><%= @ride.user.first_name %>, <%= @ride.user.age %></h4>
-    <p>
-      <%= cl_image_tag(@ride.user.photo, class: "avatar driver-avatar") %>
-    </p>
-    <p>
-      <%= image_tag("to.png", class: "ride-symbols") %><strong> <%= @ride.from_address.split(",")[0] %> </strong>  <i class="fas fa-arrow-circle-right"></i> <strong> <%= @ride.to_address.split(",")[0] %></p> </strong>
-    </p>
-    <p>
-      <%= image_tag("clock.png", class: "ride-symbols") %><strong>  <%=@ride.departure_time.strftime("%H:%M") %> <i class="fas fa-arrow-circle-right"></i> <%=(@ride.departure_time + @ride.duration).strftime("%H:%M") %>
+    <div class="drivers-card">
+      <div class="card-header" id="heading-driver">
+        <div class="driver-info" data-toggle="collapse" data-target="#collapse-driver" aria-expanded="true" aria-controls="collapse-driver">
 
-      </p>
+          <%= cl_image_tag(@ride.user.photo, class: "avatar") %>
+          <div style="align-self:center">
 
+            <h4><%= @ride.user.first_name %>, <%= @ride.user.age %></h4>
+            <p>
+              <%= image_tag("to.png", class: "ride-symbols") %> <%= @ride.from_address.split(",")[0] %>
+              <i class="fas fa-arrow-circle-down"></i>
+               <%= @ride.to_address.split(",")[0] %>
+            </p>
+            <p>
+              <%= image_tag("clock.png", class: "ride-symbols") %><strong>  <%=@ride.departure_time.strftime("%H:%M") %> <i class="fas fa-arrow-circle-right"></i> <%=(@ride.departure_time + @ride.duration).strftime("%H:%M") %></strong>
+
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="collapse-driver" class="collapse" aria-labelledby="heading-driver" data-parent="#accordion">
+        <div class="card-body">
+
+          <p>test test</p>
+        </div>
+      </div>
     </div>
 
+    <% @offers.each do |offer| %>
 
-    <div class="list-group">
-
-
-
-
-
-      <% @offers.each do |offer| %>
-
-      <div id="accordion" role="tablist" aria-multiselectable="true">
-
-        <div>
-          <div class="accordion-card card-header" role="tab" id="heading-<%= offer.id %>">
-            <h5 class="mb-0">
-
-              <div class="offer-card" data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
+    <div class="offer-card">
+      <div class="card-header" id="heading-<%= offer.id %>">
+        <div data-toggle="collapse" data-target="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
 
 
-                <div class="user-group">
 
-                  <%= cl_image_tag(offer.request.user.photo, width:200, height:200, class:"avatar") %>
-                  <div class="ride-info">
+          <div class="user-group">
 
-                    <p>
-                      <%=  offer.request.user.first_name %>, <%=  offer.request.user.age %>
-                    </p>
-                    <div class="ride-info-icons">
+            <%= cl_image_tag(offer.request.user.photo, width:200, height:200, class:"avatar") %>
+            <div class="ride-info">
 
-                      <p>
-                        <%= image_tag("walker.png", class: "ride-symbols") %>
-                        <%= offer.duration_to_car / 60 %> min
-                      </p>
+              <p>
+                <%=  offer.request.user.first_name %>, <%=  offer.request.user.age %>
+              </p>
 
-                    </div>
-                  </div>
-                </div>
+              <div class="ride-info-icons">
 
-                <div class="status-group">
-                  <% if offer.confirmed %>
-                  <i class="icon fas fa-question fa-2x" style="color: gray" ></i>
-                  <% elsif offer.confirmed.nil? %>
-                  <i class="icon fas fa-check fa-2x" style="color: green"></i>
-                  <% elsif offer.confirmed == false %>
-                  <i class="icon fas fa-times fa-2x" style="color: red" ></i>
-                  <% end %>
-                </div>
+                <p>
+                  <%= image_tag("walker.png", class: "ride-symbols") %>
+                  <%= offer.duration_to_car / 60 %> min
+                </p>
+
               </div>
-            </h5>
-            <div id="collapse-<%= offer.id %>" class="collapse" role="tabpanel" aria-labelledby="heading-<%= offer.id %>">
-              <p>Who I am: <%=  offer.request.user.description  %></p>
             </div>
           </div>
 
-
-
-
-
         </div>
-        <% end %>
+        <div class="status-group">
+          <% if offer.confirmed %>
+          <i class="icon fas fa-question fa-2x" style="color: gray" ></i>
+          <% elsif offer.confirmed.nil? %>
+          <i class="icon fas fa-check fa-2x" style="color: green"></i>
+          <% elsif offer.confirmed == false %>
+          <i class="icon fas fa-times fa-2x" style="color: red" ></i>
+          <% end %>
+        </div>
       </div>
 
+      <div id="collapse-<%= offer.id %>" class="collapse" aria-labelledby="heading-<%= offer.id %>" data-parent="#accordion">
+        <div class="card-body">
+          <%=  offer.request.user.description %>
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+        </div>
+      </div>
     </div>
 
+    <% end %>
+  </div>
 
 
+</div>
