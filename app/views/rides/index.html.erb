@@ -12,10 +12,10 @@
   <div class="buttons-box form-opener">
     <p>
 
-      <a href="" class="btn index-buttons" id="new-ride-button">Share your ride</a>
+      <a href="" class="btn index-buttons" id="new-ride-button">SHARE YOUR RIDE</a>
     </p>
     <p>
-      <a href="" class="btn index-buttons" id="new-request-button">Ride with new friends</a>
+      <a href="" class="btn index-buttons" id="new-request-button">RIDE WITH NEW FRIENDS</a>
     </p>
   </div>
 
@@ -30,7 +30,7 @@
     <div class="form-group flex-group">
       <!-- <%= f.label :departure_time, "Departure" %> -->
       <i class="far fa-clock"></i>
-      <%=  f.datetime_field :departure_time, value: "#{(Time.now + 1800).strftime("%Y-%m-%dT%H:%M")}", class: "form-control" %>
+      <%=  f.datetime_field :departure_time, value: "#{(Time.now + 1800).strftime("%Y-%m-%dT%H:%M")}", class: "form-control form-input" %>
     </div>
 
     <div class="form-group flex-group">
@@ -48,16 +48,23 @@
         <%= f.radio_button :direction, "from", class:"hidden"%>
         <%= f.label :direction_from, "<i class='fas fa-angle-double-up'></i>".html_safe, class:"btn btn-standard"%>
       </div>
+      <%= f.text_field :from_address, class: "form-control form-input", placeholder: "from here" %>
+    </div>
+
+    <div class="form-group flex-group">
+      <!-- <%= f.label :to_address, "To" %> -->
+      <i class="fas fa-compass"></i>
+      <%= f.text_field :to_address, class: "form-control form-input", placeholder: "to there" %>
     </div>
 
     <h3 class="uni-name">Universität Bayreuth</h3>
 
     <div class="form-group flex-group">
       <i class="fas fa-users"></i>
-      <%= f.number_field :seats, as: :integer, class: "form-control", placeholder: "Number of seats" %>
+      <%= f.number_field :seats, as: :integer, class: "form-control form-input", placeholder: "Number of seats" %>
     </div>
 
-    <%= f.submit "share your ride", class: "btn index-buttons" %>
+    <%= f.submit "SHARE YOUR RIDE", class: "btn index-buttons" %>
     <% end %>
 
   </div>
@@ -74,25 +81,25 @@
 
     <div class="form-group date_field flex-group">
         <i class="far fa-calendar-alt"></i>
-        <%=  f.datetime_field :start_time, value: "#{Time.now.strftime("%Y-%m-%dT%H:%M")}", class: "form-control"%>
+        <%=  f.datetime_field :start_time, value: "#{Time.now.strftime("%Y-%m-%dT%H:%M")}", class: "form-control form-input"%>
     </div>
 
     <div class="form-group to_time_field time_field flex-group">
       <i class="far fa-clock"></i>
-      <%=  f.time_field :stop_time, value: "#{(Time.now + 3600).strftime("%H:%M")}", class: "form-control" %>
+      <%=  f.time_field :stop_time, value: "#{(Time.now + 3600).strftime("%H:%M")}", class: "form-control form-input" %>
     </div>
 
     <div class="form-group flex-group">
       <i class="fas fa-map-marker"></i>
-      <%= f.text_field :from_address, class: "form-control", placeholder: "from here" %>
+      <%= f.text_field :from_address, class: "form-control form-input", placeholder: "from here" %>
     </div>
 
     <div class="form-group flex-group">
       <i class="fas fa-compass"></i>
-      <%= f.text_field :to_address, class: "form-control", placeholder: "to there" %>
+      <%= f.text_field :to_address, class: "form-control form-input", placeholder: "to there" %>
     </div>
 
-    <%= f.submit "Submit", class: "btn index-buttons" %>
+    <%= f.submit "SUBMIT", class: "btn index-buttons" %>
     <% end %>
   </div>
 </div>

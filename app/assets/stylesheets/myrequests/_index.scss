@@ -1,4 +1,6 @@
 .myrequest-wrapper {
+  height: 100vh;
+  padding: 0;
 }
 
 .myrequest {
@@ -7,40 +9,33 @@
   padding: 20px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
   position: relative;
-  background-color: #2e999e;
+  background-color: $main;
   border-radius: 60px;
   margin: 10px;
   box-shadow: 2px, 2px, 2px, lightgrey;
-}
-
-.myrequest-show {
-  flex-grow: 1;
-}
-
-.myrequest-show {
-  padding-left: 10px;
-  font-size: 13px;
   color: black;
 }
 
-.myrequest-body {
-  flex-grow: 1;
+.myrequest-show {
+  padding-left: 5px;
+  font-size: 13px;
+  color: black;
+  // background-color: $third;
 }
 
 .myrequest-body {
-  padding-left: 10px;
+  flex-grow: 1;
   font-size: 13px;
-  color: rgba(0,0,0,0.7);
+  padding-left: 10px;
 }
+
 
 .myrequest-body {
   padding-left: 20px;
-  color: rgba(0,0,0,0.4);
 }
 
 .myrequest-body strong{
-  color: rgba(0,0,0,0.9);
-  color: rgba(0,0,0,0.9);
+  color: black;
 }
 
 .myrequest-body p {
@@ -58,10 +53,20 @@
   right: 0;
   width: 100%;
   z-index: 2;
-  background: black;
+  background-color: #0004B0;
   opacity: 0;
+  border-radius: 60px;
 }
 
 .myrequest-link:hover {
   opacity: 0.1;
+}
+
+.myrequest-map {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0;
 }

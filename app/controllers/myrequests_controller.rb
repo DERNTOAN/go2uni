@@ -1,18 +1,26 @@
 class MyrequestsController < ApplicationController
   def index
     @myrequests = policy_scope(Request).where("user_id = #{current_user.id}")
-    @offers = Offer.all
-    @markers_from = @myrequests.map do |myrequest|
+    @offers = find_offers
+    @markers_from = @offers.map do |offer|
       {
-        lng: myrequest.from_lng,
-        lat: myrequest.from_lat,
+        lng: offer.ride.from_lng,
+        lat: offer.ride.from_lat,
       }
     end
-
-    @markers_to = @myrequests.map do |myrequest|
-      {
-        lng: myrequest.to_lng,
-        lat: myrequest.to_lat
+    if @offers != []
+      @mapbounds = {
+        min: { lat: @offers.map { |offer| offer.ride.from_lat }.max, lng: @offers.map { |offer| offer.ride.from_lng }.min },
+        max: { lat: @offers.map { |offer| offer.ride.from_lat }.min, lng: @offers.map { |offer| offer.ride.from_lng }.max }
+      }
+    else
+      @markers_from = [{
+        lng: @myrequests.first.from_lng,
+        lat: @myrequests.first.from_lat,
+      }]
+      @mapbounds = {
+        min: { lat: @myrequests.map { |myrequest| myrequest.from_lat }.max, lng: @myrequests.map { |myrequest| myrequest.from_lng }.min },
+        max: { lat: @myrequests.map { |myrequest| myrequest.from_lat }.min, lng: @myrequests.map { |myrequest| myrequest.from_lng }.max }
       }
     end
   end
@@ -56,4 +64,18 @@ class MyrequestsController < ApplicationController
       }
     end
   end
+
+  private
+
+  def find_offers
+    matching_offers = []
+    offers = Offer.all
+    offers.each do |offer|
+      if offer.request.user_id == current_user.id
+        matching_offers << offer
+      end
+    end
+    matching_offers
+  end
+
 end
