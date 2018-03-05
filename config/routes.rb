@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # get 'rides/:id/suggestions', to: "suggestions#index", as: "suggestions"
   root to: 'pages#home'
 
+  resources :pages, only: :index
+
   get 'myrequests', to: "myrequests#index", as: "myrequests"
 
   get 'myrequests/:id', to: "myrequests#show", as: "myrequest"
