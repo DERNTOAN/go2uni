@@ -1,4 +1,5 @@
 .myrequest-wrapper {
+  height: 100vh;
 }
 
 .myrequest {
@@ -7,7 +8,7 @@
   padding: 20px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
   position: relative;
-  background-color: #1478CA;
+  background-color: $third;
   border-radius: 60px;
   margin: 10px;
   box-shadow: 2px, 2px, 2px, lightgrey;
@@ -56,6 +57,7 @@
   z-index: 2;
   background-color: #0004B0;
   opacity: 0;
+  border-radius: 60px;
 }
 
 .myrequest-link:hover {
