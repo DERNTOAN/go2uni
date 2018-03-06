@@ -11,16 +11,13 @@
   padding: 5px;
 
   .drivers-card {
+    margin-top: -10px;
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 5px 0;
-    background-color: $main;
+    padding: 0px 15px;
     border-radius: 50px;
     text-align: center;
-    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
-
-
 
     .card-header{
       display: flex;
@@ -29,7 +26,7 @@
       .driver-info {
         display: flex;
         flex-grow: 1;
-        padding: 10px 5px 5px 10px;
+        padding: 5px;
         text-align: left;
         line-height: 25px;
         p {
@@ -75,9 +72,8 @@
 
     .more-infos {
       text-align: left;
-      background-color: $secondary;
-      border-radius: 0 0 40px 40px;
-      padding: 5px;
+      padding: 8px;
+      border-bottom: 2px solid $main;
 
       h5 {
         margin-bottom: 0;
@@ -89,14 +85,19 @@
     }
   }
 
+  .list-group{
+    padding: 16px;
+  }
+
   .offer-card{
-    background-color: #fbfbfb;
+    background-color: $dark-blue-light;
     border-radius: 40px;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 5px;
+
     .highlight {
       color: $dark_blue;
       font-weight: bold;
@@ -209,10 +210,27 @@
 }
 
 .journey-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   color: white;
-  margin-left: 15px;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  border-bottom: 5px solid $main;
+  padding-bottom: 16px;
+  .avatar{
+    width: 64px;
+  }
   h2{
-    font-size: 25px;
+    font-size: 40px;
+    margin-top: 24px;
+    margin-bottom: 4px;
+  }
+  p{
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+    margin: 0;
   }
 }
 

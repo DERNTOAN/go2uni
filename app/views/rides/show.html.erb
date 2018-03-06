@@ -13,44 +13,38 @@
 
 
 <div class="rideshow-container">
-  <div class="journey-info">
-    <h2><i class="far fa-clock"></i> <%= @ride.departure_time.strftime("%H:%M") %></h2>
-    <h2><i class="fas fa-street-view"></i> <%= @ride.from_address.split(",")[0] %></h2>
+  <div class="journey-info" data-toggle="collapse" data-target="#collapse-driver" aria-expanded="true" aria-controls="collapse-driver">
+    <div>
+      <h2><%= @ride.departure_time.strftime("%H:%M") %></h2>
+    <p><%= @ride.from_address.split(",")[0] %></p>
+    </div>
+    <div>
+    <%= cl_image_tag(@ride.user.photo, class: "avatar") %>
+    </div>
   </div>
+  <div class="drivers-card">
+    <div id="collapse-driver" class="collapse" aria-labelledby="heading-driver" data-parent="#accordion">
+
+        <div class="more-infos">
+
+          <h5>About me</h5>
+          <p>Hi, I am <%= @ride.user.first_name %> and I study <span class="highlight"> <%= @ride.user.course %> </span> since <span class="highlight"> <%= @ride.user.semester %> semesters. </span> </p>
+
+
+
+          <h5 class="music-style">My music <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).first %></span>
+            <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).last %></span></h5>
+            <h5>Hobbies
+              <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).last %></span>
+              <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).first %></span>
+            </h5>
+            <p style="margin-top: 10px; font-size: 15px; font-style: italic;"> <%=  @ride.user.quote.split("-").map(&:strip).first %></p>
+            <p class="text-center" style="font-size: 16px; margin-bottom: 0;"> - <%=  @ride.user.quote.split("-").map(&:strip).last %></p>
+
+        </div>
+      </div>
+    </div>
   <div class="list-group">
-
-    <div class="drivers-card">
-      <div class="card-header" id="heading-driver">
-        <div class="driver-info" data-toggle="collapse" data-target="#collapse-driver" aria-expanded="true" aria-controls="collapse-driver">
-
-          <%= cl_image_tag(@ride.user.photo, class: "avatar") %>
-          <div class="info-container">
-            <h4><%= @ride.user.first_name %>, <%= @ride.user.age %></h4>
-          </div>
-        </div>
-      </div>
-
-      <div id="collapse-driver" class="collapse" aria-labelledby="heading-driver" data-parent="#accordion">
-
-          <div class="more-infos">
-
-            <h5>About me</h5>
-            <p>Hi, I am <%= @ride.user.first_name %> and I study <span class="highlight"> <%= @ride.user.course %> </span> since <span class="highlight"> <%= @ride.user.semester %> semesters. </span> </p>
-
-
-
-            <h5 class="music-style">My music <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).first %></span>
-              <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).last %></span></h5>
-              <h5>Hobbies
-                <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).last %></span>
-                <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).first %></span>
-              </h5>
-              <p style="margin-top: 10px; font-size: 15px; font-style: italic;"> <%=  @ride.user.quote.split("-").map(&:strip).first %></p>
-              <p class="text-center" style="font-size: 16px; margin-bottom: 0;"> - <%=  @ride.user.quote.split("-").map(&:strip).last %></p>
-
-          </div>
-        </div>
-      </div>
 
       <% @offers.each do |offer| %>
 
