@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :index]
+  before_action :update_session
 
   def index
+    @location = session[:location]
     @rides = policy_scope(Ride)
     @rides = @rides.where.not(from_lng: nil, from_lat: nil, to_lng: nil, to_lat: nil)
 
@@ -23,6 +25,7 @@ class PagesController < ApplicationController
         last_name: ride.user.last_name
       }
     end
+
     @mapbounds = {
       min: { lat: @rides.map { |ride| ride.from_lat }.max, lng: @rides.map { |ride| ride.from_lng }.min },
       max: { lat: @rides.map { |ride| ride.from_lat }.min, lng: @rides.map { |ride| ride.from_lng }.max }
@@ -35,4 +38,13 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  private
+
+  def update_session
+    if params[:lat] != nil
+      session[:location] = {lat: params[:lat].to_f, lng: params[:lng].to_f}
+    end
+  end
+
 end

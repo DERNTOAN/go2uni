@@ -1,6 +1,8 @@
 class RidesController < ApplicationController
+  before_action :update_session
 
   def index
+    @location = session[:location]
     @rides = policy_scope(Ride)
     @rides = @rides.where.not(from_lng: nil, from_lat: nil, to_lng: nil, to_lat: nil)
 
@@ -107,5 +109,11 @@ class RidesController < ApplicationController
 
   def ride_params
     params.require(:ride).permit(:user_id, :seats,:from_address, :to_address, :departure_time)
+  end
+
+  def update_session
+    if params[:location] != nil
+      session[:location] = params[:location]
+    end
   end
 end
