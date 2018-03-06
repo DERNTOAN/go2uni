@@ -70,7 +70,10 @@ USER_IMAGES.each_with_index do |photo_url, i|
   user.hobby = "#{hobbies[0]}, #{hobbies[1]}"
   user.semester = 1 + rand(9)
   user.course = USER_COURSES.sample
-  binding.pry unless user.save
+  unless user.save
+    print user.errors
+    binding.pry
+  end
 end
 
 ################################################################################
@@ -91,7 +94,10 @@ number_to_requests.times do
   request.to_lat = bayreuth_uni_lat
   request.to_address = bayreuth_uni_address
   geocode_address(request)
-  binding.pry unless request.save
+  unless request.save
+    print request.errors
+    binding.pry
+  end
 end
 
 puts "creating #{number_to_requests} requests from uni"
@@ -108,7 +114,10 @@ number_to_requests.times do
   request.from_lat = bayreuth_uni_lat
   request.from_address = bayreuth_uni_address
   geocode_address(request)
-  binding.pry unless request.save
+  unless request.save
+    print request.errors
+    binding.pry
+  end
 end
 
 ################################################################################
@@ -142,7 +151,10 @@ number_to_rides.times do
 
   geocode_address(ride)
 
-  binding.pry unless ride.save
+  unless ride.save
+    print ride.erros
+    binding.pry
+  end
 
   ride.seats.times do
     offer = Offer.new
@@ -153,7 +165,10 @@ number_to_rides.times do
     end
     offer.request_id = request.id
     offer.confirmed = [true, false].sample
-    binding.pry unless offer.save
+    unless offer.save
+      print offer.errors
+      binding.pry
+    end
   end
 end
 
@@ -185,7 +200,10 @@ number_to_rides.times do
 
   geocode_address(ride)
 
-  binding.pry unless ride.save
+  unless ride.save
+    print ride.errors
+    binding.pry
+  end
 
   ride.seats.times do
     offer = Offer.new
@@ -196,7 +214,10 @@ number_to_rides.times do
     end
     offer.request_id = request.id
     offer.confirmed = [true, false].sample
-    binding.pry unless offer.save
+    unless offer.save
+      print offer.errors
+      binding.pry
+    end
   end
 end
 
@@ -216,7 +237,10 @@ user.semester = 14
 user.course = "Türsteherei"
 user.password = "123456"
 user.admin = true
-binding.pry unless user.save
+unless user.save
+  print user.errors
+  binding.pry
+end
 
 
 
