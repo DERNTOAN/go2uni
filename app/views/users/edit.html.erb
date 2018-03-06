@@ -1,0 +1,10 @@
+<div class="edit-wrapper">
+  <div class="edit-form">
+    <h2>Update your Info!</h2>
+    <%= form_for @user do |f| %>
+      <%= f.label :age %>
+      <%= f.number_field :age %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
