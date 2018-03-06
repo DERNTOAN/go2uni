@@ -72,7 +72,7 @@ USER_IMAGES.each_with_index do |photo_url, i|
   user.course = USER_COURSES.sample
   unless user.save
     print user.errors
-    # binding.pry
+     binding.pry
   end
 end
 
@@ -94,9 +94,12 @@ number_to_requests.times do
   request.to_lat = bayreuth_uni_lat
   request.to_address = bayreuth_uni_address
   geocode_address(request)
+
+  request.uni = "bayreuth"
+
   unless request.save
     print request.errors
-  # binding.pry
+   binding.pry
   end
 end
 
@@ -114,9 +117,12 @@ number_to_requests.times do
   request.from_lat = bayreuth_uni_lat
   request.from_address = bayreuth_uni_address
   geocode_address(request)
+
+  request.uni = "bayreuth"
+
   unless request.save
     print request.errors
-    # binding.pry
+     binding.pry
   end
 end
 
@@ -149,11 +155,13 @@ number_to_rides.times do
   ride.to_lat = bayreuth_uni_lat
   ride.to_address = bayreuth_uni_address
 
+  ride.uni = "bayreuth"
+
   geocode_address(ride)
 
   unless ride.save
     print ride.erros
-    # binding.pry
+     binding.pry
   end
 
   ride.seats.times do
@@ -167,7 +175,7 @@ number_to_rides.times do
     offer.confirmed = [true, false].sample
     unless offer.save
       print offer.errors
-      # binding.pry
+       binding.pry
     end
   end
 end
@@ -198,11 +206,13 @@ number_to_rides.times do
   ride.from_lat = bayreuth_uni_lat
   ride.from_address = bayreuth_uni_address
 
+  ride.uni = "bayreuth"
+
   geocode_address(ride)
 
   unless ride.save
     print ride.errors
-    # binding.pry
+     binding.pry
   end
 
   ride.seats.times do
@@ -216,7 +226,7 @@ number_to_rides.times do
     offer.confirmed = [true, false].sample
     unless offer.save
       print offer.errors
-      # binding.pry
+       binding.pry
     end
   end
 end
@@ -239,7 +249,7 @@ user.password = "123456"
 user.admin = true
 unless user.save
   print user.errors
-  # binding.pry
+   binding.pry
 end
 
 
