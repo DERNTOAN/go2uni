@@ -54,11 +54,9 @@
 
       <% @offers.each do |offer| %>
 
-      <div class="offer-card">
-        <div data-toggle="collapse" data-target="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
+      <div data-toggle="collapse" data-target="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
+        <div class="offer-card">
           <div class="card-header" id="heading-<%= offer.id %>">
-
-
 
             <div class="user-group">
 
