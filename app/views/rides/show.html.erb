@@ -75,9 +75,9 @@
         </div>
         <div class="status-group">
           <% if offer.confirmed %>
-          <i class="icon fas fa-question fa-2x" style="color: gray" ></i>
-          <% elsif offer.confirmed.nil? %>
           <i class="icon fas fa-check fa-2x" style="color: green"></i>
+          <% elsif offer.confirmed.nil? %>
+          <i class="icon fas fa-question fa-2x" style="color: gray" ></i>
           <% elsif offer.confirmed == false %>
           <i class="icon fas fa-times fa-2x" style="color: red" ></i>
           <% end %>
