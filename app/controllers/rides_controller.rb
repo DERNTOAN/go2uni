@@ -92,8 +92,6 @@ class RidesController < ApplicationController
     params.require(:ride)[:from_address] = from_address
     params.require(:ride)[:to_address] = to_address
 
-    raise
-
     @ride = Ride.create(ride_params)
     authorize @ride
     @ride.user_id = current_user.id

@@ -91,9 +91,21 @@
       <%= f.text_field :from_address, class: "form-control form-input", placeholder: "from here" %>
     </div>
 
-    <div class="form-group flex-group">
-      <i class="fas fa-compass"></i>
-      <%= f.text_field :to_address, class: "form-control form-input", placeholder: "to there" %>
+    <div class="to-from-radio">
+      <div class="to-button">
+        <%= f.radio_button :direction, "to", class:"hidden" %>
+        <%= f.label :direction_to, "To Uni <i class='fas fa-angle-double-down'></i>".html_safe, class:"btn btn-standard"%>
+      </div>
+      <div class="from-button">
+        <%= f.radio_button :direction, "from", class:"hidden"%>
+        <%= f.label :direction_from, "Home <i class='fas fa-angle-double-up'></i>".html_safe, class:"btn btn-standard"%>
+      </div>
+    </div>
+
+
+    <div class="form-group uni-select">
+        <i class="fas fa-graduation-cap"></i>
+        <%= f.select :uni,[['Universität Bayreuth','bayreuth'],['Universität Tübingen','tuebingen'],['RWTH Aachen','aachen']], {},{class: "form-control form-input"} %>
     </div>
 
     <%= f.submit "SUBMIT", class: "btn index-buttons" %>
