@@ -13,7 +13,8 @@ class MyrequestsController < ApplicationController
         min: { lat: @offers.map { |offer| offer.ride.from_lat }.max, lng: @offers.map { |offer| offer.ride.from_lng }.min },
         max: { lat: @offers.map { |offer| offer.ride.from_lat }.min, lng: @offers.map { |offer| offer.ride.from_lng }.max }
       }
-    else
+    elsif @myrequests != []
+      p @myrequests
       @markers_from = [{
         lng: @myrequests.first.from_lng,
         lat: @myrequests.first.from_lat,
@@ -22,6 +23,7 @@ class MyrequestsController < ApplicationController
         min: { lat: @myrequests.map { |myrequest| myrequest.from_lat }.max, lng: @myrequests.map { |myrequest| myrequest.from_lng }.min },
         max: { lat: @myrequests.map { |myrequest| myrequest.from_lat }.min, lng: @myrequests.map { |myrequest| myrequest.from_lng }.max }
       }
+
     end
   end
 
