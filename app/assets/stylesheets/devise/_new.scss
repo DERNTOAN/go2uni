@@ -1,0 +1,31 @@
+.sign-up-wrapper{
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  margin: 8px;
+
+  h2{
+    text-align: center;
+  }
+  .sign-up-photo{
+    display: flex;
+  }
+
+  .form-actions{
+    text-align: center;
+  }
+
+  a{
+    text-align: center;
+  }
+
+  .help-block{
+    font-size: 12px;
+    font-weight: 400;
+    padding-left: 12px;
+  }
+
+  .input-buttons{
+    font-size: 24px;
+  }
+}
