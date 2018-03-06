@@ -13,6 +13,9 @@ class Ride < ApplicationRecord
 
   validates :direction, inclusion: {in: ["to", "from", nil]}
 
+  validates :uni, inclusion: {in: ["tuebingen", "aachen", "bayreuth"]}
+
+
   validates :departure_time, presence: true
 
   validates :from_lng, presence: true

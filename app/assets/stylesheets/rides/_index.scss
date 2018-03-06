@@ -27,11 +27,18 @@ $bottom_gap:24px;
     left: 15px;
     color: black;
   }
-  input {
+  input, select{
     padding-left: 50px;
   }
+
 }
 
+.uni-select{
+    width:100%;
+    i {
+    top: 10px;
+   }
+  }
 
 .form-opener{
     display: flex;
@@ -113,4 +120,33 @@ form{
     }
 
   }
+}
+
+.to-from-radio{
+  width: 100%;
+  display: flex;
+
+
+  .to-button, .from-button{
+      flex: 0 0 50%;
+      margin-bottom: 15px;
+    label{
+      width:100%;
+      color: white;
+    }
+  }
+
+  input[type="radio"]:checked+label{
+    color: $main;
+    background-color: rgba(15, 88, 148, 0.85);
+  }
+}
+
+.uni-name{
+  text-align:center;
+  width: 100%;
+  font-weight: bold;
+  background-color:white;
+  border:1px solid lightgrey;
+  height: 39px;
 }

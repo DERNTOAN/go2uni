@@ -34,6 +34,17 @@ class RequestsController < ApplicationController
   end
 
   def create
+    uni = params.require(:request)["uni"]
+    if params.require(:request)["direction"] == "from"
+      to_address =  params.require(:request)[:from_address]
+      from_address = uni_address(uni)
+    else
+      to_address =  uni_address(uni)
+      from_address = params.require(:request)[:from_address]
+    end
+    params.require(:request)[:from_address] = from_address
+    params.require(:request)[:to_address] = to_address
+
     @request = Request.create(request_params)
     authorize @request
     @request.user_id = current_user.id
@@ -61,6 +72,16 @@ class RequestsController < ApplicationController
     stop = DateTime.parse(params.require(:request)[:stop_time])
     start = DateTime.parse(params.require(:request)[:start_time])
     params.require(:request)[:stop_time] = start.change(hour: stop.hour, min:stop.minute).to_s
-    params.require(:request).permit(:user_id, :start_time, :stop_time,:from_address, :to_address)
+    params.require(:request).permit(:user_id, :start_time, :stop_time,:from_address, :to_address, :uni, :direction)
+  end
+
+  def uni_address(uni)
+    locations = {
+      "bayreuth" => "Universitätsstraße 30, 95447 Bayreuth",
+      "tuebingen"=> "Geschwister-Scholl-Platz, 72074 Tübingen",
+      "aachen" => "Templergraben 55, 52062 Aachen"
+    }
+
+    return locations[uni]
   end
 end

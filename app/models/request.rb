@@ -11,6 +11,10 @@ class Request < ApplicationRecord
   validates :start_time, presence: true
   validates :stop_time, presence: true
 
+  validates :uni, inclusion: {in: ["tuebingen", "aachen", "bayreuth"]}
+
+  validates :direction, inclusion: {in: ["to", "from", nil]}
+
   private
 
   def geocode_endpoints
