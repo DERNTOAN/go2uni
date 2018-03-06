@@ -210,6 +210,10 @@ user.last_name = "Castell"
 user.email = "admin@email.com"
 user.age = 29
 user.remote_photo_url = USER_IMAGES[2]
+user.hobby = "netflix & chill"
+user.music = "Deutsch Rap, Blues"
+user.semester = 14
+user.course = "Türsteherei"
 user.password = "123456"
 user.admin = true
 binding.pry unless user.save
