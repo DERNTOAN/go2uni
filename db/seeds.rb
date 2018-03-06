@@ -72,7 +72,7 @@ USER_IMAGES.each_with_index do |photo_url, i|
   user.course = USER_COURSES.sample
   unless user.save
     print user.errors
-    binding.pry
+    # binding.pry
   end
 end
 
@@ -96,7 +96,7 @@ number_to_requests.times do
   geocode_address(request)
   unless request.save
     print request.errors
-    binding.pry
+  # binding.pry
   end
 end
 
@@ -116,7 +116,7 @@ number_to_requests.times do
   geocode_address(request)
   unless request.save
     print request.errors
-    binding.pry
+    # binding.pry
   end
 end
 
@@ -153,7 +153,7 @@ number_to_rides.times do
 
   unless ride.save
     print ride.erros
-    binding.pry
+    # binding.pry
   end
 
   ride.seats.times do
@@ -167,7 +167,7 @@ number_to_rides.times do
     offer.confirmed = [true, false].sample
     unless offer.save
       print offer.errors
-      binding.pry
+      # binding.pry
     end
   end
 end
@@ -202,7 +202,7 @@ number_to_rides.times do
 
   unless ride.save
     print ride.errors
-    binding.pry
+    # binding.pry
   end
 
   ride.seats.times do
@@ -216,7 +216,7 @@ number_to_rides.times do
     offer.confirmed = [true, false].sample
     unless offer.save
       print offer.errors
-      binding.pry
+      # binding.pry
     end
   end
 end
@@ -239,7 +239,7 @@ user.password = "123456"
 user.admin = true
 unless user.save
   print user.errors
-  binding.pry
+  # binding.pry
 end
 
 
