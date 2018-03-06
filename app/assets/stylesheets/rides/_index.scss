@@ -27,9 +27,6 @@ $bottom_gap:24px;
     left: 15px;
     color: black;
   }
-  input, select{
-    padding-left: 50px;
-  }
 
 }
 
@@ -118,6 +115,9 @@ form{
       text-align:center;
       width: 30px;
     }
+    input, select{
+    padding-left: 50px;
+    }
 
   }
 }
@@ -149,4 +149,10 @@ form{
   background-color:white;
   border:1px solid lightgrey;
   height: 39px;
+}
+
+.uni-select{
+  input, select{
+    padding-left: 50px;
+  }
 }
