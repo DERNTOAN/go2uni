@@ -1,20 +1,19 @@
 
 
 <div class="wrapper-suggestions">
-
   <div class="container tinder-container">
       <h3>Choose your passengers</h3>
 
     <form action=<%= ride_offers_path %> method="post">
       <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
-<% if @suggestions.empty? %>
-<p>no passengers for this time!</p>
-<% end %>
+      <% if @suggestions.empty? %>
+        <p>no passengers for this time!</p>
+      <% end %>
       <ul>
-              <div class="no-more-passenger-cover  tinder-card">
-                <h3>No more potential passengers!</h3>
-              </div>
-        <% @suggestions.each do |suggestion| %>
+        <div class="no-more-passenger-cover  tinder-card">
+          <h3>No more potential passengers!</h3>
+        </div>
+        <% @suggestions.each_with_index do |suggestion, i| %>
           <li class="swipe-card-element tinder-card">
               <input type="checkbox" id=<%= "#{suggestion[0].id}" %> name=<%= "#{suggestion[0].id}"%> >
 
@@ -22,20 +21,40 @@
                 <%= cl_image_tag(suggestion[0].user.photo) %>
               </div>
               <div class="tinder-card-info">
-                <h3><%= suggestion[0].user.first_name  %>, <%= suggestion[0].user.age %> </h3>
-                <p><%= suggestion[0].user.description %></p>
-                <p><%= image_tag("walker.png", width: 30, height: 30) %> <%= (suggestion[2][:distance] / 100) * 100 %> m (<%= suggestion[2][:duration] / 60 %> min)</p>
+                <h3><%= suggestion[0].user.first_name  %></h3>
+                  <p><i class="fas fa-graduation-cap"></i><%= suggestion[0].user.course %> <%= suggestion[0].user.semester %>. Semester</p>
+                  <p><i class="fas fa-music"></i><%=  suggestion[0].user.music%></p>
+                  <p><i class="far fa-heart"></i><%=  suggestion[0].user.hobby%></p>
               </div>
               <div class="max-passenger-cover hidden">
                 <h3>Car full</h3>
               </div>
+
+              <div class="suggestions-count">
+                <p><%= "#{@suggestions.length-i}/#{@suggestions.length}" %></p>
+              </div>
           </li>
         <% end %>
       </ul>
-      <input type="submit" class="btn btn-standard tinder-submit">
+
+      <div class="buttons">
+        <input type="submit" class="tinder-submit">
+        <div class="tinder-submit" id="left-button">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="tinder-submit" id="right-button">
+          <i class="fas fa-check"></i>
+        </div>
+      </div>
+
     </form>
 
-    <div class="seats">
+  </div>
+</div>
+
+
+<div class="wrapper-seats">
+  <div class="seats">
       <div class="row">
         <% @ride.seats.times do %>
           <div class="one-chair col-xs-3">
@@ -43,11 +62,12 @@
               <%= image_tag "carseat.png"  %>
             </div>
             <div class="one-seat">
-              <i class="fas fa-certificate fa-3x"></i>
             </div>
           </div>
         <% end %>
       </div>
     </div>
-  </div>
+</div>
+
+<div class="wrapper-tinder-submit">
 </div>
