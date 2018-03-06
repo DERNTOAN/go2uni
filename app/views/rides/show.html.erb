@@ -13,6 +13,10 @@
 
 
 <div class="rideshow-container">
+  <div class="journey-info">
+    <h2><i class="far fa-clock"></i> <%= @ride.departure_time.strftime("%H:%M") %></h2>
+    <h2><i class="fas fa-street-view"></i> <%= @ride.from_address.split(",")[0] %></h2>
+  </div>
   <div class="list-group">
 
     <div class="drivers-card">
@@ -21,31 +25,7 @@
 
           <%= cl_image_tag(@ride.user.photo, class: "avatar") %>
           <div class="info-container">
-
             <h4><%= @ride.user.first_name %>, <%= @ride.user.age %></h4>
-            <div class="trip-data">
-              <div>
-
-              <p>
-                <%= image_tag("to.png", class: "ride-symbols") %> <%= @ride.from_address.split(",")[0] %>
-              </p>
-              <p>
-                <i class="fas fa-arrow-circle-right"></i>
-                <%= @ride.to_address.split(",")[0] %>
-              </p>
-              </div>
-              <div>
-
-                <p>
-                  <%= image_tag("clock.png", class: "ride-symbols") %><strong>  <%=@ride.departure_time.strftime("%H:%M") %>
-                <p>
-
-                    <i class="fas fa-arrow-circle-right"></i> <%=(@ride.departure_time + @ride.duration).strftime("%H:%M") %></strong>
-                </p>
-
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -75,8 +55,8 @@
       <% @offers.each do |offer| %>
 
       <div class="offer-card">
-        <div class="card-header" id="heading-<%= offer.id %>">
-          <div data-toggle="collapse" data-target="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
+        <div data-toggle="collapse" data-target="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
+          <div class="card-header" id="heading-<%= offer.id %>">
 
 
 
