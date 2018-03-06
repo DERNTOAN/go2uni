@@ -25,6 +25,7 @@ class PagesController < ApplicationController
         last_name: ride.user.last_name
       }
     end
+
     @mapbounds = {
       min: { lat: @rides.map { |ride| ride.from_lat }.max, lng: @rides.map { |ride| ride.from_lng }.min },
       max: { lat: @rides.map { |ride| ride.from_lat }.min, lng: @rides.map { |ride| ride.from_lng }.max }
@@ -41,8 +42,8 @@ class PagesController < ApplicationController
   private
 
   def update_session
-    if params[:location] != nil
-      session[:location] = params[:location]
+    if params[:lat] != nil
+      session[:location] = {lat: params[:lat].to_f, lng: params[:lng].to_f}
     end
   end
 

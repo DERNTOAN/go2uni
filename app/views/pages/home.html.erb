@@ -10,7 +10,8 @@
           <h2>Bayreuth</h2>
         </div>
         <%= form_tag("/rides", method: "get") do %>
-          <%= hidden_field_tag(:location, "Universität Bayreuth") %>
+          <%= hidden_field_tag(:lat, 49.928771) %>
+          <%= hidden_field_tag(:lng, 11.585840) %>
           <%= submit_tag("", class: "card-link") %>
         <% end %>
       </div>
@@ -19,7 +20,8 @@
           <h2>Tübingen</h2>
         </div>
         <%= form_tag("/rides", method: "get") do %>
-          <%= hidden_field_tag(:location, "Universität Tübingen") %>
+          <%= hidden_field_tag(:lat, 48.528148) %>
+          <%= hidden_field_tag(:lng, 9.062759) %>
           <%= submit_tag("", class: "card-link") %>
         <% end %>
       </div>
@@ -28,7 +30,8 @@
           <h2>Aachen</h2>
         </div>
         <%= form_tag("/pages", method: "get") do %>
-          <%= hidden_field_tag(:location, "Universität Aachen") %>
+          <%= hidden_field_tag(:lat, 50.778606) %>
+          <%= hidden_field_tag(:lng, 6.067393) %>
           <%= submit_tag("", class: "card-link") %>
         <% end %>
       </div>
@@ -40,7 +43,8 @@
           <h2>Bayreuth</h2>
         </div>
         <%= form_tag("/pages", method: "get") do %>
-          <%= hidden_field_tag(:location, "Universität Bayreuth") %>
+          <%= hidden_field_tag(:lat, 49.928771) %>
+          <%= hidden_field_tag(:lng, 11.585840) %>
           <%= submit_tag("", class: "card-link") %>
         <% end %>
       </div>
@@ -49,7 +53,8 @@
           <h2>Tübingen</h2>
         </div>
         <%= form_tag("/pages", method: "get") do %>
-          <%= hidden_field_tag(:location, "Universität Tübingen") %>
+          <%= hidden_field_tag(:lat, 48.528148) %>
+          <%= hidden_field_tag(:lng, 9.062759) %>
           <%= submit_tag("", class: "card-link") %>
         <% end %>
       </div>
@@ -58,7 +63,8 @@
           <h2>Aachen</h2>
         </div>
         <%= form_tag("/pages", method: "get") do %>
-          <%= hidden_field_tag(:location, "Universität Aachen") %>
+          <%= hidden_field_tag(:lat, 50.778606) %>
+          <%= hidden_field_tag(:lng, 6.067393) %>
           <%= submit_tag("", class: "card-link") %>
         <% end %>
       </div>
