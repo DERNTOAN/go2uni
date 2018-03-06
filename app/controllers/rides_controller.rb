@@ -1,6 +1,8 @@
 class RidesController < ApplicationController
+  before_action :update_session
 
   def index
+    @location = session[:location]
     @rides = policy_scope(Ride)
     @rides = @rides.where.not(from_lng: nil, from_lat: nil, to_lng: nil, to_lat: nil)
 
@@ -34,9 +36,8 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     authorize @ride
-    @offers = Offer.where(ride_id: @ride.id)
+    @offers = Offer.where(ride_id: @ride.id).where.not(confirmed: false)
     @requests = @offers.map(&:request)
-
     @marker_from_driver = {
       lng: @ride.from_lng,
       lat: @ride.from_lat,
@@ -126,5 +127,11 @@ class RidesController < ApplicationController
     }
 
     return locations[uni]
+  end
+
+  def update_session
+    if params[:location] != nil
+      session[:location] = params[:location]
+    end
   end
 end
