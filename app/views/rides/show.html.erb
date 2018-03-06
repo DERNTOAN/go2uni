@@ -16,35 +16,35 @@
   <div class="journey-info" data-toggle="collapse" data-target="#collapse-driver" aria-expanded="true" aria-controls="collapse-driver">
     <div>
       <h2><%= @ride.departure_time.strftime("%H:%M") %></h2>
-    <p><%= @ride.from_address.split(",")[0] %></p>
+      <p><%= @ride.from_address.split(",")[0] %></p>
     </div>
     <div>
-    <%= cl_image_tag(@ride.user.photo, class: "avatar") %>
+      <%= cl_image_tag(@ride.user.photo, class: "avatar") %>
     </div>
   </div>
   <div class="drivers-card">
     <div id="collapse-driver" class="collapse" aria-labelledby="heading-driver" data-parent="#accordion">
 
-        <div class="more-infos">
+      <div class="more-infos">
+        <h4>Alice</h4>
+        <h5>About me</h5>
+        <p>Hi, I am <%= @ride.user.first_name %> and I study <span class="highlight"> <%= @ride.user.course %> </span> since <span class="highlight"> <%= @ride.user.semester %> semesters. </span> </p>
 
-          <h5>About me</h5>
-          <p>Hi, I am <%= @ride.user.first_name %> and I study <span class="highlight"> <%= @ride.user.course %> </span> since <span class="highlight"> <%= @ride.user.semester %> semesters. </span> </p>
 
 
-
-          <h5 class="music-style">My music <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).first %></span>
-            <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).last %></span></h5>
-            <h5>Hobbies
-              <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).last %></span>
-              <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).first %></span>
-            </h5>
-            <p style="margin-top: 10px; font-size: 15px; font-style: italic;"> <%=  @ride.user.quote.split("-").map(&:strip).first %></p>
-            <p class="text-center" style="font-size: 16px; margin-bottom: 0;"> - <%=  @ride.user.quote.split("-").map(&:strip).last %></p>
+        <h5 class="music-style"><i class="fas fa-headphones"></i> <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).first %></span>
+          <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).last %></span></h5>
+          <h5><i class="fas fa-gamepad"></i>
+            <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).last %></span>
+            <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).first %></span>
+          </h5>
+          <p style="margin-top: 10px; font-size: 15px; font-style: italic;"> <%=  @ride.user.quote.split("-").map(&:strip).first %></p>
+          <p class="text-center" style="font-size: 16px; margin-bottom: 0;"> - <%=  @ride.user.quote.split("-").map(&:strip).last %></p>
 
         </div>
       </div>
     </div>
-  <div class="list-group">
+    <div class="list-group">
 
       <% @offers.each do |offer| %>
 
@@ -58,7 +58,7 @@
               <div class="ride-info">
 
                 <p>
-                  <%=  offer.request.user.first_name %>, <%=  offer.request.user.age %>
+                  <%=  offer.request.user.first_name %>
 
 
                 </p>
@@ -75,38 +75,37 @@
 
             </div>
 
+            <div class="status-group">
+              <% if offer.confirmed %>
+              <i class="icon fas fa-check fa-2x" style="color: green"></i>
+              <% elsif offer.confirmed.nil? %>
+              <i class="icon fas fa-question fa-2x" style="color: gray" ></i>
+              <% elsif offer.confirmed == false %>
+              <i class="icon fas fa-times fa-2x" style="color: red" ></i>
+              <% end %>
+            </div>
           </div>
-          <div class="status-group">
-            <% if offer.confirmed %>
-            <i class="icon fas fa-check fa-2x" style="color: green"></i>
-            <% elsif offer.confirmed.nil? %>
-            <i class="icon fas fa-question fa-2x" style="color: gray" ></i>
-            <% elsif offer.confirmed == false %>
-            <i class="icon fas fa-times fa-2x" style="color: red" ></i>
-            <% end %>
-          </div>
-        </div>
-
         <div id="collapse-<%= offer.id %>" class="collapse full-width card-body" aria-labelledby="heading-<%= offer.id %>" data-parent="#accordion">
 
-            <div class="more-infos">
-              <h5>About me</h5>
+          <div class="more-infos">
+            <h5>About me</h5>
 
-              <p>Hi, I am <%= offer.request.user.first_name %> and I study <span class="highlight"> <%= offer.request.user.course %> </span> since <span class="highlight"> <%= offer.request.user.semester %> semesters. </span> </p>
-              <h5 class="music-style">My music taste <span class="badge badge-primary badge-pill"><%=  offer.request.user.music.split(",").map(&:strip).first %></span>
-                <span class="badge badge-primary badge-pill"><%=  offer.request.user.music.split(",").map(&:strip).last %></span></h5>
-                <h5>Hobbies
-                  <span class="badge badge-primary badge-pill"><%=  offer.request.user.hobby.split(",").map(&:strip).first %></span>
-                  <span class="badge badge-primary badge-pill"><%=  offer.request.user.hobby.split(",").map(&:strip).last %></span>
-                </h5>
+            <p>Hi, I am <%= offer.request.user.first_name %> and I study <span class="highlight"> <%= offer.request.user.course %> </span> since <span class="highlight"> <%= offer.request.user.semester %> semesters. </span> </p>
+            <h5 class="music-style"><i class="fas fa-headphones"></i> <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).first %></span>
+              <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).last %></span></h5>
+              <h5><i class="fas fa-gamepad"></i>
+                <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).last %></span>
+                <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).first %></span>
+              </h5>
 
-                <p style="margin-top: 10px; font-size: 16px; font-style: italic;"> <%=  offer.request.user.quote.split("-").map(&:strip).first %></p>
-                <p class="text-center" style="font-size: 16px"> - <%=  offer.request.user.quote.split("-").map(&:strip).last %></p>
+              <p style="margin-top: 10px; font-size: 16px; font-style: italic;"> <%=  offer.request.user.quote.split("-").map(&:strip).first %></p>
+              <p class="text-center" style="font-size: 16px"> - <%=  offer.request.user.quote.split("-").map(&:strip).last %></p>
 
-              </div>
+            </div>
           </div>
         </div>
 
+        </div>
         <% end %>
       </div>
 
