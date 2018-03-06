@@ -10,6 +10,6 @@ class OfferPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? || record.user == user
+    user.admin? || record.request.user == user
   end
 end
