@@ -5,7 +5,7 @@ function tinderSwipe(){
   let right_button = document.getElementById("right-button");
   let left_button = document.getElementById("left-button");
 
-  let seats = document.querySelectorAll(".one-seat");
+  let segments = document.querySelectorAll(".dynamic");
   let seated_counter = 0;
 
   window.swing = require('swing');
@@ -50,19 +50,19 @@ function tinderSwipe(){
     // console.log(event.throwDirection.toString() == Direction.LEFT.toString());
 
     if (event.throwDirection.toString() == Direction.LEFT.toString() ){
-      if (seated_counter < seats.length){
+      if (seated_counter < segments.length){
         console.log("left");
         event.target.parentElement.previousElementSibling.checked = false;
       };
     } else if (event.throwDirection.toString() == Direction.RIGHT.toString()){
-      if (seated_counter < seats.length){
+      if (seated_counter < segments.length){
         console.log("right");
         console.log(event.target.firstElementChild);
         event.target.firstElementChild.checked = true;
         let img_html = event.target.querySelector(".tinder-picture").innerHTML;
-        seats[seated_counter].innerHTML = img_html;
+        segments[seated_counter].style = "width: 100%"
         seated_counter += 1;
-        if (seated_counter === seats.length){
+        if (seated_counter === segments.length){
           document.querySelectorAll(".max-passenger-cover").forEach((element) => {
             element.classList.toggle("hidden");
           });
@@ -96,3 +96,5 @@ function tinderSwipe(){
 }
 
 export {tinderSwipe}
+
+tinderSwipe();

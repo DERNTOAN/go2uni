@@ -14,8 +14,9 @@ class SuggestionsController < ApplicationController
     @requests.each do |request|
       if request.start_time < @ride.departure_time && request.stop_time > @ride.departure_time
         score = calculate_score(request, @ride)
-        data = compute_duration_and_distance(request, @ride)
-        scored_requests<< [request, score, data] if data[:duration] <= 1800
+ #       data = compute_duration_and_distance(request, @ride)
+ #       scored_requests<< [request, score, data] if data[:duration] <= 1800
+        scored_requests<< [request, score]
       end
     end
     sorted = scored_requests.sort_by { |array| - array[1] }

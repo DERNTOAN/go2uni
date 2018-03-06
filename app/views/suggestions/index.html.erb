@@ -2,8 +2,6 @@
 
 <div class="wrapper-suggestions">
   <div class="container tinder-container">
-      <h3>Choose your passengers</h3>
-
     <form action=<%= ride_offers_path %> method="post">
       <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
       <% if @suggestions.empty? %>
@@ -54,20 +52,21 @@
 
 
 <div class="wrapper-seats">
-  <div class="seats">
-      <div class="row">
-        <% @ride.seats.times do %>
-          <div class="one-chair col-xs-3">
-            <div class="chair">
-              <%= image_tag "carseat.png"  %>
-            </div>
-            <div class="one-seat">
-            </div>
-          </div>
-        <% end %>
+  <h3>Select passengers</h3>
+  <div class="loading-bar">
+  <% @ride.seats.times do %>
+    <div class="segment">
+      <div class="dynamic" style="width: 0%;">
       </div>
     </div>
+  <% end %>
+  </div>
+
 </div>
 
 <div class="wrapper-tinder-submit">
 </div>
+
+
+  <%= javascript_pack_tag "tinder" %>
+

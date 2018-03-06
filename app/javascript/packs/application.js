@@ -10,8 +10,6 @@
 import "bootstrap";
 import { inputShowRides } from "../rides/index";
 import { autocomplete } from "../components/autocomplete";
-import { tinderSwipe } from "../suggestions/tinder"
-import {Card, Direction, Stack} from "../swipe/index"
 import { navbarHide } from "../components/navbar"
 // import { mapshowride } from "./mapshow";
 
@@ -24,4 +22,4 @@ autocomplete("ride_to_address");
 autocomplete("request_from_address");
 autocomplete("request_to_address");
 // mapshowride();
-tinderSwipe();
+
