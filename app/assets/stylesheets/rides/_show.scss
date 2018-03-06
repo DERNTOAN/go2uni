@@ -11,16 +11,13 @@
   padding: 5px;
 
   .drivers-card {
+    margin-top: -10px;
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 5px 0;
-    background-color: $main;
+    padding: 0px 15px;
     border-radius: 50px;
     text-align: center;
-    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
-
-
 
     .card-header{
       display: flex;
@@ -29,7 +26,7 @@
       .driver-info {
         display: flex;
         flex-grow: 1;
-        padding: 10px 5px 5px 10px;
+        padding: 5px;
         text-align: left;
         line-height: 25px;
         p {
@@ -75,10 +72,8 @@
 
     .more-infos {
       text-align: left;
-      background-color: $secondary;
-      border-radius: 0 0 40px 40px;
-      padding: 5px;
-
+      padding: 8px;
+      border-bottom: 2px solid $main;
       h5 {
         margin-bottom: 0;
       }
@@ -86,11 +81,21 @@
         font-size: 13px;
         margin: 0;
       }
+
+      span.badge.badge-primary.badge-pill{
+      background-color: $dark-blue-light;
+      font-weight: 400;
+      }
     }
   }
 
+
+  .list-group{
+    padding: 16px;
+  }
+
   .offer-card{
-    background-color: #fbfbfb;
+    background-color: $dark-blue-light;
     border-radius: 40px;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
     display: flex;
@@ -98,6 +103,7 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 5px;
+
     .highlight {
       color: $dark_blue;
       font-weight: bold;
@@ -126,15 +132,15 @@
     }
     .more-infos {
       text-align: left;
-      background-color: #eee;
+      background-color: $dark-blue-light;
       border-radius: 0 0 40px 40px;
-      padding: 10px;
+      padding: 8px;
 
       h5 {
         margin-bottom: 0;
       }
       p{
-        font-size: 13px;
+        font-size: 16px;
         margin: 0;
       }
     }
@@ -162,6 +168,7 @@
         flex-grow: 1;
         flex-direction: column;
         p{
+          color: white;
           font-weight: bold;
         }
         .ride-info-icons{
@@ -169,7 +176,7 @@
           p{
             font-size: 12px;
             margin-bottom: 2px;
-            font-weight: lighter;
+            font-weight: 400;
           }
         }
       }
@@ -178,6 +185,10 @@
         span {
           font-size: 12px;
         }
+        .bagde{
+        background-color: $dark-blue-light;
+        font-weight: 400;
+      }
       }
 
     }
@@ -186,6 +197,7 @@
       flex-grow: auto;
       display: flex;
       justify-content: space-around;
+      margin: 10px;
       .icon{
         background-color: #f6f6f6;
         border-radius: 50px;
@@ -199,12 +211,64 @@
 
 
   }
+  .card-body{
+    .more-infos{
+      background-color: $dark-blue-light;
+      padding: 8px;
+      margin: 0px 8px 8px 8px;
+      border-radius: 0px 0px 40px 40px;
+      p{
+        font-size: 13px;
+        color: white;
+        font-weight: 400;
+        margin-top: 8px;
+        span{
+          color: white;
+          font-weight: 500;
+        }
+      }
+      span.badge.badge-primary.badge-pill{
+        background-color: #fdce00;
+        color: #333333;
+      }
+      h5{
+        color: white;
+      }
+    }
+  }
+
 
 }
+
 
 
 .ride-symbols {
   height: 14px;
   width: 14px;
+}
+
+.journey-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: white;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  border-bottom: 5px solid $main;
+  padding-bottom: 16px;
+  .avatar{
+    width: 64px;
+  }
+  h2{
+    font-size: 40px;
+    margin-top: 24px;
+    margin-bottom: 4px;
+  }
+  p{
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+    margin: 0;
+  }
 }
 
