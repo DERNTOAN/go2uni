@@ -74,10 +74,11 @@ function setupMap(mapLocation, origin, zoom) {
 };
 
 
-function showOneLeg(request, map, color) {
+function showOneLeg(request, map, color, i) {
 
   const directionsService = new google.maps.DirectionsService();
   directionsService.route(request, function(response, status) {
+    console.log(status)
   if (status == google.maps.DirectionsStatus.OK) {
     const directionsDisplay = new google.maps.DirectionsRenderer();
     directionsDisplay.setMap(map);
@@ -95,6 +96,7 @@ function showOneLeg(request, map, color) {
     }
   });
 };
+
 
 
 function showRouteOneCounterpart(map, from_self, to_self, counterpart){
