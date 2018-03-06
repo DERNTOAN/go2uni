@@ -1,5 +1,5 @@
 .myrequest-container{
-  background-color: $secondary;
+  background-color: $third_light;
   display: grid;
   grid-template-column: 1;
   grid-gap: 1rem;
@@ -20,7 +20,6 @@
   }
 
   .offer-card{
-    padding: 5px;
     background-color: #fbfbfb;
     border-radius: 40px;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
@@ -31,6 +30,7 @@
     margin-bottom: 5px;
 
     .card-header{
+      padding: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -38,6 +38,13 @@
 
 
     }
+
+    .card-details {
+
+    background-color: #eee;
+    border-radius: 0 0 40px 40px;
+    }
+
     .user-group{
       display: flex;
       width: 60vw;
@@ -70,7 +77,6 @@
           }
         }
       }
-
     }
 
     .status-group{

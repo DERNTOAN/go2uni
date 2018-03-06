@@ -51,7 +51,6 @@
       </div>
 
       <div id="collapse-driver" class="collapse" aria-labelledby="heading-driver" data-parent="#accordion">
-        <div class="card-body">
 
           <div class="more-infos">
 
@@ -68,10 +67,6 @@
               </h5>
               <p style="margin-top: 10px; font-size: 15px; font-style: italic;"> <%=  @ride.user.quote.split("-").map(&:strip).first %></p>
               <p class="text-center" style="font-size: 16px; margin-bottom: 0;"> - <%=  @ride.user.quote.split("-").map(&:strip).last %></p>
-
-            </div>
-
-
 
           </div>
         </div>
@@ -120,8 +115,7 @@
           </div>
         </div>
 
-        <div id="collapse-<%= offer.id %>" class="collapse" aria-labelledby="heading-<%= offer.id %>" data-parent="#accordion">
-          <div class="card-body">
+        <div id="collapse-<%= offer.id %>" class="collapse full-width card-body" aria-labelledby="heading-<%= offer.id %>" data-parent="#accordion">
 
             <div class="more-infos">
               <h5>About me</h5>
@@ -138,7 +132,6 @@
                 <p class="text-center" style="font-size: 16px"> - <%=  offer.request.user.quote.split("-").map(&:strip).last %></p>
 
               </div>
-            </div>
           </div>
         </div>
 

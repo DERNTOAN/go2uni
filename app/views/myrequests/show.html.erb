@@ -35,50 +35,61 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
     <div class="offer-card">
       <div class="card-header" id="heading-<%= offer.id %>" data-toggle="collapse" data-target="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
 
-          <div class="user-group">
+        <div class="user-group">
 
-            <%= cl_image_tag(offer.ride.user.photo, width:200, height:200, class:"avatar") %>
-            <div class="ride-info">
+          <%= cl_image_tag(offer.ride.user.photo, width:200, height:200, class:"avatar") %>
+          <div class="ride-info">
+
+            <p>
+              <%= offer.ride.user.first_name %>, <%= offer.ride.user.age %>
+            </p>
+            <div class="ride-info-icons">
 
               <p>
-                <%= offer.ride.user.first_name %>, <%= offer.ride.user.age %>
+
+                <i class="fas fa-home"></i>
+
+                <%= (offer.ride.departure_time - offer.duration_to_car).strftime("%I:%M")  %>
+                <i class="fas fa-arrow-circle-right"></i>
+                <%= (offer.ride.departure_time + offer.ride.duration + offer.duration_to_dest).strftime("%I:%M")  %>
               </p>
-              <div class="ride-info-icons">
 
-                <p>
+              <p>
 
-                  <i class="fas fa-home"></i>
+                <i class="fas fa-stopwatch"></i>
+                <%= (offer.duration_to_car + offer.ride.duration + offer.duration_to_dest) / 60 %> min
 
-                  <%= (offer.ride.departure_time - offer.duration_to_car).strftime("%I:%M")  %>
-                  <i class="fas fa-arrow-circle-right"></i>
-                  <%= (offer.ride.departure_time + offer.ride.duration + offer.duration_to_dest).strftime("%I:%M")  %>
-                </p>
+              </p>
 
-                <p>
-
-                  <i class="fas fa-stopwatch"></i>
-                  <%= (offer.duration_to_car + offer.ride.duration + offer.duration_to_dest) / 60 %> min
-
-                </p>
-
-              </div>
             </div>
           </div>
+        </div>
 
-          <div class="status-group">
-            <%= link_to ride_offer_path(offer.ride, offer, {confirmed: false}), method: :put do %>
-            <i class="icon fas fa-times fa-2x" style="color: red" ></i>
-            <% end %>
-            <%= link_to ride_offer_path(offer.ride,offer, {confirmed: true}), :method=> :put do %>
-            <i class="icon fas fa-check fa-2x" style="color: green"></i>
-            <% end %>
-          </div>
+        <div class="status-group">
+          <%= link_to ride_offer_path(offer.ride, offer, {confirmed: false}), method: :put do %>
+          <i class="icon fas fa-times fa-2x" style="color: red" ></i>
+          <% end %>
+          <%= link_to ride_offer_path(offer.ride,offer, {confirmed: true}), :method=> :put do %>
+          <i class="icon fas fa-check fa-2x" style="color: green"></i>
+          <% end %>
         </div>
-      <div id="collapse-<%= offer.id %>" class="card-details collapse" aria-labelledby="heading-<%= offer.id %>" data-parent="#accordion">
-        <div class="card-body">
-          <%=  offer.request.user.description %>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-        </div>
+      </div>
+      <div id="collapse-<%= offer.id %>" class="card-details collapse more-infos" aria-labelledby="heading-<%= offer.id %>" data-parent="#accordion">
+
+        <h5>About me</h5>
+        <p>Hi, I am <%= offer.ride.user.first_name %> and I study <span class="highlight"> <%= offer.ride.user.course %> </span> since <span class="highlight"> <%= offer.ride.user.semester %> semesters. </span> </p>
+
+
+
+        <h5 class="music-style">My music <span class="badge badge-primary badge-pill"><%=  offer.ride.user.music.split(",").map(&:strip).first %></span>
+          <span class="badge badge-primary badge-pill"><%=  offer.ride.user.music.split(",").map(&:strip).last %></span></h5>
+          <h5>Hobbies
+            <span class="badge badge-primary badge-pill"><%=  offer.ride.user.hobby.split(",").map(&:strip).last %></span>
+            <span class="badge badge-primary badge-pill"><%=  offer.ride.user.hobby.split(",").map(&:strip).first %></span>
+          </h5>
+          <p style="margin-top: 10px; font-size: 15px; font-style: italic;"> <%=  offer.ride.user.quote.split("-").map(&:strip).first %></p>
+          <p class="text-center" style="font-size: 16px; margin-bottom: 0;"> - <%=  offer.ride.user.quote.split("-").map(&:strip).last %></p>
+
       </div>
 
     </div>
