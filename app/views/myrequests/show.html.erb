@@ -32,7 +32,7 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
 
 
 
-    <div class="offer-card">
+    <div class="offer-card" id="select-ride-<%= offer.ride.id %>" ">
       <div class="card-header" id="heading-<%= offer.id %>" data-toggle="collapse" data-target="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
 
         <div class="user-group">
@@ -66,7 +66,7 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
         </div>
 
         <div class="status-group">
-          <%= link_to ride_offer_path(offer.ride, offer, {confirmed: false}), method: :put do %>
+          <%= link_to ride_offer_path(offer.ride, offer, {confirmed: false}), data: {ride: "#{offer.ride.id}", offer: "#{offer.id}"}, class: "decline-btn", method: :put do %>
           <i class="icon fas fa-times fa-2x" style="color: red" ></i>
           <% end %>
           <%= link_to ride_offer_path(offer.ride,offer, {confirmed: true}), :method=> :put do %>
@@ -81,14 +81,12 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
 
 
 
-        <h5 class="music-style">My music <span class="badge badge-primary badge-pill"><%=  offer.ride.user.music.split(",").map(&:strip).first %></span>
-          <span class="badge badge-primary badge-pill"><%=  offer.ride.user.music.split(",").map(&:strip).last %></span></h5>
+        <h5 class="music-style">My music
+          <span class="badge badge-primary badge-pill"><%=  offer.ride.user.music %></span></h5>
           <h5>Hobbies
-            <span class="badge badge-primary badge-pill"><%=  offer.ride.user.hobby.split(",").map(&:strip).last %></span>
-            <span class="badge badge-primary badge-pill"><%=  offer.ride.user.hobby.split(",").map(&:strip).first %></span>
+            <span class="badge badge-primary badge-pill"><%=  offer.ride.user.hobby %></span>
           </h5>
-          <p style="margin-top: 10px; font-size: 15px; font-style: italic;"> <%=  offer.ride.user.quote.split("-").map(&:strip).first %></p>
-          <p class="text-center" style="font-size: 16px; margin-bottom: 0;"> - <%=  offer.ride.user.quote.split("-").map(&:strip).last %></p>
+          <p style="margin-top: 10px; font-size: 15px; font-style: italic;"> <%=  offer.ride.user.quote %></p>
 
       </div>
 

@@ -28,17 +28,19 @@
       <div class="more-infos">
         <h4>Alice</h4>
         <h5>About me</h5>
+        <% if @ride.user.course && @ride.user.semester %>
+
         <p>Hi, I am <%= @ride.user.first_name %> and I study <span class="highlight"> <%= @ride.user.course %> </span> since <span class="highlight"> <%= @ride.user.semester %> semesters. </span> </p>
 
+        <% end %>
 
-
-        <h5 class="music-style"><i class="fas fa-headphones"></i> <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).first %></span>
-          <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).last %></span></h5>
+        <h5 class="music-style"><i class="fas fa-headphones"></i> <span class="badge badge-primary badge-pill"><%=  @ride.user.music %></span>
+          <span class="badge badge-primary badge-pill"><%=  @ride.user.music %></span></h5>
           <h5><i class="fas fa-gamepad"></i>
-            <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).last %></span>
-            <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).first %></span>
+            <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby %></span>
+            <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby %></span>
           </h5>
-          <p> "<%=  @ride.user.quote.split(".").map(&:strip).first %>." <%=  @ride.user.quote.split(".").map(&:strip).last %></p>
+          <p> <%=  @ride.user.quote %></p>
 
         </div>
       </div>
@@ -58,8 +60,6 @@
 
                 <p>
                   <%=  offer.request.user.first_name %>
-
-
                 </p>
 
                 <div class="ride-info-icons">
@@ -84,23 +84,22 @@
               <% end %>
             </div>
           </div>
-        <div id="collapse-<%= offer.id %>" class="collapse full-width card-body" aria-labelledby="heading-<%= offer.id %>" data-parent="#accordion">
+          <div id="collapse-<%= offer.id %>" class="collapse full-width card-body" aria-labelledby="heading-<%= offer.id %>" data-parent="#accordion">
 
-          <div class="more-infos">
-            <h5>About me</h5>
+            <div class="more-infos">
+              <h5>About me</h5>
 
-            <p>Hi, I am <%= offer.request.user.first_name %> and I study <span class="highlight"> <%= offer.request.user.course %> </span> since <span class="highlight"> <%= offer.request.user.semester %> semesters. </span> </p>
-            <h5 class="music-style"><i class="fas fa-headphones"></i> <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).first %></span>
-              <span class="badge badge-primary badge-pill"><%=  @ride.user.music.split(",").map(&:strip).last %></span></h5>
-              <h5><i class="fas fa-gamepad"></i>
-                <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).last %></span>
-                <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).first %></span>
-              </h5>
+              <p>Hi, I am <%= offer.request.user.first_name %> and I study <span class="highlight"> <%= offer.request.user.course %> </span> since <span class="highlight"> <%= offer.request.user.semester %> semesters. </span> </p>
+              <h5 class="music-style"><i class="fas fa-headphones"></i> <span class="badge badge-primary badge-pill"><%= @ride.user.music %></span>
+                <span class="badge badge-primary badge-pill"><%= offer.request.user.music %></span></h5>
+                <h5><i class="fas fa-gamepad"></i>
+                  <span class="badge badge-primary badge-pill"><%=  offer.request.user.hobby %></span>
+                </h5>
 
-              <p> "<%=  offer.request.user.quote.split(".").map(&:strip).first %>." <%=  offer.request.user.quote.split(".").map(&:strip).last %></p>
+                <p> <%=  offer.request.user.quote %></p>
+              </div>
             </div>
           </div>
-        </div>
 
         </div>
         <% end %>
