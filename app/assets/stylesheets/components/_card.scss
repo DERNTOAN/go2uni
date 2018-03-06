@@ -7,7 +7,7 @@
   position: relative;
   margin-bottom: 10px;
   background-color: #283149;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .card-user {
   padding: 0px;
@@ -52,6 +52,7 @@
 }
 .card-link:hover {
   opacity: 0.1;
+  border-radius: 10px;
 }
 
 .card-home {
