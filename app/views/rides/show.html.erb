@@ -38,8 +38,7 @@
             <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).last %></span>
             <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).first %></span>
           </h5>
-          <p style="margin-top: 10px; font-size: 15px; font-style: italic;"> <%=  @ride.user.quote.split("-").map(&:strip).first %></p>
-          <p class="text-center" style="font-size: 16px; margin-bottom: 0;"> - <%=  @ride.user.quote.split("-").map(&:strip).last %></p>
+          <p> "<%=  @ride.user.quote.split(".").map(&:strip).first %>." <%=  @ride.user.quote.split(".").map(&:strip).last %></p>
 
         </div>
       </div>
@@ -98,9 +97,7 @@
                 <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby.split(",").map(&:strip).first %></span>
               </h5>
 
-              <p style="margin-top: 10px; font-size: 16px; font-style: italic;"> <%=  offer.request.user.quote.split("-").map(&:strip).first %></p>
-              <p class="text-center" style="font-size: 16px"> - <%=  offer.request.user.quote.split("-").map(&:strip).last %></p>
-
+              <p> "<%=  offer.request.user.quote.split(".").map(&:strip).first %>." <%=  offer.request.user.quote.split(".").map(&:strip).last %></p>
             </div>
           </div>
         </div>

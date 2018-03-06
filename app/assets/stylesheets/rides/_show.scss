@@ -168,6 +168,7 @@
         flex-grow: 1;
         flex-direction: column;
         p{
+          color: white;
           font-weight: bold;
         }
         .ride-info-icons{
@@ -175,7 +176,7 @@
           p{
             font-size: 12px;
             margin-bottom: 2px;
-            font-weight: lighter;
+            font-weight: 400;
           }
         }
       }
@@ -214,14 +215,16 @@
     .more-infos{
       background-color: $dark-blue-light;
       padding: 8px;
-      margin-bottom: 8px;
+      margin: 0px 8px 8px 8px;
       border-radius: 0px 0px 40px 40px;
       p{
-        font-size: 16px;
+        font-size: 13px;
         color: white;
+        font-weight: 400;
+        margin-top: 8px;
         span{
           color: white;
-          font-weight: 400;
+          font-weight: 500;
         }
       }
       span.badge.badge-primary.badge-pill{
@@ -229,7 +232,7 @@
         color: #333333;
       }
       h5{
-        color: #333333;
+        color: white;
       }
     }
   }
