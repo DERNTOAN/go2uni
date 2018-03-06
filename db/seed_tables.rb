@@ -27,135 +27,135 @@ https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/lmmcdeak
 https://avatars2.githubusercontent.com/u/16646041?v=4
 https://avatars0.githubusercontent.com/u/19798534?v=4)
 
-USER_HOBBIES = %w(Amateur radio
-Audiophilia
-Aquarium keeping
-Baking
-Baton twirling
-Bonsai
-Computer programming
-Cooking
-Creative writing
-Dance
-Drawing
-Basketball
-Genealogy
-Home automation
-Home movies
-Jewelry making
-Knapping
-Lapidary
-Locksport
-Musical instruments
-Painting
-Knitting
-Scrapbooking
-Sculpting
-Sewing
-Singing
-Woodworking
-Air sports
-Board sports
-Cycling
-Freerunning
-Jogging
-Kayaking
-Motor sports
-Mountain biking
-Machining
-Parkour
-Playing with a pet
-Photography
-Rock climbing
-Running
-Sailing
-Sand castle building
-Sculling or Rowing
-Surfing
-Swimming
-Tai chi chuan
-Vehicle restoration
-Water sports
-Yoga
-Antiquing
-Art collecting
-Coin collecting
-Element collecting
-Stamp collecting
-Vintage books
-Vintage car
-Vintage clothing
-Record collecting
-Antiquities
-Auto audiophilia
-Fossil hunting
-Insect collecting
-Leaf collecting and pressing
-Metal detecting
-Mineral collecting
-Petal collecting and pressing
-Rock collecting
-Seaglass collecting
-Seashell collecting
-Bowling
-Boxing
-Chess
-Cheerleading
-Cubing
-Bridge
-Billiards
-Darts
-Fencing
-Gaming
-Handball
-Martial arts
-Table football
-Airsoft
-American football
-Archery
-Association football
-Auto racing
-Badminton
-Baseball
-Basketball
-Climbing
-Cricket
-Cycling
-Disc golf
-Equestrianism
-Figure skating
-Fishing
-Footbag
-Golfing
-Gymnastics
-Ice hockey
-Kart racing
-Netball
-Paintball
-Planking
-Racquetball
-Rugby league football
-Running
-Shooting
-Squash
-Surfing
-Swimming
-Table tennis
-Tennis
-Volleyball
-Audiophilia
-Microscopy
-Reading
-Shortwave listening
-Amateur astronomy
-Amateur geology
-Bird watching
-College football
-Geocaching
-Meteorology
-Parkour
-People watching
-Travel)
+USER_HOBBIES = ["Amateur radio",
+  "Audiophilia",
+"Aquarium keeping",
+"Baking",
+"Baton twirling",
+"Bonsai",
+"Computer programming",
+"Cooking",
+"Creative writing",
+"Dance",
+"Drawing",
+"Basketball",
+"Genealogy",
+"Home automation",
+"Home movies",
+"Jewelry making",
+"Knapping",
+"Lapidary",
+"Locksport",
+"Musical instruments",
+"Painting",
+"Knitting",
+"Scrapbooking",
+"Sculpting",
+"Sewing",
+"Singing",
+"Woodworking",
+"Air sports",
+"Board sports",
+"Cycling",
+"Freerunning",
+"Jogging",
+"Kayaking",
+"Motor sports",
+"Mountain biking",
+"Machining",
+"Parkour",
+"Playing with a pet",
+"Photography",
+"Rock climbing",
+"Running",
+"Sailing",
+"Sand castle building",
+"Sculling or Rowing",
+"Surfing",
+"Swimming",
+"Tai chi chuan",
+"Vehicle restoration",
+"Water sports",
+"Yoga",
+"Antiquing",
+"Art collecting",
+"Coin collecting",
+"Element collecting",
+"Stamp collecting",
+"Vintage books",
+"Vintage car",
+"Vintage clothing",
+"Record collecting",
+"Antiquities",
+"Auto audiophilia",
+"Fossil hunting",
+"Insect collecting",
+"Leaf collecting and pressing",
+"Metal detecting",
+"Mineral collecting",
+"Petal collecting and pressing",
+"Rock collecting",
+"Seaglass collecting",
+"Seashell collecting",
+"Bowling",
+"Boxing",
+"Chess",
+"Cheerleading",
+"Cubing",
+"Bridge",
+"Billiards",
+"Darts",
+"Fencing",
+"Gaming",
+"Handball",
+"Martial arts",
+"Table football",
+"Airsoft",
+"American football",
+"Archery",
+"Association football",
+"Auto racing",
+"Badminton",
+"Baseball",
+"Basketball",
+"Climbing",
+"Cricket",
+"Cycling",
+"Disc golf",
+"Equestrianism",
+"Figure skating",
+"Fishing",
+"Footbag",
+"Golfing",
+"Gymnastics",
+"Ice hockey",
+"Kart racing",
+"Netball",
+"Paintball",
+"Planking",
+"Racquetball",
+"Rugby league football",
+"Running",
+"Shooting",
+"Squash",
+"Surfing",
+"Swimming",
+"Table tennis",
+"Tennis",
+"Volleyball",
+"Audiophilia",
+"Microscopy",
+"Reading",
+"Shortwave listening",
+"Amateur astronomy",
+"Amateur geology",
+"Bird watching",
+"College football",
+"Geocaching",
+"Meteorology",
+"Parkour",
+"People watching",
+"Travel"]
 
 USER_GENRES = %w(Pop Classical Schlager Rock Jazz Blues HipHop Reggae Country EDM RnB Heavy-Metal Techno Punk ACappella Funk House Dance Disco Alternative Dubstep Soul Trance Ambient music Electro Death-Metal Indie-Rock Grunge Opera Rap Ska Orchestra Breakbeat Hardcore-Punk Drum-and-bass Black-Metal Pop-Rock Folk-Rock Swing Psychedelic Latin Hardstyle)
 
@@ -239,82 +239,82 @@ USER_COURSES = ["Accounting & Finance",
 "Youth Work"]
 
 USER_QUOTES = ["I am so clever that sometimes I don't understand a single word of what I am saying.
-― Oscar Wilde",
+- Oscar Wilde",
 
 "I am the only person in the world I should like to know thoroughly.
-― Oscar Wilde",
+- Oscar Wilde",
 
 "I can resist anything except temptation.
-― Oscar Wilde",
+- Oscar Wilde",
 
 "I am enough of an artist to draw freely upon my imagination.
-― Albert Einstein",
+- Albert Einstein",
 
 "I am neither especially clever nor especially gifted. I am only very, very curious.
-― Albert Einstein",
+- Albert Einstein",
 
 "I am my own heroine.
-― Marie Bashkirtseff",
+- Marie Bashkirtseff",
 
 "I am among those who think that science has great beauty.
-— Marie Curie",
+- Marie Curie",
 
 "I have no special talent. I am only passionately curious.
-—Albert Einstein",
+-Albert Einstein",
 
 "People say nothing is impossible, but I do nothing every day.
-― A. A. Milne, Winnie The Pooh",
+- A. A. Milne, Winnie The Pooh",
 
 "I am obsessed with my hairstyles.
-—Raven-Symone",
+-Raven-Symone",
 
 "Yes I am weird, weird is good. Normal is overrated.
-― Mad-D",
+- Mad-D",
 
 "I am a queen because I know how to govern myself.
-― Lailah Gifty Akita",
+- Lailah Gifty Akita",
 
 "I am a dreamer. Seriously, I'm living on another planet.
-—Eva Green",
+-Eva Green",
 
 "My mom says I'm a fighter, a fierce competitor, and I think I am, too.
-—Gabby Douglas",
+-Gabby Douglas",
 
 "I am the greatest, I said that even before I knew I was.
-—Muhammad Ali",
+-Muhammad Ali",
 
 "I give myself sometimes admirable advice, but I am incapable of taking it.
-― Mary Wortley Montagu",
+- Mary Wortley Montagu",
 
 "I am having a good time doing nothing.
-—Phylicia Rashad",
+-Phylicia Rashad",
 
 "I am lazy, but for some reason, I am so paranoid that I end up working hard.
-—Seth Rogen",
+-Seth Rogen",
 
 "I am happy to continue with my journey through time.
-—Mary, Crown Princess of Denmark",
+-Mary, Crown Princess of Denmark",
 
 "I don't know if my hairstyles reflect that, but I am someone who enjoys change.
-—Cobi Jones",
+-Cobi Jones",
 
 "I am sort of a tea addict. I structure my day by cups of tea.
-—S. T. Joshi",
+-S. T. Joshi",
 
 "I am a bit of a bad boy. I have tattoos and I mess around. That's part of my image, so it's cool.
-—Zayn Malik",
+-Zayn Malik",
 
 "I like the term 'misunderstood.' But I am a bit of a bad boy.
-—Zayn Malik",
+-Zayn Malik",
 
 "I race to win. If I am on the bike or in a car it will always be the same.
-—Valentino Rossi",
+-Valentino Rossi",
 
 "I change my style maybe every month. I'm, like, punk one month, ghetto fab the next, classy the next. I'm just young and finding out who I am.
-—Kylie Jenner",
+-Kylie Jenner",
 
 "I'm a bit of lunatic with shoes and jackets and jeans. It's just how I am.
-—Graham Coxon"]
+-Graham Coxon"]
 
 CAR_BRANDS = %w(Acura
 Alfa-Romeo
