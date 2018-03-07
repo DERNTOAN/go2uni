@@ -14,7 +14,7 @@ $bottom_gap:24px;
   padding: 15px;
   text-align: center;
   background-color: #FDCD00;
-  width: 100vw;
+  width: 100%;
   color: black;
   font-weight: bold;
   font-size: 15px;
@@ -27,9 +27,6 @@ $bottom_gap:24px;
     left: 15px;
     color: black;
   }
-  input, select{
-    padding-left: 50px;
-  }
 
 }
 
@@ -41,11 +38,11 @@ $bottom_gap:24px;
   }
 
 .form-opener{
-    display: flex;
+  display: flex;
   align-items: center;
   flex-direction: column;
   position:fixed;
-  width:100vw;
+  width:100%;
   bottom: $bottom_gap;
   p{
   margin-bottom: 4px;
@@ -118,6 +115,9 @@ form{
       text-align:center;
       width: 30px;
     }
+    input, select{
+    padding-left: 50px;
+    }
 
   }
 }
@@ -126,19 +126,37 @@ form{
   width: 100%;
   display: flex;
 
-
   .to-button, .from-button{
-      flex: 0 0 50%;
-      margin-bottom: 15px;
-    label{
-      width:100%;
-      color: white;
+    flex: 0 0 50%;
+    margin-bottom: 15px;
+    .btn-standard{
+      min-height: 48px;
+      padding: 8px;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+    label{
+      background-color: white;
+      color: black;
+      width: 100%;
+      i{
+        margin-left: 8px;
+      }
+    }
+  }
+  .to-button{
+    padding-right: 5px;
+  }
+  .from-button{
+    padding-left: 5px;
   }
 
   input[type="radio"]:checked+label{
-    color: $main;
+    color: white;
     background-color: rgba(15, 88, 148, 0.85);
+    border: none;
   }
 }
 
@@ -149,4 +167,10 @@ form{
   background-color:white;
   border:1px solid lightgrey;
   height: 39px;
+}
+
+.uni-select{
+  input, select{
+    padding-left: 50px;
+  }
 }

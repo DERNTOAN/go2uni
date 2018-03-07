@@ -1,0 +1,41 @@
+.sign-up-wrapper{
+  display: flex;
+  flex-direction: column;
+  background-color: $third_light;
+  height: 100%;
+  width: 100%;
+
+  .sign-up-form{
+    padding: 8px;
+  }
+
+  h2{
+    text-align: center;
+  }
+  .sign-up-photo{
+    display: flex;
+  }
+
+  .form-actions{
+    text-align: center;
+  }
+
+  a{
+    text-align: center;
+  }
+
+  .help-block{
+    font-size: 12px;
+    font-weight: 400;
+    padding-left: 12px;
+    color: black;
+  }
+
+  .input-buttons{
+    font-size: 24px;
+  }
+
+  .form-control{
+    border-radius: 20px;
+  }
+}

@@ -11,13 +11,13 @@ Rails.application.routes.draw do
 
   get 'users', to: "users#index"
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations" }
   resources :requests, only: [:index, :new, :create]
   resources :rides, only: [:index, :show, :new, :create ] do
     resources :suggestions, only: :index
     resources :offers, only: [:create,:update]
   end
-  resources :user, only: [:show ]
+  resources :users, only: [:show, :edit, :update ]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

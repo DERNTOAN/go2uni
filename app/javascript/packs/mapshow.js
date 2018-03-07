@@ -35,11 +35,22 @@ counterparts.forEach( (counterpart) => {
       height: 30
     }
   }
+  if (counterpart.avatar) {
+
   const counterpart_from_marker = new google.maps.Marker({
     position: from_counterpart,
     map: map,
     icon: counterpart_icon
   });
+  }
+  else {
+      const counterpart_from_marker = new google.maps.Marker({
+    position: from_counterpart,
+    map: map,
+    icon: self_icon
+  });
+
+  }
 
 });
 

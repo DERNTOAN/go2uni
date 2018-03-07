@@ -76,7 +76,6 @@ class RidesController < ApplicationController
       min: { lat: lats.max, lng: lngs.min },
       max: { lat: lats.min, lng: lngs.max }
     }
-
   end
 
   def new
