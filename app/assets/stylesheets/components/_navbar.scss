@@ -1,11 +1,3 @@
-.small-navbar{
-  z-index:4;
-  background: white;
-  height:32px;
-  background-color:$secondary;
-
-}
-
 .navbar-opener{
   position:fixed;
   top:10px;
@@ -16,7 +8,7 @@
   display:flex;
   justify-content:center;
   align-items:center;
-  background-color:rgba(255,255,255,1.0);
+  background-color: rgba(255,255,255,0.8);
   z-index:3;
 }
 
