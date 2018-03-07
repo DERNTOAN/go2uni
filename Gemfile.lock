@@ -49,6 +49,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    browser (2.5.3)
     builder (3.2.3)
     byebug (10.0.0)
     carrierwave (0.11.2)
@@ -233,6 +234,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
+  browser
   carrierwave (~> 0.11.2)
   cloudinary
   devise

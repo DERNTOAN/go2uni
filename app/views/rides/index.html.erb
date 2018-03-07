@@ -26,13 +26,13 @@
 
     <%= form_for @ride, html: {class: "form-ride"} do |f| %>
     <div class="form-group flex-group">
-      <!-- <%= f.label :departure_time, "Departure" %> -->
-      <i class="far fa-clock"></i>
+      <% unless browser.platform.ios? %>
+        <i class="far fa-clock"></i>
+      <% end %>
       <%=  f.datetime_field :departure_time, value: "#{(Time.now + 1800).strftime("%Y-%m-%dT%H:%M")}", class: "form-control form-input" %>
     </div>
 
     <div class="form-group flex-group">
-      <!-- <%= f.label :from_address, "From" %> -->
       <i class="fas fa-map-marker"></i>
       <%= f.text_field :from_address, class: "form-control form-input", placeholder: "Address" %>
     </div>
@@ -50,7 +50,9 @@
 
 
     <div class="form-group uni-select">
-        <i class="fas fa-graduation-cap"></i>
+        <% if browser.platform.android? %>
+          <i class="fas fa-graduation-cap"></i>
+        <% end %>
         <%= f.select :uni,[['Universität Bayreuth','bayreuth'],['Universität Tübingen','tuebingen'],['RWTH Aachen','aachen']], {},{class: "form-control form-input"} %>
     </div>
 
@@ -75,7 +77,9 @@
     <%= form_for @request, html: {class: "form-ride"} do |f| %>
 
     <div class="form-group date_field flex-group">
-        <i class="far fa-calendar-alt"></i>
+        <% unless browser.platform.ios? %>
+          <i class="far fa-calendar-alt"></i>
+        <% end %>
         <%=  f.datetime_field :start_time, value: "#{Time.now.strftime("%Y-%m-%dT%H:%M")}", class: "form-control form-input"%>
     </div>
 
@@ -102,7 +106,9 @@
 
 
     <div class="form-group uni-select">
-        <i class="fas fa-graduation-cap"></i>
+        <% if browser.platform.android? %>
+          <i class="fas fa-graduation-cap"></i>
+        <% end %>
         <%= f.select :uni,[['Universität Bayreuth','bayreuth'],['Universität Tübingen','tuebingen'],['RWTH Aachen','aachen']], {},{class: "form-control form-input"} %>
     </div>
 

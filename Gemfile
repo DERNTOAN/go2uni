@@ -25,6 +25,8 @@ gem "pundit"
 gem "geocoder"
 gem 'postmark-rails'
 
+gem "browser"
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem "letter_opener", group: :development
