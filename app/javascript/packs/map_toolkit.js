@@ -92,7 +92,7 @@ function showOneLeg(request, map, color) {
         const arrowSymbol = {
           path: google.maps.SymbolPath.FORWARD_OPEN_ARROW,
           fillOpacity: 1,
-          scale: 2
+          scale: 1
         };
 
 
@@ -103,11 +103,11 @@ function showOneLeg(request, map, color) {
           icons: [{
             icon: lineSymbol,
             offset: '0',
-            repeat: '10px'
+            repeat: '15px'
           }, {
             icon: arrowSymbol,
-            offset: '5px',
-            repeat: '40px'
+            offset: '8px',
+            repeat: '15px'
           }],
         };
 
