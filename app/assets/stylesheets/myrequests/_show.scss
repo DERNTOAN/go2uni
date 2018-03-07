@@ -1,9 +1,4 @@
-.flex-space-between{
-  display: flex;
-  justify-content: space-between;
-  flex: 1;
-  align-items: center;
-}
+
 
 .flex-grow{
   flex: 1;
@@ -15,53 +10,59 @@
   ;
   display: grid;
   grid-gap: 1rem;
-  padding: 5px;
+  padding: 8px;
 
   .journey-info{
     color: white;
     width: calc(100% - 32px);
     margin: 0 auto;
-    margin-top: 24px;
     border-bottom: 5px solid $main;
+    margin-top: 24px;
+
+    .myrequest-datetime{
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+      align-items: flex-start;
+    }
+
     .trip-info{
-  display: flex;
-  justify-content: space-between;
-  flex: 1;
-  align-items: center;
-  height: 40px;
-  margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+      align-items: center;
+      height: 40px;
+      margin-bottom: 8px;
     }
     .trip-align-top{
-align-self: flex-start;
-    flex: 1 0 80%;
+      align-self: flex-start;
+      flex: 1 0 80%;
     };
-  .badge-offers {
-    background-color: $main;
-    margin-bottom: -8px;
-    color: rgba(50, 50, 50, 0.8);
-    padding: 2px 8px;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: -0.25px;
-    align-self: flex-end;
-  };
+    .badge-offers {
+      background-color: $main;
+      margin-bottom: -8px;
+      color: rgba(50, 50, 50, 0.8);
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: -0.25px;
+      align-self: flex-end;
+    };
     .avatar{
       width: 64px;
     }
 
     h3{
-      font-size: 14px;
-      margin-top: 16px;
-      margin-bottom: 8px;
-      border-bottom: 1px solid white;
-      font-weight: 200;
-      letter-spacing: 2px;
-      padding-bottom: 2px;
+    font-size: 22px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-weight: 400;
+    padding-bottom: 2px;
     }
     h2{
-      font-size: 24px;
-      margin-top: 0px;
-      margin-bottom: 4px;
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 4px;
     }
     p{
       font-size: 16px;
@@ -150,7 +151,7 @@ align-self: flex-start;
         p{
           font-size: 21px;
           color: white;
-          font-weight: bold;
+          font-weight: 400;
         }
         .ride-info-icons{
           flex-grow: 1;
