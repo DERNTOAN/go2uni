@@ -25,12 +25,9 @@
           <h3><%= request.start_time.strftime("%H:%M") %> - <%= request.stop_time.strftime("%H:%M") %></h3>
         </div>
         <div class="trip-info">
-          <div class="trip-align-top">
-            <p> <%= request.from_address.split(",").first %> to <%= request.to_address.split(",").first %>
-            </p>
-          </div>
+
+          <div class="badge-offers"><%= request.offers.count %> Offers</div>
         </div>
-        <div class="badge-offers"><%= request.offers.count %> Offers</div>
 
         <%= link_to "", myrequest_path(id: request.id), class: "myrequest-link" %>
       </div>

@@ -8,12 +8,23 @@
 .myrequest {
   display: flex;
   flex-direction: column;
-  padding: 8px;
-  margin: 8px;
+  margin: 16px;
   max-resolution: 24px;
   position: relative;
   color: white;
   border-bottom: 5px solid $main;
+  .trip-info{
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+      align-items: center;
+      height: 60px;
+      margin-bottom: 8px;
+    }
+    .trip-align-top{
+      align-self: flex-start;
+      flex: 1 0 80%;
+    };
   .badge-offers {
     background-color: $main;
     margin-bottom: -8px;
@@ -31,7 +42,7 @@
   color: white;
   h1{
     padding: 8px;
-    margin: 8px;
+    margin: 16px;
     text-align: center;
     border-bottom: 5px solid $main;
   }
