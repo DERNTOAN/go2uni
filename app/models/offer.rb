@@ -10,12 +10,12 @@ class Offer < ApplicationRecord
     url_walk_to_dest= "https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{self.ride.to_lat},#{self.ride.to_lng}&destinations=#{self.request.to_lat},#{self.request.to_lng}&mode=walking&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     distances_walk_to_dest = JSON.parse(open(url_walk_to_dest).read)
 
-    unless distances_walk_to_car["rows"][0]["elements"][0]["status"] == "ZERO RESULTS"
+    unless distances_walk_to_car["rows"][0]["elements"][0]["status"] == "ZERO_RESULTS"
       self.duration_to_car = distances_walk_to_car["rows"][0]["elements"][0]["duration"]["value"]
       self.distance_to_car = distances_walk_to_car["rows"][0]["elements"][0]["distance"]["value"]
     end
 
-    unless distances_walk_to_dest["rows"][0]["elements"][0]["status"] == "ZERO RESULTS"
+    unless distances_walk_to_dest["rows"][0]["elements"][0]["status"] == "ZERO_RESULTS"
       self.duration_to_dest = distances_walk_to_dest["rows"][0]["elements"][0]["duration"]["value"]
       self.distance_to_dest = distances_walk_to_dest["rows"][0]["elements"][0]["distance"]["value"]
     end

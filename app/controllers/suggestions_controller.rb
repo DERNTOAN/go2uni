@@ -58,7 +58,7 @@ class SuggestionsController < ApplicationController
     if(request.from_lat && request.from_lng && ride.from_lat && ride.from_lng)
       url_ride= "https://maps.googleapis.com/maps/api/distancematrix/json?origins=#{request.from_lat},#{request.from_lng}&destinations=#{ride.from_lat},#{ride.from_lng}&mode=driving&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
       distances_ride = JSON.parse(open(url_ride).read)
-      unless distances_ride["rows"][0]["elements"][0]["status"] == "ZERO RESULTS"
+      unless distances_ride["rows"][0]["elements"][0]["status"] == "ZERO_RESULTS"
         rep[:duration] = distances_ride["rows"][0]["elements"][0]["duration"]["value"]
         rep[:distance] = distances_ride["rows"][0]["elements"][0]["distance"]["value"]
       end
