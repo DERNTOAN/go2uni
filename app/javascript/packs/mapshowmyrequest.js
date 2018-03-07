@@ -39,6 +39,12 @@ function selectRide() {
        self_marker = new google.maps.Marker( { position: from_self, map: map, icon: self_icon } );
 
       showRouteOneCounterpart(map, from_self, to_self, driver);
+      console.log(driver);
+      const maxbound      = new google.maps.LatLng(driver.from);
+const bounds = new google.maps.LatLngBounds(from_self, maxbound);
+
+map.fitBounds(bounds);
+
 
     })
 

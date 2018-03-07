@@ -1,6 +1,4 @@
 <% content_for :title, "Share Your Ride or Find A Ride" %>
-
-
   <div class="map-dummy">
     <div
     id="map-rides-index"
@@ -8,6 +6,8 @@
     height: 100%;"
     data-counterparts="<%= @drivers.to_json %>"
     data-mapbounds = "<%= @mapbounds.to_json %>"
+    data-mapcenter = "<%= @mapcenter.to_json %>"
+
 
     ></div>
   </div>
@@ -47,7 +47,6 @@
         <%= f.label :direction_from, "Home <i class='fas fa-angle-double-up'></i>".html_safe, class:"btn btn-standard"%>
       </div>
     </div>
-
 
     <div class="form-group uni-select">
         <% if browser.platform.android? %>

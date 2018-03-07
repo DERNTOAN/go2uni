@@ -7,32 +7,48 @@
   background-color: $third_light;
   display: grid;
   grid-gap: 1rem;
-  padding: 5px;
+  padding: 8px;
 
-    .journey-info{
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      color: white;
-      width: calc(100% - 32px);
-      margin: 0 auto;
-      border-bottom: 5px solid $main;
-      padding-bottom: 16px;
-      .avatar{
-        width: 64px;
-      }
-      h2{
-        font-size: 40px;
-        margin-top: 24px;
-        margin-bottom: 4px;
-      }
-      p{
-        font-size: 16px;
-        color: rgba(255, 255, 255, 0.7);
-        font-weight: 300;
-        margin: 0;
-      }
+  .journey-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: white;
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    border-bottom: 5px solid $main;
+    padding-bottom: 16px;
+
+    .text-center-driver{
+      text-align: center;
+      position: relative;
+      bottom: -24px;
     }
+    .says-driver {
+
+      background-color: $main;
+      color: rgba(30,30,30,0.6);
+      font-weight: 400;
+      position: relative;
+      bottom: 8px;
+
+    }
+
+    .avatar{
+      width: 64px;
+    }
+    h2{
+      font-size: 40px;
+      margin-top: 24px;
+      margin-bottom: 4px;
+    }
+    p{
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+      margin: 0;
+    }
+  }
 
   .drivers-card {
     margin-top: -10px;
@@ -113,10 +129,6 @@
     }
   }
 
-
-  .list-group{
-    padding: 16px;
-  }
 
   .offer-card{
     background-color: $dark-blue-light;
@@ -303,12 +315,12 @@
 
     }
     .study-small {
-    font-size: 8px;
-    color: gray;
+      font-size: 8px;
+      color: gray;
     };
     .semester-small{
-    font-size: 8px;
-    color: gray;
+      font-size: 8px;
+      color: gray;
     }
 
   };
