@@ -1,49 +1,61 @@
 .myrequest-wrapper {
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   padding: 0;
+  background-color: $third_light;
 }
 
 .myrequest {
   display: flex;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid rgba(220,224,244,0.4);
+  flex-direction: column;
+  margin: 16px;
+  max-resolution: 24px;
   position: relative;
-  background-color: $main;
-  border-radius: 60px;
-  margin: 10px;
-  box-shadow: 2px, 2px, 2px, lightgrey;
-  color: black;
+  color: white;
+  border-bottom: 5px solid $main;
+  .trip-info{
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+      align-items: center;
+      height: 60px;
+      margin-bottom: 8px;
+    }
+    .trip-align-top{
+      align-self: flex-start;
+      flex: 1 0 80%;
+    };
+  .badge-offers {
+    background-color: $main;
+    margin-bottom: -8px;
+    color: rgba(50, 50, 50, 0.8);
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.25px;
+    align-self: flex-end;
+  };
 }
 
 .myrequest-show {
-  padding-left: 5px;
   font-size: 13px;
-  color: black;
-  // background-color: $third;
-}
-
-.myrequest-body {
-  flex-grow: 1;
-  font-size: 13px;
-  padding-left: 10px;
-}
-
-
-.myrequest-body {
-  padding-left: 20px;
-}
-
-.myrequest-body strong{
-  color: black;
-}
-
-.myrequest-body p {
-  margin: 6px 0;
-}
-
-.myrequest-body h5 {
-  color: black;
+  color: white;
+  h1{
+    padding: 8px;
+    margin: 16px;
+    text-align: center;
+    border-bottom: 5px solid $main;
+  }
+  .myrequest-times {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    h2, h3 {
+      font-size: 24px;
+      margin-top: 0;
+      margin-bottom: 4px;
+    }
+  }
 }
 
 .myrequest-link {
@@ -55,7 +67,6 @@
   z-index: 2;
   background-color: #0004B0;
   opacity: 0;
-  border-radius: 60px;
 }
 
 .myrequest-link:hover {
