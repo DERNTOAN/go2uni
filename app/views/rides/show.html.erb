@@ -1,16 +1,16 @@
 <% content_for :title, "Ride Information"%>
 
-  <div
-  id="mapshow"
-  style="width: 100vw;
-  height: 406px;"
-  data-marker_from_self="<%= @marker_from_driver.to_json %>"
-  data-counterparts="<%= @passengers.to_json %>"
-  data-marker_to="<%= @marker_to.to_json %>"
-  data-map_as="driver"
-  data-mapbounds = "<%= @mapbounds.to_json %>"
+<div
+id="mapshow"
+style="width: 100vw;
+height: 406px;"
+data-marker_from_self="<%= @marker_from_driver.to_json %>"
+data-counterparts="<%= @passengers.to_json %>"
+data-marker_to="<%= @marker_to.to_json %>"
+data-map_as="driver"
+data-mapbounds = "<%= @mapbounds.to_json %>"
 
-  >
+>
 </div>
 
 
@@ -30,96 +30,98 @@
       <div class="more-infos">
         <h4><%= @ride.user.first_name %></h4>
 
-              <div class="highlight-container">
+        <div class="highlight-container">
 
-                <div class="highlight study">
-              <div class="study-small"> STUDY </div>
-                  <%= @ride.user.course %> </div>
+          <div class="highlight study">
+            <div class="study-small">
+              STUDY
+            </div>
+            <%= @ride.user.course %>
+          </div>
 
-                <div class="highlight semester">
-
-              <div class="semester-small"> SEMESTER </div>
-                  <%= @ride.user.semester %>
-                </div>
-              </div>
-
-<div class="info-container-pills">
-                <% if @ride.user.music %>
-                <div class="info-music info-pill">
-                  <% @ride.user.music.split(",").each do |music| %>
-                  <span class="badge badge-music badge-primary badge-pill"><%= music %></span>
-                  <% end %>
-                  <% end %>
-
-                  <% if @ride.user.hobby %>
-                  <% @ride.user.hobby.split(",").each do |hobby| %>
-                  <span class="badge badge-hobby-driver badge-primary badge-pill"><%=  hobby %></span>
-                  <% end %>
-                </div>
-                <% end %>
-              </div>
-              <div class="description-container">
-                <p>
-                  <%=  @ride.user.description %>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At velit error fugiat sequi nostrum laudantium quibusdam esse, dolores, alias harum, impedit laborum ad cum nulla iusto deleniti minima voluptate numquam repellat perspiciatis. Recusandae quia molestiae aperiam aspernatur totam unde voluptatum ratione at vitae veniam ex adipisci porro saepe nobis quasi et magni accusantium veritatis, expedita non laborum, provident doloremque ipsa voluptas atque! Vel beatae, corrupti labore adipisci soluta. Facere aperiam ipsum, incidunt, est nostrum sed tenetur esse pariatur! At, temporibus.
-                </p>
-              </div>
-
-
+          <div class="highlight semester">
+            <div class="semester-small">
+              SEMESTER
+            </div>
+            <%= @ride.user.semester %>
+          </div>
         </div>
+
+        <div class="info-container-pills">
+          <% if @ride.user.music %>
+          <div class="info-music info-pill">
+            <% @ride.user.music.split(",").each do |music| %>
+            <span class="badge badge-music badge-primary badge-pill"><%= music %></span>
+            <% end %>
+            <% end %>
+
+            <% if @ride.user.hobby %>
+            <% @ride.user.hobby.split(",").each do |hobby| %>
+            <span class="badge badge-hobby-driver badge-primary badge-pill"><%=  hobby %></span>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+        <div class="description-container">
+          <p>
+            <%=  @ride.user.description %>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At velit error fugiat sequi nostrum laudantium quibusdam esse, dolores, alias harum, impedit laborum ad cum nulla iusto deleniti minima voluptate numquam repellat perspiciatis. Recusandae quia molestiae aperiam aspernatur totam unde voluptatum ratione at vitae veniam ex adipisci porro saepe nobis quasi et magni accusantium veritatis, expedita non laborum, provident doloremque ipsa voluptas atque! Vel beatae, corrupti labore adipisci soluta. Facere aperiam ipsum, incidunt, est nostrum sed tenetur esse pariatur! At, temporibus.
+          </p>
+        </div>
+
+
       </div>
     </div>
-    <div class="list-group">
+  </div>
+  <div class="list-group">
 
-      <% @offers.each do |offer| %>
+    <% @offers.each do |offer| %>
 
-      <div data-toggle="collapse" data-target="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
-        <div class="offer-card">
-          <div class="card-header" id="heading-<%= offer.id %>">
+    <div data-toggle="collapse" data-target="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
+      <div class="offer-card">
+        <div class="card-header" id="heading-<%= offer.id %>">
 
-            <div class="user-group">
+          <div class="user-group">
 
-              <%= cl_image_tag(offer.request.user.photo, width:200, height:200, class:"avatar") %>
-              <div class="ride-info">
+            <%= cl_image_tag(offer.request.user.photo, width:200, height:200, class:"avatar") %>
+            <div class="ride-info">
 
+              <p>
+                <%=  offer.request.user.first_name %>
+              </p>
+
+              <div class="ride-info-icons">
                 <p>
-                  <%=  offer.request.user.first_name %>
+                  <%= image_tag("walker.png", class: "ride-symbols") %>
+                  <%= offer.duration_to_car / 60 %> min
                 </p>
-
-                <div class="ride-info-icons">
-
-                  <p>
-                    <%= image_tag("walker.png", class: "ride-symbols") %>
-                    <%= offer.duration_to_car / 60 %> min
-                  </p>
-
-                </div>
               </div>
-
             </div>
 
-            <div class="status-group">
-              <% if offer.confirmed %>
-              <i class="icon fas fa-check fa-2x"></i>
-              <% elsif offer.confirmed.nil? %>
-              <i class="icon fas fa-question fa-2x" style="color: gray" ></i>
-              <% elsif offer.confirmed == false %>
-              <i class="icon fas fa-times fa-2x"></i>
-              <% end %>
-            </div>
           </div>
-          <div id="collapse-<%= offer.id %>" class="collapse full-width card-body" aria-labelledby="heading-<%= offer.id %>" data-parent="#accordion">
 
-            <div class="more-infos">
-              <div class="highlight-container">
+          <div class="status-group">
+            <% if offer.confirmed %>
+            <i class="icon fas fa-check fa-2x"></i>
+            <% elsif offer.confirmed.nil? %>
+            <i class="icon fas fa-question fa-2x" style="color: gray" ></i>
+            <% elsif offer.confirmed == false %>
+            <i class="icon fas fa-times fa-2x"></i>
+            <% end %>
+          </div>
+        </div>
+        <div id="collapse-<%= offer.id %>" class="collapse full-width card-body" aria-labelledby="heading-<%= offer.id %>" data-parent="#accordion">
 
-                <div class="highlight study">
-              <div class="study-small"> STUDY </div>
-                  <%= offer.request.user.course %> </div>
+          <div class="more-infos">
+            <div class="highlight-container">
+
+              <div class="highlight study">
+                <div class="study-small"> STUDY </div>
+                <%= offer.request.user.course %> </div>
 
                 <div class="highlight semester">
 
-              <div class="semester-small"> SEMESTER </div>
+                  <div class="semester-small"> SEMESTER </div>
                   <%= offer.request.user.semester %>
                 </div>
               </div>

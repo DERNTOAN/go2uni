@@ -1,53 +1,132 @@
+.flex-space-between{
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  align-items: center;
+}
+
+.flex-grow{
+  flex: 1;
+}
+
 .myrequest-container{
+  width: 100%;
   background-color: $third_light;
+  ;
   display: grid;
-  grid-template-column: 1;
   grid-gap: 1rem;
   padding: 5px;
 
-  .drivers-dash{
-    margin-top: 5px;
-    padding: 2px;
-    background-color: $main;
-    border-radius: 50px;
-    text-align: center;
-    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
-
-
-    p{
-      font-size: 13px;
+  .journey-info{
+    color: white;
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    margin-top: 24px;
+    border-bottom: 5px solid $main;
+    .trip-info{
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 8px;
     }
+    .trip-align-top{
+align-self: flex-start;
+    flex: 1 0 80%;
+    };
+  .badge-offers {
+    background-color: $main;
+    margin-bottom: -8px;
+    color: rgba(50, 50, 50, 0.8);
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.25px;
+    align-self: flex-end;
+  };
+    .avatar{
+      width: 64px;
+    }
+
+    h3{
+      font-size: 14px;
+      margin-top: 16px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid white;
+      font-weight: 200;
+      letter-spacing: 2px;
+      padding-bottom: 2px;
+    }
+    h2{
+      font-size: 24px;
+      margin-top: 0px;
+      margin-bottom: 4px;
+    }
+    p{
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+      margin: 0;
+    }
+  }
+  .list-group{
+    padding: 16px;
   }
 
   .offer-card{
-    background-color: #fbfbfb;
+    background-color: $dark-blue-light;
     border-radius: 40px;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 5px;
 
-    .card-header{
-      padding: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    .highlight {
+      color: $dark_blue;
+      font-weight: bold;
+    }
+    p {
 
-
+      font-size: 13px;
+      margin: 0;
 
     }
 
-    .card-details {
-
-    background-color: #eee;
-    border-radius: 0 0 40px 40px;
+    h5 {
+      margin-bottom: 5px;
     }
 
+    .card-header {
+      padding: 8px;
+      p {
+        font-size: 17px;
+
+      }
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .more-infos {
+      text-align: left;
+      background-color: $dark-blue-light;
+      border-radius: 0 0 40px 40px;
+      padding: 8px;
+
+      h5 {
+        margin-bottom: 0;
+      }
+      p{
+        font-size: 16px;
+        margin: 0;
+      }
+    }
     .user-group{
       display: flex;
-      width: 60vw;
+      flex-grow: 1;
       padding-right: 10px;
       align-items: center;
 
@@ -58,29 +137,46 @@
       .avatar{
         border-radius: 50%;
         background-color: white;
-        width: 70px;
-        height: 70px;
+        width: 64px;
+        height: 64px;
         text-align: left;
-        margin-right: 10px;
       }
 
       .ride-info{
         display: flex;
         flex-grow: 1;
         flex-direction: column;
+        margin-left: 16px;
+        p{
+          font-size: 21px;
+          color: white;
+          font-weight: bold;
+        }
         .ride-info-icons{
+          flex-grow: 1;
           p{
             font-size: 12px;
-            font-weight:bold;
             margin-bottom: 2px;
-
+            font-weight: 400;
+            color: rgba(255,255,255,0.75);
           }
         }
       }
+      .music-style {
+        font-size: 28px;
+        span {
+          font-size: 12px;
+        }
+        .bagde{
+          background-color: $dark-blue-light;
+          font-weight: 400;
+        }
+      }
+
     }
 
     .status-group{
-      flex-grow: 1;
+      flex-grow: auto;
       display: flex;
       justify-content: space-around;
       .icon{
@@ -89,11 +185,143 @@
         border: 1px solid #e0e0e0;
         text-align: center;
         line-height: 60px;
-        height: 60px;
-        width: 60px;
+        height: 64px;
+        width: 64px;
+      }
+      .fa-times {
+        color: $red;
+      }
+
+      .fa-check {
+        color: $third_light;
       }
     }
+
+
+
+    .more-infos{
+      text-align: left;
+      background-color: $dark-blue-light;
+      padding: 8px;
+      margin: 0px 8px 32px 8px;
+      border-radius: 0px 0px 40px 40px;
+      p{
+        font-size: 13px;
+        color: white;
+        font-weight: 400;
+        margin-top: 8px;
+        span{
+          color: white;
+          font-weight: 500;
+        }
+      }
+      span.badge.badge-primary.badge-pill{
+        background-color: #fdce00;
+        color: #333333;
+      }
+      h5{
+        color: white;
+      }
+
+
+    }
   }
+
+  .highlight-container{
+    display: flex;
+    margin-top: 0px;
+
+    margin-bottom: 11px;
+
+    .highlight {
+      color: #072C4A;
+      font-weight: bold;
+      background: white;
+      padding: 4px 16px;
+      border-radius: 4px;
+
+    };
+
+    .study{
+      flex: 1;
+      font-size: 17px;
+      display:flex;
+      align-items: flex-start;
+      flex-direction: column;
+
+    }
+    .semester{
+      display: flex;
+      flex: 0 1 20%;
+      margin-left: 8px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+    }
+    .study-small {
+      font-size: 8px;
+      color: gray;
+    };
+    .semester-small{
+      font-size: 8px;
+      color: gray;
+    }
+
+  };
+
+  .description-container{
+    overflow: auto;
+    max-height: 80px;
+  };
+
+
+  .ride-symbols {
+    height: 14px;
+    width: 14px;
+  };
+
+  .info-container-pills{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  };
+
+  .badge {
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.25px;
+    margin-bottom: 4px;
+  };
+
+
+
+  .info-pill {
+    display: flex;
+    flex-wrap: wrap;
+    color: $dark-blue-light !important;
+    span {
+      margin-right: 4px;
+    }
+
+    .badge-music {
+      background-color: $third;
+    }
+
+    .badge-hobby {
+      background-color: $third_light !important;
+    }
+    .badge-hobby-driver {
+      background-color: $main !important;
+      color: rgba(0,0,0,0.45);
+    }
+    i {
+      margin-right: 8px;
+      color: #072C4A;
+    }
+  }
+
   .card-details {
     padding: 10px;
   }
