@@ -5,6 +5,7 @@ class RidesController < ApplicationController
     @location = session[:location]
     @rides = policy_scope(Ride)
     @rides = @rides.where.not(from_lng: nil, from_lat: nil, to_lng: nil, to_lat: nil)
+    p @rides.first
 
     @drivers = @rides.map do |ride|
       {
@@ -20,8 +21,10 @@ class RidesController < ApplicationController
 
         avatar: ride.user.photo.url,
         id: ride.user.id,
+        ride_id: ride.id,
         first_name: ride.user.first_name,
-        last_name: ride.user.last_name
+        last_name: ride.user.last_name,
+        direction: ride.direction
       }
     end
     @mapbounds = {

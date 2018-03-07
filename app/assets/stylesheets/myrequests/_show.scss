@@ -1,9 +1,36 @@
 .myrequest-container{
+  width: 100%;
   background-color: $third_light;
+  ;
   display: grid;
-  grid-template-column: 1;
   grid-gap: 1rem;
   padding: 5px;
+
+  .journey-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: white;
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    border-bottom: 5px solid $main;
+    padding-bottom: 16px;
+    .avatar{
+      width: 64px;
+    }
+    h2{
+      font-size: 40px;
+      margin-top: 24px;
+      margin-bottom: 4px;
+    }
+    p{
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+      margin: 0;
+    }
+  }
+
 
   .drivers-dash{
     margin-top: 5px;
@@ -31,9 +58,9 @@
 
     .card-header{
       padding: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
 
 
 
@@ -41,8 +68,8 @@
 
     .card-details {
 
-    background-color: #eee;
-    border-radius: 0 0 40px 40px;
+      background-color: #eee;
+      border-radius: 0 0 40px 40px;
     }
 
     .user-group{

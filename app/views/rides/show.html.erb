@@ -1,16 +1,16 @@
 <% content_for :title, "Ride Information"%>
 
-  <div
-  id="mapshow"
-  style="width: 100vw;
-  height: 406px;"
-  data-marker_from_self="<%= @marker_from_driver.to_json %>"
-  data-counterparts="<%= @passengers.to_json %>"
-  data-marker_to="<%= @marker_to.to_json %>"
-  data-map_as="driver"
-  data-mapbounds = "<%= @mapbounds.to_json %>"
+<div
+id="mapshow"
+style="width: 100vw;
+height: 406px;"
+data-marker_from_self="<%= @marker_from_driver.to_json %>"
+data-counterparts="<%= @passengers.to_json %>"
+data-marker_to="<%= @marker_to.to_json %>"
+data-map_as="driver"
+data-mapbounds = "<%= @mapbounds.to_json %>"
 
-  >
+>
 </div>
 
 
@@ -30,40 +30,39 @@
       <div class="more-infos">
         <h4><%= @ride.user.first_name %></h4>
 
-              <div class="highlight-container">
+        <div class="highlight-container">
 
-                <div class="highlight study">
-              <div class="study-small"> STUDY </div>
-                  <%= @ride.user.course %> </div>
+          <div class="highlight study">
+            <div class="study-small"> STUDY </div>
+            <%= @ride.user.course %> </div>
 
-                <div class="highlight semester">
-
+            <div class="highlight semester">
               <div class="semester-small"> SEMESTER </div>
-                  <%= @ride.user.semester %>
-                </div>
-              </div>
+              <%= @ride.user.semester %>
+            </div>
+          </div>
 
-<div class="info-container-pills">
-                <% if @ride.user.music %>
-                <div class="info-music info-pill">
-                  <% @ride.user.music.split(",").each do |music| %>
-                  <span class="badge badge-music badge-primary badge-pill"><%= music %></span>
-                  <% end %>
-                  <% end %>
+          <div class="info-container-pills">
+            <% if @ride.user.music %>
+            <div class="info-music info-pill">
+              <% @ride.user.music.split(",").each do |music| %>
+              <span class="badge badge-music badge-primary badge-pill"><%= music %></span>
+              <% end %>
+              <% end %>
 
-                  <% if @ride.user.hobby %>
-                  <% @ride.user.hobby.split(",").each do |hobby| %>
-                  <span class="badge badge-hobby-driver badge-primary badge-pill"><%=  hobby %></span>
-                  <% end %>
-                </div>
-                <% end %>
-              </div>
-              <div class="description-container">
-                <p>
-                  <%=  @ride.user.description %>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At velit error fugiat sequi nostrum laudantium quibusdam esse, dolores, alias harum, impedit laborum ad cum nulla iusto deleniti minima voluptate numquam repellat perspiciatis. Recusandae quia molestiae aperiam aspernatur totam unde voluptatum ratione at vitae veniam ex adipisci porro saepe nobis quasi et magni accusantium veritatis, expedita non laborum, provident doloremque ipsa voluptas atque! Vel beatae, corrupti labore adipisci soluta. Facere aperiam ipsum, incidunt, est nostrum sed tenetur esse pariatur! At, temporibus.
-                </p>
-              </div>
+              <% if @ride.user.hobby %>
+              <% @ride.user.hobby.split(",").each do |hobby| %>
+              <span class="badge badge-hobby-driver badge-primary badge-pill"><%=  hobby %></span>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+          <div class="description-container">
+            <p>
+              <%=  @ride.user.description %>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. At velit error fugiat sequi nostrum laudantium quibusdam esse, dolores, alias harum, impedit laborum ad cum nulla iusto deleniti minima voluptate numquam repellat perspiciatis. Recusandae quia molestiae aperiam aspernatur totam unde voluptatum ratione at vitae veniam ex adipisci porro saepe nobis quasi et magni accusantium veritatis, expedita non laborum, provident doloremque ipsa voluptas atque! Vel beatae, corrupti labore adipisci soluta. Facere aperiam ipsum, incidunt, est nostrum sed tenetur esse pariatur! At, temporibus.
+            </p>
+          </div>
 
 
         </div>
@@ -114,44 +113,44 @@
               <div class="highlight-container">
 
                 <div class="highlight study">
-              <div class="study-small"> STUDY </div>
+                  <div class="study-small"> STUDY </div>
                   <%= offer.request.user.course %> </div>
 
-                <div class="highlight semester">
+                  <div class="highlight semester">
 
-              <div class="semester-small"> SEMESTER </div>
-                  <%= offer.request.user.semester %>
+                    <div class="semester-small"> SEMESTER </div>
+                    <%= offer.request.user.semester %>
+                  </div>
                 </div>
-              </div>
 
-              <div class="info-container-pills">
-                <% if offer.request.user.music %>
-                <div class="info-music info-pill">
-                  <% offer.request.user.music.split(",").each do |music| %>
-                  <span class="badge badge-music badge-primary badge-pill"><%= music %></span>
-                  <% end %>
-                  <% end %>
+                <div class="info-container-pills">
+                  <% if offer.request.user.music %>
+                  <div class="info-music info-pill">
+                    <% offer.request.user.music.split(",").each do |music| %>
+                    <span class="badge badge-music badge-primary badge-pill"><%= music %></span>
+                    <% end %>
+                    <% end %>
 
-                  <% if offer.request.user.hobby %>
-                  <% offer.request.user.hobby.split(",").each do |hobby| %>
-                  <span class="badge badge-hobby badge-primary badge-pill"><%=  hobby %></span>
+                    <% if offer.request.user.hobby %>
+                    <% offer.request.user.hobby.split(",").each do |hobby| %>
+                    <span class="badge badge-hobby badge-primary badge-pill"><%=  hobby %></span>
+                    <% end %>
+                  </div>
                   <% end %>
                 </div>
-                <% end %>
-              </div>
-              <div class="description-container">
-                <p>
-                  <%=  offer.request.user.description %>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At velit error fugiat sequi nostrum laudantium quibusdam esse, dolores, alias harum, impedit laborum ad cum nulla iusto deleniti minima voluptate numquam repellat perspiciatis. Recusandae quia molestiae aperiam aspernatur totam unde voluptatum ratione at vitae veniam ex adipisci porro saepe nobis quasi et magni accusantium veritatis, expedita non laborum, provident doloremque ipsa voluptas atque! Vel beatae, corrupti labore adipisci soluta. Facere aperiam ipsum, incidunt, est nostrum sed tenetur esse pariatur! At, temporibus.
-                </p>
+                <div class="description-container">
+                  <p>
+                    <%=  offer.request.user.description %>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At velit error fugiat sequi nostrum laudantium quibusdam esse, dolores, alias harum, impedit laborum ad cum nulla iusto deleniti minima voluptate numquam repellat perspiciatis. Recusandae quia molestiae aperiam aspernatur totam unde voluptatum ratione at vitae veniam ex adipisci porro saepe nobis quasi et magni accusantium veritatis, expedita non laborum, provident doloremque ipsa voluptas atque! Vel beatae, corrupti labore adipisci soluta. Facere aperiam ipsum, incidunt, est nostrum sed tenetur esse pariatur! At, temporibus.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
-
+        <% end %>
       </div>
-      <% end %>
+
+
     </div>
-
-
-  </div>
