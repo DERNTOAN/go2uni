@@ -12,27 +12,30 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
 
 <div class="myrequest-container">
 
-  <div class="drivers-dash">
-    <h4><%= @drivers.count %> Offers</h4>
-    <p>
-      <%= @myrequest.start_time.strftime("%d %B") %> between <%= @myrequest.start_time.strftime("%H:%M") %> and <%= @myrequest.stop_time.strftime("%H:%M") %>
-    </p>
-    <p>
-      <strong> <%= @myrequest.from_address.split(",").first %> </strong> =><strong> <%= @myrequest.to_address.split(",").first %> </strong>
-    </p>
+  <div class="journey-info" data-toggle="collapse" data-target="#collapse-driver" aria-expanded="true" aria-controls="collapse-driver">
+    <div class="full-width">
+      <div class="flex-space-between">
+
+        <h2 class="flex-grow"><%= @myrequest.start_time.strftime("%d %B") %>
+        </h2>
+
+      </div>
+      <h2>
+        between <%= @myrequest.start_time.strftime("%H:%M") %> and <%= @myrequest.stop_time.strftime("%H:%M") %></h2>
+        <div class="trip-info">
+
+          <div class="trip-align-top"><p> <%= @myrequest.from_address.split(",").first %> to <%= @myrequest.to_address.split(",").first %>
+          </p>
+        </div>
+        <div class="badge-offers"><%= @drivers.count %> Offers</div>
+      </div>
+    </div>
   </div>
-
-
-
 
 
   <div class="list-group" role="tablist" aria-multiselectable="true">
 
-
-
     <% @offers.each do |offer| %>
-
-
 
     <div class="offer-card" id="select-ride-<%= offer.ride.id %>" ">
       <div class="card-header" id="heading-<%= offer.id %>" data-toggle="collapse" data-target="#collapse-<%= offer.id %>" aria-expanded="true" aria-controls="collapse-<%= offer.id %>">
@@ -69,31 +72,55 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
 
         <div class="status-group">
           <%= link_to ride_offer_path(offer.ride, offer, {confirmed: false}), data: {ride: "#{offer.ride.id}", offer: "#{offer.id}"}, class: "decline-btn", method: :put do %>
-          <i class="icon fas fa-times fa-2x" style="color: red" ></i>
+          <i class="icon fas fa-times fa-2x"></i>
           <% end %>
           <%= link_to ride_offer_path(offer.ride,offer, {confirmed: true}), :method=> :put do %>
-          <i class="icon fas fa-check fa-2x" style="color: green"></i>
+          <i class="icon fas fa-check fa-2x"></i>
           <% end %>
         </div>
       </div>
       <div id="collapse-<%= offer.id %>" class="card-details collapse more-infos" aria-labelledby="heading-<%= offer.id %>" data-parent="#accordion">
 
-        <h5>About me</h5>
-        <p>Hi, I am <%= offer.ride.user.first_name %> and I study <span class="highlight"> <%= offer.ride.user.course %> </span> since <span class="highlight"> <%= offer.ride.user.semester %> semesters. </span> </p>
+        <div class="more-infos">
+          <div class="highlight-container">
 
+            <div class="highlight study">
+              <div class="study-small"> STUDY </div>
+              <%= offer.request.user.course %> </div>
 
+              <div class="highlight semester">
 
-        <h5 class="music-style">My music
-          <span class="badge badge-primary badge-pill"><%=  offer.ride.user.music %></span></h5>
-          <h5>Hobbies
-            <span class="badge badge-primary badge-pill"><%=  offer.ride.user.hobby %></span>
-          </h5>
-          <p style="margin-top: 10px; font-size: 15px; font-style: italic;"> <%=  offer.ride.user.quote %></p>
+                <div class="semester-small"> SEMESTER </div>
+                <%= offer.request.user.semester %>
+              </div>
+            </div>
+
+            <div class="info-container-pills">
+              <% if offer.request.user.music %>
+              <div class="info-music info-pill">
+                <% offer.request.user.music.split(",").each do |music| %>
+                <span class="badge badge-music badge-primary badge-pill"><%= music %></span>
+                <% end %>
+                <% end %>
+
+                <% if offer.request.user.hobby %>
+                <% offer.request.user.hobby.split(",").each do |hobby| %>
+                <span class="badge badge-hobby badge-primary badge-pill"><%=  hobby %></span>
+                <% end %>
+              </div>
+              <% end %>
+            </div>
+            <div class="description-container">
+              <p>
+                <%=  offer.request.user.description %>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At velit error fugiat sequi nostrum laudantium quibusdam esse, dolores, alias harum, impedit laborum ad cum nulla iusto deleniti minima voluptate numquam repellat perspiciatis. Recusandae quia molestiae aperiam aspernatur totam unde voluptatum ratione at vitae veniam ex adipisci porro saepe nobis quasi et magni accusantium veritatis, expedita non laborum, provident doloremque ipsa voluptas atque! Vel beatae, corrupti labore adipisci soluta. Facere aperiam ipsum, incidunt, est nostrum sed tenetur esse pariatur! At, temporibus.
+              </p>
+            </div>
+          </div>
+        </div>
 
       </div>
-
+      <% end %>
     </div>
-    <% end %>
-  </div>
 
-</div>
+  </div>
