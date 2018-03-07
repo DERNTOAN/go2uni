@@ -112,10 +112,7 @@
       align-items: center;
     }
     .more-infos {
-      text-align: left;
-      background-color: $dark-blue-light;
-      border-radius: 0 0 40px 40px;
-      padding: 8px;
+
 
       h5 {
         margin-bottom: 0;
@@ -202,10 +199,9 @@
 
     .more-infos{
       text-align: left;
+    margin: 0px 0px 8px 0px;
+    border-radius: 0px 0px 40px 40px;
       background-color: $dark-blue-light;
-      padding: 8px;
-      margin: 0px 8px 32px 8px;
-      border-radius: 0px 0px 40px 40px;
       p{
         font-size: 13px;
         color: white;

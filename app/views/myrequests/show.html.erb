@@ -16,13 +16,13 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
     <div class="full-width">
       <div class="myrequest-datetime">
 
-        <h2><%= @myrequest.start_time.strftime("%d.%m.%y") %>
-        </h2>
+        <h3><%= @myrequest.start_time.strftime("%d.%m.%y") %>
+        </h3>
         <div>
-          <h2>
+          <h3>
            <%= @myrequest.start_time.strftime("%H:%M") %> <i class="fas fa-arrow-circle-right"></i>
            <%= @myrequest.stop_time.strftime("%H:%M") %>
-         </h2>
+         </h3>
        </div>
 
      </div>
