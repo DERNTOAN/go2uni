@@ -12,17 +12,24 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
 
 <div class="myrequest-container">
 
-  <div class="drivers-dash">
-    <h4><%= @drivers.count %> Offers</h4>
-    <p>
-      <%= @myrequest.start_time.strftime("%d %B") %> between <%= @myrequest.start_time.strftime("%H:%M") %> and <%= @myrequest.stop_time.strftime("%H:%M") %>
-    </p>
-    <p>
-      <strong> <%= @myrequest.from_address.split(",").first %> </strong> =><strong> <%= @myrequest.to_address.split(",").first %> </strong>
-    </p>
+  <div class="journey-info" data-toggle="collapse" data-target="#collapse-driver" aria-expanded="true" aria-controls="collapse-driver">
+    <div>
+      <p><%= @myrequest.start_time.strftime("%d %B") %> between <%= @myrequest.start_time.strftime("%H:%M") %> and <%= @myrequest.stop_time.strftime("%H:%M") %></p>
+      <h2><%= @drivers.count %> Offers</h2>
+      <p><%= @myrequest.from_address.split(",").first %> to <%= @myrequest.to_address.split(",").first %></p>
+    </div>
+
   </div>
 
+  <div class="drivers-dash">
+    <h4></h4>
+    <p>
 
+    </p>
+    <p>
+      <strong>  </strong> =><strong>  </strong>
+    </p>
+  </div>
 
 
 
