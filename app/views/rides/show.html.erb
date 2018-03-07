@@ -26,21 +26,43 @@
     <div id="collapse-driver" class="collapse" aria-labelledby="heading-driver" data-parent="#accordion">
 
       <div class="more-infos">
-        <h4>Alice</h4>
-        <h5>About me</h5>
-        <% if @ride.user.course && @ride.user.semester %>
+        <h4><%= @ride.user.first_name %></h4>
 
-        <p>Hi, I am <%= @ride.user.first_name %> and I study <span class="highlight"> <%= @ride.user.course %> </span> since <span class="highlight"> <%= @ride.user.semester %> semesters. </span> </p>
+              <div class="highlight-container">
 
-        <% end %>
+                <div class="highlight study">
+              <div class="study-small"> STUDY </div>
+                  <%= @ride.user.course %> </div>
 
-        <h5 class="music-style"><i class="fas fa-headphones"></i> <span class="badge badge-primary badge-pill"><%=  @ride.user.music %></span>
-          <span class="badge badge-primary badge-pill"><%=  @ride.user.music %></span></h5>
-          <h5><i class="fas fa-gamepad"></i>
-            <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby %></span>
-            <span class="badge badge-primary badge-pill"><%=  @ride.user.hobby %></span>
-          </h5>
-          <p> <%=  @ride.user.quote %></p>
+                <div class="highlight semester">
+
+              <div class="semester-small"> SEMESTER </div>
+                  <%= @ride.user.semester %>
+                </div>
+              </div>
+
+<div class="info-container-pills">
+                <% if @ride.user.music %>
+                <div class="info-music info-pill">
+                  <% @ride.user.music.split(",").each do |music| %>
+                  <span class="badge badge-music badge-primary badge-pill"><%= music %></span>
+                  <% end %>
+                  <% end %>
+
+                  <% if @ride.user.hobby %>
+                  <% @ride.user.hobby.split(",").each do |hobby| %>
+                  <span class="badge badge-hobby-driver badge-primary badge-pill"><%=  hobby %></span>
+                  <% end %>
+                </div>
+                <% end %>
+              </div>
+              <div class="description-container">
+                <p>
+                  <%=  @ride.user.description %>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At velit error fugiat sequi nostrum laudantium quibusdam esse, dolores, alias harum, impedit laborum ad cum nulla iusto deleniti minima voluptate numquam repellat perspiciatis. Recusandae quia molestiae aperiam aspernatur totam unde voluptatum ratione at vitae veniam ex adipisci porro saepe nobis quasi et magni accusantium veritatis, expedita non laborum, provident doloremque ipsa voluptas atque! Vel beatae, corrupti labore adipisci soluta. Facere aperiam ipsum, incidunt, est nostrum sed tenetur esse pariatur! At, temporibus.
+                </p>
+              </div>
+
 
         </div>
       </div>
@@ -76,34 +98,58 @@
 
             <div class="status-group">
               <% if offer.confirmed %>
-              <i class="icon fas fa-check fa-2x" style="color: green"></i>
+              <i class="icon fas fa-check fa-2x"></i>
               <% elsif offer.confirmed.nil? %>
               <i class="icon fas fa-question fa-2x" style="color: gray" ></i>
               <% elsif offer.confirmed == false %>
-              <i class="icon fas fa-times fa-2x" style="color: red" ></i>
+              <i class="icon fas fa-times fa-2x"></i>
               <% end %>
             </div>
           </div>
           <div id="collapse-<%= offer.id %>" class="collapse full-width card-body" aria-labelledby="heading-<%= offer.id %>" data-parent="#accordion">
 
             <div class="more-infos">
-              <h5>About me</h5>
+              <div class="highlight-container">
 
-              <p>Hi, I am <%= offer.request.user.first_name %> and I study <span class="highlight"> <%= offer.request.user.course %> </span> since <span class="highlight"> <%= offer.request.user.semester %> semesters. </span> </p>
-              <h5 class="music-style"><i class="fas fa-headphones"></i> <span class="badge badge-primary badge-pill"><%= @ride.user.music %></span>
-                <span class="badge badge-primary badge-pill"><%= offer.request.user.music %></span></h5>
-                <h5><i class="fas fa-gamepad"></i>
-                  <span class="badge badge-primary badge-pill"><%=  offer.request.user.hobby %></span>
-                </h5>
+                <div class="highlight study">
+              <div class="study-small"> STUDY </div>
+                  <%= offer.request.user.course %> </div>
 
-                <p> <%=  offer.request.user.quote %></p>
+                <div class="highlight semester">
+
+              <div class="semester-small"> SEMESTER </div>
+                  <%= offer.request.user.semester %>
+                </div>
+              </div>
+
+              <div class="info-container-pills">
+                <% if offer.request.user.music %>
+                <div class="info-music info-pill">
+                  <% offer.request.user.music.split(",").each do |music| %>
+                  <span class="badge badge-music badge-primary badge-pill"><%= music %></span>
+                  <% end %>
+                  <% end %>
+
+                  <% if offer.request.user.hobby %>
+                  <% offer.request.user.hobby.split(",").each do |hobby| %>
+                  <span class="badge badge-hobby badge-primary badge-pill"><%=  hobby %></span>
+                  <% end %>
+                </div>
+                <% end %>
+              </div>
+              <div class="description-container">
+                <p>
+                  <%=  offer.request.user.description %>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. At velit error fugiat sequi nostrum laudantium quibusdam esse, dolores, alias harum, impedit laborum ad cum nulla iusto deleniti minima voluptate numquam repellat perspiciatis. Recusandae quia molestiae aperiam aspernatur totam unde voluptatum ratione at vitae veniam ex adipisci porro saepe nobis quasi et magni accusantium veritatis, expedita non laborum, provident doloremque ipsa voluptas atque! Vel beatae, corrupti labore adipisci soluta. Facere aperiam ipsum, incidunt, est nostrum sed tenetur esse pariatur! At, temporibus.
+                </p>
               </div>
             </div>
           </div>
-
         </div>
-        <% end %>
+
       </div>
-
-
+      <% end %>
     </div>
+
+
+  </div>
