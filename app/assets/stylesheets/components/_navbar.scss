@@ -21,7 +21,7 @@
 .navbar-dropdown-icon {
   width:25px;
   height:25px;
-  padding: 0
+  padding: 0;
 }
 
 /* Main navbar */
@@ -40,6 +40,12 @@
   left:0;
   right:0;
 
+}
+
+
+.navbar-wagon-brand{
+  left: calc( 50vw - 25px ) ;
+  position: absolute;
 }
 
 /* Logo */
@@ -69,9 +75,15 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+    // padding-left:
+    color: #616668;
+    font-size: 18px;
+  }
+
+.navbar-wagon-text{
+  margin-right: 36px;
 }
+
 .navbar-wagon-link:hover {
   color: #da552f;
   text-decoration: none;
