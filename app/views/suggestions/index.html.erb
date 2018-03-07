@@ -4,12 +4,18 @@
   <div class="container tinder-container">
     <form action=<%= ride_offers_path %> method="post">
       <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
-      <% if @suggestions.empty? %>
+    <!--   <% if @suggestions.empty? %>
         <p>no passengers for this time!</p>
-      <% end %>
+      <% end %> -->
       <ul>
-        <div class="no-more-passenger-cover  tinder-card">
-          <h3>No more potential passengers!</h3>
+        <div class="no-more-passenger-cover tinder-card">
+          <h4>Sorry, nobody else wants to go from </h4>
+          <h4> <%= @ride.from_address %></h4>
+            <p> to </p>
+            <h4> <%= @ride.to_address %>
+              </h4>
+            <p> at </p>
+              <h4><%= @ride.departure_time %></h4>
         </div>
         <% @suggestions.each_with_index do |suggestion, i| %>
           <li class="swipe-card-element tinder-card">
@@ -53,6 +59,9 @@
 
 <div class="wrapper-seats">
   <h3>Select passengers</h3>
+  <h3>Seats left:  <i class="fas fa-level-down-alt"></i></h3>
+
+
   <div class="loading-bar">
   <% @ride.seats.times do %>
     <div class="segment">
