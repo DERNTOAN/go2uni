@@ -12,21 +12,21 @@
   <meta name="theme-color" content="#ffffff">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Pingo!</title>
+  <title><%= yield(:title) %></title>
   <!-- Google result text-->
   <title>Pingo! - Share your ride - Make new friends</title>
   <!-- Google result description-->
   <meta name="description" content="Pingo! is a short-distance carpooling app, bringing together people based on their interests. Make new friends on your way to uni!">
   <meta property="og:title" content="Pingo! - Share your ride - Make new friends">
-  <meta property="og:image" content="facebook-card.jpeg">
+  <meta property="og:image" content="<%= image_url('facebook-card.jpeg') %>">
   <meta property="og:description" content="Pingo! is a short-distance carpooling app, bringing together people based on their interests. Make new friends on your way to uni!">
   <meta property="og:site_name" content="Pingo!"/>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@pingo">
   <meta name="twitter:title" content="Pingo! - Share your ride - Make new friends">
   <meta name="twitter:description" content="Pingo! is a short-distance carpooling app, bringing together people based on their interests. Make new friends on your way to uni!">
-  <meta name="twitter:creator" content="@pingo">
-  <meta name="twitter:image:src" content="http://twitterfa-card.jpg">
+  <meta name="twitter:creator" content="@dernotna">
+  <meta name="twitter:image:src" content="<%= image_url('facebook-card.jpeg') %>">
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all' %>

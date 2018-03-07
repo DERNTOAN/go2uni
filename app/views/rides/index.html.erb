@@ -1,3 +1,4 @@
+<% content_for :title, "Share Your Ride or Find A Ride" %>
 <button id="show-from-button" class="btn btn-standard">
   from
 
@@ -7,6 +8,8 @@
   to
 
 </button>
+
+
   <div class="map-dummy">
     <div
     id="map-rides-index"
@@ -19,8 +22,8 @@
   </div>
 
   <div class="buttons-box form-opener">
-      <a href="" class="btn index-buttons" id="new-ride-button">SHARE YOUR RIDE</a>
-      <a href="" class="btn index-buttons" id="new-request-button">RIDE WITH NEW FRIENDS</a>
+      <a href="" class="btn index-buttons" id="new-ride-button">Share your ride</a>
+      <a href="" class="btn index-buttons" id="new-request-button">Ride with new friends</a>
   </div>
 
 
@@ -65,7 +68,7 @@
       <%= f.number_field :seats, as: :integer, class: "form-control form-input", placeholder: "Number of seats" %>
     </div>
 
-    <%= f.submit "SHARE YOUR RIDE", class: "btn index-buttons" %>
+    <%= f.submit "Share your ride", class: "btn index-buttons" %>
     <% end %>
 
   </div>
@@ -112,7 +115,7 @@
         <%= f.select :uni,[['Universität Bayreuth','bayreuth'],['Universität Tübingen','tuebingen'],['RWTH Aachen','aachen']], {},{class: "form-control form-input"} %>
     </div>
 
-    <%= f.submit "SUBMIT", class: "btn index-buttons" %>
+    <%= f.submit "Share your ride", class: "btn index-buttons" %>
     <% end %>
   </div>
 </div>
