@@ -10,7 +10,6 @@ class PagesController < ApplicationController
       lat: @location["lat"],
       lng: @location["lng"]
     } if session[:location]
-    raise
     @drivers = @rides.map do |ride|
       {
         from: {
