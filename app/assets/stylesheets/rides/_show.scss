@@ -18,25 +18,32 @@
     margin: 0 auto;
     border-bottom: 5px solid $main;
     padding-bottom: 16px;
+    position: relative;
 
-    .text-center-driver{
-      text-align: center;
-      position: relative;
-      bottom: -24px;
+    .text-information{
+      flex: 1;
+      margin-bottom: 0px;
+      max-width: 75%;
     }
     .says-driver {
 
-      background-color: $main;
-      color: rgba(30,30,30,0.6);
+      background-color: #FDCD00;
+      color: rgb(33, 33, 33);
       font-weight: 400;
-      position: relative;
-      bottom: 8px;
-
+      position: absolute;
+      bottom: -4px;
+      right: 0;
+      padding: 0px 8px;
+      font-size: 16px;
+      border-radius: 4px 4px 0px 0px;
     }
 
     .avatar{
       width: 64px;
-    }
+      position: absolute;
+      bottom: 16px;
+      right: 0;
+        }
     h2{
       font-size: 40px;
       margin-top: 24px;
@@ -113,7 +120,7 @@
     .more-infos {
       text-align: left;
       padding: 8px;
-      border-bottom: 2px solid $main;
+      border-bottom: 5px solid $main;
       h5 {
         margin-bottom: 0;
       }
@@ -282,6 +289,7 @@
 
     }
   }
+
   .highlight-container{
     display: flex;
     margin-top: 0px;
