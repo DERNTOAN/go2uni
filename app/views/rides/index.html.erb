@@ -1,6 +1,4 @@
 <% content_for :title, "Share Your Ride or Find A Ride" %>
-
-
   <div class="map-dummy">
     <div
     id="map-rides-index"
@@ -8,6 +6,8 @@
     height: 100%;"
     data-counterparts="<%= @drivers.to_json %>"
     data-mapbounds = "<%= @mapbounds.to_json %>"
+    data-mapcenter = "<%= @mapcenter.to_json %>"
+
 
     ></div>
   </div>
@@ -48,12 +48,11 @@
       </div>
     </div>
 
-
     <div class="form-group uni-select">
         <% if browser.platform.android? %>
           <i class="fas fa-graduation-cap"></i>
         <% end %>
-        <%= f.select :uni,[['Universität Bayreuth','bayreuth'],['Universität Tübingen','tuebingen'],['RWTH Aachen','aachen']], {},{class: "form-control form-input"} %>
+        <%= f.select :uni,[['Universität Bayreuth','bayreuth'],['TU Braunschweig','braunschweig'],['RWTH Aachen','aachen']], {},{class: "form-control form-input"} %>
     </div>
 
     <div class="form-group flex-group">
@@ -109,7 +108,7 @@
         <% if browser.platform.android? %>
           <i class="fas fa-graduation-cap"></i>
         <% end %>
-        <%= f.select :uni,[['Universität Bayreuth','bayreuth'],['Universität Tübingen','tuebingen'],['RWTH Aachen','aachen']], {},{class: "form-control form-input"} %>
+        <%= f.select :uni,[['Universität Bayreuth','bayreuth'],['TU Braunschweig','braunschweig'],['RWTH Aachen','aachen']], {},{class: "form-control form-input"} %>
     </div>
 
     <%= f.submit "Share your ride", class: "btn index-buttons" %>

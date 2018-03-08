@@ -5,6 +5,10 @@ class RidesController < ApplicationController
     @location = session[:location]
     @rides = policy_scope(Ride)
     @rides = @rides.where.not(from_lng: nil, from_lat: nil, to_lng: nil, to_lat: nil)
+    @mapcenter = {
+      lat: params[:lat].to_f,
+      lng: params[:lng].to_f
+    } if params[:lat]
 
     @drivers = @rides.map do |ride|
       {
@@ -128,7 +132,7 @@ class RidesController < ApplicationController
   def uni_address(uni)
     locations = {
       "bayreuth" => "Universitätsstraße 30, 95447 Bayreuth",
-      "tuebingen"=> "Geschwister-Scholl-Platz, 72074 Tübingen",
+      "braunschweig"=> "Universitätsplatz 2, Braunschweig",
       "aachen" => "Templergraben 55, 52062 Aachen"
     }
 

@@ -11,7 +11,7 @@ class Request < ApplicationRecord
   validates :start_time, presence: true
   validates :stop_time, presence: true
 
-  validates :uni, inclusion: {in: ["tuebingen", "aachen", "bayreuth"]}
+  validates :uni, inclusion: {in: ["braunschweig", "aachen", "bayreuth"]}
 
   validates :direction, inclusion: {in: ["to", "from", nil]}
 

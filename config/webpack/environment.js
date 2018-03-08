@@ -9,4 +9,3 @@ environment.plugins.set('Provide',
 )
 
 module.exports = environment
-
