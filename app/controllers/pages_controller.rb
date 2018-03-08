@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :index]
-  before_action :update_session
+  before_action :update_session, only: :index
 
   def index
     @location = session[:location]
