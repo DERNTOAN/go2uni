@@ -22,7 +22,7 @@
       <div class="myrequest">
         <div class="myrequest-times">
           <h2><%= request.start_time.strftime("%d.%m.%y")%></h2>
-          <h3><%= request.start_time.strftime("%H:%M") %> - <%= request.stop_time.strftime("%H:%M") %></h3>
+          <h3><%= request.start_time.strftime("%H:%M") %> <i class="fas fa-arrow-circle-right"></i> <%= request.stop_time.strftime("%H:%M") %></h3>
         </div>
         <div class="trip-info">
 
