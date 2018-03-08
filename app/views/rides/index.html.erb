@@ -83,7 +83,9 @@
     </div>
 
     <div class="form-group to_time_field time_field flex-group">
-      <i class="far fa-clock"></i>
+      <% unless browser.platform.ios? %>
+        <i class="far fa-clock"></i>
+      <% end %>
       <%=  f.time_field :stop_time, value: "#{(Time.now + 3600).strftime("%H:%M")}", class: "form-control form-input" %>
     </div>
 
