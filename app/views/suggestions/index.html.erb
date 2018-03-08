@@ -7,9 +7,28 @@
 <div class="wrapper-suggestions">
 
   <div class="journey-info text-information">
-    <h2>Passengers</h2>
-  </div>
 
+    <h2>Passengers</h2>
+    <p>Swipe right, up to <%= @ride.seats %> passengers</p>
+    <div class="found-passengers">
+      <div></div>
+      <p class="says-driver">found: <%= @suggestions.length %></p>
+    </div>
+
+  </div>
+  <div class="wrapper-seats">
+
+
+    <div class="loading-bar">
+      <% @ride.seats.times do %>
+      <div class="segment">
+        <div class="dynamic" style="width: 0%;">
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+  </div>
 
   <div class="tinder-container">
     <form action=<%= ride_offers_path %> method="post">
@@ -27,84 +46,83 @@
         </li>
         <% @suggestions.each_with_index do |suggestion, i| %>
         <li class="swipe-card-element">
-        <!-- <li data-toggle="collapse" data-target="#collapse-<%= suggestion[0].id %>" aria-expanded="true" aria-controls="collapse-<%= suggestion[0].id %>" class="swipe-card-element"> -->
-            <input type="checkbox" id=<%= "#{suggestion[0].id}" %> name=<%= "#{suggestion[0].id}"%> >
-            <div class="offer-card">
-              <div class="card-header" ">
 
-      <div class="suggestions-count">
-       <h6 class="sugg-count-text">
+          <input type="checkbox" id=<%= "#{suggestion[0].id}" %> name=<%= "#{suggestion[0].id}"%> >
+          <div class="offer-card">
+            <div class="card-header" ">
 
-        <%= "#{@suggestions.length-i}/#{@suggestions.length}" %>
-       </h6>
-      </div>
-                <%= cl_image_tag(suggestion[0].user.photo, width:200, height:200, class:"avatar") %>
-                <p>
-                  <%= suggestion[0].user.first_name  %>
-                </p>
+              <div class="suggestions-count">
+               <h6 class="sugg-count-text">
 
-                                <div class="highlight-container">
+                <%= "#{@suggestions.length-i}/#{@suggestions.length}" %>
+              </h6>
+            </div>
+            <%= cl_image_tag(suggestion[0].user.photo, width:200, height:200, class:"avatar") %>
+            <p>
+              <%= suggestion[0].user.first_name  %>
+            </p>
 
-                  <div class="highlight study">
-                    <div class="study-small"> STUDY </div>
+            <div class="highlight-container">
 
-                    <%= suggestion[0].user.course %>
-                  </div>
+              <div class="highlight study">
+                <div class="study-small"> STUDY </div>
 
-                  <div class="highlight semester">
-
-                    <div class="semester-small"> SEMESTER </div>
-                    <%= suggestion[0].user.semester %>
-                  </div>
-                </div>
-
-
-                <div class="info-container-pills info-music info-pill">
-                  <% if suggestion[0].user.music %>
-                  <% suggestion[0].user.music.split(",").each do |music| %>
-                  <span class="badge badge-music badge-primary badge-pill"><%= music %></span>
-                  <% end %>
-                  <% end %>
-
-                  <% if suggestion[0].user.hobby %>
-                  <% suggestion[0].user.hobby.split(",").each do |hobby| %>
-                  <span class="badge badge-hobby badge-primary badge-pill"><%=  hobby %></span>
-                  <% end %>
-                  <% end %>
-                </div>
-
+                <%= suggestion[0].user.course %>
               </div>
 
-              <div class="more-infos">
+              <div class="highlight semester">
+
+                <div class="semester-small"> SEMESTER </div>
+                <%= suggestion[0].user.semester %>
+              </div>
+            </div>
 
 
-<!--               <div class="description-container">
--->                <p>
-            <%=  suggestion[0].user.description %>
-                  </p>
-<!-- </div> -->
-</div>
-</div>
+            <div class="info-container-pills info-music info-pill">
+              <% if suggestion[0].user.music %>
+              <% suggestion[0].user.music.split(",").each do |music| %>
+              <span class="badge badge-music badge-primary badge-pill"><%= music %></span>
+              <% end %>
+              <% end %>
 
+              <% if suggestion[0].user.hobby %>
+              <% suggestion[0].user.hobby.split(",").each do |hobby| %>
+              <span class="badge badge-hobby badge-primary badge-pill"><%=  hobby %></span>
+              <% end %>
+              <% end %>
+            </div>
 
-    <div class="max-passenger-cover hidden">
-      <h3>Car full</h3>
-    </div>
-
-    </li>
-<% end %>
-</ul>
-
-
-<div class="buttons tinder-submit offer-card">
-
-          <div class="status-group">
-            <i class="icon fas fa-times fa-2x" id="left-button"></i>
-         <input type="submit" value="Submit">
-
-            <i class="icon fas fa-check fa-2x" id="right-button" ></i>
           </div>
+
+
+<div class="buttons tinder-submit status-group">
+<!--         <div id="left-button"></div>
+        <i class="icon fas fa-times fa-2x" ></i>
+        <i class="icon fas fa-check fa-2x" id="right-button" ></i>
+ -->
+        <i class="icon fas fa-times fa-2x" id="left-button"></i>
+        <i class="icon fas fa-check fa-2x" id="right-button" ></i>
 </div>
+
+        </div>
+
+
+        <div class="max-passenger-cover hidden">
+          <h3>Car full</h3>
+        </div>
+
+      </li>
+      <% end %>
+    </ul>
+
+
+    <div class="buttons2 tinder-submit offer-card">
+
+      <div class="status-group">
+        <input type="submit" value="Ride together">
+
+      </div>
+    </div>
 
 
 
@@ -125,20 +143,7 @@
 </div>
 
 
-<div class="wrapper-seats">
-  <h3>Seats left:  <i class="fas fa-level-down-alt"></i></h3>
 
-
-  <div class="loading-bar">
-    <% @ride.seats.times do %>
-    <div class="segment">
-      <div class="dynamic" style="width: 0%;">
-      </div>
-    </div>
-    <% end %>
-  </div>
-
-</div>
 
 <div class="wrapper-tinder-submit">
 </div>
