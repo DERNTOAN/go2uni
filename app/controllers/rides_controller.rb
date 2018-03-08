@@ -140,7 +140,7 @@ class RidesController < ApplicationController
   end
 
   def update_session
-    if params[:lat] != session[:location]["lat"] && params[:lat] != nil
+    if params[:lat] != nil
       session[:location] = { "lat"=> params[:lat].to_f, "lng"=> params[:lng].to_f }
     end
   end
