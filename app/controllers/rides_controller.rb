@@ -6,9 +6,10 @@ class RidesController < ApplicationController
     @rides = policy_scope(Ride)
     @rides = @rides.where.not(from_lng: nil, from_lat: nil, to_lng: nil, to_lat: nil)
     @mapcenter = {
-      lat: @location["lat"],
-      lng: @location["lng"]
+      lat: @location[:lat],
+      lng: @location[:lng]
     } if session[:location]
+
     @drivers = @rides.map do |ride|
       {
         from: {
@@ -139,8 +140,8 @@ class RidesController < ApplicationController
   end
 
   def update_session
-    if params[:location] != nil
-      session[:location] = params[:location]
+    if params[:lat] != session[:location]["lat"] && params[:lat] != nil
+      session[:location] = { lat: params["lat"].to_f, lng: params[:lng].to_f }
     end
   end
 end
