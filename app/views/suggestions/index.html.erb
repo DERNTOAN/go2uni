@@ -94,7 +94,8 @@
 
 
         <div class="max-passenger-cover hidden">
-          <h3>Car full</h3>
+             <%= image_tag("logo.png", size:"100x100", class: "logo-home animated shake") %>
+          <h3 class="animated shake">Your car is full!</h3>
         </div>
 
       </li>
@@ -120,7 +121,7 @@
   </div>
     <div class="buttons">
 
-        <input type="submit" value="Ride together">
+        <input class="hidden animated bounceInUp" id="submit-button" type="submit"  value="Ride together">
 
     </div>
 

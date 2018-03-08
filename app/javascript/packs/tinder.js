@@ -89,6 +89,8 @@ function tinderSwipe(){
     right_button.addEventListener("click", (event) =>{
       console.log("pressed:", right_button)
       stack.getCard(cards[cards.length - 1 - card_counter]).throwOut(50, 0);
+      const submitButton = document.getElementById("submit-button")
+      submitButton.classList.remove("hidden");
     });
     });
   }
