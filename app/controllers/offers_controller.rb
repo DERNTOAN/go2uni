@@ -15,12 +15,12 @@ class OffersController < ApplicationController
   end
 
   def update
-    binding.pry
     @offer = Offer.find(params[:id])
     authorize @offer
     @offer.confirmed = true if params[:confirmed] === "true"
     @offer.confirmed = false if params[:confirmed] === "false"
     @offer.save
-    redirect_to ride_path(@offer.ride) if @offer.confirmed == true
+
+    redirect_to ride_path(@offer.ride) if @offer.confirmed
   end
 end
