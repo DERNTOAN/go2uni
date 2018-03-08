@@ -10,25 +10,10 @@
 
     <h2>Passengers</h2>
     <p>Swipe right, up to <%= @ride.seats %> passengers</p>
-    <div class="found-passengers">
-      <div></div>
-      <p class="says-driver">found: <%= @suggestions.length %></p>
-    </div>
+
 
   </div>
-  <div class="wrapper-seats">
 
-
-    <div class="loading-bar">
-      <% @ride.seats.times do %>
-      <div class="segment">
-        <div class="dynamic" style="width: 0%;">
-        </div>
-      </div>
-      <% end %>
-    </div>
-
-  </div>
 
   <div class="tinder-container">
     <form action=<%= ride_offers_path %> method="post">
@@ -37,12 +22,12 @@
       <ul>
         <li class="offer-card no-more-passenger-cover">
           <h4>Sorry, nobody else wants to go from </h4>
-          <h4> <%= @ride.from_address %></h4>
+          <h4> <%= @ride.from_address.split(",").first %></h4>
           <p> to </p>
-          <h4> <%= @ride.to_address %>
+          <h4> <%= @ride.to_address.split(",").first %>
           </h4>
           <p> at </p>
-          <h4><%= @ride.departure_time %></h4>
+          <h4><%= @ride.departure_time.strftime("%I:%M") %></h4>
         </li>
         <% zindex = 10 %>
         <% @suggestions.each_with_index do |suggestion, i| %>
@@ -117,32 +102,29 @@
       <% end %>
     </ul>
 
+</div>
+</div>
 
-    <div class="buttons offer-card">
+  <div class="wrapper-seats">
+
+
+    <div class="loading-bar">
+      <% @ride.seats.times do %>
+      <div class="segment">
+        <div class="dynamic" style="width: 0%;">
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+  </div>
+    <div class="buttons">
 
         <input type="submit" value="Ride together">
 
     </div>
 
-
-
-<!--
-<div class="">
-  <input type="submit" class="tinder-submit">
-  <div class="tinder-submit" id="left-button">
-    <i class="fas fa-times"></i>
-  </div>
-  <div class="tinder-submit icon" id="right-button">
-    <i class="fas fa-check"></i>
-  </div>
-</div> -->
-
 </form>
-
-</div>
-</div>
-
-
 
 <%= javascript_pack_tag "tinder" %>
 
