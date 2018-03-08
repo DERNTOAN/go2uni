@@ -5,22 +5,27 @@ function inputShowRides(new_type, other_type){
   if (button){
     console.log(`.${new_type}-button`);
     let form = document.querySelector(`.${new_type}-form`);
-    console.log(form)
     button.addEventListener("click",(event) => {
       event.preventDefault();
       console.log("clicked");
       form.classList.remove("hidden");
+
+      form.classList.remove("fadeOutDown");
       form.classList.add("animated");
-      form.classList.add("FadeInUp");
+      form.classList.add("fadeInUp");
       button.classList.toggle("hidden");
       other_button.classList.toggle("hidden");
     })
 
     let closer = document.querySelector(`#${new_type}-close-button`)
     closer.addEventListener("click",(event) => {
-      form.classList.add("hidden");
+      form.classList.toggle("fadeInUp");
+      // form.classList.toggle("hidden");
       form.classList.remove("animated");
+      form.classList.remove("fadeInUp");
       form.classList.add("animated");
+
+      form.classList.add("fadeOutDown");
       button.classList.toggle("hidden");
       other_button.classList.toggle("hidden");
 
