@@ -77,9 +77,9 @@ class RequestsController < ApplicationController
 
   def uni_address(uni)
     locations = {
-      "bayreuth" => "Universitätsstraße 30, 95447 Bayreuth",
-      "tuebingen"=> "Geschwister-Scholl-Platz, 72074 Tübingen",
-      "aachen" => "Templergraben 55, 52062 Aachen"
+      "bayreuth" => "Universitätsstraße 30, Bayreuth",
+      "braunschweig"=> "Universitätsplatz 2, Braunschweig",
+      "aachen" => "Templergraben 55, Aachen"
     }
 
     return locations[uni]
