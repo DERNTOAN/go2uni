@@ -1,121 +1,142 @@
 <% content_for :title, "Share Your Ride or Find A Ride" %>
-  <div class="map-dummy">
-    <div
-    id="map-rides-index"
-    style="width: 100%;
-    height: 100%;"
-    data-counterparts="<%= @drivers.to_json %>"
-    data-mapbounds = "<%= @mapbounds.to_json %>"
-    data-mapcenter = "<%= @mapcenter.to_json %>"
 
-
-    ></div>
-  </div>
-
-  <div class="buttons-box form-opener">
-      <a href="" class="btn index-buttons" id="new-ride-button">Share your ride</a>
-      <a href="" class="btn index-buttons" id="new-request-button">Ride with new friends</a>
-  </div>
-
-
-  <div class="new-ride-form hidden" id="x-button">
-    <div id="new-ride-close-button" class="close-button">
-      <i class="fas fa-times" style="font-size:26px;"></i>
-    </div>
-
-
-    <%= form_for @ride, html: {class: "form-ride"} do |f| %>
-    <div class="form-group flex-group">
-      <% unless browser.platform.ios? %>
-        <i class="far fa-clock"></i>
-      <% end %>
-      <%=  f.datetime_field :departure_time, value: "#{(Time.now + 1800).strftime("%Y-%m-%dT%H:%M")}", class: "form-control form-input" %>
-    </div>
-
-    <div class="form-group flex-group">
-      <i class="fas fa-map-marker"></i>
-      <%= f.text_field :from_address, class: "form-control form-input", placeholder: "Address" %>
-    </div>
-
-    <div class="to-from-radio">
-      <div class="to-button">
-        <%= f.radio_button :direction, "to", class:"hidden" %>
-        <%= f.label :direction_to, "To Uni <i class='fas fa-angle-double-down'></i>".html_safe, class:"btn btn-standard"%>
-      </div>
-      <div class="from-button">
-        <%= f.radio_button :direction, "from", class:"hidden"%>
-        <%= f.label :direction_from, "Home <i class='fas fa-angle-double-up'></i>".html_safe, class:"btn btn-standard"%>
-      </div>
-    </div>
-
-    <div class="form-group uni-select">
-        <% if browser.platform.android? %>
-          <i class="fas fa-graduation-cap"></i>
-        <% end %>
-        <%= f.select :uni,[['Universität Bayreuth','bayreuth'],['TU Braunschweig','braunschweig'],['RWTH Aachen','aachen']], {},{class: "form-control form-input"} %>
-    </div>
-
-    <div class="form-group flex-group">
-      <i class="fas fa-users"></i>
-      <%= f.number_field :seats, as: :integer, class: "form-control form-input", placeholder: "Number of seats" %>
-    </div>
-
-    <%= f.submit "Share your ride", class: "btn index-buttons" %>
-    <% end %>
-
-  </div>
-
-
-
-  <div class="new-request-form hidden" id="x-button">
-    <div id="new-request-close-button" class="close-button">
-      <i class="fas fa-times" style="font-size:26px;"></i>
-    </div>
-
-
-    <%= form_for @request, html: {class: "form-ride"} do |f| %>
-
-    <div class="form-group date_field flex-group">
-        <% unless browser.platform.ios? %>
-          <i class="far fa-calendar-alt"></i>
-        <% end %>
-        <%=  f.datetime_field :start_time, value: "#{Time.now.strftime("%Y-%m-%dT%H:%M")}", class: "form-control form-input"%>
-    </div>
-
-    <div class="form-group to_time_field time_field flex-group">
-      <% unless browser.platform.ios? %>
-        <i class="far fa-clock"></i>
-      <% end %>
-      <%=  f.time_field :stop_time, value: "#{(Time.now + 3600).strftime("%H:%M")}", class: "form-control form-input" %>
-    </div>
-
-    <div class="form-group flex-group">
-      <i class="fas fa-map-marker"></i>
-      <%= f.text_field :from_address, class: "form-control form-input", placeholder: "from here" %>
-    </div>
-
-    <div class="to-from-radio">
-      <div class="to-button">
-        <%= f.radio_button :direction, "to", class:"hidden" %>
-        <%= f.label :direction_to, "To Uni <i class='fas fa-angle-double-down'></i>".html_safe, class:"btn btn-standard"%>
-      </div>
-      <div class="from-button">
-        <%= f.radio_button :direction, "from", class:"hidden"%>
-        <%= f.label :direction_from, "Home <i class='fas fa-angle-double-up'></i>".html_safe, class:"btn btn-standard"%>
-      </div>
-    </div>
-
-
-    <div class="form-group uni-select">
-        <% if browser.platform.android? %>
-          <i class="fas fa-graduation-cap"></i>
-        <% end %>
-        <%= f.select :uni,[['Universität Bayreuth','bayreuth'],['TU Braunschweig','braunschweig'],['RWTH Aachen','aachen']], {},{class: "form-control form-input"} %>
-    </div>
-
-    <%= f.submit "Share your ride", class: "btn index-buttons" %>
-    <% end %>
-  </div>
+<div id="pingo-loading">
+  <%= image_tag "logo.png", size:"100x100", class: "animated flip" %>
 </div>
+<div class="rides-index hidden">
+    <div class="map-dummy animated fadeInUpBig">
+      <div
+      id="map-rides-index"
+      style="width: 100%;
+      height: 100%;"
+      data-counterparts="<%= @drivers.to_json %>"
+      data-mapbounds = "<%= @mapbounds.to_json %>"
+      data-mapcenter = "<%= @mapcenter.to_json %>"
+
+
+      ></div>
+    </div>
+
+    <div class="buttons-box form-opener animated fadeInUpBig">
+        <a href="" class="btn index-buttons" id="new-ride-button">Share your ride</a>
+        <a href="" class="btn index-buttons" id="new-request-button">Ride with new friends</a>
+    </div>
+
+
+    <div class="new-ride-form hidden" id="x-button">
+      <div id="new-ride-close-button" class="close-button">
+        <i class="fas fa-times" style="font-size:26px;"></i>
+      </div>
+
+
+      <%= form_for @ride, html: {class: "form-ride"} do |f| %>
+      <div class="form-group flex-group">
+        <% unless browser.platform.ios? %>
+          <i class="far fa-clock"></i>
+        <% end %>
+        <%=  f.datetime_field :departure_time, value: "#{(Time.now + 1800).strftime("%Y-%m-%dT%H:%M")}", class: "form-control form-input" %>
+      </div>
+
+      <div class="form-group flex-group">
+        <i class="fas fa-map-marker"></i>
+        <%= f.text_field :from_address, class: "form-control form-input", placeholder: "Address" %>
+      </div>
+
+      <div class="to-from-radio">
+        <div class="to-button">
+          <%= f.radio_button :direction, "to", class:"hidden" %>
+          <%= f.label :direction_to, "To Uni <i class='fas fa-angle-double-down'></i>".html_safe, class:"btn btn-standard"%>
+        </div>
+        <div class="from-button">
+          <%= f.radio_button :direction, "from", class:"hidden"%>
+          <%= f.label :direction_from, "Home <i class='fas fa-angle-double-up'></i>".html_safe, class:"btn btn-standard"%>
+        </div>
+      </div>
+
+      <div class="form-group uni-select">
+          <% if browser.platform.android? %>
+            <i class="fas fa-graduation-cap"></i>
+          <% end %>
+          <%= f.select :uni,[['Universität Bayreuth','bayreuth'],['TU Braunschweig','braunschweig'],['RWTH Aachen','aachen']], {},{class: "form-control form-input"} %>
+      </div>
+
+      <div class="form-group flex-group">
+        <i class="fas fa-users"></i>
+        <%= f.number_field :seats, as: :integer, class: "form-control form-input", placeholder: "Number of seats" %>
+      </div>
+
+      <%= f.submit "Share your ride", class: "btn index-buttons" %>
+      <% end %>
+
+    </div>
+
+
+
+    <div class="new-request-form hidden" id="x-button">
+      <div id="new-request-close-button" class="close-button">
+        <i class="fas fa-times" style="font-size:26px;"></i>
+      </div>
+
+
+      <%= form_for @request, html: {class: "form-ride"} do |f| %>
+
+      <div class="form-group date_field flex-group">
+          <% unless browser.platform.ios? %>
+            <i class="far fa-calendar-alt"></i>
+          <% end %>
+          <%=  f.datetime_field :start_time, value: "#{Time.now.strftime("%Y-%m-%dT%H:%M")}", class: "form-control form-input"%>
+      </div>
+
+      <div class="form-group to_time_field time_field flex-group">
+        <% unless browser.platform.ios? %>
+          <i class="far fa-clock"></i>
+        <% end %>
+        <%=  f.time_field :stop_time, value: "#{(Time.now + 3600).strftime("%H:%M")}", class: "form-control form-input" %>
+      </div>
+
+      <div class="form-group flex-group">
+        <i class="fas fa-map-marker"></i>
+        <%= f.text_field :from_address, class: "form-control form-input", placeholder: "from here" %>
+      </div>
+
+      <div class="to-from-radio">
+        <div class="to-button">
+          <%= f.radio_button :direction, "to", class:"hidden" %>
+          <%= f.label :direction_to, "To Uni <i class='fas fa-angle-double-down'></i>".html_safe, class:"btn btn-standard"%>
+        </div>
+        <div class="from-button">
+          <%= f.radio_button :direction, "from", class:"hidden"%>
+          <%= f.label :direction_from, "Home <i class='fas fa-angle-double-up'></i>".html_safe, class:"btn btn-standard"%>
+        </div>
+      </div>
+
+
+      <div class="form-group uni-select">
+          <% if browser.platform.android? %>
+            <i class="fas fa-graduation-cap"></i>
+          <% end %>
+          <%= f.select :uni,[['Universität Bayreuth','bayreuth'],['TU Braunschweig','braunschweig'],['RWTH Aachen','aachen']], {},{class: "form-control form-input"} %>
+      </div>
+
+      <%= f.submit "Share your ride", class: "btn index-buttons" %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+<% content_for :after_js do %>
+<script>
+  $(document).ready(function() {
+
+    setTimeout(function(){
+      $('#pingo-loading').fadeOut();
+      $('.rides-index').removeClass('hidden');
+    }, 500);
+  });
+</script>
+<% end %>
+
+
 
 

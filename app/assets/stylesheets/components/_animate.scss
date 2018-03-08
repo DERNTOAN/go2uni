@@ -770,7 +770,7 @@
 
 .bounceIn {
   -webkit-animation-duration: 0.75s;
-  animation-duration: 0.75s;
+  animation-duration: 1s;
   -webkit-animation-name: bounceIn;
   animation-name: bounceIn;
 }
@@ -1927,6 +1927,7 @@
   backface-visibility: visible;
   -webkit-animation-name: flip;
   animation-name: flip;
+  -webkit-animation-duration: 1.5s;
 }
 
 @-webkit-keyframes flipInX {
