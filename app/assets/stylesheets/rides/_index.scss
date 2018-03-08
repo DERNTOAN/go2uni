@@ -1,5 +1,12 @@
 $bottom_gap:24px;
-
+#pingo-loading{
+  -webkit-animation-iteration-count: infinite;
+  background-color: $main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  }
 .map-dummy{
   background-color: $third;
   width:100vw;
@@ -136,6 +143,7 @@ form{
       display: flex;
       justify-content: center;
       align-items: center;
+      border-radius: 32px;
     }
     label{
       background-color: white;
