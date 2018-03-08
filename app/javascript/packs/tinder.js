@@ -2,9 +2,10 @@ import {Card, Direction, Stack} from "../swipe/index";
 
 
 function tinderSwipe(){
-  let right_button = document.getElementById("right-button");
-  let left_button = document.getElementById("left-button");
-
+  let right_buttons = document.querySelectorAll(".right-button");
+  let left_buttons = document.querySelectorAll(".left-button");
+  console.log(right_buttons)
+  console.log(left_buttons)
   let segments = document.querySelectorAll(".dynamic");
   let seated_counter = 0;
 
@@ -79,16 +80,23 @@ function tinderSwipe(){
   });
 
 
-  if (right_button){
+  if (right_buttons){
+    right_buttons.forEach((right_button)=> {
     right_button.addEventListener("click", (event) =>{
+      console.log("pressed:", right_button)
       stack.getCard(cards[cards.length - 1 - card_counter]).throwOut(100, 0);
-    })
+    });
+      console.log("eventlistener added to right button")
+    });
   }
 
-  if (left_button){
+  if (left_buttons){
+    left_buttons.forEach((left_button)=> {
     left_button.addEventListener("click", (event) =>{
       stack.getCard(cards[cards.length - 1 - card_counter]).throwOut(-100, 0);
-    })
+    });
+      console.log("eventlistener added to left button")
+    });
   }
 
 

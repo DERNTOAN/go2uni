@@ -44,11 +44,12 @@
           <p> at </p>
           <h4><%= @ride.departure_time %></h4>
         </li>
+        <% zindex = 10 %>
         <% @suggestions.each_with_index do |suggestion, i| %>
         <li class="swipe-card-element">
 
           <input type="checkbox" id=<%= "#{suggestion[0].id}" %> name=<%= "#{suggestion[0].id}"%> >
-          <div class="offer-card">
+          <div class="offer-card" >
             <div class="card-header" ">
 
               <div class="suggestions-count">
@@ -95,13 +96,13 @@
           </div>
 
 
-<div class="buttons tinder-submit status-group">
+<div class="status-group">
 <!--         <div id="left-button"></div>
         <i class="icon fas fa-times fa-2x" ></i>
         <i class="icon fas fa-check fa-2x" id="right-button" ></i>
  -->
-        <i class="icon fas fa-times fa-2x" id="left-button"></i>
-        <i class="icon fas fa-check fa-2x" id="right-button" ></i>
+        <i class="icon fas fa-times fa-2x left-button" style="z-index= <%= zindex %>" ></i>
+        <i class="icon fas fa-check fa-2x right-button" style="z-index= <%= zindex %>"></i>
 </div>
 
         </div>
@@ -112,16 +113,15 @@
         </div>
 
       </li>
+      <% zindex -= 1 %>
       <% end %>
     </ul>
 
 
-    <div class="buttons2 tinder-submit offer-card">
+    <div class="buttons offer-card">
 
-      <div class="status-group">
         <input type="submit" value="Ride together">
 
-      </div>
     </div>
 
 
