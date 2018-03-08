@@ -15,10 +15,7 @@ function selectRide() {
       const from = JSON.parse(mapElement.dataset.marker_from_self);
       const from_self      = new google.maps.LatLng(from);
 
-      let self_icon = { url: img[src="http://res.cloudinary.com/dekx98imz/image/upload/v1520200877/duotone_swim.svg"]{
-    border-radius:16px;
-    border:1px solid #000 !important;
-  },
+      let self_icon = { url: "http://res.cloudinary.com/dekx98imz/image/upload/v1520200877/duotone_swim.svg",
                         scaledSize: { width: 70, height: 70 }
 
                       };
