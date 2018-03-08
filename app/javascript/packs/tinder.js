@@ -2,9 +2,8 @@ import {Card, Direction, Stack} from "../swipe/index";
 
 
 function tinderSwipe(){
-  let right_button = document.getElementById("right-button");
-  let left_button = document.getElementById("left-button");
-
+  let right_buttons = document.querySelectorAll(".right-button");
+  let left_buttons = document.querySelectorAll(".left-button");
   let segments = document.querySelectorAll(".dynamic");
   let seated_counter = 0;
 
@@ -70,7 +69,13 @@ function tinderSwipe(){
     };
     card_counter += 1;
     // console.log(event.target.parentElement.previousElementSibling.checked);
-    event.target.classList.toggle("hidden");
+
+    // event.target.classList.add("animated2");
+    // event.target.classList.add("fadeOutRight");
+      setTimeout(function() {
+        event.target.style.display = 'none'
+      }, 300)
+
   });
 
   // Add event listener for when a card is thrown in the stack, including the spring back into place effect.
@@ -79,16 +84,21 @@ function tinderSwipe(){
   });
 
 
-  if (right_button){
+  if (right_buttons){
+    right_buttons.forEach((right_button)=> {
     right_button.addEventListener("click", (event) =>{
-      stack.getCard(cards[cards.length - 1 - card_counter]).throwOut(100, 0);
-    })
+      console.log("pressed:", right_button)
+      stack.getCard(cards[cards.length - 1 - card_counter]).throwOut(50, 0);
+    });
+    });
   }
 
-  if (left_button){
+  if (left_buttons){
+    left_buttons.forEach((left_button)=> {
     left_button.addEventListener("click", (event) =>{
-      stack.getCard(cards[cards.length - 1 - card_counter]).throwOut(-100, 0);
-    })
+      stack.getCard(cards[cards.length - 1 - card_counter]).throwOut(-50, 0);
+    });
+    });
   }
 
 
