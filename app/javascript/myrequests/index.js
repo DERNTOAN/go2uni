@@ -13,16 +13,21 @@ function hideDeclinedOffers() {
       console.log(declineBtn);
       event.preventDefault();
       event.stopImmediatePropagation();
-      thisRide.classList.toggle("hidden");
-  const ride = JSON.parse(declineBtn.dataset.ride);
-  const offer = JSON.parse(declineBtn.dataset.offer);
-const url = `/rides/${ride}/offers/${offer}?confirmed=false`;
-console.log(url)
+      thisRide.classList.add("animated");
+      thisRide.classList.add("fadeOutLeft")
+      setTimeout(function() {
+        thisRide.style.display = 'none'
+      }, 300)
+    const ride = JSON.parse(declineBtn.dataset.ride);
+    const offer = JSON.parse(declineBtn.dataset.offer);
+    const url = `/rides/${ride}/offers/${offer}?confirmed=false`;
       fetch(url, {
         method: "PUT",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'X-CSRF-Token': document.getElementsByTagName('meta')[19].content
         },
+        credentials: 'same-origin'
       })
       .then(response => response.json())
       .then((data) => {
