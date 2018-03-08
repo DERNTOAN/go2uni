@@ -9,14 +9,18 @@ function inputShowRides(new_type, other_type){
     button.addEventListener("click",(event) => {
       event.preventDefault();
       console.log("clicked");
-      form.classList.toggle("hidden");
+      form.classList.remove("hidden");
+      form.classList.add("animated");
+      form.classList.add("FadeInUp");
       button.classList.toggle("hidden");
       other_button.classList.toggle("hidden");
     })
 
     let closer = document.querySelector(`#${new_type}-close-button`)
     closer.addEventListener("click",(event) => {
-      form.classList.toggle("hidden");
+      form.classList.add("hidden");
+      form.classList.remove("animated");
+      form.classList.add("animated");
       button.classList.toggle("hidden");
       other_button.classList.toggle("hidden");
 
