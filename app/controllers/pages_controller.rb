@@ -7,9 +7,9 @@ class PagesController < ApplicationController
     @rides = policy_scope(Ride)
     @rides = @rides.where.not(from_lng: nil, from_lat: nil, to_lng: nil, to_lat: nil)
     @mapcenter = {
-      lat: params[:lat].to_f,
-      lng: params[:lng].to_f
-    } if params[:lat]
+      lat: @location["lat"],
+      lng: @location["lng"]
+    } if session[:location]
     @drivers = @rides.map do |ride|
       {
         from: {

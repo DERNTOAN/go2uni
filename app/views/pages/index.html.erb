@@ -1,17 +1,34 @@
 <% content_for :title, "Share Your Ride or Find A Ride" %>
 
-<div class="map-dummy animated bounceInRight">
-  <div
-  id="map-rides-index"
-  style="width: 100%;
-  height: 100%;"
-  data-counterparts="<%= @drivers.to_json %>"
-  data-mapbounds = "<%= @mapbounds.to_json %>"
+<div id="pingo-loading">
+  <%= image_tag "logo.png", size:"100x100", class: "animated flip" %>
+</div>
+<div class="pages-index hidden">
+  <div class="map-dummy animated bounceInRight">
+    <div
+    id="map-rides-index"
+    style="width: 100%;
+    height: 100%;"
+    data-counterparts="<%= @drivers.to_json %>"
+    data-mapbounds = "<%= @mapbounds.to_json %>"
+    data-mapcenter = "<%= @mapcenter.to_json %>"
 
-  ></div>
+    ></div>
+  </div>
+  <div class="buttons-box form-opener">
+      <%= link_to "Share your ride", rides_path, class: "btn index-buttons" %>
+      <%= link_to "Ride with new friends", rides_path, class: "btn index-buttons" %>
+  </div>
 </div>
 
-<div class="buttons-box form-opener">
-    <%= link_to "Share your ride", rides_path, class: "btn index-buttons" %>
-    <%= link_to "Ride with new friends", rides_path, class: "btn index-buttons" %>
-</div>
+<% content_for :after_js do %>
+<script>
+  $(document).ready(function() {
+
+    setTimeout(function(){
+      $('#pingo-loading').fadeOut();
+      $('.pages-index').removeClass('hidden');
+    }, 500);
+  });
+</script>
+<% end %>
