@@ -4,7 +4,8 @@ function navbarHide(){
     navbar_button.addEventListener("click",(event)=>{
       console.log("test");
       let navbar = document.querySelector(".navbar-wagon");
-      navbar.classList.toggle("hidden");
+      navbar.classList.remove("hidden");
+      navbar.classList.remove("fadeOutUp");
 
     })
   }
@@ -14,7 +15,7 @@ function navbarHide(){
     closer_button.addEventListener("click",(event)=>{
       console.log("test");
       let navbar = document.querySelector(".navbar-wagon");
-      navbar.classList.toggle("hidden");
+      navbar.classList.toggle("fadeOutUp");
 
     })
   }

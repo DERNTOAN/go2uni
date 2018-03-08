@@ -3,7 +3,7 @@
     <i class="fas fa-bars"></i>
   </div>
 
-<div class="navbar-wagon hidden">
+<div class="navbar-wagon hidden animated fadeInDown">
   <div class="navbar-closer">
     <i class="fas fa-times"></i>
   </div>
@@ -45,7 +45,7 @@
     <div class="dropdown navbar-dropdown-icon">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <% if user_signed_in? %>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu  animated bounceInDown">
           <% ride = current_user.next_ride %>
           <% if ride %>
             <li>
