@@ -39,11 +39,11 @@ function selectRide() {
        self_marker = new google.maps.Marker( { position: from_self, map: map, icon: self_icon } );
 
       showRouteOneCounterpart(map, from_self, to_self, driver);
-      console.log(driver);
-      const maxbound      = new google.maps.LatLng(driver.from);
-const bounds = new google.maps.LatLngBounds(from_self, maxbound);
+      const minbound = new google.maps.LatLng({ lat: Math.max(driver.from.lat, from.lat), lng: Math.min(driver.from.lng, from.lng) } );
+      const maxbound = new google.maps.LatLng({ lat: Math.min(driver.from.lat, from.lat), lng: Math.max(driver.from.lng, from.lng) });
+      const bounds = new google.maps.LatLngBounds(minbound, maxbound);
 
-map.fitBounds(bounds);
+      map.fitBounds(bounds);
 
 
     })
