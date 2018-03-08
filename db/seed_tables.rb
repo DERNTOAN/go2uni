@@ -340,3 +340,46 @@ Volvo
 )
 
 CAR_COLORS = %w(White White Silver Black Black Grey Blue Red Brown Green)
+
+USER_DESCRIPTIONS = [
+"I worked two years at 2°Investing to produce research for governments and institutions about how finance pollute and how to change finance to complete the energy transition before time. Then I launched TEDxParisDauphine. After a master in strategy, I travelled a lot, learned about Zen Buddhism, went through the Lion Formation from The Family and launched Nationall; a European newspaper written by locals so that anyone on the continent can feel aware and at home anywhere in Europe and, so I hope, a future platform for European projects. In the meantime, I started to write poetry. Now I need to learn code to get money (power and glory), travel again, build a proper platform for Nationall and develop a tool to help anyone manage and profit from its daily budget (and that way, foster a financial platform).",
+"I did study and work in civil engeenerig. I would like to learn more about coding to combine my expiriences or even to switch to coding if I still love it after the batch ;-)",
+"I was a consultant for digitalization-problems for SME´s. After quitting I am now looking for a new field to work in. Maybe it`s coding.",
+"I finished the master's program in economics at Humboldt University and shortly after that moved to Asia to work and live there. 1 year in Thailand and 3 years in China I worked as a mathematics and/or economics teacher.
+Since 2013 I have been living again in Berlin.",
+"I am in the middle of my so called 'GAP Year' doing a lot of work experiences and traveling which includes social projects...
+I wanted to use Lewagon as a preparation for the course Information Systems Management in Madrid. ",
+"Originally from Braunschweig, Germany. Recent graduate of a 4-year Mechanical Engineering Degree at Imperial College London. Hobbies are Field Hockey and Electronic Music. Interested in
+Product Design and Development with Digital and Mechanical aspects.",
+"'Berliner' with strong ties to the US. Sports-addict (anything from soccer to curling). Studied finance and worked in strategy consulting previously. Love traveling, learning new stuff, markets.",
+"Panamanian, travel-junkie, blockchain fanatic, and liquid democracy geek. Worked at the Permanent Mission of Panama to the United Nations in Geneva for a year and a half, when I realized most of UN's issues were in reality because of a lack of efficient, transparent, and up-to-date processes. That's when I started researching technological possibilities to solve these, eventually resulting in lots of coding tutorials online, leading me to move to Berlin to join LeWagon. I plan to use this newly-acquired knowledge to enhance government services, promote public participation through technology, and hopefully give a hand at bettering their current archaic (or 'traditional' as they call it) structures and processes.",
+"I studied Social Work in my country and worked there but due to the economic crisis I left Spain and moved to France.
+The company I worked for, opened a new office in Berlin and offered me to be transfer so I came to Berlin around 3 and a half years ago
+After that time, I realised I was bored in my job and needed a change",
+"I have studied Mathematics and Economics and Le Wagon is the opportunity for me to gain technical skills in an amazing field and have a career shift!!!",
+"Coming from Paris, I've just graduated from a French business school. I've launched a startup previously (beautifully failed ) and worked in a chatbots agency after..
+I've experienced a lot of frustration not knowing how to communicate with developers, so now Lewagon !
+After I plan to stay in Berlin and find a job in product management (first job !) in a nice Tech company (startup).",
+"I . I was COO of lookaround and am now seeking a new career as a developer.",
+"Self-employed on paper engineer who has a bit of experience in how to run unsuccessfull startUps.
+I picture myself laying in a hammock with my computer and code from all over the world. That's why I wanna learn how to code :)",
+"I´ve been working as a art director, designer and project manager for advertising and communication agencies for the last 4 years. The last year I had the opportunity to work in a fully digital team where we designed and produced necessary online support for the agencies campaigns. Working in the creative/design side of projects, I quickly realized that not understanding the programming languages and methods of the people who build the projects was making it hard for me to fully build our teams vision. After Lewagon i plan to stay in Berlin where I wish to expand my freelance practice to offer web development next to my graphic design & branding.",
+"I spent 3 years in Britain at a boarding school graduating with the IB just recently in May. I decided to join LeWagon to do something worthwhile and 'uncomfortably exciting'. I got into coding and LeWagon since a friend of mine completed one of the LeWagon batches in summer. I started off doing some smaller online courses until I decided to do a proper course.
+After LeWagon I plan on going to Uni in September to do bachelor. After that either moving on to do a masters degree or spend some time off.
+Later on I would very much like founding my own Start-Up / company and I hope LeWagon can build a solid foundation in order to do so.",
+"I studied a dual business bachelor and worked some years for german trading companies in Latin America. The last two years I had my own business in Miami, FL importing and distributing gourmet food products. But during the last years I always felt unchallenged selling products or doing market analysis. First I made coding to my weekend and after work hobby, than I decided in Nov. 17, that I would like to improve my skills and learn to code professionally.",
+"I studied Information Systems in Munich but didn't get my hands dirty with code too much. Through Le Wagon I want to do that and think this is a great opportunity.",
+"Guitar-Teacher from Las Vegas, now living in Germany hoping to make new friends while being driven around.",
+"I was an accounting software consultant but my skill was dependent on the software. So I want skills to create something new. My plan after LeWagon is to join a startup that helps people to improve their lives. I lived in Maryland, U.S. for 2 years when I was a child, Glasgow for 2 years to do my master's degree in Environmental Economics.",
+"I am a graphic designer with fifteen years of experience in advertising and media. I am also an educator with an extensive interest in world history. Founder of smarthistories.com. And a huge melomaniac of course.",
+"I want to learn code to get into the developer side of the cryptocurrency and blockchain industry as I am fascinated by the applications and possibilities afforded by it.",
+"I am a french Entrepreneur living in Berlin, Germany. I built varius stuff already but non digital: IoT, medical Devices, and mainly City Planing and building. I onboarded le Wagon to extend these projets with awesome digital contents and build a lot of other awesome stuff :)",
+"Worked 1 and half year as backend developer for a startup in Berlin, now teaching for @LeWagon in Berlin.
+Always happy to hear about new projects and to meet new people",
+"Born & raised in Berlin; Ex-business student; Ex-startup; Ex-VC; Ex-M&A; Ex-Consultant; Love fitness/ outdoors/ running/ traveling/ diving;",
+"Teacher (Le Wagon Berlin & Paris) and Developer (Le Wagon Engineering Team)",
+"Working full-time as Growth Hacker at Soundbrenner.com",
+"Working for Le Wagon as Marketing & Community Manager.",
+"Besides that, I am a freelance Rails developer, Growth Hacker and Webdesigner. Wanna talk? hello@matt.care",
+"Fullstack Developer teaching some younglings how to code in Berlin, London and Paris. After being a Freelancer for a year I am now looking forward to support a company fulltime."
+]

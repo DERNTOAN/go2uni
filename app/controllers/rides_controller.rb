@@ -131,9 +131,9 @@ class RidesController < ApplicationController
 
   def uni_address(uni)
     locations = {
-      "bayreuth" => "Universitätsstraße 30, 95447 Bayreuth",
+      "bayreuth" => "Universitätsstraße 30, Bayreuth",
       "braunschweig"=> "Universitätsplatz 2, Braunschweig",
-      "aachen" => "Templergraben 55, 52062 Aachen"
+      "aachen" => "Templergraben 55, Aachen"
     }
 
     return locations[uni]

@@ -89,25 +89,25 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
 
           <div class="highlight study">
             <div class="study-small"> STUDY </div>
-            <%= offer.request.user.course %> </div>
+            <%= offer.ride.user.course %> </div>
 
             <div class="highlight semester">
 
               <div class="semester-small"> SEMESTER </div>
-              <%= offer.request.user.semester %>
+              <%= offer.ride.user.semester %>
             </div>
           </div>
 
           <div class="info-container-pills">
-            <% if offer.request.user.music %>
+            <% if offer.ride.user.music %>
             <div class="info-music info-pill">
-              <% offer.request.user.music.split(",").each do |music| %>
+              <% offer.ride.user.music.split(",").each do |music| %>
               <span class="badge badge-music badge-primary badge-pill"><%= music %></span>
               <% end %>
               <% end %>
 
-              <% if offer.request.user.hobby %>
-              <% offer.request.user.hobby.split(",").each do |hobby| %>
+              <% if offer.ride.user.hobby %>
+              <% offer.ride.user.hobby.split(",").each do |hobby| %>
               <span class="badge badge-hobby badge-primary badge-pill"><%=  hobby %></span>
               <% end %>
             </div>
@@ -115,8 +115,7 @@ data-rides_tags="<%= @rides.map { |ride| "select-ride-#{ride.id}"} %>"
           </div>
           <div class="description-container">
             <p>
-              <%=  offer.request.user.description %>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. At velit error fugiat sequi nostrum laudantium quibusdam esse, dolores, alias harum, impedit laborum ad cum nulla iusto deleniti minima voluptate numquam repellat perspiciatis. Recusandae quia molestiae aperiam aspernatur totam unde voluptatum ratione at vitae veniam ex adipisci porro saepe nobis quasi et magni accusantium veritatis, expedita non laborum, provident doloremque ipsa voluptas atque! Vel beatae, corrupti labore adipisci soluta. Facere aperiam ipsum, incidunt, est nostrum sed tenetur esse pariatur! At, temporibus.
+              <%=  offer.ride.user.description %>
             </p>
           </div>
         </div>
