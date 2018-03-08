@@ -10,7 +10,7 @@
     <div class="home-card-wrapper">
         <div class="card card-home" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(0,0,0,0.2)), url(<%= image_path("bayreuth.jpg") %>);">
         <div class="card-description">
-          <h2>Bayreuth</h2>
+          <h2>Uni Bayreuth</h2>
         </div>
         <%= form_tag("/rides", method: "get") do %>
           <%= hidden_field_tag(:lat, 49.928771) %>
@@ -18,23 +18,23 @@
           <%= submit_tag("", class: "card-link") %>
         <% end %>
       </div>
-      <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("tuebingen.jpg") %>);">
-        <div class="card-description">
-          <h2>Tübingen</h2>
-        </div>
-        <%= form_tag("/rides", method: "get") do %>
-          <%= hidden_field_tag(:lat, 48.528148) %>
-          <%= hidden_field_tag(:lng, 9.062759) %>
-          <%= submit_tag("", class: "card-link") %>
-        <% end %>
-      </div>
       <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("aachen.jpg") %>);">
         <div class="card-description">
-          <h2>Aachen</h2>
+          <h2>RWTH Aachen</h2>
         </div>
         <%= form_tag("/pages", method: "get") do %>
           <%= hidden_field_tag(:lat, 50.778606) %>
           <%= hidden_field_tag(:lng, 6.067393) %>
+          <%= submit_tag("", class: "card-link") %>
+        <% end %>
+      </div>
+      <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("braunschweig.jpg") %>);">
+        <div class="card-description">
+          <h2>TU Braunschweig</h2>
+        </div>
+        <%= form_tag("/rides", method: "get") do %>
+          <%= hidden_field_tag(:lat, 52.264556) %>
+          <%= hidden_field_tag(:lng, 10.521673) %>
           <%= submit_tag("", class: "card-link") %>
         <% end %>
       </div>
@@ -43,7 +43,7 @@
     <div class="home-card-wrapper">
         <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("bayreuth.jpg") %>);">
         <div class="card-description">
-          <h2>Bayreuth</h2>
+          <h2>Uni Bayreuth</h2>
         </div>
         <%= form_tag("/pages", method: "get") do %>
           <%= hidden_field_tag(:lat, 49.928771) %>
@@ -51,23 +51,23 @@
           <%= submit_tag("", class: "card-link") %>
         <% end %>
       </div>
-      <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("tuebingen.jpg") %>);">
-        <div class="card-description">
-          <h2>Tübingen</h2>
-        </div>
-        <%= form_tag("/pages", method: "get") do %>
-          <%= hidden_field_tag(:lat, 48.528148) %>
-          <%= hidden_field_tag(:lng, 9.062759) %>
-          <%= submit_tag("", class: "card-link") %>
-        <% end %>
-      </div>
       <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("aachen.jpg") %>);">
         <div class="card-description">
-          <h2>Aachen</h2>
+          <h2>RWTH Aachen</h2>
         </div>
         <%= form_tag("/pages", method: "get") do %>
           <%= hidden_field_tag(:lat, 50.778606) %>
           <%= hidden_field_tag(:lng, 6.067393) %>
+          <%= submit_tag("", class: "card-link") %>
+        <% end %>
+      </div>
+      <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("braunschweig.jpg") %>);">
+        <div class="card-description">
+          <h2>TU Braunschweig</h2>
+        </div>
+        <%= form_tag("/pages", method: "get") do %>
+          <%= hidden_field_tag(:lat, 52.264556) %>
+          <%= hidden_field_tag(:lng, 10.521673) %>
           <%= submit_tag("", class: "card-link") %>
         <% end %>
       </div>
