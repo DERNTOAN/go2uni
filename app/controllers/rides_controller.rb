@@ -9,6 +9,7 @@ class RidesController < ApplicationController
       lat: @location["lat"],
       lng: @location["lng"]
     } if session[:location]
+
     @drivers = @rides.map do |ride|
       {
         from: {
@@ -140,7 +141,7 @@ class RidesController < ApplicationController
 
   def update_session
     if params[:lat] != session[:location]["lat"] && params[:lat] != nil
-      session[:location] = { "lat" => params[:lat].to_f, "lng" => params[:lng].to_f }
+      session[:location] = { "lat"=> params[:lat].to_f, "lng"=> params[:lng].to_f }
     end
   end
 end
