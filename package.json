@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "^3.2.2",
     "bootstrap": "3",
+    "countup.js": "^1.9.3",
     "gmaps": "^0.4.24",
     "hammerjs": "^2.0.8",
     "jquery": "^3.3.1",

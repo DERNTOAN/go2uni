@@ -29,7 +29,7 @@
 }
 .card-description {
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   left: 10px;
 }
 .card-description h2 {
@@ -58,5 +58,6 @@
 .card-home {
   margin: 10px;
   height: 155px;
+  border: 3px solid $main;
 }
 
