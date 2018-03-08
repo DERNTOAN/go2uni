@@ -59,7 +59,6 @@ function tinderSwipe(){
         console.log("right");
         console.log(event.target.firstElementChild);
         event.target.firstElementChild.checked = true;
-        let img_html = event.target.querySelector(".tinder-picture").innerHTML;
         segments[seated_counter].style = "width: 100%"
         seated_counter += 1;
         if (seated_counter === segments.length){

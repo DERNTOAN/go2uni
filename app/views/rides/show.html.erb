@@ -16,15 +16,12 @@ data-mapbounds = "<%= @mapbounds.to_json %>"
 
 <div class="rideshow-container">
   <div class="journey-info" data-toggle="collapse" data-target="#collapse-driver" aria-expanded="true" aria-controls="collapse-driver">
-    <div>
+    <div class="text-information">
       <h2><%= @ride.departure_time.strftime("%H:%M") %></h2>
       <p><%= @ride.from_address.split(",")[0] %></p>
     </div>
-    <div class="text-center-driver">
-
       <%= cl_image_tag(@ride.user.photo, class: "avatar") %>
-      <p class="says-driver">DRIVER</p>
-    </div>
+      <p class="says-driver"><%= @ride.user.first_name %></p>
   </div>
   <div class="drivers-card">
     <div id="collapse-driver" class="collapse" aria-labelledby="heading-driver" data-parent="#accordion">

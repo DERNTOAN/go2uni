@@ -1,8 +1,310 @@
 .wrapper-suggestions{
   width: 100%;
-  max-width: 100vw;
-  height: 64vh;
+  height: 68vh;
   background-color: $third_light;
+
+  .journey-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: white;
+    width: calc(100% - 32px);
+    margin: 0px 5px 32px 0;
+    border-bottom: 5px solid #FDCD00;
+    padding-bottom: 16px;
+    margin-left: 16px;
+
+    .text-information{
+      flex: 1;
+      margin-bottom: 0px;
+      max-width: 75%;
+    }
+    .says-driver {
+
+      background-color: #FDCD00;
+      color: rgb(33, 33, 33);
+      font-weight: 400;
+      position: absolute;
+      bottom: -4px;
+      right: 0;
+      padding: 0px 8px;
+      font-size: 16px;
+      border-radius: 4px 4px 0px 0px;
+    }
+
+    .avatar{
+      width: 64px;
+      position: absolute;
+      bottom: 16px;
+      right: 0;
+    }
+    h2{
+      font-size: 40px;
+      margin-top: 24px;
+      margin-bottom: 4px;
+    }
+    p{
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+      margin: 0;
+    }
+  }
+
+  .more-infos {
+    text-align: left;
+    background-color: $dark-blue-light;
+    border-radius: 0 0 40px 40px;
+    padding: 8px;
+
+    h5 {
+      margin-bottom: 0;
+    }
+    p{
+      font-size: 16px;
+      margin: 0;
+    }
+  }
+
+  .padding-16{
+    padding:16px;
+  }
+
+  .offer-card{
+        padding: 16px;
+    max-height: 330px;
+    /* margin: 0 32px; */
+    background-color: #24659b;
+    border-radius: 40px;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
+    flex-direction: column;
+    position: absolute;
+    width: 80%;
+    left: 10%;
+
+    .highlight {
+      color: $dark_blue;
+      font-weight: bold;
+    }
+    p {
+
+      font-size: 13px;
+      margin: 0;
+
+    }
+
+    h5 {
+      margin-bottom: 5px;
+    }
+    h6 {
+      margin: 0;
+    }
+
+    .card-header{
+      padding: 8px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      flex-grow: 1;
+
+      p {
+        margin-bottom: 8px;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .avatar{
+        border-radius: 50%;
+        background-color: white;
+        width: 100px;
+        height: 100px;
+        text-align: left;
+      }
+
+      .ride-info{
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        margin-left: 16px;
+        p{
+          font-size: 21px;
+          color: white;
+          font-weight: bold;
+        }
+        .ride-info-icons{
+          flex-grow: 1;
+          p{
+            font-size: 12px;
+            margin-bottom: 2px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.75);
+          }
+        }
+      }
+      .music-style {
+        font-size: 28px;
+        span {
+          font-size: 12px;
+        }
+        .bagde{
+          background-color: $dark-blue-light;
+          font-weight: 400;
+        }
+      }
+
+    }
+
+    .status-group{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+
+          .icon{
+        background-color: #f6f6f6;
+        border-radius: 50px;
+        border: 1px solid #e0e0e0;
+        text-align: center;
+        line-height: 60px;
+        height: 64px;
+        width: 64px;
+      }
+      .fa-times {
+        color: $red;
+      }
+
+      .fa-check {
+        color: $third_light;
+      }
+    }
+
+
+  }
+  span.badge.badge-primary.badge-pill{
+    background-color: #fdce00;
+    color: #333333;
+  }
+
+  .more-infos{
+    text-align: left;
+    background-color: $dark-blue-light;
+    padding: 8px;
+    margin: 0px 8px 32px 8px;
+    border-radius: 0px 0px 40px 40px;
+    p{
+      font-size: 13px;
+      color: white;
+      font-weight: 400;
+      margin-top: 8px;
+      span{
+        color: white;
+        font-weight: 500;
+      }
+    }
+
+    h5{
+      color: white;
+    }
+
+
+  }
+
+
+  .highlight-container{
+    display: flex;
+    margin-top: 0px;
+    margin-bottom: 11px;
+    max-height: 64px;
+    overflow: hidden;
+
+    .highlight {
+      color: #072C4A;
+      font-weight: bold;
+      background: white;
+      padding: 4px 16px;
+      border-radius: 4px;
+
+    };
+
+    .study{
+      flex: 1;
+      font-size: 17px;
+      display:flex;
+      align-items: flex-start;
+      flex-direction: column;
+
+    }
+    .semester{
+      display: flex;
+      flex: 0 1 20%;
+      margin-left: 8px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+    }
+    .study-small {
+      font-size: 8px;
+      color: gray;
+    };
+    .semester-small{
+      font-size: 8px;
+      color: gray;
+    }
+
+  };
+
+  .description-container{
+    overflow: auto;
+    max-height: 80px;
+  }
+
+
+  .ride-symbols {
+    height: 14px;
+    width: 14px;
+  }
+
+  .info-container-pills{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .info-pill {
+    display: flex;
+    flex-wrap: wrap;
+    color: $dark-blue-light !important;
+    span {
+      margin-right: 4px;
+    }
+    .badge {
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: -0.25px;
+      margin-bottom: 4px;
+    }
+
+    .badge-music {
+      background-color: $third;
+    }
+
+    .badge-hobby {
+      background-color: $third_light !important;
+    }
+    .badge-hobby-driver {
+      background-color: $main !important;
+      color: rgba(0,0,0,0.45);
+    }
+    i {
+      margin-right: 8px;
+      color: #072C4A;
+    }
+  }
+
+
 
   form{
     label{
@@ -41,7 +343,7 @@
     align-items:center;
     padding-left: 10vw;
     padding-right: 10vw;
-    height: 100px;
+    height: 40px;
 
 
 
@@ -81,168 +383,126 @@
 }
 
 
-  .tinder-container{
-    width:100vw;
+.tinder-container{
+  width:100%;
 
-    ul{
-      list-style: none;
-    }
-
-    .max-passenger-cover{
-      position:absolute;
-      top: 0px;
-      right: 0px;
-      left: 0px;
-      bottom: 0px;
-      background-color:rgba(0,0,0,0.6);
-      color:white;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
-
-    .tinder-card{
-      z-index: 2;
-      position:absolute;
-      top: 13vh;
-      left: 2em;
-      right: 2em;
-      height: 50vh;
-      background-color:white;
-      display:flex;
-      flex-direction:column;
-      border-radius: 1em;
-
-      .tinder-picture{
-        border-radius: 1em;
-        background-color: white;
-        padding-top: 1.5em;
-        padding-bottom: 0.5em;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        img{
-          height: 20vh;
-          border-radius: 50%;
-        }
-      }
-
-      .tinder-card-info{
-        padding: 0px 16px 0px 16px;
-        height: 50px;
-
-        p{
-
-          padding: 0px;
-          margin: 0px;
-          font-size: 16px;
-          text-overflow:ellipsis;
-          text-align: center;
-          font-weight: 400;
-          font-size: 0.8em;
-        }
-
-        h3{
-          padding-top: 0px;
-          margin-top: 0px;
-        }
-
-        h5{
-          margin-top: 0.5em;
-        }
-      }
-    }
-
-    .buttons{
-      position:fixed;
-      bottom: 2vh;
-      left:8vw;
-      width:86vw;
-      text-align:center;
-
-      input{
-        padding: 0px;
-        margin: 0px;
-        height: 8vh;
-      }
-    }
-
-    .tinder-submit{
-      color:white;
-      width: 100%;
-      background-color:$main;
-      border-radius: 42px;
-    }
-
+  ul{
+    list-style: none;
+    padding: 0;
+    margin:0;
 
   }
 
-  #left-button, #right-button{
-    box-shadow: none;
-    position: absolute;
-    top:0px;
-    height: 8vh;
-    text-align:center;
+  .max-passenger-cover{
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    background-color:rgba(0,0,0,0.6);
+    color:white;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
+  }
+
+  .buttons{
+    padding: 0;
+
+    bottom: 2vh;
+    left:8vw;
+    width:86vw;
+    height: 80px;
+    text-align:center;
+
+
+
+    input{
+      margin: 0px;
+      background-color: transparent;
+      color: white;
+      border: 0;
+    }
+
 
   }
 
-  #right-button{
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    background-color: #00cc009c;
-    width: 20vw;
-    right:0px;
+  // .tinder-submit{
+  //   // // color:white;
+  //   // width: 100%;
+  //   // // background-color:$main;
+  //   // border-radius: 42px;
+  //   //     .icon {
+  //   //       background-color: #f6f6f6;
+  //   // border-radius: 50px;
+  //   // border: 1px solid #e0e0e0;
+  //   // text-align: center;
+  //   // line-height: 60px;
+  //   // height: 64px;
+  //   // width: 64px;
+  //   }
+  // }
 
-  }
 
-  #left-button{
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    background-color: #ff00008c;
-    width:20vw;
-    left:0px;
-  }
+}
+
+#left-button, #right-button{
+  box-shadow: none;
+  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+}
+
+#right-button{
+
+  right:0px;
+
+}
+
+#left-button{
+
+  left:0px;
+}
 
 
-  .suggestions-count{
-    position: absolute;
+.suggestions-count{
+     position: absolute;
     top: 0.5em;
     right: 0.5em;
     background-color: white;
     border-radius: 50px;
     border: 1px solid #666666;
     padding: 0.3em 0.3em;
-    display:flex;
+    display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 4px;
 
-    p{
-      padding:0px;
-      margin:0px;
-      vertical-align: middle;
-    }
+
+}
+
+.swipe-card-element {
+  z-index: 2;
+}
+
+.max-passenger-cover{
+  border-radius: 1em;
+  z-index: 3;
+
+  h3{
+    color: red;
+    font-weight: bold;
+
   }
+}
 
-  .swipe-card-element {
-    position: absolute;
+.no-more-passenger-cover{
+  h4, p{
+    padding: 4px 8px;
+    margin: 0px;
   }
-
-  .max-passenger-cover{
-    border-radius: 1em;
-    z-index: 3;
-
-    h3{
-      color: red;
-      font-weight: bold;
-
-    }
-  }
-
-  .no-more-passenger-cover{
-    h4, p{
-      padding: 4px 8px;
-      margin: 0px;
-    }
-  }
+}

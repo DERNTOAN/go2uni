@@ -1,74 +1,141 @@
 <% content_for :title, "Select your passengers" %>
 
+
+
+
+
 <div class="wrapper-suggestions">
-  <div class="container tinder-container">
+
+  <div class="journey-info text-information">
+    <h2>Passengers</h2>
+  </div>
+
+
+  <div class="tinder-container">
     <form action=<%= ride_offers_path %> method="post">
       <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
-    <!--   <% if @suggestions.empty? %>
-        <p>no passengers for this time!</p>
-      <% end %> -->
+
       <ul>
-        <div class="no-more-passenger-cover tinder-card">
+        <li class="offer-card no-more-passenger-cover">
           <h4>Sorry, nobody else wants to go from </h4>
           <h4> <%= @ride.from_address %></h4>
-            <p> to </p>
-            <h4> <%= @ride.to_address %>
-              </h4>
-            <p> at </p>
-              <h4><%= @ride.departure_time %></h4>
-        </div>
+          <p> to </p>
+          <h4> <%= @ride.to_address %>
+          </h4>
+          <p> at </p>
+          <h4><%= @ride.departure_time %></h4>
+        </li>
         <% @suggestions.each_with_index do |suggestion, i| %>
-          <li class="swipe-card-element tinder-card">
-              <input type="checkbox" id=<%= "#{suggestion[0].id}" %> name=<%= "#{suggestion[0].id}"%> >
+        <li class="swipe-card-element">
+        <!-- <li data-toggle="collapse" data-target="#collapse-<%= suggestion[0].id %>" aria-expanded="true" aria-controls="collapse-<%= suggestion[0].id %>" class="swipe-card-element"> -->
+            <input type="checkbox" id=<%= "#{suggestion[0].id}" %> name=<%= "#{suggestion[0].id}"%> >
+            <div class="offer-card">
+              <div class="card-header" ">
 
-              <div class="tinder-picture text-center">
-                <%= cl_image_tag(suggestion[0].user.photo) %>
-              </div>
-              <div class="tinder-card-info">
-                <h3><%= suggestion[0].user.first_name  %></h3>
-                  <p><i class="fas fa-graduation-cap"></i><%= suggestion[0].user.course %> <%= suggestion[0].user.semester %>. Semester</p>
-                  <p><i class="fas fa-music"></i><%=  suggestion[0].user.music%></p>
-                  <p><i class="far fa-heart"></i><%=  suggestion[0].user.hobby%></p>
-              </div>
-              <div class="max-passenger-cover hidden">
-                <h3>Car full</h3>
-              </div>
+      <div class="suggestions-count">
+       <h6 class="sugg-count-text">
 
-              <div class="suggestions-count">
-                <p><%= "#{@suggestions.length-i}/#{@suggestions.length}" %></p>
-              </div>
-          </li>
-        <% end %>
-      </ul>
-
-      <div class="buttons">
-        <input type="submit" class="tinder-submit">
-        <div class="tinder-submit" id="left-button">
-          <i class="fas fa-times"></i>
-        </div>
-        <div class="tinder-submit" id="right-button">
-          <i class="fas fa-check"></i>
-        </div>
+        <%= "#{@suggestions.length-i}/#{@suggestions.length}" %>
+       </h6>
       </div>
+                <%= cl_image_tag(suggestion[0].user.photo, width:200, height:200, class:"avatar") %>
+                <p>
+                  <%= suggestion[0].user.first_name  %>
+                </p>
 
-    </form>
+                                <div class="highlight-container">
 
+                  <div class="highlight study">
+                    <div class="study-small"> STUDY </div>
+
+                    <%= suggestion[0].user.course %>
+                  </div>
+
+                  <div class="highlight semester">
+
+                    <div class="semester-small"> SEMESTER </div>
+                    <%= suggestion[0].user.semester %>
+                  </div>
+                </div>
+
+
+                <div class="info-container-pills info-music info-pill">
+                  <% if suggestion[0].user.music %>
+                  <% suggestion[0].user.music.split(",").each do |music| %>
+                  <span class="badge badge-music badge-primary badge-pill"><%= music %></span>
+                  <% end %>
+                  <% end %>
+
+                  <% if suggestion[0].user.hobby %>
+                  <% suggestion[0].user.hobby.split(",").each do |hobby| %>
+                  <span class="badge badge-hobby badge-primary badge-pill"><%=  hobby %></span>
+                  <% end %>
+                  <% end %>
+                </div>
+
+              </div>
+
+              <div class="more-infos">
+
+
+<!--               <div class="description-container">
+-->                <p>
+            <%=  suggestion[0].user.description %>
+                  </p>
+<!-- </div> -->
+</div>
+</div>
+
+
+    <div class="max-passenger-cover hidden">
+      <h3>Car full</h3>
+    </div>
+
+    </li>
+<% end %>
+</ul>
+
+
+<div class="buttons tinder-submit offer-card">
+
+          <div class="status-group">
+            <i class="icon fas fa-times fa-2x" id="left-button"></i>
+         <input type="submit" value="Submit">
+
+            <i class="icon fas fa-check fa-2x" id="right-button" ></i>
+          </div>
+</div>
+
+
+
+<!--
+<div class="">
+  <input type="submit" class="tinder-submit">
+  <div class="tinder-submit" id="left-button">
+    <i class="fas fa-times"></i>
   </div>
+  <div class="tinder-submit icon" id="right-button">
+    <i class="fas fa-check"></i>
+  </div>
+</div> -->
+
+</form>
+
+</div>
 </div>
 
 
 <div class="wrapper-seats">
-  <h3>Select passengers</h3>
   <h3>Seats left:  <i class="fas fa-level-down-alt"></i></h3>
 
 
   <div class="loading-bar">
-  <% @ride.seats.times do %>
+    <% @ride.seats.times do %>
     <div class="segment">
       <div class="dynamic" style="width: 0%;">
       </div>
     </div>
-  <% end %>
+    <% end %>
   </div>
 
 </div>
@@ -77,5 +144,5 @@
 </div>
 
 
-  <%= javascript_pack_tag "tinder" %>
+<%= javascript_pack_tag "tinder" %>
 
