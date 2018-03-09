@@ -31,8 +31,8 @@ counterparts.forEach( (counterpart) => {
   const counterpart_icon = {
     url: counterpart.avatar,
     scaledSize: {
-      width: 30,
-      height: 30
+      width: 40,
+      height: 40
     }
   }
   if (counterpart.avatar) {
@@ -40,19 +40,27 @@ counterparts.forEach( (counterpart) => {
   const counterpart_from_marker = new google.maps.Marker({
     position: from_counterpart,
     map: map,
-    icon: counterpart_icon
+    icon: counterpart_icon,
+    optimized: false
+
   });
   }
   else {
       const counterpart_from_marker = new google.maps.Marker({
     position: from_counterpart,
     map: map,
-    icon: self_icon
+    icon: self_icon,
+    optimized: false
+
   });
 
   }
 
 });
-
+const myoverlay = new google.maps.OverlayView();
+    myoverlay.draw = function () {
+        this.getPanes().markerLayer.id='markerLayer';
+    };
+myoverlay.setMap(map);
 
 }
