@@ -453,6 +453,12 @@ justify-content: flex-start;
     border-radius: 40px;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
     width: 80vw;
+    transition: background-color 0.3s ease;
+    &:focus {
+      outline: 0;
+      background-color: $dark-blue-light;
+      color: white;
+    }
 
 
   }
