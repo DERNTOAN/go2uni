@@ -33,15 +33,7 @@
       <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
 
       <ul>
-        <li class="offer-card no-more-passenger-cover">
-          <h4>Sorry, nobody else wants to go from </h4>
-          <h4> <%= @ride.from_address.split(",").first %></h4>
-          <p> to </p>
-          <h4> <%= @ride.to_address.split(",").first %>
-          </h4>
-          <p> at </p>
-          <h4><%= @ride.departure_time.strftime("%I:%M") %></h4>
-        </li>
+
         <% zindex = 10 %>
         <% @suggestions.each_with_index do |suggestion, i| %>
         <li class="swipe-card-element">
@@ -114,6 +106,11 @@
       </li>
       <% zindex -= 1 %>
       <% end %>
+
+        <li class="no-more-passenger-cover hidden" data-nbsugg="<%= @suggestions.length %>">
+          <%= image_tag("logo.png", size:"100x100", class: "logo-home animated hinge") %>
+          <h3 class="animated ">no one else!</h3>
+        </li>
     </ul>
 
 </div>

@@ -502,13 +502,31 @@ justify-content: flex-start;
 
 
 
-.no-more-passenger-cover{
-  h4, p{
-    padding: 4px 8px;
-    margin: 0px;
-    color: white;
-    font-size: 16px;
+  .no-more-passenger-cover{
+      border-radius: 1em;
+  z-index: 0;
 
+
+    position: absolute;
+    left: 5%;
+    background-color: #24659b;
+    opacity: 0.95;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    max-height: 64vh;
+    width: 90%;
+    border-radius: 40px;
+
+      img {
+        filter: invert(1);
+      }
+      h3{
+    color: white;
+    font-weight: bold;
 
   }
-}
+  }
