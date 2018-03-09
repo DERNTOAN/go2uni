@@ -69,6 +69,8 @@ time_frame = 7.days
 
 min_route_distance = 1
 
+anton = User.find_by_first_name "Anton"
+
 ################################################################################
 delete_users = true
 delete_rides = true
@@ -143,6 +145,9 @@ if seed_requests
     request.stop_time.change(hour:22)
 
     request.user_id = User.all.sample.id
+    while request.user_id = anton.id
+      request.user_id = User.all.sample.id
+    end
     request.to_lng = bayreuth_uni_lng
     request.to_lat = bayreuth_uni_lat
 
@@ -177,6 +182,9 @@ if seed_requests
     request.stop_time.change(hour:22)
 
     request.user_id = User.all.sample.id
+    while request.user_id = anton.id
+      request.user_id = User.all.sample.id
+    end
 
     request.to_lat = rand_in_range(bayreuth_min_lat, bayreuth_max_lat)
     request.to_lng = rand_in_range(bayreuth_min_lng, bayreuth_max_lng)
@@ -212,6 +220,9 @@ if seed_requests
     request.stop_time.change(hour:22)
 
     request.user_id = User.all.sample.id
+    while request.user_id = anton.id
+      request.user_id = User.all.sample.id
+    end
     request.to_lng = braunschweig_uni_lng
     request.to_lat = braunschweig_uni_lat
 
@@ -246,6 +257,9 @@ if seed_requests
     request.stop_time.change(hour:22)
 
     request.user_id = User.all.sample.id
+    while request.user_id = anton.id
+      request.user_id = User.all.sample.id
+    end
 
     request.to_lat = rand_in_range(braunschweig_min_lat, braunschweig_max_lat)
     request.to_lng = rand_in_range(braunschweig_min_lng, braunschweig_max_lng)
@@ -282,6 +296,9 @@ if seed_requests
     request.stop_time.change(hour:22)
 
     request.user_id = User.all.sample.id
+    while request.user_id = anton.id
+      request.user_id = User.all.sample.id
+    end
     request.to_lng = aachen_uni_lng
     request.to_lat = aachen_uni_lat
 
@@ -316,6 +333,9 @@ if seed_requests
     request.stop_time.change(hour:22)
 
     request.user_id = User.all.sample.id
+    while request.user_id = anton.id
+      request.user_id = User.all.sample.id
+    end
 
     request.to_lat = rand_in_range(aachen_min_lat, aachen_max_lat)
     request.to_lng = rand_in_range(aachen_min_lng, aachen_max_lng)
