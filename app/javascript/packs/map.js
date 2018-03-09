@@ -7,7 +7,7 @@ const counterparts = JSON.parse(mapElement.dataset.counterparts);
 const mapcenter_json = JSON.parse(mapElement.dataset.mapcenter);
 const mapcenter      = new google.maps.LatLng(mapcenter_json);
 console.log(mapcenter)
-const car_icon = { scaledSize: { width: 50, height: 50 }, url: "/assets/map_penguin5.png" }
+const car_icon = { scaledSize: { width: 50, height: 50 }, url: "http://res.cloudinary.com/dlv6654pn/image/upload/v1520588356/map_penguin5.png" }
 const mapbounds = JSON.parse(mapElement.dataset.mapbounds);
 const minbound      = new google.maps.LatLng(mapbounds.min);
 const maxbound      = new google.maps.LatLng(mapbounds.max);
