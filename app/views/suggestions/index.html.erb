@@ -122,6 +122,11 @@
     <div class="buttons">
 
         <input class="hidden animated bounceInUp" id="submit-button" type="submit"  value="Ride together">
+<% if @suggestions.length.zero? %>
+
+<%= link_to "Back to map", rides_path, class:"hidden animated bounceInUp" %>
+<% end %>
+
 
     </div>
 
