@@ -77,7 +77,7 @@ delete_offers = false
 
 seed_users = true
 seed_rides = true
-seed_requests = false
+seed_requests = true
 seed_offers = false
 seed_admin = true
 seed_demo = true
