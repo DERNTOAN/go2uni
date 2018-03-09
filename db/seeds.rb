@@ -69,7 +69,7 @@ time_frame = 7.days
 
 min_route_distance = 1
 
-anton = User.find_by_first_name "Anton"
+
 
 ################################################################################
 delete_users = true
@@ -128,6 +128,7 @@ if seed_users
 end
 
 ################################################################################
+anton = User.find_by_first_name "Anton"
 #REQUESTS
 if seed_requests
 
