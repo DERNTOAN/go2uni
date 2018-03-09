@@ -43,7 +43,7 @@
       position: absolute;
       bottom: 16px;
       right: 0;
-        }
+    }
     h2{
       font-size: 40px;
       margin-top: 24px;
@@ -382,4 +382,16 @@
       color: #072C4A;
     }
   }
+}
+
+#done-button{
+  height:80px;
+  justify-content:center;
+  align-items:center;
+  font-size: 21px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: $third;
+  border:1px solid $third_light;
 }

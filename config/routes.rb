@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :pages, only: :index
 
+  get 'final', to: "pages#final", as: "final"
+
   get 'myrequests', to: "myrequests#index", as: "myrequests"
 
   get 'myrequests/:id', to: "myrequests#show", as: "myrequest"

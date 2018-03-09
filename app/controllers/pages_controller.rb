@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :index]
-  before_action :update_session, only: :index
+  before_action :update_session, only: [:index, :final]
 
   def index
     @location = session[:location]
@@ -40,6 +40,9 @@ class PagesController < ApplicationController
 
 
   def home
+  end
+
+  def final
   end
 
   private

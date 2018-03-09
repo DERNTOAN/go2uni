@@ -1,0 +1,17 @@
+<div id="pingo-loading" style="flex-direction: column;">
+  <%= image_tag "logo.png", size:"100x100", class: "animated flip" %>
+  <div>
+    <h2>Thank you for riding with Pingo!</h2>
+  </div>
+</div>
+
+<% content_for :after_js do %>
+<script>
+  $(document).ready(function() {
+
+    setTimeout(function(){
+      window.location.replace("http://www.pingo.club")
+    }, 1500);
+  });
+</script>
+<% end %>
