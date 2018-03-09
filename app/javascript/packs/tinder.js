@@ -76,8 +76,8 @@ function tinderSwipe(){
     // event.target.classList.add("animated2");
     // event.target.classList.add("fadeOutRight");
       setTimeout(function() {
-        event.target.style.display = 'none'
-      }, 300)
+        event.target.classList.toggle("hidden")
+      }, 30)
 
   });
 

@@ -19,7 +19,7 @@ https://avatars3.githubusercontent.com/u/31904611?v=4
 https://avatars0.githubusercontent.com/u/31583151?v=4
 https://avatars2.githubusercontent.com/u/33349905?v=4
 https://avatars0.githubusercontent.com/u/34030989?v=4
-https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/t1tbx2pydxu16ye3zxy8.jpg
+https://avatars2.githubusercontent.com/u/15719184?s=460&v=4
 https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/ebyq53hm3nstffgmaoh4.jpg
 https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/fcjuoei6egba6ddgyyna.jpg
 https://avatars0.githubusercontent.com/u/7325935?v=4
@@ -40,7 +40,6 @@ USER_HOBBIES = ["Amateur radio",
 "Home Automation",
 "Home Movies",
 "Jewelry Making",
-"Locksport",
 "Musical Instruments",
 "Painting",
 "Knitting",
@@ -58,7 +57,6 @@ USER_HOBBIES = ["Amateur radio",
 "Mountain Biking",
 "Machining",
 "Parkour",
-"Playing with my pet",
 "Photography",
 "Rock Climbing",
 "Running",
