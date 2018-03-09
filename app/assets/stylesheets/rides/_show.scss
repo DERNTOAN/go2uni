@@ -1,3 +1,10 @@
+#markerLayer img {
+  animation: pulse 1.5s infinite alternate;
+  transform-origin: top;
+  border-radius: 50%;
+  background-color: $main;
+}
+
 .full-width {
   width: 100%;
 }
