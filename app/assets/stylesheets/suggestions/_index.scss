@@ -9,10 +9,9 @@
     justify-content: space-between;
     color: white;
     width: calc(100% - 32px);
-    margin: 0px 5px 32px 0;
-    border-bottom: 5px solid #FDCD00;
+    margin-right: 5px;
     margin-left: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 8px;
     .text-information{
       flex: 1;
       margin-bottom: 0px;
@@ -42,7 +41,7 @@
     }
     h2{
       font-size: 40px;
-      margin-top: 24px;
+      margin-top: 8px;
       margin-bottom: 4px;
     }
     p{
@@ -73,14 +72,18 @@
   }
 
   .offer-card{
-    padding: 16px;
+    padding: 8px;
     height: 400px;
+    max-height: 64vh;
     background-color: #24659b;
     border-radius: 40px;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
     position: absolute;
-    width: 80%;
-    left: 10%;
+    width: 90%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .highlight {
       color: $dark_blue;
@@ -102,10 +105,9 @@
 
     .card-header{
       padding: 8px;
-      min-height: 85%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+justify-content: flex-start;
       align-items: center;
       flex-grow: 1;
 
@@ -213,11 +215,11 @@
   .highlight-container{
     display: flex;
     margin-top: 0px;
-    margin-bottom: 11px;
+    margin-bottom: 8px;
     max-height: 64px;
     overflow: hidden;
     width: 100%;
-
+    font-size: 0.85em;
     .highlight {
       color: #072C4A;
       font-weight: bold;
@@ -280,11 +282,11 @@
       margin-right: 4px;
     }
     .badge {
-      padding: 4px 12px;
-      font-size: 16px;
-      font-weight: 500;
-      letter-spacing: -0.25px;
-      margin-bottom: 4px;
+    padding: 4px 12px;
+    font-size: 0.7em;
+    font-weight: 500;
+    letter-spacing: -0.25px;
+    margin-bottom: 4px;
     }
 
     .badge-music {
@@ -332,22 +334,19 @@
 
 
 .wrapper-seats{
-  background-color: rgba(54, 154, 236, 0.95);
-  width: 100%;
-  height: 1vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background-color: rgba(54, 154, 236, 0.95);
+    width: 100%;
+    height: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
   .loading-bar{
     display: flex;
     justify-content: center;
     align-items: center;
     width: calc(100vw - 32px);
 
-    // .full-car{
-    //   border: 2px solid #25649b;
-
-    // }
 
     .segment{
       border-right: 3px solid #25649b80;
@@ -360,14 +359,8 @@
         transition: width 0.3s ease;
         height: 100%;
         background-color:$main;
-        opacity: 0.6;
         border-radius:0px;
       }
-      //   &:last-child {
-      // .dynamic{
-      //   opacity: 1;
-      //   }
-      // }
 
     }
 
@@ -400,18 +393,33 @@
     margin:0;
 
   }
-
   .max-passenger-cover{
+      border-radius: 1em;
+  z-index: 3;
+
+
     position: absolute;
-    left: 10%;
-    background-color: rgba(0, 0, 0, 0.2);
+    left: 5%;
+    background-color: #24659b;
+    opacity: 0.95;
     color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 400px;
-    width: 80%;
+    max-height: 64vh;
+    width: 90%;
     border-radius: 40px;
+
+      img {
+        filter: invert(1);
+      }
+      h3{
+    color: white;
+    font-weight: bold;
+
+  }
   }
 
 }
@@ -423,6 +431,18 @@
   justify-content: center;
   display: flex;
   align-items: center;
+  .return-btn{
+        margin: 0px;
+    height: 64px;
+    background-color: $main;
+    font-weight: 500;
+    color: #333333;
+    border: 0;
+    border-radius: 40px;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
+    width: 80vw;
+
+  }
   input{
     margin: 0px;
     height: 64px;
@@ -433,6 +453,8 @@
     border-radius: 40px;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
     width: 80vw;
+
+
   }
 }
 #left-button, #right-button{
@@ -478,16 +500,7 @@
   z-index: 2;
 }
 
-.max-passenger-cover{
-  border-radius: 1em;
-  z-index: 3;
 
-  h3{
-    color: red;
-    font-weight: bold;
-
-  }
-}
 
 .no-more-passenger-cover{
   h4, p{

@@ -15,8 +15,9 @@ function selectRide() {
       const from = JSON.parse(mapElement.dataset.marker_from_self);
       const from_self      = new google.maps.LatLng(from);
       let self_icon = { url: "http://res.cloudinary.com/dlv6654pn/image/upload/v1520588356/map_penguin5.png", scaledSize: { width: 70, height: 70 } }
+
       if(from.avatar) {
-        self_icon = { url: from.avatar, scaledSize: { width: 70, height: 70 } }
+        self_icon = { url: from.avatar, shape: {coords:[17,17,18],type:'circle'}, scaledSize: { width: 70, height: 70 } }
       }
       let map = setupMap(mapElement, from_self, 14);
       let self_marker = new google.maps.Marker( { position: from_self, map: map, icon: self_icon } );
