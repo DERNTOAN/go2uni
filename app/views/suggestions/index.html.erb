@@ -14,6 +14,19 @@
 
   </div>
 
+  <div class="wrapper-seats">
+
+
+    <div class="loading-bar">
+      <% @ride.seats.times do %>
+      <div class="segment">
+        <div class="dynamic" style="width: 0%;">
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+  </div>
 
   <div class="tinder-container">
     <form action=<%= ride_offers_path %> method="post">
@@ -106,19 +119,7 @@
 </div>
 </div>
 
-  <div class="wrapper-seats">
 
-
-    <div class="loading-bar">
-      <% @ride.seats.times do %>
-      <div class="segment">
-        <div class="dynamic" style="width: 0%;">
-        </div>
-      </div>
-      <% end %>
-    </div>
-
-  </div>
     <div class="buttons">
 
         <input class="hidden animated bounceInUp" id="submit-button" type="submit"  value="Ride together">

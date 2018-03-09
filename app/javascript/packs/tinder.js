@@ -6,6 +6,7 @@ function tinderSwipe(){
   let left_buttons = document.querySelectorAll(".left-button");
   let segments = document.querySelectorAll(".dynamic");
   let seated_counter = 0;
+  const submitButton = document.getElementById("submit-button")
 
   window.swing = require('swing');
   var Swing = window.swing;
@@ -60,6 +61,8 @@ function tinderSwipe(){
         event.target.firstElementChild.checked = true;
         segments[seated_counter].style = "width: 100%"
         seated_counter += 1;
+        submitButton.classList.remove("hidden");
+
         if (seated_counter === segments.length){
           document.querySelectorAll(".max-passenger-cover").forEach((element) => {
             element.classList.toggle("hidden");
@@ -89,7 +92,6 @@ function tinderSwipe(){
     right_button.addEventListener("click", (event) =>{
       console.log("pressed:", right_button)
       stack.getCard(cards[cards.length - 1 - card_counter]).throwOut(50, 0);
-      const submitButton = document.getElementById("submit-button")
       submitButton.classList.remove("hidden");
     });
     });
