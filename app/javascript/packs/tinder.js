@@ -1,13 +1,15 @@
 import {Card, Direction, Stack} from "../swipe/index";
 
 
+
 function tinderSwipe(){
   let right_buttons = document.querySelectorAll(".right-button");
   let left_buttons = document.querySelectorAll(".left-button");
   let segments = document.querySelectorAll(".dynamic");
   let seated_counter = 0;
   const submitButton = document.getElementById("submit-button")
-
+  const noMorePassengerCover = document.querySelector(".no-more-passenger-cover")
+  let suggestionsLeft = noMorePassengerCover.dataset.nbsugg;
   window.swing = require('swing');
   var Swing = window.swing;
   const cards = [].slice.call(document.querySelectorAll('.swipe-card-element'));
@@ -41,8 +43,6 @@ function tinderSwipe(){
     // console.log(event.target.parentElement.previousElementSibling);
     console.log('Card has been thrown out of the stack.');
     console.log('Throw direction: ' + (event.throwDirection.toString() == Direction.LEFT.toString() ? 'left' : 'right'));
-
-
     // console.log(event.throwDirection.toString());
     // console.log(Direction.LEFT.toString());
 
@@ -53,8 +53,14 @@ function tinderSwipe(){
       if (seated_counter < segments.length){
         console.log("left");
         event.target.parentElement.previousElementSibling.checked = false;
+        suggestionsLeft -= 1;
+
+
       };
     } else if (event.throwDirection.toString() == Direction.RIGHT.toString()){
+      suggestionsLeft -= 1;
+
+
       if (seated_counter < segments.length){
         console.log("right");
         console.log(event.target.firstElementChild);
@@ -70,14 +76,19 @@ function tinderSwipe(){
         };
       };
     };
+
+    if (suggestionsLeft === 0) {
+        noMorePassengerCover.classList.remove("hidden")
+    };
     card_counter += 1;
     // console.log(event.target.parentElement.previousElementSibling.checked);
 
     // event.target.classList.add("animated2");
     // event.target.classList.add("fadeOutRight");
-      setTimeout(function() {
-        event.target.classList.toggle("hidden")
-      }, 30)
+    setTimeout(function() {
+      event.target.style.display = 'none'
+    }, 300)
+
 
   });
 
@@ -89,19 +100,21 @@ function tinderSwipe(){
 
   if (right_buttons){
     right_buttons.forEach((right_button)=> {
-    right_button.addEventListener("click", (event) =>{
-      console.log("pressed:", right_button)
-      stack.getCard(cards[cards.length - 1 - card_counter]).throwOut(50, 0);
-      submitButton.classList.remove("hidden");
-    });
+      right_button.addEventListener("click", (event) =>{
+        console.log("pressed:", right_button)
+        stack.getCard(cards[cards.length - 1 - card_counter]).throwOut(50, 0);
+        submitButton.classList.remove("hidden");
+
+      });
     });
   }
 
   if (left_buttons){
     left_buttons.forEach((left_button)=> {
-    left_button.addEventListener("click", (event) =>{
-      stack.getCard(cards[cards.length - 1 - card_counter]).throwOut(-50, 0);
-    });
+      left_button.addEventListener("click", (event) =>{
+        stack.getCard(cards[cards.length - 1 - card_counter]).throwOut(-50, 0);
+
+      });
     });
   }
 
