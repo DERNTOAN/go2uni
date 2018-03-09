@@ -26,8 +26,8 @@ def distance_in_km(address_lat, address_lng, uni_lat, uni_lng)
 end
 
 ################################################################################
-number_to_requests = 30
-number_from_requests = 30
+number_to_requests = 60
+number_from_requests = 60
 
 number_to_rides = 20
 number_from_rides = 1
@@ -77,7 +77,7 @@ delete_offers = false
 
 seed_users = true
 seed_rides = true
-seed_requests = false
+seed_requests = true
 seed_offers = false
 seed_admin = true
 seed_demo = true
@@ -603,7 +603,7 @@ if seed_demo
   nico = User.find_by_first_name "Nico"
 
   julian = User.find_by_first_name "Julian"
-  juliette = User.find_by_first_name "Juliette"
+  nick = User.find_by_first_name "Nick"
   simon = User.find_by_first_name "Simon"
 
   anton = User.find_by_first_name "Anton"
@@ -648,7 +648,7 @@ if seed_demo
     start_time: DateTime.now.change(day: 12, hour: 6),
     stop_time: DateTime.now.change(day: 12, hour: 22)
     )
-  request_juliette = Request.new(
+  request_nick = Request.new(
     direction: "to",
     uni: "bayreuth",
     to_address: bayreuth_uni_address,
@@ -671,28 +671,28 @@ if seed_demo
   request_vini.user = vini
   request_nico.user = nico
   request_julian.user = julian
-  request_juliette.user = juliette
+  request_nick.user = nick
   request_simon.user = simon
 
   request_henrik.from_address = "Siegfried-Wagner-Allee, Bayreuth"
   request_vini.from_address = "Tannhäuserstraße, Bayreuth"
   request_nico.from_address = "Parsifalstraße, Bayreuth"
   request_julian.from_address = "An der Bürgerreuth 8, Bayreuth"
-  request_juliette.from_address = "Knappertsbuschstraße 4, Bayreuth"
+  request_nick.from_address = "Knappertsbuschstraße 4, Bayreuth"
   request_simon.from_address = "Tristanstraße, Bayreuth"
 
   geocode_address(request_henrik)
   geocode_address(request_vini)
   geocode_address(request_nico)
   geocode_address(request_julian)
-  geocode_address(request_juliette)
+  geocode_address(request_nick)
   geocode_address(request_simon)
 
   binding.pry unless request_henrik.save
   binding.pry unless request_vini.save
   binding.pry unless request_nico.save
   binding.pry unless request_julian.save
-  binding.pry unless request_juliette.save
+  binding.pry unless request_nick.save
   binding.pry unless request_simon.save
 
 
