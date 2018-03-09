@@ -58,6 +58,14 @@
 .card-home {
   margin: 10px;
   height: 155px;
-  border: 3px solid $main;
+  box-shadow: 1px 1px 3px #a7d8ff73;
+  h2{
+    border-bottom: 5px solid #FFC107;
+    padding-bottom: 2px;
+  }
+  i{
+    color: #FFC107;
+  }
+
 }
 
