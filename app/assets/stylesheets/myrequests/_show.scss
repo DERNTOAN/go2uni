@@ -12,6 +12,13 @@
   grid-gap: 1rem;
   padding: 8px;
 
+  .anti-grey{
+    height: 50vh;
+    width: 100%;
+    background-color: $third_light;
+
+  }
+
   .journey-info{
     color: white;
     width: calc(100% - 32px);
