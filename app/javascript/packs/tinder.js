@@ -89,6 +89,7 @@ function tinderSwipe(){
       event.target.style.display = 'none'
     }, 300)
 
+
   });
 
   // Add event listener for when a card is thrown in the stack, including the spring back into place effect.
