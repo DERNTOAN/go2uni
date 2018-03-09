@@ -108,8 +108,29 @@
       <% end %>
 
         <li class="no-more-passenger-cover hidden" data-nbsugg="<%= @suggestions.length %>">
-          <%= image_tag("logo.png", size:"100x100", class: "logo-home animated hinge") %>
-          <h3 class="animated ">no one else!</h3>
+          <div class="no-more-passenger-layout">
+
+            <%= image_tag("logo.png", size:"100x100", class: "logo-home animated hinge") %>
+            <div class="no-more-passenger-layout">
+
+            <h3 class="animated ">no one else!</h3>
+            <div>
+
+
+            <p> <%= @ride.from_address.split(",").first %>
+            </p>
+            <p>
+
+            <i class="fas fa-arrow-circle-right"></i>
+             <%= @ride.to_address.split(",").first %>
+                      </p>
+            <p> <i class="fas fa-stopwatch"></i><%= @ride.departure_time.strftime("%I:%M") %></p>
+            </div>
+            </div>
+
+
+          </div>
+
         </li>
     </ul>
 
