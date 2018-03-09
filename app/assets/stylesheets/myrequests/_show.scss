@@ -43,7 +43,7 @@
       margin-bottom: -8px;
       color: rgba(50, 50, 50, 0.8);
       padding: 2px 8px;
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.25px;
       align-self: flex-end;
@@ -53,7 +53,7 @@
     }
 
     h3{
-    font-size: 22px;
+    font-size: 26px;
     margin-top: 16px;
     margin-bottom: 8px;
     font-weight: 400;
@@ -65,8 +65,8 @@
     margin-bottom: 4px;
     }
     p{
-      font-size: 16px;
-      color: rgba(255, 255, 255, 0.7);
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.8);
       font-weight: 300;
       margin: 0;
     }
@@ -144,17 +144,17 @@
         flex-direction: column;
         margin-left: 16px;
         p{
-          font-size: 21px;
+          font-size: 22px;
           color: white;
           font-weight: 400;
         }
         .ride-info-icons{
           flex-grow: 1;
           p{
-            font-size: 12px;
+            font-size: 16px;
             margin-bottom: 2px;
             font-weight: 400;
-            color: rgba(255,255,255,0.75);
+            color: rgba(255,255,255,0.9);
           }
         }
       }
@@ -239,7 +239,7 @@
 
     .study{
       flex: 1;
-      font-size: 17px;
+      font-size: 22px;
       display:flex;
       align-items: flex-start;
       flex-direction: column;
@@ -284,7 +284,7 @@
 
   .badge {
     padding: 4px 12px;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 500;
     letter-spacing: -0.25px;
     margin-bottom: 4px;
