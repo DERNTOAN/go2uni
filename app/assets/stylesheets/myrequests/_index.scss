@@ -10,7 +10,6 @@
   display: flex;
   flex-direction: column;
   margin: 16px;
-  max-resolution: 24px;
   position: relative;
   color: white;
   border-bottom: 5px solid $main;
@@ -44,10 +43,9 @@
 .myrequest-show {
   font-size: 13px;
   color: white;
-  h1{
-    padding: 8px;
+
+  .myrequests-title{
     margin: 16px;
-    text-align: center;
     border-bottom: 5px solid $main;
   }
   .myrequest-times {

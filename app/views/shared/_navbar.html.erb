@@ -45,7 +45,7 @@
     <div class="dropdown navbar-dropdown-icon">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <% if user_signed_in? %>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu  animated bounceInDown">
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu  animated slideInDown">
           <% ride = current_user.next_ride %>
           <% if ride %>
             <li>
