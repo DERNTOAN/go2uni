@@ -72,14 +72,14 @@ min_route_distance = 1
 
 
 ################################################################################
-delete_users = true
-delete_rides = true
+delete_users = false
+delete_rides = false
 delete_requests = true
 delete_offers = false
 
-seed_users = true
-seed_rides = true
-seed_requests = false
+seed_users = false
+seed_rides = false
+seed_requests = true
 seed_offers = false
 seed_admin = true
 seed_demo = true
