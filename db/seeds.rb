@@ -79,7 +79,7 @@ delete_offers = false
 
 seed_users = true
 seed_rides = true
-seed_requests = true
+seed_requests = false
 seed_offers = false
 seed_admin = true
 seed_demo = true
@@ -146,7 +146,7 @@ if seed_requests
     request.stop_time.change(hour:22)
 
     request.user_id = User.all.sample.id
-    while request.user_id = anton.id
+ if request.user_id = anton.id
       request.user_id = User.all.sample.id
     end
     request.to_lng = bayreuth_uni_lng
@@ -183,7 +183,7 @@ if seed_requests
     request.stop_time.change(hour:22)
 
     request.user_id = User.all.sample.id
-    while request.user_id = anton.id
+    if request.user_id = anton.id
       request.user_id = User.all.sample.id
     end
 
@@ -221,7 +221,7 @@ if seed_requests
     request.stop_time.change(hour:22)
 
     request.user_id = User.all.sample.id
-    while request.user_id = anton.id
+    if request.user_id = anton.id
       request.user_id = User.all.sample.id
     end
     request.to_lng = braunschweig_uni_lng
@@ -258,7 +258,7 @@ if seed_requests
     request.stop_time.change(hour:22)
 
     request.user_id = User.all.sample.id
-    while request.user_id = anton.id
+    if request.user_id = anton.id
       request.user_id = User.all.sample.id
     end
 
@@ -297,7 +297,7 @@ if seed_requests
     request.stop_time.change(hour:22)
 
     request.user_id = User.all.sample.id
-    while request.user_id = anton.id
+    if request.user_id = anton.id
       request.user_id = User.all.sample.id
     end
     request.to_lng = aachen_uni_lng
@@ -334,7 +334,7 @@ if seed_requests
     request.stop_time.change(hour:22)
 
     request.user_id = User.all.sample.id
-    while request.user_id = anton.id
+    if request.user_id = anton.id
       request.user_id = User.all.sample.id
     end
 
