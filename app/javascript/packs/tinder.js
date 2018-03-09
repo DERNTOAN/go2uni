@@ -15,6 +15,12 @@ function tinderSwipe(){
   const cards = [].slice.call(document.querySelectorAll('.swipe-card-element'));
   const numberOfCards = cards.length;
   let card_counter = 0;
+  if (suggestionsLeft == 0) {
+  console.log(suggestionsLeft);
+    noMorePassengerCover.classList.remove("hidden");
+  const returnBtn = document.querySelector(".return-btn")
+  returnBtn.classList.remove("hidden");
+  };
 
   const config = {
     throwOutConfidence: (xOffset, yOffset, element) => {
@@ -78,7 +84,7 @@ function tinderSwipe(){
     };
 
     if (suggestionsLeft === 0) {
-        noMorePassengerCover.classList.remove("hidden")
+      noMorePassengerCover.classList.remove("hidden")
     };
     card_counter += 1;
     // console.log(event.target.parentElement.previousElementSibling.checked);

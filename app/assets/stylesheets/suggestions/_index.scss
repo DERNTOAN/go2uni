@@ -432,16 +432,24 @@ justify-content: flex-start;
   display: flex;
   align-items: center;
   .return-btn{
-        margin: 0px;
+    background-color: $dark-blue-light;
+    margin: 0px;
     height: 64px;
-    background-color: $main;
     font-weight: 500;
-    color: #333333;
+    color: white;
     border: 0;
     border-radius: 40px;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.07), 2px 2px 0 0 rgba(0, 0, 0, 0.03);
     width: 80vw;
-
+    text-align: center;
+    padding: 16px;
+    &:hover{
+      text-decoration: none;
+    }
+    &:focus{
+      outline:0;
+      text-decoration: none;
+    }
   }
   input{
     margin: 0px;
