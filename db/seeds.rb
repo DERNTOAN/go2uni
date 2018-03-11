@@ -26,8 +26,8 @@ def distance_in_km(address_lat, address_lng, uni_lat, uni_lng)
 end
 
 ################################################################################
-number_to_requests = 60
-number_from_requests = 60
+number_to_requests = 90
+number_from_requests = 90
 
 number_to_rides = 20
 number_from_rides = 1
@@ -67,7 +67,7 @@ aachen_uni_address = "Templergraben 55, Aachen"
 
 time_frame = 7.days
 
-min_route_distance = 1
+min_route_distance = 0.5
 
 
 
@@ -81,8 +81,8 @@ seed_users = false
 seed_rides = false
 seed_requests = true
 seed_offers = false
-seed_admin = true
-seed_demo = true
+seed_admin = false
+seed_demo = false
 
 ################################################################################
 puts "clearing database"
